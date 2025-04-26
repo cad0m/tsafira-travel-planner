@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tsafira | My Account</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <style>
+    * { 
+      font-family: 'Inter', sans-serif; 
+    }
+
+    :root {
+      --primary: #f97316;
+      --primary-hover: #ea580c;
+      --bg-color: #ffffff;
+      --text-color: #1f2937;
+      --border-color: #e5e7eb;
+      --card-bg: #ffffff;
+      --input-bg: #ffffff;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+    }
+
+    input, select, textarea {
+      background-color: var(--input-bg);
+      border-color: var(--border-color);
+      color: var(--text-color);
+    }
+
+    /* Sidebar Navigation */
+    .sidebar-nav {
+      width: 280px;
+      transition: all 0.3s ease;
+    }
+
+    @media (max-width: 768px) {
+      .sidebar-nav {
+        width: 100%;
+        position: fixed;
+        left: -100%;
+        top: 0;
+        bottom: 0;
+        z-index: 40;
+      }
+
+      .sidebar-nav.active {
+        left: 0;
+      }
+    }
+
+    /* Navigation Item Styles */
+    .nav-item {
+      display: flex;
+      align-items: center;
+      padding: 0.75rem 1rem;
+      border-radius: 0.5rem;
+      transition: all 0.2s ease;
+      color: var(--text-color);
+      margin-bottom: 0.5rem;
+      cursor: pointer;
+    }
+
+    .nav-item:hover {
+      background-color: rgba(249, 115, 22, 0.1);
+      color: #f97316;
+    }
+
+    .nav-item.active {
+      background-color: #f97316;
+      color: white;
+    }
+
+    /* Form Styles */
+    .form-input {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: 0.5rem;
+      transition: all 0.2s ease;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: #f97316;
+      box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
+    }
+
+    /* Profile Photo Upload */
+    .profile-photo {
+      width: 128px;
+      height: 128px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .photo-upload-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      padding: 0.5rem;
+      font-size: 0.875rem;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      cursor: pointer;
+    }
+
+    .profile-photo-container:hover .photo-upload-overlay {
+      opacity: 1;
+    }
+
+    /* Custom Checkbox */
+    .custom-checkbox {
+      width: 1.25rem;
+      height: 1.25rem;
+      border: 2px solid var(--border-color);
+      border-radius: 0.25rem;
+      transition: all 0.2s ease;
+    }
+
+    .custom-checkbox:checked {
+      background-color: #f97316;
+      border-color: #f97316;
+    }
+
+    /* Notification Badge */
+    .notification-badge {
+      background-color: #f97316;
+      color: white;
+      border-radius: 9999px;
+      padding: 0.25rem 0.5rem;
+      font-size: 0.75rem;
+    }
+
+    /* Mobile Menu Toggle */
+    .mobile-menu-toggle {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .mobile-menu-toggle {
+        display: block;
+      }
+    }
+
+    /* Content Sections */
+    .content-section {
+      display: none;
+      animation: fadeIn 0.3s ease-in;
+    }
+
+    .content-section.active {
+      display: block;
+    }
+
+    /* Itinerary Cards */
+    .itinerary-card {
+      transition: transform 0.2s ease;
+    }
+
+    .itinerary-card:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Notification Items */
+    .notification-item {
+      transition: background-color 0.2s ease;
+    }
+
+    .notification-item:hover {
+      background-color: rgba(249, 115, 22, 0.05);
+    }
+
+    .notification-item.unread {
+      background-color: rgba(249, 115, 22, 0.1);
+    }
+
+    /* Guide Dashboard Stats */
+    .stat-card {
+      transition: transform 0.2s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Animations */
+    .fade-in {
+      animation: fadeIn 0.3s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Request/Offer Status Badges */
+    .status-badge {
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .status-pending {
+      background-color: #FEF3C7;
+      color: #92400E;
+    }
+
+    .status-accepted {
+      background-color: #D1FAE5;
+      color: #065F46;
+    }
+
+    .status-declined {
+      background-color: #FEE2E2;
+      color: #991B1B;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-gray-50">
+  <!-- Header -->
+  <header class="bg-white shadow-sm fixed w-full z-50 top-0">
+    <div class="container mx-auto px-4">
+      <div class="flex items-center justify-between py-3">
+        <div class="flex items-center">
+          <button class="mobile-menu-toggle mr-4 text-gray-600 hover:text-orange-600 md:hidden">
+            <i class="fas fa-bars"></i>
+          </button>
+          <a href="/" class="text-2xl font-bold text-orange-600">Tsafira</a>
+        </div>
+        <nav class="flex items-center gap-6">
+          <a href="/" class="text-gray-600 hover:text-orange-600 flex items-center gap-2">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+          </a>
+          <div class="relative">
+            <img src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg" 
+                 alt="Profile" 
+                 class="w-10 h-10 rounded-full object-cover cursor-pointer"/>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="flex min-h-screen pt-16">
+    <!-- Sidebar -->
+    <aside class="sidebar-nav bg-white shadow-lg p-6">
+      <!-- Profile Summary -->
+      <div class="text-center mb-8">
+        <div class="relative inline-block mb-4 profile-photo-container">
+          <img src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg" 
+               alt="Profile" 
+               class="profile-photo"/>
+          <div class="photo-upload-overlay rounded-full">
+            <i class="fas fa-camera mr-2"></i>
+            Change Photo
+          </div>
+        </div>
+        <h2 class="text-xl font-semibold">Sarah Johnson</h2>
+        <p class="text-gray-600">sarah.j@example.com</p>
+      </div>
+
+      <!-- Navigation -->
+      <nav>
+        <div class="nav-item active" data-section="profile">
+          <i class="fas fa-user w-6"></i>
+          <span>Profile & Settings</span>
+        </div>
+        <div class="nav-item traveler-only" data-section="itineraries">
+          <i class="fas fa-route w-6"></i>
+          <span>My Itineraries</span>
+        </div>
+        <div class="nav-item" data-section="notifications">
+          <i class="fas fa-bell w-6"></i>
+          <span>Notifications</span>
+          <span class="notification-badge ml-auto">3</span>
+        </div>
+        <div class="nav-item guide-only" data-section="guide" style="display: none;">
+          <i class="fas fa-compass w-6"></i>
+          <span>Guide Dashboard</span>
+        </div>
+      </nav>
+
+      <!-- Logout -->
+      <div class="mt-auto pt-6 border-t">
+        <div class="nav-item text-red-600 hover:bg-red-50">
+          <i class="fas fa-sign-out-alt w-6"></i>
+          <span>Log Out</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 p-6">
+      <div class="max-w-4xl mx-auto">
+        <!-- Profile & Settings -->
+        <section id="profile" class="content-section active">
+          <div class="flex justify-between items-center mb-6">
+            <h1 class="text-2xl font-bold">Profile & Settings</h1>
+            <button class="bg-orange-600 text-white px-6 py-2 rounded-full hover:bg-orange-700">
+              Save Changes
+            </button>
+          </div>
+
+          <!-- Personal Information -->
+          <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
+            <h2 class="text-xl font-semibold mb-4">Personal Information</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-sm text-gray-600 mb-2">First Name</label>
+                <input type="text" class="form-input" value="Sarah"/>
+              </div>
+              <div>
+                <label class="block text-sm text-gray-600 mb-2">Last Name</label>
+                <input type="text" class="form-input" value="Johnson"/>
+              </div>
+              <div>
+                <label class="block text-sm text-gray-600 mb-2">Email</label>
+                <div class="flex items-center">
+                  <input type="email" class="form-input" value="sarah.j@example.com" readonly/>
+                  <span class="ml-2 text-green-600">
+                    <i class="fas fa-check-circle"></i>
+                  </span>
+                </div>
+              </div>
+              <div>
+                <label class="block text-sm text-gray-600 mb-2">Phone Number</label>
+                <input type="tel" class="form-input" value="+1 (555) 123-4567"/>
+              </div>
+            </div>
+          </div>
+
+          <!-- Preferences -->
+          <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
+            <h2 class="text-xl font-semibold mb-4">Preferences</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-sm text-gray-600 mb-2">Currency</label>
+                <select class="form-input">
+                  <option>USD ($)</option>
+                  <option>EUR (€)</option>
+                  <option>MAD (د.م.)</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-sm text-gray-600 mb-2">Language</label>
+                <select class="form-input">
+                  <option>English</option>
+                  <option>Français</option>
+                  <option>العربية</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-sm text-gray-600 mb-2">Time Zone</label>
+                <select class="form-input">
+                  <option>Eastern Time (ET)</option>
+                  <option>Pacific Time (PT)</option>
+                  <option>Morocco Time (GMT+1)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Notification Settings -->
+          <div class="bg-white rounded-xl shadow-sm p-6">
+            <h2 class="text-xl font-semibold mb-4">Notification Settings</h2>
+            <div class="space-y-4">
+              <label class="flex items-center">
+                <input type="checkbox" class="custom-checkbox" checked/>
+                <span class="ml-2">Email notifications for new messages</span>
+              </label>
+              <label class="flex items-center">
+                <input type="checkbox" class="custom-checkbox" checked/>
+                <span class="ml-2">Email notifications for trip updates</span>
+              </label>
+              <label class="flex items-center">
+                <input type="checkbox" class="custom-checkbox"/>
+                <span class="ml-2">Marketing emails and newsletters</span>
+              </label>
+            </div>
+          </div>
+        </section>
+
+        <!-- My Itineraries -->
+        <section id="itineraries" class="content-section">
+          <div class="flex justify-between items-center mb-6">
+            <h1 class="text-2xl font-bold">My Itineraries</h1>
+            <button class="bg-orange-600 text-white px-6 py-2 rounded-full hover:bg-orange-700">
+              <i class="fas fa-plus mr-2"></i>
+              Create New Trip
+            </button>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Itinerary Card 1 -->
+            <div class="itinerary-card bg-white rounded-xl shadow-sm overflow-hidden">
+              <img src="https://images.pexels.com/photos/3935702/pexels-photo-3935702.jpeg" 
+                   alt="Paris" 
+                   class="w-full h-48 object-cover"/>
+              <div class="p-4">
+                <div class="flex justify-between items-start mb-2">
+                  <h3 class="text-lg font-semibold">Paris Adventure</h3>
+                  <span class="status-badge status-accepted">Confirmed</span>
+                </div>
+                <p class="text-gray-600 text-sm mb-4">
+                  <i class="far fa-calendar mr-2"></i>
+                  Jun 15 - Jun 22, 2024
+                </p>
+                <div class="flex gap-2">
+                  <button class="flex-1 bg-gray-100 text-gray-700 py-2 rounded hover:bg-gray-200">
+                    <i class="far fa-eye mr-1"></i> View
+                  </button>
+                  <button class="flex-1 bg-gray-100 text-gray-700 py-2 rounded hover:bg-gray-200">
+                    <i class="far fa-edit mr-1"></i> Edit
+                  </button>
+                  <button class="flex-1 bg-gray-100 text-red-600 py-2 rounded hover:bg-red-50">
+                    <i class="far fa-trash-alt mr-1"></i> Delete
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Itinerary Card 2 -->
+            <div class="itinerary-card bg-white rounded-xl shadow-sm overflow-hidden">
+              <img src="https://images.pexels.com/photos/2161467/pexels-photo-2161467.jpeg" 
+                   alt="Morocco" 
+                   class="w-full h-48 object-cover"/>
+              <div class="p-4">
+                <div class="flex justify-between items-start mb-2">
+                  <h3 class="text-lg font-semibold">Morocco Explorer</h3>
+                  <span class="status-badge status-pending">Planning</span>
+                </div>
+                <p class="text-gray-600 text-sm mb-4">
+                  <i class="far fa-calendar mr-2"></i>
+                  Aug 10 - Aug 20, 2024
+                </p>
+                <div class="flex gap-2">
+                  <button class="flex-1 bg-gray-100 text-gray-700 py-2 rounded hover:bg-gray-200">
+                    <i class="far fa-eye mr-1"></i> View
+                  </button>
+                  <button class="flex-1 bg-gray-100 text-gray-700 py-2 rounded hover:bg-gray-200">
+                    <i class="far fa-edit mr-1"></i> Edit
+                  </button>
+                  <button class="flex-1 bg-gray-100 text-red-600 py-2 rounded hover:bg-red-50">
+                    <i class="far fa-trash-alt mr-1"></i> Delete
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Notifications -->
+        <section id="notifications" class="content-section">
+          <div class="flex justify-between items-center mb-6">
+            <h1 class="text-2xl font-bold">Notifications</h1>
+            <button class="text-orange-600 hover:text-orange-700">
+              Mark all as read
+            </button>
+          </div>
+
+          <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+            <!-- Unread Notification -->
+            <div class="notification-item unread p-4 border-b">
+              <div class="flex items-start gap-4">
+                <div class="text-orange-600 mt-1">
+                  <i class="fas fa-bell"></i>
+                </div>
+                <div class="flex-1">
+                  <p class="font-medium">Your Paris itinerary has been confirmed!</p>
+                  <p class="text-gray-600 text-sm mt-1">
+                    All bookings have been secured for your upcoming trip to Paris.
+                  </p>
+                  <p class="text-gray-400 text-xs mt-2">2 hours ago</p>
+                </div>
+                <button class="text-gray-400 hover:text-gray-600">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Read Notification -->
+            <div class="notification-item p-4 border-b">
+              <div class="flex items-start gap-4">
+                <div class="text-gray-400 mt-1">
+                  <i class="fas fa-user"></i>
+                </div>
+                <div class="flex-1">
+                  <p class="font-medium">Guide John has accepted your request</p>
+                  <p class="text-gray-600 text-sm mt-1">
+                    Your local guide for Morocco has confirmed availability.
+                  </p>
+                  <p class="text-gray-400 text-xs mt-2">1 day ago</p>
+                </div>
+                <button class="text-gray-400 hover:text-gray-600">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Guide Dashboard -->
+        <section id="guide" class="content-section">
+          <div class="flex justify-between items-center mb-6">
+            <h1 class="text-2xl font-bold">Guide Dashboard</h1>
+          </div>
+
+          <!-- Stats Overview -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+            <div class="stat-card bg-white rounded-xl shadow-sm p-6">
+              <h3 class="text-gray-600 text-sm mb-2">Total Requests</h3>
+              <p class="text-3xl font-bold">24</p>
+              <p class="text-green-600 text-sm mt-2">
+                <i class="fas fa-arrow-up"></i>
+                12% from last month
+              </p>
+            </div>
+
+            <div class="stat-card bg-white rounded-xl shadow-sm p-6">
+              <h3 class="text-gray-600 text-sm mb-2">Pending Offers</h3>
+              <p class="text-3xl font-bold">8</p>
+              <p class="text-orange-600 text-sm mt-2">
+                <i class="fas fa-clock"></i>
+                Awaiting response
+              </p>
+            </div>
+
+            <div class="stat-card bg-white rounded-xl shadow-sm p-6">
+              <h3 class="text-gray-600 text-sm mb-2">Monthly Earnings</h3>
+              <p class="text-3xl font-bold">$2,450</p>
+              <p class="text-green-600 text-sm mt-2">
+                <i class="fas fa-arrow-up"></i>
+                18% from last month
+              </p>
+            </div>
+          </div>
+
+          <!-- Incoming Requests -->
+          <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
+            <h2 class="text-xl font-semibold mb-4">Incoming Requests</h2>
+            <div class="space-y-4">
+              <div class="flex items-center justify-between p-4 border rounded-lg">
+                <div>
+                  <h3 class="font-medium">City Tour - Paris</h3>
+                  <p class="text-gray-600 text-sm">Jun 15, 2024 • 4 travelers</p>
+                </div>
+                <div class="flex gap-2">
+                  <button class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                    Accept
+                  </button>
+                  <button class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
+                    Decline
+                  </button>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between p-4 border rounded-lg">
+                <div>
+                  <h3 class="font-medium">Food Tour - Morocco</h3>
+                  <p class="text-gray-600 text-sm">Aug 12, 2024 • 2 travelers</p>
+                </div>
+                <div class="flex gap-2">
+                  <button class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                    Accept
+                  </button>
+                  <button class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
+                    Decline
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // User role handling
+      const userRole = 'guide'; // Change to 'guide' to test guide view 'traveler' for traveler view
+      const guideElements = document.querySelectorAll('.guide-only');
+      const travelerElements = document.querySelectorAll('.traveler-only');
+
+      function updateUIForRole() {
+        guideElements.forEach(el => {
+          el.style.display = userRole === 'guide' ? 'flex' : 'none';
+        });
+        travelerElements.forEach(el => {
+          el.style.display = userRole === 'traveler' ? 'flex' : 'none';
+        });
+      }
+
+      updateUIForRole();
+
+      // Navigation
+      const navItems = document.querySelectorAll('.nav-item');
+      const contentSections = document.querySelectorAll('.content-section');
+      
+      function switchSection(sectionId) {
+        // Update navigation
+        navItems.forEach(item => {
+          item.classList.toggle('active', item.dataset.section === sectionId);
+        });
+
+        // Update content sections
+        contentSections.forEach(section => {
+          if (section.id === sectionId) {
+            section.classList.add('active');
+            section.style.display = 'block';
+          } else {
+            section.classList.remove('active');
+            section.style.display = 'none';
+          }
+        });
+      }
+
+      navItems.forEach(item => {
+        if (!item.dataset.section) return;
+        
+        item.addEventListener('click', () => {
+          switchSection(item.dataset.section);
+          
+          if (window.innerWidth <= 768) {
+            document.querySelector('.sidebar-nav').classList.remove('active');
+          }
+        });
+      });
+
+      // Mobile menu toggle
+      const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+      const sidebar = document.querySelector('.sidebar-nav');
+
+      mobileMenuToggle.addEventListener('click', () => {
+        sidebar.classList.toggle('active');
+      });
+
+      // Profile photo upload
+      const photoUpload = document.querySelector('.photo-upload-overlay');
+      const profilePhoto = document.querySelector('.profile-photo');
+
+      photoUpload.addEventListener('click', () => {
+        const input = document.createElement('input');
+        input.type = 'file';
+        input.accept = 'image/*';
+        input.onchange = (e) => {
+          const file = e.target.files[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+              profilePhoto.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+          }
+        };
+        input.click();
+      });
+
+      // Mark notifications as read
+      const markAllReadBtn = document.querySelector('button.text-orange-600');
+      const unreadNotifications = document.querySelectorAll('.notification-item.unread');
+
+      markAllReadBtn?.addEventListener('click', () => {
+        unreadNotifications.forEach(notification => {
+          notification.classList.remove('unread');
+        });
+      });
+
+      // Delete notifications
+      document.querySelectorAll('.notification-item button').forEach(button => {
+        button.addEventListener('click', () => {
+          button.closest('.notification-item').remove();
+        });
+      });
+
+      // Guide dashboard actions
+      if (userRole === 'guide') {
+        document.querySelectorAll('.bg-green-500').forEach(button => {
+          button.addEventListener('click', function() {
+            const requestItem = this.closest('.flex');
+            requestItem.innerHTML = '<p class="text-green-600">Request accepted!</p>';
+          });
+        });
+
+        document.querySelectorAll('.bg-red-500').forEach(button => {
+          button.addEventListener('click', function() {
+            const requestItem = this.closest('.flex');
+            requestItem.innerHTML = '<p class="text-red-600">Request declined</p>';
+          });
+        });
+      }
+
+      // Save changes button
+      const saveButton = document.querySelector('button.bg-orange-600');
+      saveButton.addEventListener('click', () => {
+        const message = document.createElement('div');
+        message.className = 'fixed bottom-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50';
+        message.textContent = 'Changes saved successfully!';
+        document.body.appendChild(message);
+        setTimeout(() => message.remove(), 3000);
+      });
+    });
+  </script>
+</body>
+</html>

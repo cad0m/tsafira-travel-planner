@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tsafira | Explore Morocco</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- ApexCharts (if you need charts) -->
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <!-- TailwindCSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome -->
+  <script>
+    window.FontAwesomeConfig = { autoReplaceSvg: 'nest' };
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <!-- Base styles -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <link rel="stylesheet" href="/css/index.css"> 
+  <!-- Tailwind config script -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            /* your extended color map, including primary, secondary, accent, neutral, info, success, warning, error, danger, failure */
+          }
+        }
+      },
+      variants: {
+        extend: {
+          backgroundColor: ['active', 'group-hover'],
+          textColor: ['active', 'group-hover']
+        }
+      },
+      plugins: []
+    };
+  </script>
+</head>
+
+<body class="h-full text-base-content">
+  
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress-container">
+    <div class="scroll-progress-bar"></div>
+  </div>
+  
+  <!-- Navigation -->
+  <!-- Header with improved mobile design -->
+<header id="header" class="fixed w-full bg-white shadow-sm z-50">
+  <nav class="container mx-auto px-4 py-3 flex items-center justify-between">
+    <!-- Logo -->
+    <a href="/" class="text-2xl font-bold text-orange-600">Tsafira</a>
+    
+    <!-- Desktop Navigation -->
+    <div class="hidden md:flex items-center space-x-6">
+      <a href="/" class="text-orange-800 hover:text-orange-600">Home</a>
+      <a href="/destinations.html" class="text-gray-800 hover:text-orange-600">Destinations</a>
+      <a href="/how-it-works.html" class="text-gray-800 hover:text-orange-600">How It Works</a>
+      <a href="/about.html" class="text-gray-800 hover:text-orange-600">About</a>
+      <a href="/contact.html" class="text-gray-800 hover:text-orange-600">Contact</a>
+    </div>
+    
+    <!-- Desktop Auth + CTA -->
+    <div id="nav-actions" class="hidden md:flex items-center space-x-4">
+      <a href="/signin.html" id="sign-in-btn" class="px-4 py-2 rounded-full border-2 border-transparent hover:border-orange-600 transition-colors duration-300">
+        Sign In
+      </a>
+      <a href="/wizard.html" class="bg-orange-600 text-white px-6 py-2 rounded-full hover:bg-orange-700 transition-colors duration-300">
+        Plan Your Trip
+      </a>
+    </div>
+    
+    <!-- Mobile CTA + Menu Button -->
+    <div class="flex items-center space-x-2 md:hidden">
+      <a href="/wizard.html" class="bg-orange-600 text-white px-4 py-1.5 rounded-full text-sm hover:bg-orange-700 transition-colors duration-300">
+        Plan Trip
+      </a>
+      <button id="mobile-menu-button" class="p-2 rounded-md text-gray-500 hover:bg-gray-100">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<!-- Improved Mobile Menu -->
+<div id="mobile-menu" class="hidden fixed inset-0 bg-white z-50 md:hidden">
+  <div class="flex flex-col h-full">
+    <!-- Header with close button -->
+    <div class="flex items-center justify-between px-6 py-4 border-b">
+      <a href="/" class="text-2xl font-bold text-orange-600">Tsafira</a>
+      <button id="close-menu-button" class="p-2 rounded-md text-gray-500 hover:bg-gray-100">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+    
+    <!-- Navigation Links -->
+    <div class="flex-grow overflow-y-auto">
+      <div class="py-2">
+        <a href="/" class="block px-6 py-3 text-gray-800 hover:bg-orange-50 hover:text-orange-600 border-l-4 border-transparent hover:border-orange-600">Home</a>
+        <a href="/destinations.html" class="block px-6 py-3 text-gray-800 hover:bg-orange-50 hover:text-orange-600 border-l-4 border-transparent hover:border-orange-600">Destinations</a>
+        <a href="/how-it-works.html" class="block px-6 py-3 text-gray-800 hover:bg-orange-50 hover:text-orange-600 border-l-4 border-transparent hover:border-orange-600">How It Works</a>
+        <a href="/about.html" class="block px-6 py-3 text-gray-800 hover:bg-orange-50 hover:text-orange-600 border-l-4 border-transparent hover:border-orange-600">About</a>
+        <a href="/contact.html" class="block px-6 py-3 text-gray-800 hover:bg-orange-50 hover:text-orange-600 border-l-4 border-transparent hover:border-orange-600">Contact</a>
+      </div>
+    </div>
+    
+    <!-- Auth Actions -->
+    <div class="px-6 py-4 border-t">
+      <a href="/signin.html" class="block w-full text-center mb-3 px-4 py-2 border-2 border-gray-300 rounded-full hover:border-orange-600 hover:text-orange-600 transition-colors duration-300">
+        Sign In
+      </a>
+      <a href="/wizard.html" class="block w-full text-center bg-orange-600 text-white px-4 py-2 rounded-full hover:bg-orange-700 transition-colors duration-300">
+        Plan Your Trip
+      </a>
+    </div>
+  </div>
+</div>
+
+  <!-- Hero Section -->
+  <section id="hero" class="relative h-[800px] flex items-center">
+    <img class="absolute inset-0 w-full h-full object-cover"
+         src="https://storage.googleapis.com/uxpilot-auth.appspot.com/4974e503bb-10705323a8737b97ad6e.png"
+         alt="stunning moroccan desert landscape with traditional architecture, dramatic lighting, cinematic composition" />
+    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+    <div class="container mx-auto px-6 relative z-10">
+      <div class="max-w-3xl">
+        <h1 class="text-5xl md:text-6xl text-white font-bold mb-6">Explore Morocco Like Never Before</h1>
+        <p class="text-xl text-white mb-8">
+          Create your perfect Moroccan adventure with our personalized trip planner.
+          Let us craft an unforgettable journey based on your interests and budget.
+        </p>
+        <a href="/wizard.html" class="bg-orange-600 text-white px-8 py-4 rounded-full text-lg hover:bg-orange-700 transition duration-300">
+          Create Itinerary
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trip Wizard Section -->
+  <section id="trip-wizard" class="py-20 bg-cream-50">
+    <div class="container mx-auto px-6">
+      <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg p-8">
+        <h2 class="text-3xl font-bold text-center mb-8">Plan Your Perfect Trip</h2>
+        <form id="trip-form" class="space-y-6">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="space-y-4">
+              <label class="block text-gray-700">Budget Range</label>
+              <input type="range" min="500" max="10000" class="w-full" />
+              <div class="flex justify-between text-sm text-gray-600">
+                <span>$500</span><span>$10,000</span>
+              </div>
+            </div>
+            <div class="space-y-4">
+              <label class="block text-gray-700">Departure Airport</label>
+              <input type="text" placeholder="Enter airport code" class="w-full px-4 py-2 border rounded-lg" />
+            </div>
+            <div class="space-y-4">
+              <label class="block text-gray-700">Check-in Date</label>
+              <input type="date" class="w-full px-4 py-2 border rounded-lg" />
+            </div>
+            <div class="space-y-4">
+              <label class="block text-gray-700">Check-out Date</label>
+              <input type="date" class="w-full px-4 py-2 border rounded-lg" />
+            </div>
+          </div>
+          <div class="space-y-4">
+            <label class="block text-gray-700">Travel Preferences</label>
+            <div class="grid md:grid-cols-4 gap-4">
+              <label class="flex items-center space-x-2">
+                <input type="checkbox" class="form-checkbox text-orange-600" /><span>Culture</span>
+              </label>
+              <label class="flex items-center space-x-2">
+                <input type="checkbox" class="form-checkbox text-orange-600" /><span>Nature</span>
+              </label>
+              <label class="flex items-center space-x-2">
+                <input type="checkbox" class="form-checkbox text-orange-600" /><span>Luxury</span>
+              </label>
+              <label class="flex items-center space-x-2">
+                <input type="checkbox" class="form-checkbox text-orange-600" /><span>Sightseeing</span>
+              </label>
+            </div>
+          </div>
+          <button class="w-full bg-orange-600 text-white py-4 rounded-lg text-lg hover:bg-orange-700 transition duration-300">
+            <a href="plan.html">Generate Itinerary</a>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section id="how-it-works" class="py-20">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-16">Plan Your Perfect Moroccan Adventure</h2>
+        <div class="grid md:grid-cols-3 gap-12">
+            <div class="text-center">
+                <div class="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="text-3xl text-orange-600" data-fa-i2svg=""><svg class="svg-inline--fa fa-list-check" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="list-check" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M152.1 38.2c9.9 8.9 10.7 24 1.8 33.9l-72 80c-4.4 4.9-10.6 7.8-17.2 7.9s-12.9-2.4-17.6-7L7 113C-2.3 103.6-2.3 88.4 7 79s24.6-9.4 33.9 0l22.1 22.1 55.1-61.2c8.9-9.9 24-10.7 33.9-1.8zm0 160c9.9 8.9 10.7 24 1.8 33.9l-72 80c-4.4 4.9-10.6 7.8-17.2 7.9s-12.9-2.4-17.6-7L7 273c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l22.1 22.1 55.1-61.2c8.9-9.9 24-10.7 33.9-1.8zM224 96c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32zm0 160c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32zM160 416c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H192c-17.7 0-32-14.3-32-32zM48 368a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"></path></svg></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4">Enter Your Preferences</h3>
+                <p class="text-gray-600">Tell us about your travel style, budget, and interests</p>
+            </div>
+            <div class="text-center">
+                <div class="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="text-3xl text-orange-600" data-fa-i2svg=""><svg class="svg-inline--fa fa-route" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="route" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M512 96c0 50.2-59.1 125.1-84.6 155c-3.8 4.4-9.4 6.1-14.5 5H320c-17.7 0-32 14.3-32 32s14.3 32 32 32h96c53 0 96 43 96 96s-43 96-96 96H139.6c8.7-9.9 19.3-22.6 30-36.8c6.3-8.4 12.8-17.6 19-27.2H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320c-53 0-96-43-96-96s43-96 96-96h39.8c-21-31.5-39.8-67.7-39.8-96c0-53 43-96 96-96s96 43 96 96zM117.1 489.1c-3.8 4.3-7.2 8.1-10.1 11.3l-1.8 2-.2-.2c-6 4.6-14.6 4-20-1.8C59.8 473 0 402.5 0 352c0-53 43-96 96-96s96 43 96 96c0 30-21.1 67-43.5 97.9c-10.7 14.7-21.7 28-30.8 38.5l-.6 .7zM128 352a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zM416 128a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"></path></svg></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4">Receive Personalized Itinerary</h3>
+                <p class="text-gray-600">Get a custom day-by-day plan tailored just for you</p>
+            </div>
+            <div class="text-center">
+                <div class="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="text-3xl text-orange-600" data-fa-i2svg=""><svg class="svg-inline--fa fa-plane-departure" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plane-departure" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" data-fa-i2svg=""><path fill="currentColor" d="M381 114.9L186.1 41.8c-16.7-6.2-35.2-5.3-51.1 2.7L89.1 67.4C78 73 77.2 88.5 87.6 95.2l146.9 94.5L136 240 77.8 214.1c-8.7-3.9-18.8-3.7-27.3 .6L18.3 230.8c-9.3 4.7-11.8 16.8-5 24.7l73.1 85.3c6.1 7.1 15 11.2 24.3 11.2H248.4c5 0 9.9-1.2 14.3-3.4L535.6 212.2c46.5-23.3 82.5-63.3 100.8-112C645.9 75 627.2 48 600.2 48H542.8c-20.2 0-40.2 4.8-58.2 14L381 114.9zM0 480c0 17.7 14.3 32 32 32H608c17.7 0 32-14.3 32-32s-14.3-32-32-32H32c-17.7 0-32 14.3-32 32z"></path></svg></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4">Enjoy Your Trip</h3>
+                <p class="text-gray-600">Experience Morocco with confidence and ease</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Destination Showcase -->
+<section id="destinations" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-4">Discover Morocco's Treasures</h2>
+        <p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+            From ancient medinas to stunning coastlines, explore the diverse wonders of Morocco.
+        </p>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Marrakech -->
+            <!-- Marrakech -->
+<a href="/destinations/marrakech.html" class="group relative overflow-hidden rounded-2xl block">
+    <img
+      class="w-full h-[400px] object-cover transition duration-300 group-hover:scale-110"
+      src="https://storage.googleapis.com/uxpilot-auth.appspot.com/e3b187242b-b79b06920ff67beb54a0.png"
+      alt="marrakech medina with traditional market and people, vibrant colors, professional travel photography"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent">
+      <div class="absolute bottom-6 left-6 text-white">
+        <h3 class="text-2xl font-bold mb-2">Marrakech</h3>
+        <p>The Red City's magic</p>
+      </div>
+   </div>
+</a>
+  
+  <!-- Casablanca -->
+  <a href="/destinations/casablanca.html" class="group relative overflow-hidden rounded-2xl block">
+    <img
+    class="w-full h-[400px] object-cover transition duration-300 group-hover:scale-110"
+    src="https://media-cdn.tripadvisor.com/media/attractions-splice-spp-674x446/11/e7/a0/db.jpg"
+    alt="hassan ii mosque in casablanca at sunset, dramatic architecture, professional travel photography"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent">
+    <div class="absolute bottom-6 left-6 text-white">
+        <h3 class="text-2xl font-bold mb-2">Casablanca</h3>
+        <p>Modern Morocco</p>
+    </div>
+    </div>
+</a>
+  
+  <!-- Fes -->
+<a href="/destinations/fes.html" class="group relative overflow-hidden rounded-2xl block">
+    <img
+    class="w-full h-[400px] object-cover transition duration-300 group-hover:scale-110"
+    src="https://storage.googleapis.com/uxpilot-auth.appspot.com/61800c4990-d856c6a0dc229bfe40cf.png"
+    alt="fes medina traditional leather tanneries, colorful dye pits, professional travel photography"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent">
+    <div class="absolute bottom-6 left-6 text-white">
+        <h3 class="text-2xl font-bold mb-2">Fes</h3>
+        <p>Cultural Heritage</p>
+    </div>
+    </div>
+</a>
+  
+  <!-- Chefchaouen -->
+<a href="/destinations/chefchaouen.html" class="group relative overflow-hidden rounded-2xl block">
+    <img
+    class="w-full h-[400px] object-cover transition duration-300 group-hover:scale-110"
+    src="https://storage.googleapis.com/uxpilot-auth.appspot.com/09eff2f8d1-cff53d80229e5752e8a3.png"
+    alt="blue city chefchaouen morocco, narrow streets with blue buildings, professional travel photography"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent">
+    <div class="absolute bottom-6 left-6 text-white">
+        <h3 class="text-2xl font-bold mb-2">Chefchaouen</h3>
+        <p>The Blue Pearl</p>
+    </div>
+    </div>
+</a>
+
+        </div>
+
+        <div class="text-center mt-12">
+            <a href="/destinations.html" class="inline-flex items-center text-orange-500 hover:text-orange-600 cursor-pointer">
+              View All Destinations
+              <i class="ml-2" data-fa-i2svg=""><svg class="svg-inline--fa fa-arrow-right" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"></path></svg></i>
+            </a>
+        </div>
+    </div>
+</section>
+<!-- Experience Categories -->
+<section id="experiences" class="py-20">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-16">Tailor Your Experience</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="p-6 bg-white rounded-xl shadow-lg">
+                <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-6">
+                    <i class="text-3xl text-orange-600" data-fa-i2svg=""><svg class="svg-inline--fa fa-mosque" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="mosque" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" data-fa-i2svg=""><path fill="currentColor" d="M400 0c5 0 9.8 2.4 12.8 6.4c34.7 46.3 78.1 74.9 133.5 111.5l0 0 0 0c5.2 3.4 10.5 7 16 10.6c28.9 19.2 45.7 51.7 45.7 86.1c0 28.6-11.3 54.5-29.8 73.4H221.8c-18.4-19-29.8-44.9-29.8-73.4c0-34.4 16.7-66.9 45.7-86.1c5.4-3.6 10.8-7.1 16-10.6l0 0 0 0C309.1 81.3 352.5 52.7 387.2 6.4c3-4 7.8-6.4 12.8-6.4zM288 512V440c0-13.3-10.7-24-24-24s-24 10.7-24 24v72H192c-17.7 0-32-14.3-32-32V352c0-17.7 14.3-32 32-32H608c17.7 0 32 14.3 32 32V480c0 17.7-14.3 32-32 32H560V440c0-13.3-10.7-24-24-24s-24 10.7-24 24v72H448V454c0-19-8.4-37-23-49.2L400 384l-25 20.8C360.4 417 352 435 352 454v58H288zM70.4 5.2c5.7-4.3 13.5-4.3 19.2 0l16 12C139.8 42.9 160 83.2 160 126v2H0v-2C0 83.2 20.2 42.9 54.4 17.2l16-12zM0 160H160V296.6c-19.1 11.1-32 31.7-32 55.4V480c0 9.6 2.1 18.6 5.8 26.8c-6.6 3.4-14 5.2-21.8 5.2H48c-26.5 0-48-21.5-48-48V176 160z"></path></svg></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4">Cultural Immersion</h3>
+                <p class="text-gray-600">Local traditions, artisan workshops, and authentic experiences</p>
+            </div>
+            <div class="p-6 bg-white rounded-xl shadow-lg">
+                <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-6">
+                    <i class="text-3xl text-orange-600" data-fa-i2svg=""><svg class="svg-inline--fa fa-mountain" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="mountain" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M256 32c12.5 0 24.1 6.4 30.8 17L503.4 394.4c5.6 8.9 8.6 19.2 8.6 29.7c0 30.9-25 55.9-55.9 55.9H55.9C25 480 0 455 0 424.1c0-10.5 3-20.8 8.6-29.7L225.2 49c6.6-10.6 18.3-17 30.8-17zm65 192L256 120.4 176.9 246.5l18.3 24.4c6.4 8.5 19.2 8.5 25.6 0l25.6-34.1c6-8.1 15.5-12.8 25.6-12.8h49z"></path></svg></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4">Natural Wonders</h3>
+                <p class="text-gray-600">Desert adventures, mountain treks, and coastal escapes</p>
+            </div>
+            <div class="p-6 bg-white rounded-xl shadow-lg">
+                <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-6">
+                    <i class="text-3xl text-orange-600" data-fa-i2svg=""><svg class="svg-inline--fa fa-star" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path></svg></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4">Luxury Stays</h3>
+                <p class="text-gray-600">Premium riads, desert camps, and boutique hotels</p>
+            </div>
+            <div class="p-6 bg-white rounded-xl shadow-lg">
+                <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-6">
+                    <i class="text-3xl text-orange-600" data-fa-i2svg=""><svg class="svg-inline--fa fa-landmark" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="landmark" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M240.1 4.2c9.8-5.6 21.9-5.6 31.8 0l171.8 98.1L448 104l0 .9 47.9 27.4c12.6 7.2 18.8 22 15.1 36s-16.4 23.8-30.9 23.8H32c-14.5 0-27.2-9.8-30.9-23.8s2.5-28.8 15.1-36L64 104.9V104l4.4-1.6L240.1 4.2zM64 224h64V416h40V224h64V416h48V224h64V416h40V224h64V420.3c.6 .3 1.2 .7 1.8 1.1l48 32c11.7 7.8 17 22.4 12.9 35.9S494.1 512 480 512H32c-14.1 0-26.5-9.2-30.6-22.7s1.1-28.1 12.9-35.9l48-32c.6-.4 1.2-.7 1.8-1.1V224z"></path></svg></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4">Historical Sightseeing</h3>
+                <p class="text-gray-600">Ancient medinas, palaces, and architectural wonders</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Featured Itineraries -->
+<section id="featured-itineraries" class="py-20">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-16">Popular Morocco Experiences</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-white rounded-xl overflow-hidden shadow-lg">
+                <img class="w-full h-48 object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/142411fd97-29251fbcae2275a38d4e.png" alt="Cultural tour in Marrakech">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="bg-orange-100 text-orange-600 px-3 py-1 rounded-full text-sm">7 Days</span>
+                        <span class="text-gray-600">From $1,200</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">7-Day Cultural Tour</h3>
+                    <p class="text-gray-600 mb-4">Immerse yourself in Morocco's rich heritage through medinas, workshops, and local encounters.</p>
+                    <div class="flex items-center text-orange-600">
+                        <span class="text-sm">View Itinerary</span>
+                        <i class="ml-2" data-fa-i2svg=""><svg class="svg-inline--fa fa-arrow-right" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"></path></svg></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl overflow-hidden shadow-lg">
+                <img class="w-full h-48 object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/cbe933b1f5-b9374fbbe91e32276832.png" alt="Coastal getaway">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="bg-orange-100 text-orange-600 px-3 py-1 rounded-full text-sm">5 Days</span>
+                        <span class="text-gray-600">From $800</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">5-Day Coastal Getaway</h3>
+                    <p class="text-gray-600 mb-4">Explore Morocco's stunning coastline, from pristine beaches to historic ports.</p>
+                    <div class="flex items-center text-orange-600">
+                        <span class="text-sm">View Itinerary</span>
+                        <i class="ml-2" data-fa-i2svg=""><svg class="svg-inline--fa fa-arrow-right" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"></path></svg></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl overflow-hidden shadow-lg">
+                <img class="w-full h-48 object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/b4f634ce60-8ea4daecc1b729ae6d56.png" alt="Morocco explorer">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="bg-orange-100 text-orange-600 px-3 py-1 rounded-full text-sm">10 Days</span>
+                        <span class="text-gray-600">From $2,000</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">10-Day Morocco Explorer</h3>
+                    <p class="text-gray-600 mb-4">The ultimate Moroccan adventure combining cities, desert, and mountains.</p>
+                    <div class="flex items-center text-orange-600">
+                        <span class="text-sm">View Itinerary</span>
+                        <i class="ml-2" data-fa-i2svg=""><svg class="svg-inline--fa fa-arrow-right" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"></path></svg></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-12">
+            <button class="bg-orange-600 text-white px-8 py-3 rounded-full hover:bg-orange-700">
+                <a href="wizard.html">Create Custom Itinerary</a>
+            </button>
+        </div>
+    </div>
+</section>
+<!-- Why Choose Us (Continued) -->
+<section id="benefits" class="py-20 bg-gray-50"></section>
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-16">Why Choose Tsafira?</h2>
+        <div class="grid md:grid-cols-3 gap-12">
+            <div class="text-center">
+                <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="text-3xl text-orange-600" data-fa-i2svg=""><svg class="svg-inline--fa fa-wand-magic-sparkles" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="wand-magic-sparkles" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M234.7 42.7L197 56.8c-3 1.1-5 4-5 7.2s2 6.1 5 7.2l37.7 14.1L248.8 123c1.1 3 4 5 7.2 5s6.1-2 7.2-5l14.1-37.7L315 71.2c3-1.1 5-4 5-7.2s-2-6.1-5-7.2L277.3 42.7 263.2 5c-1.1-3-4-5-7.2-5s-6.1 2-7.2 5L234.7 42.7zM46.1 395.4c-18.7 18.7-18.7 49.1 0 67.9l34.6 34.6c18.7 18.7 49.1 18.7 67.9 0L529.9 116.5c18.7-18.7 18.7-49.1 0-67.9L495.3 14.1c-18.7-18.7-49.1-18.7-67.9 0L46.1 395.4zM484.6 82.6l-105 105-23.3-23.3 105-105 23.3 23.3zM7.5 117.2C3 118.9 0 123.2 0 128s3 9.1 7.5 10.8L64 160l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L128 160l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L128 96 106.8 39.5C105.1 35 100.8 32 96 32s-9.1 3-10.8 7.5L64 96 7.5 117.2zm352 256c-4.5 1.7-7.5 6-7.5 10.8s3 9.1 7.5 10.8L416 416l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L480 416l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L480 352l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L416 352l-56.5 21.2z"></path></svg></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4">Personalized Itineraries</h3>
+                <p class="text-gray-600">Customized travel plans that match your unique preferences and style</p>
+            </div>
+            <div class="text-center">
+                <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="text-3xl text-orange-600" data-fa-i2svg=""><svg class="svg-inline--fa fa-coins" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="coins" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M512 80c0 18-14.3 34.6-38.4 48c-29.1 16.1-72.5 27.5-122.3 30.9c-3.7-1.8-7.4-3.5-11.3-5C300.6 137.4 248.2 128 192 128c-8.3 0-16.4 .2-24.5 .6l-1.1-.6C142.3 114.6 128 98 128 80c0-44.2 86-80 192-80S512 35.8 512 80zM160.7 161.1c10.2-.7 20.7-1.1 31.3-1.1c62.2 0 117.4 12.3 152.5 31.4C369.3 204.9 384 221.7 384 240c0 4-.7 7.9-2.1 11.7c-4.6 13.2-17 25.3-35 35.5c0 0 0 0 0 0c-.1 .1-.3 .1-.4 .2l0 0 0 0c-.3 .2-.6 .3-.9 .5c-35 19.4-90.8 32-153.6 32c-59.6 0-112.9-11.3-148.2-29.1c-1.9-.9-3.7-1.9-5.5-2.9C14.3 274.6 0 258 0 240c0-34.8 53.4-64.5 128-75.4c10.5-1.5 21.4-2.7 32.7-3.5zM416 240c0-21.9-10.6-39.9-24.1-53.4c28.3-4.4 54.2-11.4 76.2-20.5c16.3-6.8 31.5-15.2 43.9-25.5V176c0 19.3-16.5 37.1-43.8 50.9c-14.6 7.4-32.4 13.7-52.4 18.5c.1-1.8 .2-3.5 .2-5.3zm-32 96c0 18-14.3 34.6-38.4 48c-1.8 1-3.6 1.9-5.5 2.9C304.9 404.7 251.6 416 192 416c-62.8 0-118.6-12.6-153.6-32C14.3 370.6 0 354 0 336V300.6c12.5 10.3 27.6 18.7 43.9 25.5C83.4 342.6 135.8 352 192 352s108.6-9.4 148.1-25.9c7.8-3.2 15.3-6.9 22.4-10.9c6.1-3.4 11.8-7.2 17.2-11.2c1.5-1.1 2.9-2.3 4.3-3.4V304v5.7V336zm32 0V304 278.1c19-4.2 36.5-9.5 52.1-16c16.3-6.8 31.5-15.2 43.9-25.5V272c0 10.5-5 21-14.9 30.9c-16.3 16.3-45 29.7-81.3 38.4c.1-1.7 .2-3.5 .2-5.3zM192 448c56.2 0 108.6-9.4 148.1-25.9c16.3-6.8 31.5-15.2 43.9-25.5V432c0 44.2-86 80-192 80S0 476.2 0 432V396.6c12.5 10.3 27.6 18.7 43.9 25.5C83.4 438.6 135.8 448 192 448z"></path></svg></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4">Budget-Friendly Planning</h3>
+                <p class="text-gray-600">Optimize your travel budget with smart recommendations and local insights</p>
+            </div>
+            <div class="text-center">
+                <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="text-3xl text-orange-600" data-fa-i2svg=""><svg class="svg-inline--fa fa-map-location-dot" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="map-location-dot" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M408 120c0 54.6-73.1 151.9-105.2 192c-7.7 9.6-22 9.6-29.6 0C241.1 271.9 168 174.6 168 120C168 53.7 221.7 0 288 0s120 53.7 120 120zm8 80.4c3.5-6.9 6.7-13.8 9.6-20.6c.5-1.2 1-2.5 1.5-3.7l116-46.4C558.9 123.4 576 135 576 152V422.8c0 9.8-6 18.6-15.1 22.3L416 503V200.4zM137.6 138.3c2.4 14.1 7.2 28.3 12.8 41.5c2.9 6.8 6.1 13.7 9.6 20.6V451.8L32.9 502.7C17.1 509 0 497.4 0 480.4V209.6c0-9.8 6-18.6 15.1-22.3l122.6-49zM327.8 332c13.9-17.4 35.7-45.7 56.2-77V504.3L192 449.4V255c20.5 31.3 42.3 59.6 56.2 77c20.5 25.6 59.1 25.6 79.6 0zM288 152a40 40 0 1 0 0-80 40 40 0 1 0 0 80z"></path></svg></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4">Local Expertise</h3>
+                <p class="text-gray-600">Access to authentic experiences curated by Moroccan travel experts</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Testimonials -->
+<section id="testimonials" class="py-20 bg-gray-50">
+  <div class="container mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-16">What Our Travelers Say</h2>
+      <div class="max-w-4xl mx-auto">
+          <div class="testimonial-container">
+              <!-- Testimonials will be inserted here by JavaScript -->
+          </div>
+          <div class="flex justify-center mt-8 space-x-2" id="carousel-dots">
+              <!-- Dots will be generated by JavaScript -->
+          </div>
+      </div>
+  </div>
+</section>
+<!-- Call-to-Action -->
+<section id="cta" class="relative py-20">
+    <div class="absolute inset-0">
+        <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/d774e5d0b5-d438ccc560ba8fad89ed.png" alt="moroccan desert sunset with camels, dramatic landscape, professional travel photography">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+    </div>
+    <div class="container mx-auto px-4 relative">
+        <div class="max-w-2xl mx-auto text-center text-white">
+            <h2 class="text-4xl font-bold mb-4">Ready to Experience Morocco?</h2>
+            <p class="text-xl mb-8">Let us help you create the perfect journey tailored to your dreams.</p>
+            <button class="bg-orange-600 text-white px-8 py-3 rounded-full hover:bg-orange-700"><a href="wizard.html">Start Planning</a></button>
+        </div>
+    </div>
+</section>
+<!-- Newsletter -->
+
+<section id="newsletter" class="py-20 bg-cream-50">
+  <div class="container mx-auto px-4">
+      <div class="max-w-2xl mx-auto text-center">
+          <h2 class="text-3xl font-bold mb-4">Stay Updated with Travel Inspiration</h2>
+          <p class="text-gray-600 mb-8">Get exclusive travel tips, destination guides, and special offers delivered to your inbox.</p>
+          <form class="space-y-4">
+              <div class="flex gap-4 relative">
+                  <input type="email" placeholder="Enter your email" class="flex-1 px-4 py-3 rounded-lg border border-gray-300 transition-colors duration-200">
+                  <button type="submit" class="bg-orange-600 text-white px-8 py-3 rounded-lg hover:bg-orange-700 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed">Subscribe</button>
+              </div>
+              <label class="flex items-center justify-center space-x-2 cursor-pointer">
+                  <input type="checkbox" class="rounded text-orange-600 focus:ring-orange-500">
+                  <span class="text-sm text-gray-600">I agree to receive travel updates and newsletters</span>
+              </label>
+          </form>
+      </div>
+  </div>
+</section>
+<!-- Footer -->
+<footer id="footer" class="bg-gray-900 text-white py-20">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div>
+                <span class="text-2xl font-bold text-orange-600">Tsafira</span>
+                <p class="mt-4 text-gray-400">Your trusted companion for authentic Moroccan travel experiences.</p>
+                <div class="flex space-x-4 mt-6">
+                    <i class="text-xl cursor-pointer hover:text-orange-600" data-fa-i2svg=""><svg class="svg-inline--fa fa-facebook" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="facebook" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"></path></svg></i>
+                    <i class="text-xl cursor-pointer hover:text-orange-600" data-fa-i2svg=""><svg class="svg-inline--fa fa-instagram" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="instagram" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg></i>
+                    <i class="text-xl cursor-pointer hover:text-orange-600" data-fa-i2svg=""><svg class="svg-inline--fa fa-twitter" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="twitter" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg></i>
+                    <i class="text-xl cursor-pointer hover:text-orange-600" data-fa-i2svg=""><svg class="svg-inline--fa fa-youtube" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="youtube" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg></i>
+                </div>
+            </div>
+            <div>
+                <h3 class="font-bold mb-4">Company</h3>
+                <ul class="space-y-2">
+                    <li><a href="/about.html" class="text-gray-400 hover:text-white cursor-pointer">About Us</a></li>
+                    <li><a href="/how-it-works.html"  class="text-gray-400 hover:text-white cursor-pointer">How It Works</a></li>
+                    <li><a href="/contact.html"  class="text-gray-400 hover:text-white cursor-pointer">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold mb-4">Destinations</h3>
+                <ul class="space-y-2">
+                    <li><a href="/destinations/marrakech.html" class="text-gray-400 hover:text-white cursor-pointer">Marrakech</a></li>
+                    <li><a href="/destinations/casablanca.html" class="text-gray-400 hover:text-white cursor-pointer">Casablanca</a></li>
+                    <li><a href="/destinations/fes.html" class="text-gray-400 hover:text-white cursor-pointer">Fes</a></li>
+                    <li><a href="/destinations/chefchaouen.html" class="text-gray-400 hover:text-white cursor-pointer">Chefchaouen</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold mb-4">Resources</h3>
+                <ul class="space-y-2">
+                    <li><a href="/faq.html" class="text-gray-400 hover:text-white cursor-pointer">FAQs</a></li>
+                    <li><a href="/privacy.html" class="text-gray-400 hover:text-white cursor-pointer">Privacy Policy</a></li>
+                    <li><a href="terms.hmtl" class="text-gray-400 hover:text-white cursor-pointer">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+            <p class="text-gray-400">© 2025 Tsafira. All rights reserved.</p>
+            <p class="text-gray-400 flex items-center">
+                Made with <i class="text-orange-600 mx-2" data-fa-i2svg=""><svg class="svg-inline--fa fa-heart" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"></path></svg></i> in Morocco
+            </p>
+        </div>
+    </div>
+</footer>
+<script src="/js/index.js"></script>
+</body>
+</html>
