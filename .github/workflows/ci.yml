@@ -1,0 +1,27 @@
+name: Basic CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate-html:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+          
+      - name: Install html-validator
+        run: npm install -g html-validator-cli
+        
+      - name: Validate HTML files
+        run: |
+          find ./HTML_CSS_pages -name "*.html" -type f | xargs -I {} html-validator --file={}
+          
+  # Add more simple jobs here later as needed
