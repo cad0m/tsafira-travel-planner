@@ -270,8 +270,7 @@
         <div class="max-w-3xl mx-auto space-y-6">
           <!-- FAQ Item 1 -->
           <div class="bg-[var(--color-bg)] rounded-lg shadow-md border border-[var(--color-border)]">
-            <button class="faq-toggle w-full px-6 py-4 text-left focus:outline-none hover:bg-[var(--color-bg-alt)]" 
-                    onclick="toggleFAQ(this); return false;">
+            <button class="faq-toggle w-full px-6 py-4 text-left focus:outline-none hover:bg-[var(--color-bg-alt)]">
               <div class="flex items-center justify-between">
                 <span class="font-semibold text-[var(--color-text)]">How accurate are the budget estimates?</span>
                 <i class="fa-solid fa-chevron-down text-[var(--color-text-muted)] transition-transform duration-300"></i>
@@ -286,8 +285,7 @@
           
           <!-- FAQ Item 2 -->
           <div class="bg-[var(--color-bg)] rounded-lg shadow-md border border-[var(--color-border)]">
-            <button class="faq-toggle w-full px-6 py-4 text-left focus:outline-none hover:bg-[var(--color-bg-alt)]"
-                    onclick="toggleFAQ(this); return false;">
+            <button class="faq-toggle w-full px-6 py-4 text-left focus:outline-none hover:bg-[var(--color-bg-alt)]">
               <div class="flex items-center justify-between">
                 <span class="font-semibold text-[var(--color-text)]">Can I customize the generated itinerary?</span>
                 <i class="fa-solid fa-chevron-down text-[var(--color-text-muted)] transition-transform duration-300"></i>
@@ -302,8 +300,7 @@
           
           <!-- FAQ Item 3 -->
           <div class="bg-[var(--color-bg)] rounded-lg shadow-md border border-[var(--color-border)]">
-            <button class="faq-toggle w-full px-6 py-4 text-left focus:outline-none hover:bg-[var(--color-bg-alt)]"
-                    onclick="toggleFAQ(this); return false;">
+            <button class="faq-toggle w-full px-6 py-4 text-left focus:outline-none hover:bg-[var(--color-bg-alt)]">
               <div class="flex items-center justify-between">
                 <span class="font-semibold text-[var(--color-text)]">Is there a mobile app available?</span>
                 <i class="fa-solid fa-chevron-down text-[var(--color-text-muted)] transition-transform duration-300"></i>
@@ -323,96 +320,6 @@
   <footer id="footer-placeholder">
     <!-- Footer will be loaded by JavaScript -->
   </footer>
-  
-  <!-- Inline script for FAQ functionality -->
-  <script>
-    // Global function to toggle FAQ items - used by inline onclick handlers
-    function toggleFAQ(button) {
-      console.log('toggleFAQ called directly');
-      
-      // Get the content and icon elements
-      const content = button.nextElementSibling;
-      const icon = button.querySelector('i');
-      
-      // Toggle visibility
-      if (content.classList.contains('hidden')) {
-        content.classList.remove('hidden');
-      } else {
-        content.classList.add('hidden');
-      }
-      
-      // Toggle icon
-      if (icon) {
-        if (icon.classList.contains('fa-chevron-down')) {
-          icon.classList.remove('fa-chevron-down');
-          icon.classList.add('fa-chevron-up');
-        } else {
-          icon.classList.remove('fa-chevron-up');
-          icon.classList.add('fa-chevron-down');
-        }
-      }
-      
-      return false;
-    }
-    
-    // Direct approach to set up FAQ toggles
-    function setupFAQsDirectly() {
-      console.log('Setting up FAQ toggles directly');
-      
-      // Get all the toggles
-      const toggles = document.querySelectorAll('.faq-toggle');
-      console.log('Found', toggles.length, 'FAQ toggles');
-      
-      // Add click handler to each toggle
-      for (let i = 0; i < toggles.length; i++) {
-        const toggle = toggles[i];
-        
-        // Add direct inline click handler
-        toggle.onclick = function() {
-          // This is the toggle button that was clicked
-          console.log('Toggle clicked!');
-          
-          // Get the next element (content panel) and the icon
-          const content = this.nextElementSibling;
-          const icon = this.querySelector('i');
-          
-          // Toggle hidden class
-          if (content.classList.contains('hidden')) {
-            content.classList.remove('hidden');
-          } else {
-            content.classList.add('hidden');
-          }
-          
-          // Toggle icon
-          if (icon) {
-            if (icon.classList.contains('fa-chevron-down')) {
-              icon.classList.remove('fa-chevron-down');
-              icon.classList.add('fa-chevron-up');
-            } else {
-              icon.classList.remove('fa-chevron-up');
-              icon.classList.add('fa-chevron-down');
-            }
-          }
-          
-          // Stop event propagation
-          return false;
-        };
-      }
-    }
-    
-    // Run setup on load and after a delay
-    document.addEventListener('DOMContentLoaded', setupFAQsDirectly);
-    setTimeout(setupFAQsDirectly, 1000); // Also try after a delay
-    
-    // Trigger a test open after 2 seconds
-    setTimeout(function() {
-      const firstToggle = document.querySelector('.faq-toggle');
-      if (firstToggle) {
-        console.log('Testing first toggle click');
-        firstToggle.click();
-      }
-    }, 2000);
-  </script>
   
   <!-- JavaScript imports -->
   <script type="module" src="/js/main.js"></script>
