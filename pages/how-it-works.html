@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tsafira | How It Works</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- ApexCharts (if needed) -->
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <!-- TailwindCSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome -->
+  <script>
+    window.FontAwesomeConfig = { autoReplaceSvg: 'nest' };
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"
+          crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <!-- Base styles -->
+  <style>
+    * { font-family: "Inter", sans-serif; }
+    ::-webkit-scrollbar { display: none; }
+
+    .highlighted-section {
+      outline: 2px solid var(--color-secondary);
+      background-color: rgba(63, 32, 251, 0.1);
+    }
+    .edit-button {
+      position: absolute;
+      z-index: 1000;
+    }
+    
+    /* FAQ Styles */
+    .faq-content {
+      transition: all 0.3s ease;
+    }
+    .faq-content:not(.hidden) {
+      animation: fadeInDown 0.5s ease;
+    }
+    .fa-chevron-up {
+      transform: rotate(180deg);
+      transition: transform 0.3s ease;
+    }
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+
+  <!-- Color variables -->
+  <style>
+    :root {
+      /* Base */
+      --color-base: #ffffff;
+      /* Primary */
+      --color-primary: #3b82f6;
+    }
+    .dark {
+      /* Dark-mode overrides */
+    }
+  </style>
+
+  <!-- Tailwind configuration -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            /* your extended palette */
+          }
+        }
+      },
+      variants: {
+        extend: {
+          backgroundColor: ['active','group-hover'],
+          textColor: ['active','group-hover']
+        }
+      },
+      plugins: []
+    };
+  </script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/index.css">
+    
+</head>
+<body class="bg-[var(--color-bg)] text-[var(--color-text)]">
+  <!-- Scroll Progress Bar (moved above header) -->
+  <div class="scroll-progress-container">
+    <div class="scroll-progress-bar"></div>
+  </div>
+  
+  <!-- Header --> 
+  <header id="header-placeholder" class="bg-[var(--color-bg)] border-b border-[var(--color-border)]"> 
+    <!-- Header will be loaded by JavaScript --> 
+  </header> 
+  
+  <div class="pt-20">
+    <!-- Hero Section -->
+    <section id="how-it-works-hero" class="bg-[var(--color-bg-alt)] py-16">
+      <div class="container mx-auto px-6 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6 text-[var(--color-text)]">How Tsafira Works</h1>
+        <p class="text-[var(--color-text-muted)] max-w-2xl mx-auto">
+          Your perfect Moroccan adventure is just three simple steps away. Let us handle the planning while you focus on the excitement of discovery.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6"> 
+          <a href="../pages/wizard.html" class="bg-[var(--color-text-inverse)] text-[var(--color-primary)] font-medium px-8 py-3 rounded-full hover:bg-gray-100 transition-colors duration-300 shadow-sm">
+            Start Planning
+          </a> 
+          <a href="../pages/contact.html" class="border-2 border-[var(--color-text-inverse)] px-8 py-3 rounded-full hover:bg-[var(--color-text-inverse)] hover:text-[var(--color-primary)] transition-colors duration-300">
+            Contact Us
+          </a> 
+        </div> 
+      </div>
+    </section>
+  
+    <!-- Process Overview -->
+    <section id="process-overview" class="py-16 bg-[var(--color-bg)]">
+      <div class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-8 mb-16">
+          <div class="w-full md:w-1/3 text-center">
+            <div class="bg-[var(--color-bg-accent)] rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+              <i class="fa-solid fa-input-text text-3xl text-[var(--color-primary)]"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-2 text-[var(--color-text)]">Step 1</h3>
+            <p class="text-[var(--color-text-muted)]">Share your travel preferences and requirements</p>
+          </div>
+          <div class="w-full md:w-1/3 text-center">
+            <div class="bg-[var(--color-bg-accent)] rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+              <i class="fa-solid fa-wand-magic-sparkles text-3xl text-[var(--color-primary)]"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-2 text-[var(--color-text)]">Step 2</h3>
+            <p class="text-[var(--color-text-muted)]">Our system generates your personalized itinerary</p>
+          </div>
+          <div class="w-full md:w-1/3 text-center">
+            <div class="bg-[var(--color-bg-accent)] rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+              <i class="fa-solid fa-plane-departure text-3xl text-[var(--color-primary)]"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-2 text-[var(--color-text)]">Step 3</h3>
+            <p class="text-[var(--color-text-muted)]">Review, customize, and start your journey</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Step 1 -->
+    <section id="step-1" class="py-16 bg-[var(--color-bg-alt)]">
+      <div class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row items-center gap-12">
+          <div class="w-full md:w-1/2">
+            <h2 class="text-3xl font-bold mb-6 text-[var(--color-text)]">Step 1: Tell Us Your Travel Basics</h2>
+            <div class="space-y-6">
+              <div class="flex items-start">
+                <i class="fa-solid fa-wallet text-[var(--color-primary)] mt-1 w-6"></i>
+                <div class="ml-4">
+                  <h4 class="font-semibold mb-2 text-[var(--color-text)]">Set Your Budget</h4>
+                  <p class="text-[var(--color-text-muted)]">Define your spending range to ensure recommendations match your financial comfort.</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <i class="fa-solid fa-calendar text-[var(--color-primary)] mt-1 w-6"></i>
+                <div class="ml-4">
+                  <h4 class="font-semibold mb-2 text-[var(--color-text)]">Choose Your Dates</h4>
+                  <p class="text-[var(--color-text-muted)]">Select your travel period with flexible options for the best experience.</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <i class="fa-solid fa-plane text-[var(--color-primary)] mt-1 w-6"></i>
+                <div class="ml-4">
+                  <h4 class="font-semibold mb-2 text-[var(--color-text)]">Departure Location</h4>
+                  <p class="text-[var(--color-text-muted)]">Tell us where you're starting from for seamless travel planning.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="w-full md:w-1/2">
+            <div class="bg-[var(--color-bg)] rounded-xl shadow-lg p-8">
+              <img class="w-full h-64 object-cover rounded-lg mb-6" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/9559b87950-1d76ff43eeb0e365b6d7.png" alt="travel planning interface mockup with budget slider and calendar selection, modern UI design" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Step 2 -->
+    <section id="step-2" class="py-16 bg-[var(--color-bg)]">
+      <div class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row items-center gap-12">
+          <div class="w-full md:w-1/2 order-2 md:order-1">
+            <div class="bg-[var(--color-bg)] rounded-xl shadow-lg p-8">
+              <img class="w-full h-64 object-cover rounded-lg mb-6" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/1680a80783-3dde4846fe6e10854307.png" alt="travel preferences selection interface with icons for cultural, nature, luxury options, modern UI" />
+            </div>
+          </div>
+          <div class="w-full md:w-1/2 order-1 md:order-2">
+            <h2 class="text-3xl font-bold mb-6 text-[var(--color-text)]">Step 2: Share Your Travel Style</h2>
+            <div class="space-y-6">
+              <div class="flex items-start">
+                <i class="fa-solid fa-landmark text-[var(--color-primary)] mt-1 w-6"></i>
+                <div class="ml-4">
+                  <h4 class="font-semibold mb-2 text-[var(--color-text)]">Cultural Experiences</h4>
+                  <p class="text-[var(--color-text-muted)]">Select your interest in historical sites, museums, and local events.</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <i class="fa-solid fa-mountain text-[var(--color-primary)] mt-1 w-6"></i>
+                <div class="ml-4">
+                  <h4 class="font-semibold mb-2 text-[var(--color-text)]">Nature Adventures</h4>
+                  <p class="text-[var(--color-text-muted)]">Choose outdoor activities and natural attractions you'd like to explore.</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <i class="fa-solid fa-star text-[var(--color-primary)] mt-1 w-6"></i>
+                <div class="ml-4">
+                  <h4 class="font-semibold mb-2 text-[var(--color-text)]">Luxury Preferences</h4>
+                  <p class="text-[var(--color-text-muted)]">Indicate your interest in premium accommodations and experiences.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Step 3 -->
+    <section id="step-3" class="py-16 bg-[var(--color-bg-alt)]">
+      <div class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row items-center gap-12">
+          <div class="w-full md:w-1/2">
+            <h2 class="text-3xl font-bold mb-6 text-[var(--color-text)]">Step 3: Receive Your Custom Itinerary</h2>
+            <div class="space-y-6">
+              <div class="flex items-start">
+                <i class="fa-solid fa-route text-[var(--color-primary)] mt-1 w-6"></i>
+                <div class="ml-4">
+                  <h4 class="font-semibold mb-2 text-[var(--color-text)]">Day-by-Day Planning</h4>
+                  <p class="text-[var(--color-text-muted)]">Get a detailed breakdown of activities and attractions for each day.</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <i class="fa-solid fa-hotel text-[var(--color-primary)] mt-1 w-6"></i>
+                <div class="ml-4">
+                  <h4 class="font-semibold mb-2 text-[var(--color-text)]">Accommodation Options</h4>
+                  <p class="text-[var(--color-text-muted)]">View recommended stays that match your preferences and budget.</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <i class="fa-solid fa-edit text-[var(--color-primary)] mt-1 w-6"></i>
+                <div class="ml-4">
+                  <h4 class="font-semibold mb-2 text-[var(--color-text)]">Easy Customization</h4>
+                  <p class="text-[var(--color-text-muted)]">Modify and adjust your itinerary until it's perfect for you.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="w-full md:w-1/2">
+            <div class="bg-[var(--color-bg)] rounded-xl shadow-lg p-8">
+              <img class="w-full h-64 object-cover rounded-lg mb-6" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/a8660c43d2-161cc7c4b7ce91eadbe2.png" alt="travel itinerary interface showing day by day schedule with activities and map, modern UI design" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <!-- FAQ Section -->
+    <section id="faq" class="py-16 bg-[var(--color-bg)]">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-12 text-[var(--color-text)]">Frequently Asked Questions</h2>
+        <div class="max-w-3xl mx-auto space-y-6">
+          <!-- FAQ Item 1 -->
+          <div class="bg-[var(--color-bg)] rounded-lg shadow-md border border-[var(--color-border)]">
+            <button class="faq-toggle w-full px-6 py-4 text-left focus:outline-none hover:bg-[var(--color-bg-alt)]">
+              <div class="flex items-center justify-between">
+                <span class="font-semibold text-[var(--color-text)]">How accurate are the budget estimates?</span>
+                <i class="fa-solid fa-chevron-down text-[var(--color-text-muted)] transition-transform duration-300"></i>
+              </div>
+            </button>
+            <div class="faq-content px-6 pb-4 hidden">
+              <p class="text-[var(--color-text-muted)]">
+                Our budget estimates are based on real-time data and local market rates, typically accurate within 10-15% of actual costs.
+              </p>
+            </div>
+          </div>
+          
+          <!-- FAQ Item 2 -->
+          <div class="bg-[var(--color-bg)] rounded-lg shadow-md border border-[var(--color-border)]">
+            <button class="faq-toggle w-full px-6 py-4 text-left focus:outline-none hover:bg-[var(--color-bg-alt)]">
+              <div class="flex items-center justify-between">
+                <span class="font-semibold text-[var(--color-text)]">Can I customize the generated itinerary?</span>
+                <i class="fa-solid fa-chevron-down text-[var(--color-text-muted)] transition-transform duration-300"></i>
+              </div>
+            </button>
+            <div class="faq-content px-6 pb-4 hidden">
+              <p class="text-[var(--color-text-muted)]">
+                Yes! You can fully customize every aspect of your itinerary, from accommodations to activities and transportation options.
+              </p>
+            </div>
+          </div>
+          
+          <!-- FAQ Item 3 -->
+          <div class="bg-[var(--color-bg)] rounded-lg shadow-md border border-[var(--color-border)]">
+            <button class="faq-toggle w-full px-6 py-4 text-left focus:outline-none hover:bg-[var(--color-bg-alt)]">
+              <div class="flex items-center justify-between">
+                <span class="font-semibold text-[var(--color-text)]">Is there a mobile app available?</span>
+                <i class="fa-solid fa-chevron-down text-[var(--color-text-muted)] transition-transform duration-300"></i>
+              </div>
+            </button>
+            <div class="faq-content px-6 pb-4 hidden">
+              <p class="text-[var(--color-text-muted)]">
+                Currently, we offer a mobile-responsive web application that works seamlessly on all devices. A dedicated mobile app is under development and coming soon.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+  <!-- Footer Placeholder -->
+  <footer id="footer-placeholder">
+    <!-- Footer will be loaded by JavaScript -->
+  </footer>
+  
+  <!-- JavaScript imports -->
+  <script type="module" src="../js/main.js"></script>
+  <script type="module" src="../js/how-it-works.js"></script>
+</body>
+</html>

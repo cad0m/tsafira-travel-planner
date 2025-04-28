@@ -1,0 +1,166 @@
+/* Main styling for Tsafira website */
+/* CSS Variables for light/dark themes */
+:root {
+  --color-primary: #F26522;
+  --color-primary-hover: #e05a1a;
+  --color-secondary: #3F20FB;
+  --color-text: #1f2937;
+  --color-text-inverse: #ffffff;
+  --color-text-muted: #6b7280;
+  --color-bg: #ffffff;
+  --color-bg-alt: #f9fafb;
+  --color-bg-accent: #f3f4f6;
+  --color-border: #e5e7eb;
+}
+
+.dark {
+  --color-primary: #ff7733;
+  --color-primary-hover: #ff8c4d;
+  --color-secondary: #4f46e5;
+  --color-text: #f3f4f6;
+  --color-text-inverse: #ffffff;
+  --color-text-muted: #9ca3af;
+  --color-bg: #1f2937;
+  --color-bg-alt: #111827;
+  --color-bg-accent: #2d3748;
+  --color-border: #374151;
+}
+
+/* Base styles */
+* { 
+  font-family: "Inter", sans-serif; 
+}
+::-webkit-scrollbar { 
+  display: none; 
+}
+
+/* Scroll progress bar */
+.scroll-progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+}
+
+.dark .scroll-progress-container {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.scroll-progress-bar {
+  height: 100%;
+  background: var(--color-primary);
+  width: 0%;
+  border-radius: 0 2px 2px 0;
+  box-shadow: 0 1px 3px rgba(242, 101, 34, 0.3);
+  transition: width 0.1s ease;
+}
+
+.dark .scroll-progress-bar {
+  background: var(--color-primary);
+  box-shadow: 0 1px 3px rgba(255, 119, 51, 0.3);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.animate-fadeOut {
+  animation: fadeOut 0.3s ease-out;
+}
+
+/* Form elements styling */
+input, select, textarea {
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+input[type="checkbox"] {
+  accent-color: var(--color-primary);
+}
+
+/* Button hover effects */
+button:hover:not(:disabled), 
+a.btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+button:active:not(:disabled), 
+a.btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* Mobile menu transition */
+#mobile-menu {
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
+#mobile-menu.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+#mobile-menu:not(.hidden) {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Theme toggle button styling */
+#theme-toggle {
+  transition: background-color 0.3s ease;
+}
+
+#theme-toggle:hover {
+  opacity: 0.9;
+}
+
+/* Dark mode transition effects */
+html.transition,
+html.transition *,
+html.transition *:before,
+html.transition *:after {
+  transition: all 0.3s ease-in-out !important;
+  transition-delay: 0 !important;
+}
+
+/* Fix for header & z-index hierarchy */
+#header {
+  z-index: 990 !important;
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  .desktop-only {
+    display: block;
+  }
+  
+  .mobile-only {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .desktop-only {
+    display: none;
+  }
+  
+  .mobile-only {
+    display: block;
+  }
+}

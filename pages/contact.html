@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tsafira | Contact Us</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- ApexCharts (if ever needed) -->
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <!-- TailwindCSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome -->
+  <script>
+    window.FontAwesomeConfig = { autoReplaceSvg: 'nest' };
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"
+          crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <!-- Base styles -->
+  <style>
+    * { font-family: "Inter", sans-serif; }
+    ::-webkit-scrollbar { display: none; }
+
+    .highlighted-section {
+      outline: 2px solid var(--color-secondary);
+      background-color: rgba(63, 32, 251, 0.1);
+    }
+    .edit-button {
+      position: absolute;
+      z-index: 1000;
+    }
+    
+    /* FAQ Styles */
+    .faq-content {
+      transition: all 0.3s ease;
+    }
+    .faq-content:not(.hidden) {
+      animation: fadeInDown 0.5s ease;
+    }
+    .fa-chevron-up {
+      transform: rotate(180deg);
+      transition: transform 0.3s ease;
+    }
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+
+  <!-- Color variables -->
+  <style>
+    :root {
+      /* Base */
+      --color-bg: #ffffff;
+      --color-bg-alt: #f9fafb;
+      --color-bg-accent: #f3f4f6;
+      --color-border: #e5e7eb;
+      /* Text */
+      --color-text: #111827;
+      --color-text-muted: #4b5563;
+      --color-text-inverse: #ffffff;
+      /* Primary */
+      --color-primary: #f97316;
+      --color-primary-hover: #ea580c;
+      --color-primary-dark: #c2410c;
+    }
+    .dark {
+      --color-bg: #111827;
+      --color-bg-alt: #1f2937;
+      --color-bg-accent: #374151;
+      --color-border: #374151;
+      --color-text: #f9fafb;
+      --color-text-muted: #d1d5db;
+      --color-text-inverse: #111827;
+      --color-primary: #f97316;
+      --color-primary-hover: #fb923c;
+      --color-primary-dark: #ea580c;
+    }
+  </style>
+
+  <!-- Tailwind configuration -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            /* your extended palette */
+          }
+        }
+      },
+      variants: {
+        extend: {
+          backgroundColor: ['active','group-hover'],
+          textColor: ['active','group-hover']
+        }
+      },
+      plugins: []
+    };
+  </script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/contact.css">
+</head>
+<body class="bg-[var(--color-bg)] text-[var(--color-text)]">
+  <div class="scroll-progress-container">
+    <div class="scroll-progress-bar"></div>
+  </div>
+  
+  <header id="header-placeholder" class="bg-[var(--color-bg)] border-b border-[var(--color-border)]"> 
+    <!-- Header will be loaded by JavaScript --> 
+  </header>
+  
+  <div class="pt-20">
+    <!-- Hero --> 
+    <section id="hero" class="relative h-[400px]"> 
+      <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/bd5be4968b-4d4c1ecad1744754586b.png" alt="Customer service team" class="w-full h-full object-cover"> 
+      <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center"> 
+        <div class="container mx-auto px-4 sm:px-6 text-white"> 
+          <h1 class="text-4xl sm:text-5xl font-bold mb-4">Contact Us</h1> 
+          <p class="text-xl">We're Here to Help With Your Morocco Travel Questions</p> 
+        </div> 
+      </div> 
+    </section> 
+  
+    <!-- Contact Tabs --> 
+    <section id="contact-tabs" class="py-16 lg:py-20 bg-[var(--color-bg)]"> 
+      <div class="container mx-auto px-4 sm:px-6"> 
+        <div class="flex gap-4 sm:gap-8 mb-12 border-b border-[var(--color-border)]"> 
+          <button id="general-tab" class="text-[var(--color-primary)] border-b-2 border-[var(--color-primary)] pb-4 px-4"> 
+            General Inquiries 
+          </button> 
+          <button id="press-tab" class="text-[var(--color-text-muted)] hover:text-[var(--color-text)] pb-4 px-4"> 
+            Press & Partnerships 
+          </button> 
+        </div> 
+        <!-- General Inquiries Form --> 
+        <div id="general-form" class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12"> 
+          <div class="space-y-6"> 
+            <form id="contact-form" class="space-y-6"> 
+              <div> 
+                <label for="fullname" class="block text-sm font-medium text-[var(--color-text)] mb-2">Full Name *</label> 
+                <input type="text" id="fullname" name="name" required class="w-full px-4 py-2 border border-[var(--color-border)] rounded-lg bg-[var(--color-bg)] text-[var(--color-text)]"> 
+              </div> 
+              <div> 
+                <label for="email" class="block text-sm font-medium text-[var(--color-text)] mb-2">Email Address *</label> 
+                <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-[var(--color-border)] rounded-lg bg-[var(--color-bg)] text-[var(--color-text)]"> 
+              </div> 
+              <div> 
+                <label for="phone" class="block text-sm font-medium text-[var(--color-text)] mb-2">Phone Number</label> 
+                <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border border-[var(--color-border)] rounded-lg bg-[var(--color-bg)] text-[var(--color-text)]"> 
+              </div> 
+              <div> 
+                <label for="subject" class="block text-sm font-medium text-[var(--color-text)] mb-2">Subject *</label> 
+                <select id="subject" required class="w-full px-4 py-2 border border-[var(--color-border)] rounded-lg bg-[var(--color-bg)] text-[var(--color-text)]"> 
+                  <option value="">Please select...</option>
+                  <option value="trip-planning">Trip Planning Question</option> 
+                  <option value="booking">Booking Assistance</option> 
+                  <option value="reservation">Existing Reservation</option> 
+                  <option value="feedback">Feedback</option> 
+                  <option value="other">Other</option> 
+                </select> 
+              </div> 
+              <div> 
+                <label for="message" class="block text-sm font-medium text-[var(--color-text)] mb-2">Message *</label> 
+                <textarea id="message" name="message" required rows="5" class="w-full px-4 py-2 border border-[var(--color-border)] rounded-lg bg-[var(--color-bg)] text-[var(--color-text)]"></textarea> 
+              </div> 
+              <div class="flex items-start gap-2"> 
+                <input type="checkbox" id="newsletter" class="mt-1"> 
+                <label for="newsletter" class="text-sm text-[var(--color-text-muted)]"> 
+                  Subscribe to our newsletter for travel tips and exclusive offers 
+                </label> 
+              </div> 
+              <div class="flex items-start gap-2"> 
+                <input type="checkbox" required id="privacy" class="mt-1"> 
+                <label for="privacy" class="text-sm text-[var(--color-text-muted)]"> 
+                  I agree to the privacy policy and terms of service * 
+                </label> 
+              </div> 
+              <button type="submit" class="w-full bg-[var(--color-primary)] text-[var(--color-text-inverse)] py-3 rounded-lg hover:bg-[var(--color-primary-hover)] transition-colors duration-300"> 
+                Send Message 
+              </button> 
+            </form> 
+            <p class="text-sm text-[var(--color-text-muted)]">* We typically respond within 24 hours during business days</p> 
+          </div> 
+          <div class="space-y-8"> 
+            <div class="bg-[var(--color-bg-alt)] p-8 rounded-xl border border-[var(--color-border)]"> 
+              <h3 class="text-xl font-bold mb-6 text-[var(--color-text)]">Quick Contact</h3> 
+              <div class="space-y-4"> 
+                <div class="flex items-center gap-3"> 
+                  <i class="fa-regular fa-envelope text-[var(--color-primary)]"></i> 
+                  <span class="text-[var(--color-text)]">info@tsafira.com</span> 
+                </div> 
+                <div class="flex items-center gap-3"> 
+                  <i class="fa-solid fa-phone text-[var(--color-primary)]"></i> 
+                  <span class="text-[var(--color-text)]">+212 6XX XXX XXX</span> 
+                </div> 
+                <div class="flex items-center gap-3"> 
+                  <i class="fa-brands fa-whatsapp text-[var(--color-primary)]"></i> 
+                  <span class="text-[var(--color-text)]">+212 6XX XXX XXX</span> 
+                </div> 
+                <div class="flex items-center gap-3"> 
+                  <i class="fa-regular fa-clock text-[var(--color-primary)]"></i> 
+                  <span class="text-[var(--color-text)]">Mon–Fri: 9AM–6PM (GMT+1)</span> 
+                </div> 
+              </div> 
+            </div> 
+            <div class="bg-[var(--color-bg-alt)] p-8 rounded-xl border border-[var(--color-border)]"> 
+              <h3 class="text-xl font-bold mb-4 text-[var(--color-text)]">Follow Us</h3> 
+              <div class="flex gap-4"> 
+                <span class="text-[var(--color-text-muted)] hover:text-[var(--color-primary)] cursor-pointer transition-colors duration-300"> 
+                  <i class="fa-brands fa-facebook text-2xl"></i> 
+                </span> 
+                <span class="text-[var(--color-text-muted)] hover:text-[var(--color-primary)] cursor-pointer transition-colors duration-300"> 
+                  <i class="fa-brands fa-instagram text-2xl"></i> 
+                </span> 
+                <span class="text-[var(--color-text-muted)] hover:text-[var(--color-primary)] cursor-pointer transition-colors duration-300"> 
+                  <i class="fa-brands fa-twitter text-2xl"></i> 
+                </span> 
+              </div> 
+            </div> 
+            <div class="bg-[var(--color-bg-accent)] p-8 rounded-xl border border-[var(--color-primary)] border-opacity-20"> 
+              <h3 class="text-xl font-bold mb-4 text-[var(--color-text)]">Need Quick Answers?</h3> 
+              <p class="text-[var(--color-text-muted)] mb-4"> 
+                Check our frequently asked questions for immediate assistance. 
+              </p> 
+              <a href="../pages/faq.html" class="text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] font-medium inline-flex items-center group"> 
+                View FAQs <i class="fa-solid fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i> 
+              </a> 
+            </div> 
+          </div> 
+        </div> 
+  
+        <!-- Press & Partnerships Form (hidden by default) --> 
+        <div id="press-form" class="hidden grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12"> 
+          <div class="space-y-6"> 
+            <form id="press-contact-form" class="space-y-6"> 
+              <div> 
+                <label for="press-fullname" class="block text-sm font-medium text-[var(--color-text)] mb-2">Full Name *</label> 
+                <input type="text" id="press-fullname" name="name" required class="w-full px-4 py-2 border border-[var(--color-border)] rounded-lg bg-[var(--color-bg)] text-[var(--color-text)]"> 
+              </div> 
+              <div> 
+                <label for="company" class="block text-sm font-medium text-[var(--color-text)] mb-2">Company/Organization *</label> 
+                <input type="text" id="company" name="company" required class="w-full px-4 py-2 border border-[var(--color-border)] rounded-lg bg-[var(--color-bg)] text-[var(--color-text)]"> 
+              </div>
+              <div> 
+                <label for="press-email" class="block text-sm font-medium text-[var(--color-text)] mb-2">Email Address *</label> 
+                <input type="email" id="press-email" name="email" required class="w-full px-4 py-2 border border-[var(--color-border)] rounded-lg bg-[var(--color-bg)] text-[var(--color-text)]"> 
+              </div> 
+              <div> 
+                <label for="press-phone" class="block text-sm font-medium text-[var(--color-text)] mb-2">Phone Number</label> 
+                <input type="tel" id="press-phone" name="phone" class="w-full px-4 py-2 border border-[var(--color-border)] rounded-lg bg-[var(--color-bg)] text-[var(--color-text)]"> 
+              </div> 
+              <div> 
+                <label for="inquiry-type" class="block text-sm font-medium text-[var(--color-text)] mb-2">Inquiry Type *</label> 
+                <select id="inquiry-type" name="inquiryType" required class="w-full px-4 py-2 border border-[var(--color-border)] rounded-lg bg-[var(--color-bg)] text-[var(--color-text)]"> 
+                  <option value="">Please select...</option>
+                  <option value="media">Media Coverage</option> 
+                  <option value="partnership">Business Partnership</option> 
+                  <option value="collaboration">Content Collaboration</option> 
+                  <option value="influencer">Influencer Partnership</option>
+                  <option value="other">Other</option> 
+                </select> 
+              </div> 
+              <div> 
+                <label for="press-message" class="block text-sm font-medium text-[var(--color-text)] mb-2">Message *</label> 
+                <textarea id="press-message" name="message" required rows="5" class="w-full px-4 py-2 border border-[var(--color-border)] rounded-lg bg-[var(--color-bg)] text-[var(--color-text)]"></textarea> 
+              </div> 
+              <div class="flex items-start gap-2"> 
+                <input type="checkbox" required id="privacy-press" class="mt-1"> 
+                <label for="privacy-press" class="text-sm text-[var(--color-text-muted)]"> 
+                  I agree to the privacy policy and terms of service * 
+                </label> 
+              </div> 
+              <button type="submit" class="w-full bg-[var(--color-primary)] text-[var(--color-text-inverse)] py-3 rounded-lg hover:bg-[var(--color-primary-hover)] transition-colors duration-300"> 
+                Submit Inquiry 
+              </button> 
+            </form> 
+            <p class="text-sm text-[var(--color-text-muted)]">* We typically respond within 48 hours during business days</p> 
+          </div>
+          <div class="space-y-8"> 
+            <div class="bg-[var(--color-bg-alt)] p-8 rounded-xl border border-[var(--color-border)]"> 
+              <h3 class="text-xl font-bold mb-6 text-[var(--color-text)]">Press & Partnerships</h3> 
+              <div class="space-y-4"> 
+                <div class="flex items-center gap-3"> 
+                  <i class="fa-regular fa-envelope text-[var(--color-primary)]"></i> 
+                  <span class="text-[var(--color-text)]">partnerships@tsafira.com</span> 
+                </div> 
+                <div class="flex items-center gap-3"> 
+                  <i class="fa-solid fa-phone text-[var(--color-primary)]"></i> 
+                  <span class="text-[var(--color-text)]">+212 6XX XXX XXX</span> 
+                </div> 
+                <div class="flex items-center gap-3"> 
+                  <i class="fa-regular fa-clock text-[var(--color-primary)]"></i> 
+                  <span class="text-[var(--color-text)]">Mon–Fri: 9AM–6PM (GMT+1)</span> 
+                </div> 
+              </div> 
+            </div> 
+            <div class="bg-[var(--color-bg-accent)] p-8 rounded-xl border border-[var(--color-border)]"> 
+              <h3 class="text-xl font-bold mb-4 text-[var(--color-text)]">Media Kit</h3> 
+              <p class="text-[var(--color-text-muted)] mb-4"> 
+                Download our press kit containing logos, company information, and high-resolution images. 
+              </p> 
+              <a href="/media-kit" class="text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] font-medium inline-flex items-center group"> 
+                Download Media Kit <i class="fa-solid fa-download ml-2 transition-transform duration-300 group-hover:translate-y-1"></i> 
+              </a> 
+            </div> 
+            <div class="bg-[var(--color-bg-alt)] p-8 rounded-xl border border-[var(--color-border)]"> 
+              <h3 class="text-xl font-bold mb-4 text-[var(--color-text)]">Our Partners</h3> 
+              <p class="text-[var(--color-text-muted)] mb-4"> 
+                We're proud to work with leading brands and organizations in the travel industry.
+              </p> 
+              <a href="/partners" class="text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] font-medium inline-flex items-center group"> 
+                View Our Partners <i class="fa-solid fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i> 
+              </a> 
+            </div> 
+          </div> 
+        </div>
+      </div> 
+    </section> 
+  
+    <!-- FAQ Preview --> 
+    <section id="faq-preview" class="py-16 lg:py-20 bg-[var(--color-bg-alt)]"> 
+      <div class="container mx-auto px-4 sm:px-6"> 
+        <h2 class="text-3xl font-bold text-center mb-12 text-[var(--color-text)]">Frequently Asked Questions</h2> 
+        <div class="max-w-3xl mx-auto space-y-4"> 
+          <!-- FAQ Item 1 -->
+          <div class="bg-[var(--color-bg)] rounded-lg shadow-md border border-[var(--color-border)]">
+            <button class="faq-toggle w-full px-6 py-4 text-left focus:outline-none hover:bg-[var(--color-bg-alt)]">
+              <div class="flex items-center justify-between">
+                <span class="font-semibold text-[var(--color-text)]">How do I customize my trip itinerary?</span>
+                <i class="fa-solid fa-chevron-down text-[var(--color-primary)] transition-transform duration-300"></i>
+              </div>
+            </button>
+            <div class="faq-content px-6 pb-4 hidden">
+              <p class="text-[var(--color-text-muted)]">
+                After receiving your initial itinerary, you can customize it through your account dashboard. Simply click on the "Modify Itinerary" button and make your desired changes, or contact our support team for assistance.
+              </p>
+            </div>
+          </div>
+          
+          <!-- FAQ Item 2 -->
+          <div class="bg-[var(--color-bg)] rounded-lg shadow-md border border-[var(--color-border)]">
+            <button class="faq-toggle w-full px-6 py-4 text-left focus:outline-none hover:bg-[var(--color-bg-alt)]">
+              <div class="flex items-center justify-between">
+                <span class="font-semibold text-[var(--color-text)]">What payment methods do you accept?</span>
+                <i class="fa-solid fa-chevron-down text-[var(--color-primary)] transition-transform duration-300"></i>
+              </div>
+            </button>
+            <div class="faq-content px-6 pb-4 hidden">
+              <p class="text-[var(--color-text-muted)]">
+                We accept all major credit cards (Visa, Mastercard, American Express), PayPal, bank transfers, and in some destinations, local payment methods. All payments are processed securely through our encrypted payment system.
+              </p>
+            </div>
+          </div>
+          
+          <!-- FAQ Item 3 -->
+          <div class="bg-[var(--color-bg)] rounded-lg shadow-md border border-[var(--color-border)]">
+            <button class="faq-toggle w-full px-6 py-4 text-left focus:outline-none hover:bg-[var(--color-bg-alt)]">
+              <div class="flex items-center justify-between">
+                <span class="font-semibold text-[var(--color-text)]">Can I modify my booking after confirmation?</span>
+                <i class="fa-solid fa-chevron-down text-[var(--color-primary)] transition-transform duration-300"></i>
+              </div>
+            </button>
+            <div class="faq-content px-6 pb-4 hidden">
+              <p class="text-[var(--color-text-muted)]">
+                Yes, you can modify your booking after confirmation, subject to our modification policy. Changes made within 30 days of travel may incur additional fees. Please contact our customer service team for assistance with any changes.
+              </p>
+            </div>
+          </div>
+        </div> 
+        <div class="text-center mt-8"> 
+          <a href="/pages/faq.html" class="text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] font-medium inline-flex items-center group"> 
+            View All FAQs <i class="fa-solid fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i> 
+          </a> 
+        </div> 
+      </div> 
+    </section> 
+  
+    <!-- CTA --> 
+    <section id="cta" class="py-16 lg:py-20 bg-[var(--color-primary)] text-[var(--color-text-inverse)]"> 
+      <div class="container mx-auto px-4 sm:px-6 text-center"> 
+        <h2 class="text-3xl font-bold mb-6">Ready to Start Your Moroccan Adventure?</h2> 
+        <p class="text-xl mb-8"> 
+          Let us help you create your perfect trip within your budget. 
+        </p> 
+        <div class="flex flex-col sm:flex-row justify-center gap-4"> 
+          <a href="/pages/wizard.html" class="bg-[var(--color-text-inverse)] text-[var(--color-primary)] px-8 py-3 rounded-full hover:bg-gray-100 transition-colors duration-300 inline-block"> 
+            Plan Your Trip
+          </a> 
+          <a href="/pages/destinations.html" class="border-2 border-[var(--color-text-inverse)] px-8 py-3 rounded-full hover:bg-[var(--color-primary-dark)] transition-colors duration-300 inline-block"> 
+            Browse Destinations
+          </a> 
+        </div> 
+      </div> 
+    </section>
+  </div>
+
+  <footer id="footer-placeholder" class="bg-[var(--color-bg)] border-t border-[var(--color-border)]">
+    <!-- Footer will be loaded by JavaScript -->
+  </footer>
+
+  <script type="module" src="../js/main.js"></script>
+  <script type="module">
+    import { initCommonPageFunctions } from '../js/page-common.js';
+    import { validateInput, isValidEmail, isValidPhone, isValidName } from '../js/validate.js';
+    
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('Contact page initialized');
+      
+      // Initialize common page functionality
+      initCommonPageFunctions();
+      
+      // Tab switching 
+      document.getElementById('general-tab').addEventListener('click', function() { 
+        document.getElementById('general-form').classList.remove('hidden'); 
+        document.getElementById('press-form').classList.add('hidden'); 
+        this.classList.add('text-[var(--color-primary)]', 'border-b-2', 'border-[var(--color-primary)]'); 
+        document.getElementById('press-tab').classList.remove('text-[var(--color-primary)]', 'border-b-2', 'border-[var(--color-primary)]');
+        document.getElementById('press-tab').classList.add('text-[var(--color-text-muted)]');
+      }); 
+      
+      document.getElementById('press-tab').addEventListener('click', function() { 
+        document.getElementById('press-form').classList.remove('hidden'); 
+        document.getElementById('general-form').classList.add('hidden'); 
+        this.classList.add('text-[var(--color-primary)]', 'border-b-2', 'border-[var(--color-primary)]'); 
+        document.getElementById('general-tab').classList.remove('text-[var(--color-primary)]', 'border-b-2', 'border-[var(--color-primary)]');
+        document.getElementById('general-tab').classList.add('text-[var(--color-text-muted)]');
+      });
+      
+      // Form validation for general inquiries
+      const contactForm = document.getElementById('contact-form');
+      if (contactForm) {
+        const formInputs = contactForm.querySelectorAll('input, textarea, select');
+        
+        // Add blur event listeners to validate fields
+        formInputs.forEach(input => {
+          if (input.type !== 'checkbox') {
+            input.addEventListener('blur', function() {
+              validateInput(this);
+            });
+          }
+        });
+        
+        // Form submission
+        contactForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          let isValid = true;
+          
+          // Validate all fields
+          formInputs.forEach(input => {
+            if (input.type !== 'checkbox') {
+              if (!validateInput(input)) {
+                isValid = false;
+              }
+            }
+          });
+          
+          if (isValid) {
+            // Here you would normally send the form data to the server
+            alert('Thank you for your message! We will get back to you soon.');
+            contactForm.reset();
+          }
+        });
+      }
+      
+      // Form validation for press inquiries
+      const pressForm = document.getElementById('press-contact-form');
+      if (pressForm) {
+        const formInputs = pressForm.querySelectorAll('input, textarea, select');
+        
+        // Add blur event listeners to validate fields
+        formInputs.forEach(input => {
+          if (input.type !== 'checkbox') {
+            input.addEventListener('blur', function() {
+              validateInput(this);
+            });
+          }
+        });
+        
+        // Form submission
+        pressForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          let isValid = true;
+          
+          // Validate all fields
+          formInputs.forEach(input => {
+            if (input.type !== 'checkbox') {
+              if (!validateInput(input)) {
+                isValid = false;
+              }
+            }
+          });
+          
+          if (isValid) {
+            // Here you would normally send the form data to the server
+            alert('Thank you for your inquiry! Our team will contact you within 48 hours.');
+            pressForm.reset();
+          }
+        });
+      }
+      
+      // Initialize FAQ toggles
+      setupFAQs();
+    });
+    
+    /**
+     * Sets up FAQ toggle functionality
+     */
+    function setupFAQs() {
+      // Get all the toggles
+      const toggles = document.querySelectorAll('.faq-toggle');
+      console.log('Found', toggles.length, 'FAQ toggles');
+      
+      // Add click handler to each toggle
+      for (let i = 0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        
+        // Add click handler
+        toggle.onclick = function() {
+          // Get the next element (content panel) and the icon
+          const content = this.nextElementSibling;
+          const icon = this.querySelector('i');
+          
+          // Toggle hidden class
+          if (content.classList.contains('hidden')) {
+            content.classList.remove('hidden');
+          } else {
+            content.classList.add('hidden');
+          }
+          
+          // Toggle icon
+          if (icon) {
+            if (icon.classList.contains('fa-chevron-down')) {
+              icon.classList.remove('fa-chevron-down');
+              icon.classList.add('fa-chevron-up');
+            } else {
+              icon.classList.remove('fa-chevron-up');
+              icon.classList.add('fa-chevron-down');
+            }
+          }
+        };
+      }
+    }
+  </script>
+</body>
+</html>

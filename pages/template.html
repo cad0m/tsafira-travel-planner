@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tsafira | Page Template</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  
+  <!-- Tailwind CSS with dark mode enabled -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              DEFAULT: '#F26522',
+              dark: '#ff7733',
+            },
+            secondary: {
+              DEFAULT: '#3F20FB',
+              dark: '#4f46e5',
+            },
+            dark: {
+              bg: '#1f2937',
+              'bg-alt': '#111827',
+              'bg-accent': '#2d3748',
+              border: '#374151',
+            }
+          },
+        }
+      },
+    };
+  </script>
+  
+  <!-- Base styles -->
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+
+<body class="min-h-screen bg-[var(--color-bg)] text-[var(--color-text)]" data-page="template">
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress-container">
+    <div class="scroll-progress-bar"></div>
+  </div>
+
+  <!-- Header Placeholder -->
+  <div id="header-placeholder"></div>
+  
+  <!-- Main Content -->
+  <main class="pt-20 pb-12">
+    <!-- Hero Section -->
+    <section class="py-16 bg-[var(--color-bg-alt)]">
+      <div class="container mx-auto px-6">
+        <div class="max-w-4xl mx-auto">
+          <h1 class="text-4xl font-bold mb-6 text-[var(--color-text)]">Page Title</h1>
+          <p class="text-lg text-[var(--color-text-muted)]">
+            This is a page template demonstrating dark mode implementation with CSS variables
+            and proper class use throughout the HTML.
+          </p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Content Section -->
+    <section class="py-12">
+      <div class="container mx-auto px-6">
+        <div class="max-w-4xl mx-auto bg-white dark:bg-dark-bg rounded-2xl shadow-lg p-8">
+          <h2 class="text-2xl font-semibold mb-6 text-[var(--color-text)]">Content Section Title</h2>
+          
+          <div class="prose prose-lg dark:prose-invert max-w-none">
+            <p>This content section demonstrates proper dark mode styling with variable-based CSS.</p>
+            <p>Notice how we use:</p>
+            <ul>
+              <li>CSS variables for colors: <code>var(--color-bg)</code>, <code>var(--color-text)</code>, etc.</li>
+              <li>Tailwind's dark mode classes: <code>dark:bg-dark-bg</code></li>
+              <li>Custom CSS variables defined in main.css that respond to the <code>.dark</code> class</li>
+            </ul>
+          </div>
+          
+          <div class="grid md:grid-cols-2 gap-6 mt-8">
+            <div class="bg-[var(--color-bg-accent)] rounded-lg p-6 border border-[var(--color-border)]">
+              <h3 class="text-xl font-medium mb-3 text-[var(--color-text)]">Feature One</h3>
+              <p class="text-[var(--color-text-muted)]">
+                Use <code>var(--color-text-muted)</code> for secondary text that adapts to dark mode.
+              </p>
+            </div>
+            
+            <div class="bg-[var(--color-bg-accent)] rounded-lg p-6 border border-[var(--color-border)]">
+              <h3 class="text-xl font-medium mb-3 text-[var(--color-text)]">Feature Two</h3>
+              <p class="text-[var(--color-text-muted)]">
+                All colors respond to the <code>.dark</code> class applied to the HTML element.
+              </p>
+            </div>
+          </div>
+          
+          <div class="mt-8">
+            <button class="bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] text-white px-6 py-3 rounded-lg transition-colors">
+              Example Button
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Placeholder -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Main JavaScript Bundle -->
+  <script type="module" src="../js/main.js"></script>
+</body>
+</html> 

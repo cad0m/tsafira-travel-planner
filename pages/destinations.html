@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en" class="light">
+<head>
+  <!-- Existing head content remains the same -->
+  <meta charset="UTF-8">
+  <title>Tsafira | Explore Morocco</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- ApexCharts (if you need charts) -->
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <!-- Font Awesome -->
+  <script>
+    window.FontAwesomeConfig = {
+      autoReplaceSvg: 'nest'
+    };
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  
+  <!-- Tailwind CSS with dark mode enabled -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class', // Enable dark mode with class-based approach
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              DEFAULT: '#F26522',
+              dark: '#ff7733',
+            },
+            secondary: {
+              DEFAULT: '#3F20FB',
+              dark: '#4f46e5',
+            },
+            accent: {
+              DEFAULT: '#FFF8F2',
+              dark: '#1f1f1f',
+            },
+            dark: {
+              bg: '#1f2937',
+              'bg-alt': '#111827',
+              'bg-accent': '#2d3748',
+              border: '#374151',
+            }
+          },
+        }
+      },
+      variants: {
+        extend: {
+          backgroundColor: ['dark', 'active', 'group-hover'],
+          textColor: ['dark', 'active', 'group-hover'],
+          borderColor: ['dark'],
+        }
+      },
+    };
+  </script>
+  
+  <!-- Base styles -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/index.css">
+  
+  <style>
+    /* Additional styles for dark mode transitions */
+    html.transition,
+    html.transition *,
+    html.transition *:before,
+    html.transition *:after {
+      transition: all 0.3s ease-in-out !important;
+      transition-delay: 0 !important;
+    }
+  </style>
+</head>
+
+<body class="h-full text-gray-800 dark:text-gray-100 bg-white dark:bg-dark-bg" data-page="destinations">
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress-container dark:bg-gray-700">
+    <div class="scroll-progress-bar"></div>
+  </div>
+
+  <!-- Header Placeholder with Dark Mode Toggle -->
+  <header id="header-placeholder" class="bg-white dark:bg-dark-bg border-b border-gray-200 dark:border-dark-border"> 
+    <!-- Dark mode toggle button will be inserted here by JavaScript --> 
+  </header> 
+  
+  <!-- Hero Section --> 
+  <!-- Page Title -->
+  <section id="page-title" class="pt-24 pb-12 bg-gray-50 dark:bg-dark-bg-alt"> 
+    <div class="container mx-auto px-6"> 
+      <h1 class="text-4xl md:text-5xl font-bold text-center mb-6 dark:text-gray-100">Explore Morocco's Destinations</h1> 
+      <p class="text-gray-600 dark:text-gray-300 text-center max-w-2xl mx-auto"> 
+        Discover the magic of Morocco through our curated collection of destinations, from ancient medinas to stunning coastlines and desert landscapes. 
+      </p> 
+    </div> 
+  </section> 
+  
+  <!-- Search & Filters --> 
+  <section id="search-filters" class="py-8 bg-white dark:bg-dark-bg border-b dark:border-dark-border"> 
+    <div class="container mx-auto px-6"> 
+      <div class="flex flex-col md:flex-row gap-6"> 
+        <!-- Search Bar --> 
+        <div class="flex-1"> 
+          <div class="relative"> 
+            <input type="text" placeholder="Search destinations, activities, or interests" class="w-full px-6 py-3 border rounded-full pr-12 focus:outline-none focus:ring-2 focus:ring-orange-600 dark:bg-dark-bg-accent dark:border-dark-border dark:text-gray-100 dark:placeholder-gray-400"/> 
+            <i class="fa-solid fa-search absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500"></i> 
+          </div> 
+        </div> 
+        <!-- Filters --> 
+        <div class="flex flex-wrap gap-4"> 
+          <div class="relative"> 
+            <select class="appearance-none bg-white dark:bg-dark-bg-accent border dark:border-dark-border px-6 py-3 rounded-full pr-12 focus:outline-none focus:ring-2 focus:ring-orange-600 dark:text-gray-100"> 
+              <option value="">Region</option> 
+              <option value="North">North</option> 
+              <option value="South">South</option> 
+              <option value="Coastal">Coastal</option> 
+              <option value="Mountains">Mountains</option> 
+              <option value="Desert">Desert</option> 
+              <option value="West">West</option>
+            </select> 
+            <i class="fa-solid fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500"></i> 
+          </div> 
+          <div class="relative"> 
+            <select class="appearance-none bg-white dark:bg-dark-bg-accent border dark:border-dark-border px-6 py-3 rounded-full pr-12 focus:outline-none focus:ring-2 focus:ring-orange-600 dark:text-gray-100"> 
+              <option value="">Duration</option> 
+              <option value="weekend">Weekend</option> 
+              <option value="1-week">1 Week</option> 
+              <option value="2-weeks">2 Weeks</option> 
+              <option value="custom">Custom</option> 
+            </select> 
+            <i class="fa-solid fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500"></i> 
+          </div> 
+          <button class="bg-orange-600 text-white px-6 py-3 rounded-full hover:bg-orange-700 dark:bg-orange-700 dark:hover:bg-orange-800"> 
+            Apply Filters 
+          </button> 
+        </div> 
+      </div> 
+      <div class="flex flex-wrap gap-4 mt-6"> 
+        <label class="flex items-center space-x-2 cursor-pointer dark:text-gray-300"> 
+          <input type="checkbox" class="form-checkbox text-orange-600 dark:border-dark-border"/><span>Cultural</span> 
+        </label> 
+        <label class="flex items-center space-x-2 cursor-pointer dark:text-gray-300"> 
+          <input type="checkbox" class="form-checkbox text-orange-600 dark:border-dark-border"/><span>Nature</span> 
+        </label> 
+        <label class="flex items-center space-x-2 cursor-pointer dark:text-gray-300"> 
+          <input type="checkbox" class="form-checkbox text-orange-600 dark:border-dark-border"/><span>Luxury</span> 
+        </label> 
+        <label class="flex items-center space-x-2 cursor-pointer dark:text-gray-300"> 
+          <input type="checkbox" class="form-checkbox text-orange-600 dark:border-dark-border"/><span>Historical</span> 
+        </label> 
+        <button class="text-orange-600 hover:text-orange-700 dark:text-orange-500 dark:hover:text-orange-400">Clear All</button> 
+      </div> 
+    </div> 
+  </section> 
+  
+  <section id="destinations-grid" class="py-16 dark:bg-dark-bg"> 
+    <div class="container mx-auto px-6"> 
+      <div id="destinations-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"> 
+        <!-- Destinations will be loaded here --> 
+      </div> 
+      <!-- Load More --> 
+      <div class="flex justify-center mt-12"> 
+        <button id="load-more-btn" class="bg-white dark:bg-dark-bg-accent border-2 border-orange-600 dark:border-orange-700 text-orange-600 dark:text-orange-500 px-8 py-3 rounded-full hover:bg-orange-50 dark:hover:bg-dark-bg-accent/80 flex items-center space-x-2"> 
+          <span>Load More Destinations</span><i class="fa-solid fa-arrow-down"></i> 
+        </button> 
+      </div> 
+    </div> 
+  </section> 
+  
+  <!-- Footer Placeholder --> 
+  <footer id="footer-placeholder" class="bg-white dark:bg-dark-bg border-t border-gray-200 dark:border-dark-border"></footer>
+
+<!-- Scripts -->
+<script type="module" src="../js/main.js"></script>
+<script type="module" src="../js/distinations.js"></script>
+</body>
+</html>

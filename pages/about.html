@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tsafira | About Us</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- ApexCharts (if needed) -->
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <!-- TailwindCSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome -->
+  <script>
+    window.FontAwesomeConfig = { autoReplaceSvg: 'nest' };
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"
+          crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <!-- Base styles -->
+  <style>
+    * { font-family: "Inter", sans-serif; }
+    ::-webkit-scrollbar { display: none; }
+
+    .highlighted-section {
+      outline: 2px solid var(--color-secondary);
+      background-color: rgba(63, 32, 251, 0.1);
+    }
+    .edit-button {
+      position: absolute;
+      z-index: 1000;
+    }
+    
+    /* FAQ Styles */
+    .faq-content {
+      transition: all 0.3s ease;
+    }
+    .faq-content:not(.hidden) {
+      animation: fadeInDown 0.5s ease;
+    }
+    .fa-chevron-up {
+      transform: rotate(180deg);
+      transition: transform 0.3s ease;
+    }
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+
+  <!-- Color variables -->
+  <style>
+    :root {
+      /* Base */
+      --color-bg: #ffffff;
+      --color-bg-alt: #f9fafb;
+      --color-bg-accent: #f3f4f6;
+      --color-border: #e5e7eb;
+      /* Text */
+      --color-text: #111827;
+      --color-text-muted: #4b5563;
+      --color-text-inverse: #ffffff;
+      /* Primary */
+      --color-primary: #3b82f6;
+      --color-primary-hover: #2563eb;
+      --color-primary-dark: #1d4ed8;
+    }
+    .dark {
+      --color-bg: #111827;
+      --color-bg-alt: #1f2937;
+      --color-bg-accent: #374151;
+      --color-border: #374151;
+      --color-text: #f9fafb;
+      --color-text-muted: #d1d5db;
+      --color-text-inverse: #111827;
+      --color-primary: #3b82f6;
+      --color-primary-hover: #60a5fa;
+      --color-primary-dark: #2563eb;
+    }
+  </style>
+
+  <!-- Tailwind configuration -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            /* your extended palette */
+          }
+        }
+      },
+      variants: {
+        extend: {
+          backgroundColor: ['active','group-hover'],
+          textColor: ['active','group-hover']
+        }
+      },
+      plugins: []
+    };
+  </script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/index.css">
+    
+</head>
+<body class="bg-[var(--color-bg)] text-[var(--color-text)]">
+  <!-- Scroll Progress Bar (moved above header) -->
+  <div class="scroll-progress-container">
+    <div class="scroll-progress-bar"></div>
+  </div>
+  
+  <!-- Header --> 
+  <header id="header-placeholder" class="bg-[var(--color-bg)] border-b border-[var(--color-border)]"> 
+    <!-- Header will be loaded by JavaScript --> 
+  </header> 
+  
+
+  <!-- Hero Section with Improved Layout --> 
+  <!-- Hero Section with Improved Layout --> 
+<section id="hero" class="relative pt-16 lg:pt-0"> 
+  <div class="h-[280px] sm:h-[350px] lg:h-[450px] w-full overflow-hidden">
+    <img src="https://wallpaperbat.com/img/223055-aeroplane-4k-wallpaper.jpg" alt="Team in front of medina" class="w-full h-full object-cover"> 
+  </div>
+  <div class="absolute inset-0 bg-black bg-opacity-60 flex items-center"> 
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-white"> 
+      <div class="max-w-4xl">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 drop-shadow-md">About Tsafira</h1> 
+        <p class="text-lg sm:text-xl lg:text-2xl drop-shadow-md">Creating Authentic Moroccan Experiences Within Your Budget</p> 
+      </div>
+    </div> 
+  </div> 
+</section> 
+
+<!-- Our Story with Improved Layout --> 
+<section id="our-story" class="py-16 lg:py-24 bg-[var(--color-bg)]"> 
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8"> 
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12"> 
+      <div class="order-2 lg:order-1"> 
+        <h2 class="text-2xl sm:text-3xl font-bold mb-6 text-[var(--color-text)]">Our Story</h2> 
+        <div class="space-y-6 text-[var(--color-text-muted)]">
+          <p> 
+            Founded in 2025, Tsafira was born from a passion for sharing Morocco's rich cultural heritage with travelers who seek authentic experiences without compromising their budget. 
+          </p> 
+          <p> 
+            Our journey began when our founder, Ayoub Erraouy, recognized the need for a travel planning service that could bridge the gap between luxury tours and budget backpacking, while maintaining the authenticity of the Moroccan experience. 
+          </p> 
+          <div class="bg-[var(--color-bg-accent)] p-6 rounded-xl border-l-4 border-[var(--color-primary)]"> 
+            <p class="text-lg font-medium italic text-[var(--color-primary)]"> 
+              "Our mission is to make authentic Moroccan travel experiences accessible to everyone, regardless of their budget." 
+            </p> 
+          </div>
+        </div>
+      </div> 
+      <div class="order-1 lg:order-2 space-y-6"> 
+        <div class="aspect-w-16 aspect-h-9 lg:aspect-h-10 relative rounded-xl overflow-hidden shadow-lg">
+          <img src="https://oujdacity.net/thumbs/r800/data/Image/caricatures/bouzebal.png" alt="Founder portrait" class="w-full h-full object-cover"> 
+        </div>
+        <div class="flex items-center gap-4 bg-[var(--color-bg-accent)] p-4 rounded-xl"> 
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQT2SqZcR1FyzI_MUXcuE-rnFt9kXi1Bv6lTw&s" alt="Ayoub Erraouy" class="w-16 h-16 rounded-full object-cover shadow-sm"> 
+          <div> 
+            <h3 class="font-bold text-[var(--color-text)]">Ayoub Erraouy</h3> 
+            <p class="text-[var(--color-text-muted)]">Founder &amp; CEO</p> 
+          </div> 
+        </div> 
+      </div> 
+    </div> 
+  </div> 
+</section> 
+
+<!-- Mission & Values with Improved Cards --> 
+<section id="mission-values" class="py-16 lg:py-24 bg-[var(--color-bg-alt)]"> 
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8"> 
+    <h2 class="text-2xl sm:text-3xl font-bold text-center mb-6 text-[var(--color-text)]">Mission &amp; Values</h2> 
+    <p class="text-lg sm:text-xl text-center text-[var(--color-text-muted)] max-w-3xl mx-auto mb-12"> 
+      We believe in creating travel experiences that respect local cultures, support local communities, and create lasting memories for our travelers. 
+    </p> 
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"> 
+      <div class="bg-[var(--color-bg)] p-6 sm:p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 border-t-4 border-[var(--color-primary)]"> 
+        <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[var(--color-bg-accent)] text-[var(--color-primary)] mb-4">
+          <i class="fa-solid fa-heart text-xl"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-3 text-[var(--color-text)]">Authentic Experiences</h3> 
+        <p class="text-[var(--color-text-muted)]"> 
+          We connect travelers with genuine local experiences that go beyond tourist attractions. 
+        </p> 
+      </div> 
+      <div class="bg-[var(--color-bg)] p-6 sm:p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 border-t-4 border-[var(--color-primary)]"> 
+        <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[var(--color-bg-accent)] text-[var(--color-primary)] mb-4">
+          <i class="fa-solid fa-coins text-xl"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-3 text-[var(--color-text)]">Budget Consciousness</h3> 
+        <p class="text-[var(--color-text-muted)]"> 
+          Making memorable travel experiences accessible without compromising on quality. 
+        </p> 
+      </div> 
+      <div class="bg-[var(--color-bg)] p-6 sm:p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 border-t-4 border-[var(--color-primary)]"> 
+        <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[var(--color-bg-accent)] text-[var(--color-primary)] mb-4">
+          <i class="fa-solid fa-hands-holding text-xl"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-3 text-[var(--color-text)]">Cultural Respect</h3> 
+        <p class="text-[var(--color-text-muted)]"> 
+          Promoting responsible tourism that benefits local communities and preserves traditions. 
+        </p> 
+      </div> 
+    </div> 
+  </div> 
+</section> 
+
+<!-- Meet Our Team with Improved Card Layout --> 
+<section id="team" class="py-16 lg:py-24 bg-[var(--color-bg)]"> 
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8"> 
+    <h2 class="text-2xl sm:text-3xl font-bold text-center mb-12 text-[var(--color-text)]">Meet Our Team</h2> 
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"> 
+      <!-- Team Card 1 --> 
+      <div class="bg-[var(--color-bg)] p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 text-center border border-[var(--color-border)]"> 
+        <div class="relative w-32 h-32 sm:w-40 sm:h-40 mx-auto mb-6 overflow-hidden rounded-full border-4 border-[var(--color-bg)] shadow">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQT2SqZcR1FyzI_MUXcuE-rnFt9kXi1Bv6lTw&s" alt="Ayoub Erraouy" class="w-full h-full object-cover">
+        </div>
+        <h3 class="font-bold text-lg mb-1 text-[var(--color-text)]">Ayoub Erraouy</h3> 
+        <p class="text-[var(--color-primary)] font-medium mb-2">Founder &amp; CEO</p> 
+        <p class="text-sm text-[var(--color-text-muted)] mb-3">Expert in Sustainable Tourism</p> 
+        <div class="flex justify-center gap-2 text-[var(--color-text-muted)]"> 
+          <i class="fa-solid fa-language text-[var(--color-primary)]"></i> 
+          <span class="text-sm">Arabic, English, French</span> 
+        </div> 
+      </div> 
+      
+      <!-- Additional Team Members (for visual balance) -->
+      <div class="bg-[var(--color-bg)] p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 text-center border border-[var(--color-border)]"> 
+        <div class="relative w-32 h-32 sm:w-40 sm:h-40 mx-auto mb-6 overflow-hidden rounded-full border-4 border-[var(--color-bg)] shadow">
+          <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-7.jpg" alt="Mohammed Tazi" class="w-full h-full object-cover">
+        </div>
+        <h3 class="font-bold text-lg mb-1 text-[var(--color-text)]">Mohammed Tazi</h3> 
+        <p class="text-[var(--color-primary)] font-medium mb-2">Operations Director</p> 
+        <p class="text-sm text-[var(--color-text-muted)] mb-3">Hospitality Management Expert</p> 
+        <div class="flex justify-center gap-2 text-[var(--color-text-muted)]"> 
+          <i class="fa-solid fa-language text-[var(--color-primary)]"></i> 
+          <span class="text-sm">Arabic, English, Spanish</span> 
+        </div> 
+      </div>
+      
+      <div class="bg-[var(--color-bg)] p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 text-center border border-[var(--color-border)]"> 
+        <div class="relative w-32 h-32 sm:w-40 sm:h-40 mx-auto mb-6 overflow-hidden rounded-full border-4 border-[var(--color-bg)] shadow">
+          <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-3.jpg" alt="Leila Benali" class="w-full h-full object-cover">
+        </div>
+        <h3 class="font-bold text-lg mb-1 text-[var(--color-text)]">Leila Benali</h3> 
+        <p class="text-[var(--color-primary)] font-medium mb-2">Local Experience Lead</p> 
+        <p class="text-sm text-[var(--color-text-muted)] mb-3">Cultural Heritage Specialist</p> 
+        <div class="flex justify-center gap-2 text-[var(--color-text-muted)]"> 
+          <i class="fa-solid fa-language text-[var(--color-primary)]"></i> 
+          <span class="text-sm">Arabic, French, English</span> 
+        </div> 
+      </div>
+      
+      <div class="bg-[var(--color-bg)] p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 text-center border border-[var(--color-border)]"> 
+        <div class="relative w-32 h-32 sm:w-40 sm:h-40 mx-auto mb-6 overflow-hidden rounded-full border-4 border-[var(--color-bg)] shadow">
+          <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-4.jpg" alt="Karim Idrissi" class="w-full h-full object-cover">
+        </div>
+        <h3 class="font-bold text-lg mb-1 text-[var(--color-text)]">Karim Idrissi</h3> 
+        <p class="text-[var(--color-primary)] font-medium mb-2">Tech Lead</p> 
+        <p class="text-sm text-[var(--color-text-muted)] mb-3">Digital Experience Expert</p> 
+        <div class="flex justify-center gap-2 text-[var(--color-text-muted)]"> 
+          <i class="fa-solid fa-language text-[var(--color-primary)]"></i> 
+          <span class="text-sm">Arabic, English, German</span> 
+        </div> 
+      </div>
+    </div> 
+    <div class="text-center mt-12"> 
+      <a href="/careers" class="inline-flex items-center text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] font-medium group"> 
+        Join Our Team <i class="fa-solid fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i> 
+      </a> 
+    </div> 
+  </div> 
+</section> 
+
+<!-- Why Choose Tsafira & CTA with Improved Design --> 
+<section id="why-choose" class="py-16 lg:py-24 bg-[var(--color-bg-alt)]"> 
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8"> 
+    <h2 class="text-2xl sm:text-3xl font-bold text-center mb-12 text-[var(--color-text)]">Why Travelers Choose Tsafira</h2> 
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16"> 
+      <div class="bg-[var(--color-bg)] p-6 sm:p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col h-full border border-[var(--color-border)]"> 
+        <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[var(--color-bg-accent)] text-[var(--color-primary)] mb-4">
+          <i class="fa-solid fa-users text-xl"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-3 text-[var(--color-text)]">Local Expertise</h3> 
+        <p class="text-[var(--color-text-muted)] flex-grow"> 
+          Our team of local experts ensures authentic and immersive experiences throughout your journey.
+        </p> 
+      </div> 
+      <div class="bg-[var(--color-bg)] p-6 sm:p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col h-full border border-[var(--color-border)]"> 
+        <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[var(--color-bg-accent)] text-[var(--color-primary)] mb-4">
+          <i class="fa-solid fa-chart-line text-xl"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-3 text-[var(--color-text)]">Budget Optimization</h3> 
+        <p class="text-[var(--color-text-muted)] flex-grow"> 
+          Smart algorithms to maximize your travel budget without compromising quality and experiences.
+        </p> 
+      </div> 
+      <div class="bg-[var(--color-bg)] p-6 sm:p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col h-full border border-[var(--color-border)]"> 
+        <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[var(--color-bg-accent)] text-[var(--color-primary)] mb-4">
+          <i class="fa-solid fa-clock text-xl"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-3 text-[var(--color-text)]">24/7 Support</h3> 
+        <p class="text-[var(--color-text-muted)] flex-grow"> 
+          Round-the-clock assistance throughout your Moroccan journey, ensuring peace of mind.
+        </p> 
+      </div> 
+    </div> 
+    
+    <!-- Stronger CTA Section -->
+    <div class="bg-[var(--color-primary)] rounded-2xl p-8 sm:p-12 text-[var(--color-text-inverse)] text-center shadow-lg"> 
+      <h2 class="text-2xl sm:text-3xl font-bold mb-4">Ready to Experience Morocco?</h2> 
+      <p class="text-lg sm:text-xl mb-8 max-w-2xl mx-auto opacity-90"> 
+        Let us help you create your perfect Moroccan adventure within your budget. 
+      </p> 
+      <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6"> 
+        <a href="../pages/wizard.html" class="bg-[var(--color-text-inverse)] text-[var(--color-primary)] font-medium px-8 py-3 rounded-full hover:bg-gray-100 transition-colors duration-300 shadow-sm">
+          Plan Your Trip
+        </a> 
+        <a href="../pages/contact.html" class="border-2 border-[var(--color-text-inverse)] px-8 py-3 rounded-full hover:bg-[var(--color-text-inverse)] hover:text-[var(--color-primary)] transition-colors duration-300">
+          Contact Us
+        </a> 
+      </div> 
+    </div> 
+  </div> 
+</section>
+
+  <!-- Improved Footer --> 
+  <footer id="footer-placeholder">
+    <!-- Footer will be loaded by JavaScript -->
+  </footer>
+  <script type="module" src="../js/main.js"></script>
+  <script type="module">
+    import { initCommonPageFunctions } from '../js/page-common.js';
+    
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('About page initialized');
+      initCommonPageFunctions();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tsafira | Travel Planning Made Simple</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Add social media icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/signin.css">
+  <link rel="stylesheet" href="../css/lottie.css">
+  <!-- Lottie animation library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+</head>
+<body data-theme="light">
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="../pages/index.html" class="logo">
+        Tsafira
+      </a>
+      <button class="mobile-menu-button" id="mobile-menu-button">
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </button>
+      <div class="nav-links" id="nav-menu">
+        <a href="../pages/index.html" class="nav-link">Home</a>
+        <a href="../pages/destinations.html" class="nav-link">Destinations</a>
+        <a href="../pages/about.html" class="nav-link">About</a>
+        <a href="../pages/contact.html" class="nav-link">Contact</a>
+        <button class="theme-toggle" id="theme-toggle">
+          <i class="fas fa-sun"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="bg-decoration"></div>
+    
+    <div class="auth-container">
+      <!-- Left side with Lottie animation -->
+      <div class="auth-image">
+        <div id="lottie-container"></div>
+        <div class="auth-image-content">
+          <div class="auth-image-badge">Your perfect journey awaits</div>
+          <h2>Discover Your Dream Destination</h2>
+          <p>Tsafira helps you create personalized travel itineraries based on your budget and preferences. Join us and start planning your next adventure today!</p>
+        </div>
+      </div>
+      
+      <!-- Right side form -->
+      <div class="auth-form-container">
+        <div class="auth-card">
+          <!-- Auth Tabs -->
+          <div class="tabs">
+            <div class="tab active" data-tab="signin">Sign In</div>
+            <div class="tab" data-tab="signup">Sign Up</div>
+          </div>
+
+          <!-- Sign In Form -->
+          <form id="signin-form" class="auth-form">
+            <h2 class="form-title">Welcome Back</h2>
+
+            <!-- Social Buttons -->
+            <div class="social-buttons">
+              <button type="button" class="social-button google">
+                <i class="fab fa-google"></i>
+                Continue with Google
+              </button>
+              <button type="button" class="social-button facebook">
+                <i class="fab fa-facebook-f"></i>
+                Continue with Facebook
+              </button>
+              <button type="button" class="social-button github">
+                <i class="fab fa-github"></i>
+                Continue with GitHub
+              </button>
+            </div>
+
+            <div class="divider">
+              <span>or continue with email</span>
+            </div>
+
+            <!-- Email Input -->
+            <div class="form-group">
+              <label class="form-label" for="signin-email">Email</label>
+              <input 
+                type="email" 
+                id="signin-email" 
+                class="form-input" 
+                placeholder="Enter your email"
+                required
+              >
+              <div class="error-message" id="signin-email-error"></div>
+            </div>
+
+            <!-- Password Input -->
+            <div class="form-group">
+              <label class="form-label" for="signin-password">Password</label>
+              <div class="password-input-wrapper">
+                <input 
+                  type="password" 
+                  id="signin-password" 
+                  class="form-input" 
+                  placeholder="Enter your password"
+                  required
+                >
+                <button type="button" class="password-toggle">
+                  <i class="fas fa-eye"></i>
+                </button>
+              </div>
+              <div class="error-message" id="signin-password-error"></div>
+            </div>
+
+            <!-- Remember Me & Forgot Password -->
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <label class="checkbox-wrapper">
+                <input type="checkbox" id="remember-me">
+                <span>Remember me</span>
+              </label>
+              <a href="#" id="forgot-password" style="color: var(--orange-600); text-decoration: none; font-size: 0.875rem;">
+                Forgot password?
+              </a>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-button" style="margin-top: 1.5rem;">
+              Sign In
+              <div class="spinner"></div>
+            </button>
+
+            <!-- Toggle Prompt -->
+            <p style="text-align: center; margin-top: 1.5rem; color: var(--text-secondary);">
+              Don't have an account? 
+              <a href="#" class="form-toggle" data-form="signup" style="color: var(--orange-600); text-decoration: none; font-weight: 500;">
+                Sign Up
+              </a>
+            </p>
+          </form>
+
+          <!-- Sign Up Form -->
+          <form id="signup-form" class="auth-form" style="display: none;">
+            <h2 class="form-title">Create Account</h2>
+
+            <!-- Social Buttons -->
+            <div class="social-buttons">
+              <button type="button" class="social-button google">
+                <i class="fab fa-google"></i>
+                Continue with Google
+              </button>
+              <button type="button" class="social-button facebook">
+                <i class="fab fa-facebook-f"></i>
+                Continue with Facebook
+              </button>
+              <button type="button" class="social-button github">
+                <i class="fab fa-github"></i>
+                Continue with GitHub
+              </button>
+            </div>
+
+            <div class="divider">
+              <span>or register with email</span>
+            </div>
+
+            <!-- Full Name Input -->
+            <div class="form-group">
+              <label class="form-label" for="signup-name">Full Name</label>
+              <input 
+                type="text" 
+                id="signup-name" 
+                class="form-input" 
+                placeholder="Enter your full name"
+                required
+              >
+              <div class="error-message" id="signup-name-error"></div>
+            </div>
+
+            <!-- Email Input -->
+            <div class="form-group">
+              <label class="form-label" for="signup-email">Email</label>
+              <input 
+                type="email" 
+                id="signup-email" 
+                class="form-input" 
+                placeholder="Enter your email"
+                required
+              >
+              <div class="error-message" id="signup-email-error"></div>
+            </div>
+
+            <!-- Password Input -->
+            <div class="form-group">
+              <label class="form-label" for="signup-password">Password</label>
+              <div class="password-input-wrapper">
+                <input 
+                  type="password" 
+                  id="signup-password" 
+                  class="form-input" 
+                  placeholder="Create a password"
+                  required
+                >
+                <button type="button" class="password-toggle">
+                  <i class="fas fa-eye"></i>
+                </button>
+              </div>
+              <div class="password-strength">
+                <div class="strength-bars">
+                  <div class="strength-bar"></div>
+                  <div class="strength-bar"></div>
+                  <div class="strength-bar"></div>
+                </div>
+                <div class="strength-text">Password strength: <span>weak</span></div>
+              </div>
+              <div class="error-message" id="signup-password-error"></div>
+            </div>
+
+            <!-- Terms Acceptance -->
+            <label class="checkbox-wrapper">
+              <input type="checkbox" id="terms-acceptance" required>
+              <span>
+                I agree to the 
+                <a href="#" style="color: var(--orange-600); text-decoration: none;">Terms of Service</a>
+                and
+                <a href="#" style="color: var(--orange-600); text-decoration: none;">Privacy Policy</a>
+              </span>
+            </label>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-button" style="margin-top: 1.5rem;" disabled>
+              Create Account
+              <div class="spinner"></div>
+            </button>
+
+            <!-- Toggle Prompt -->
+            <p style="text-align: center; margin-top: 1.5rem; color: var(--text-secondary);">
+              Already have an account? 
+              <a href="#" class="form-toggle" data-form="signin" style="color: var(--orange-600); text-decoration: none; font-weight: 500;">
+                Sign In
+              </a>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+  <!-- Scripts -->
+  <script type="module" src="../js/main.js"></script>
+  <script type="module" src="../js/signin.js"></script>
+  <!-- Lottie animation script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Load the Lottie animation
+      const animation = lottie.loadAnimation({
+        container: document.getElementById('lottie-container'),
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: '../data/lootie.json'
+      });
+      
+      // Add a slow wave effect to the animation speed
+      let direction = 1;
+      let speedFactor = 1;
+      
+      function waveSpeed() {
+        if (speedFactor > 1.3) direction = -1;
+        if (speedFactor < 0.7) direction = 1;
+        
+        speedFactor += (0.01 * direction);
+        animation.setSpeed(speedFactor);
+        
+        setTimeout(waveSpeed, 150);
+      }
+      
+      waveSpeed();
+      
+      // Adjust the animation container and SVG for better fitting
+      animation.addEventListener('data_ready', function() {
+        const container = document.getElementById('lottie-container');
+        
+        // Add dark overlay to the container to improve text contrast
+        container.style.backgroundColor = 'rgba(26, 26, 46, 0.8)';
+        
+        // Set animation scaling and position
+        const svgElement = container.querySelector('svg');
+        if (svgElement) {
+          // Center the SVG better in the flipped orientation
+          svgElement.style.transformOrigin = 'center center';
+          svgElement.style.opacity = '0.9';
+          
+          // Apply "deep water" feel to the animation
+          svgElement.style.filter = 'saturate(1.2) contrast(1.1)';
+          
+          // Enhance animation with particle effects
+          createParticles(container);
+          
+          // Darken paths that may be too bright
+          const paths = svgElement.querySelectorAll('path');
+          paths.forEach(path => {
+            if (path.getAttribute('fill') && !path.getAttribute('fill').includes('rgba')) {
+              path.style.filter = 'brightness(0.9)';
+            }
+          });
+        }
+        
+        animation.resize();
+      });
+      
+      // Add floating particles effect
+      function createParticles(container) {
+        for (let i = 0; i < 15; i++) {
+          const particle = document.createElement('div');
+          particle.className = 'particle';
+          particle.style.position = 'absolute';
+          particle.style.width = `${Math.random() * 6 + 1}px`;
+          particle.style.height = particle.style.width;
+          particle.style.background = 'rgba(255, 255, 255, 0.6)';
+          particle.style.borderRadius = '50%';
+          particle.style.top = `${Math.random() * 100}%`;
+          particle.style.left = `${Math.random() * 100}%`;
+          particle.style.zIndex = '1';
+          particle.style.opacity = '0';
+          particle.style.animation = `floatParticle ${Math.random() * 10 + 10}s linear infinite`;
+          particle.style.animationDelay = `${Math.random() * 5}s`;
+          
+          container.parentNode.appendChild(particle);
+        }
+      }
+      
+      // Add subtle interaction effect on the content box
+      const contentBox = document.querySelector('.auth-image-content');
+      contentBox.addEventListener('mousemove', function(e) {
+        const rect = this.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        // Calculate the tilt based on mouse position
+        const tiltX = (y / rect.height - 0.5) * 10;
+        const tiltY = (x / rect.width - 0.5) * -10;
+        
+        // Apply subtle transform to create a 3D effect
+        this.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateY(-5px)`;
+      });
+      
+      contentBox.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0)';
+      });
+      
+      // Resize animation on window resize
+      window.addEventListener('resize', function() {
+        animation.resize();
+      });
+    });
+  </script>
+  
+  <!-- Add CSS for particles -->
+  <style>
+    @keyframes floatParticle {
+      0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.8;
+      }
+      90% {
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-100px) translateX(30px);
+        opacity: 0;
+      }
+    }
+  </style>
+</body>
+</html>

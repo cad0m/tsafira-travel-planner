@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en" class="light">
+<head>
+  <!-- Existing head content remains the same -->
+  <meta charset="UTF-8">
+  <title>Tsafira | Explore Morocco</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- ApexCharts (if you need charts) -->
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <!-- Font Awesome -->
+  <script>
+    window.FontAwesomeConfig = {
+      autoReplaceSvg: 'nest'
+    };
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  
+  <!-- Tailwind CSS with dark mode enabled -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class', // Enable dark mode with class-based approach
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              DEFAULT: '#F26522',
+              dark: '#ff7733',
+            },
+            secondary: {
+              DEFAULT: '#3F20FB',
+              dark: '#4f46e5',
+            },
+            accent: {
+              DEFAULT: '#FFF8F2',
+              dark: '#1f1f1f',
+            },
+            dark: {
+              bg: '#1f2937',
+              'bg-alt': '#111827',
+              'bg-accent': '#2d3748',
+              border: '#374151',
+            }
+          },
+        }
+      },
+      variants: {
+        extend: {
+          backgroundColor: ['dark', 'active', 'group-hover'],
+          textColor: ['dark', 'active', 'group-hover'],
+          borderColor: ['dark'],
+        }
+      },
+    };
+  </script>
+  
+  <!-- Base styles -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/index.css">
+  
+  <style>
+    /* Additional styles for dark mode transitions */
+    html.transition,
+    html.transition *,
+    html.transition *:before,
+    html.transition *:after {
+      transition: all 0.3s ease-in-out !important;
+      transition-delay: 0 !important;
+    }
+  </style>
+</head>
+
+<body class="h-full text-gray-800 dark:text-gray-100 bg-white dark:bg-dark-bg" data-page="index">
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress-container dark:bg-gray-700">
+    <div class="scroll-progress-bar"></div>
+  </div>
+
+  <!-- Header Placeholder with Dark Mode Toggle -->
+  <header id="header-placeholder" class="bg-white dark:bg-dark-bg border-b border-gray-200 dark:border-dark-border"> <!-- Dark mode toggle button will be inserted here by JavaScript -->
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="relative h-[800px] flex items-center">
+    <img class="absolute inset-0 w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/4974e503bb-10705323a8737b97ad6e.png" alt="stunning moroccan desert landscape with traditional architecture, dramatic lighting, cinematic composition" />
+    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+    <div class="container mx-auto px-6 relative z-10">
+      <div class="max-w-3xl">
+        <h1 class="text-5xl md:text-6xl text-white font-bold mb-6">Explore Morocco Like Never Before</h1>
+        <p class="text-xl text-white mb-8">
+          Create your perfect Moroccan adventure with our personalized trip planner. Let us craft an unforgettable journey based on your interests and budget.
+        </p>
+        <a href="/wizard.html" class="bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full text-lg transition duration-300">
+          Create Itinerary
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trip Wizard Section -->
+  <section id="trip-wizard" class="py-20 bg-gray-50 dark:bg-dark-bg-alt">
+    <div class="container mx-auto px-6">
+      <div class="max-w-4xl mx-auto bg-white dark:bg-dark-bg rounded-2xl shadow-lg p-8">
+        <h2 class="text-3xl font-bold text-center mb-8 dark:text-gray-100">Plan Your Perfect Trip</h2>
+        <form id="trip-form" class="space-y-6">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="space-y-4">
+              <label class="block text-gray-700 dark:text-gray-300">Budget Range</label>
+              <input type="range" min="500" max="10000" class="w-full accent-primary dark:accent-primary-dark" />
+              <div class="flex justify-between text-sm text-gray-600 dark:text-gray-400">
+                <span>$500</span><span>$10,000</span>
+              </div>
+            </div>
+            <div class="space-y-4">
+              <label class="block text-gray-700 dark:text-gray-300">Departure Airport</label>
+              <input type="text" placeholder="Enter airport code" class="w-full px-4 py-2 border rounded-lg dark:bg-dark-bg-accent dark:border-dark-border dark:text-gray-100" />
+            </div>
+            <div class="space-y-4">
+              <label class="block text-gray-700 dark:text-gray-300">Check-in Date</label>
+              <input type="date" class="w-full px-4 py-2 border rounded-lg dark:bg-dark-bg-accent dark:border-dark-border dark:text-gray-100" />
+            </div>
+            <div class="space-y-4">
+              <label class="block text-gray-700 dark:text-gray-300">Check-out Date</label>
+              <input type="date" class="w-full px-4 py-2 border rounded-lg dark:bg-dark-bg-accent dark:border-dark-border dark:text-gray-100" />
+            </div>
+          </div>
+          <div class="space-y-4">
+            <label class="block text-gray-700 dark:text-gray-300">Travel Preferences</label>
+            <div class="grid md:grid-cols-4 gap-4">
+              <label class="flex items-center space-x-2">
+                <input type="checkbox" class="form-checkbox text-primary dark:text-primary-dark" /><span class="dark:text-gray-300">Culture</span>
+              </label>
+              <label class="flex items-center space-x-2">
+                <input type="checkbox" class="form-checkbox text-primary dark:text-primary-dark" /><span class="dark:text-gray-300">Nature</span>
+              </label>
+              <label class="flex items-center space-x-2">
+                <input type="checkbox" class="form-checkbox text-primary dark:text-primary-dark" /><span class="dark:text-gray-300">Luxury</span>
+              </label>
+              <label class="flex items-center space-x-2">
+                <input type="checkbox" class="form-checkbox text-primary dark:text-primary-dark" /><span class="dark:text-gray-300">Sightseeing</span>
+              </label>
+            </div>
+          </div>
+          <button class="w-full bg-primary dark:bg-primary-dark text-white py-4 rounded-lg text-lg hover:bg-primary-dark dark:hover:bg-opacity-90 transition duration-300">
+            <a href="../pages/plan.html">Generate Itinerary</a>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section id="how-it-works" class="py-20 bg-white dark:bg-dark-bg">
+    <div class="container mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-16 dark:text-gray-100">Plan Your Perfect Moroccan Adventure</h2>
+      <div class="grid md:grid-cols-3 gap-12">
+        <div class="text-center">
+          <div class="w-20 h-20 bg-orange-100 dark:bg-dark-bg-accent rounded-full flex items-center justify-center mx-auto mb-6">
+            <i class="text-3xl text-primary dark:text-primary-dark fas fa-list-check"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-4 dark:text-gray-200">Enter Your Preferences</h3>
+          <p class="text-gray-600 dark:text-gray-400">Tell us about your travel style, budget, and interests</p>
+        </div>
+        <div class="text-center">
+          <div class="w-20 h-20 bg-orange-100 dark:bg-dark-bg-accent rounded-full flex items-center justify-center mx-auto mb-6">
+            <i class="text-3xl text-primary dark:text-primary-dark fas fa-route"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-4 dark:text-gray-200">Receive Personalized Itinerary</h3>
+          <p class="text-gray-600 dark:text-gray-400">Get a custom day-by-day plan tailored just for you</p>
+        </div>
+        <div class="text-center">
+          <div class="w-20 h-20 bg-orange-100 dark:bg-dark-bg-accent rounded-full flex items-center justify-center mx-auto mb-6">
+            <i class="text-3xl text-primary dark:text-primary-dark fas fa-plane-departure"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-4 dark:text-gray-200">Enjoy Your Trip</h3>
+          <p class="text-gray-600 dark:text-gray-400">Experience Morocco with confidence and ease</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Destination Showcase -->
+  <section id="destinations" class="py-20 bg-gray-50 dark:bg-dark-bg-alt">
+    <div class="container mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-4 dark:text-gray-100">Discover Morocco's Treasures</h2>
+      <p class="text-gray-600 dark:text-gray-400 text-center mb-12 max-w-2xl mx-auto">
+        From ancient medinas to stunning coastlines, explore the diverse wonders of Morocco.
+      </p>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Marrakech -->
+        <a href="../pages/city.html?id=marrakech" class="group relative overflow-hidden rounded-2xl block">
+          <img class="w-full h-[400px] object-cover transition duration-300 group-hover:scale-110" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/e3b187242b-b79b06920ff67beb54a0.png" alt="marrakech medina with traditional market and people, vibrant colors, professional travel photography" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent">
+            <div class="absolute bottom-6 left-6 text-white">
+              <h3 class="text-2xl font-bold mb-2">Marrakech</h3>
+              <p>The Red City's magic</p>
+            </div>
+          </div>
+        </a>
+        <!-- Casablanca -->
+        <a href="../pages/city.html?id=casablanca" class="group relative overflow-hidden rounded-2xl block">
+          <img class="w-full h-[400px] object-cover transition duration-300 group-hover:scale-110" src="https://media-cdn.tripadvisor.com/media/attractions-splice-spp-674x446/11/e7/a0/db.jpg" alt="hassan ii mosque in casablanca at sunset, dramatic architecture, professional travel photography" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent">
+            <div class="absolute bottom-6 left-6 text-white">
+              <h3 class="text-2xl font-bold mb-2">Casablanca</h3>
+              <p>Modern Morocco</p>
+            </div>
+          </div>
+        </a>
+        <!-- Fes -->
+        <a href="../pages/city.html?id=fes" class="group relative overflow-hidden rounded-2xl block">
+          <img class="w-full h-[400px] object-cover transition duration-300 group-hover:scale-110" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/61800c4990-d856c6a0dc229bfe40cf.png" alt="fes medina traditional leather tanneries, colorful dye pits, professional travel photography" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent">
+            <div class="absolute bottom-6 left-6 text-white">
+              <h3 class="text-2xl font-bold mb-2">Fes</h3>
+              <p>Cultural Heritage</p>
+            </div>
+          </div>
+        </a>
+        <!-- Chefchaouen -->
+        <a href="../pages/city.html?id=chefchaouen" class="group relative overflow-hidden rounded-2xl block">
+          <img class="w-full h-[400px] object-cover transition duration-300 group-hover:scale-110" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/09eff2f8d1-cff53d80229e5752e8a3.png" alt="blue city chefchaouen morocco, narrow streets with blue buildings, professional travel photography" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent">
+            <div class="absolute bottom-6 left-6 text-white">
+              <h3 class="text-2xl font-bold mb-2">Chefchaouen</h3>
+              <p>The Blue Pearl</p>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="text-center mt-12">
+        <a href="../pages/destinations.html" class="inline-flex items-center text-primary dark:text-primary-dark hover:text-orange-600 dark:hover:text-orange-500 cursor-pointer">
+          View All Destinations <i class="ml-2 fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Categories -->
+  <section id="experiences" class="py-20 bg-white dark:bg-dark-bg">
+  <div class="container mx-auto px-6">
+    <h2 class="text-4xl font-bold text-center mb-16 dark:text-gray-100">Tailor Your Experience</h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="p-6 bg-white dark:bg-dark-bg-accent rounded-xl shadow-lg">
+        <div class="w-16 h-16 bg-orange-100 dark:bg-dark-bg rounded-full flex items-center justify-center mb-6 mx-auto">
+          <i class="text-3xl text-primary dark:text-primary-dark fas fa-mosque"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-4 dark:text-gray-200 text-center">Cultural Immersion</h3>
+        <p class="text-gray-600 dark:text-gray-400 text-center">Local traditions, artisan workshops, and authentic experiences</p>
+      </div>
+
+      <div class="p-6 bg-white dark:bg-dark-bg-accent rounded-xl shadow-lg">
+        <div class="w-16 h-16 bg-orange-100 dark:bg-dark-bg rounded-full flex items-center justify-center mb-6 mx-auto">
+          <i class="text-3xl text-primary dark:text-primary-dark fas fa-mountain"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-4 dark:text-gray-200 text-center">Natural Wonders</h3>
+        <p class="text-gray-600 dark:text-gray-400 text-center">Desert adventures, mountain treks, and coastal escapes</p>
+      </div>
+
+      <div class="p-6 bg-white dark:bg-dark-bg-accent rounded-xl shadow-lg">
+        <div class="w-16 h-16 bg-orange-100 dark:bg-dark-bg rounded-full flex items-center justify-center mb-6 mx-auto">
+          <i class="text-3xl text-primary dark:text-primary-dark fas fa-star"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-4 dark:text-gray-200 text-center">Luxury Stays</h3>
+        <p class="text-gray-600 dark:text-gray-400 text-center">Premium riads, desert camps, and boutique hotels</p>
+      </div>
+
+      <div class="p-6 bg-white dark:bg-dark-bg-accent rounded-xl shadow-lg">
+        <div class="w-16 h-16 bg-orange-100 dark:bg-dark-bg rounded-full flex items-center justify-center mb-6 mx-auto">
+          <i class="text-3xl text-primary dark:text-primary-dark fas fa-landmark"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-4 dark:text-gray-200 text-center">Historical Sightseeing</h3>
+        <p class="text-gray-600 dark:text-gray-400 text-center">Ancient medinas, palaces, and architectural wonders</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Featured Itineraries -->
+  <section id="featured-itineraries" class="py-20 bg-white dark:bg-dark-bg">
+    <div class="container mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-16 dark:text-gray-100">Popular Morocco Experiences</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white dark:bg-dark-bg-accent rounded-xl overflow-hidden shadow-lg">
+          <img class="w-full h-48 object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/142411fd97-29251fbcae2275a38d4e.png" alt="Cultural tour in Marrakech">
+          <div class="p-6">
+            <div class="flex justify-between items-center mb-4">
+              <span class="bg-orange-100 dark:bg-dark-bg text-primary dark:text-primary-dark px-3 py-1 rounded-full text-sm">7 Days</span>
+              <span class="text-gray-600 dark:text-gray-400">From $1,200</span>
+            </div>
+            <h3 class="text-xl font-bold mb-4 dark:text-gray-200">7-Day Cultural Tour</h3>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">Immerse yourself in Morocco's rich heritage through medinas, workshops, and local encounters.</p>
+            <div class="flex items-center text-primary dark:text-primary-dark">
+              <span class="text-sm">View Itinerary</span>
+              <i class="ml-2 fas fa-arrow-right"></i>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white dark:bg-dark-bg-accent rounded-xl overflow-hidden shadow-lg">
+          <img class="w-full h-48 object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/cbe933b1f5-b9374fbbe91e32276832.png" alt="Coastal getaway">
+          <div class="p-6">
+            <div class="flex justify-between items-center mb-4">
+              <span class="bg-orange-100 dark:bg-dark-bg text-primary dark:text-primary-dark px-3 py-1 rounded-full text-sm">5 Days</span>
+              <span class="text-gray-600 dark:text-gray-400">From $800</span>
+            </div>
+            <h3 class="text-xl font-bold mb-4 dark:text-gray-200">5-Day Coastal Getaway</h3>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">Explore Morocco's stunning coastline, from pristine beaches to historic ports.</p>
+            <div class="flex items-center text-primary dark:text-primary-dark">
+              <span class="text-sm">View Itinerary</span>
+              <i class="ml-2 fas fa-arrow-right"></i>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white dark:bg-dark-bg-accent rounded-xl overflow-hidden shadow-lg">
+          <img class="w-full h-48 object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/b4f634ce60-8ea4daecc1b729ae6d56.png" alt="Morocco explorer">
+          <div class="p-6">
+            <div class="flex justify-between items-center mb-4">
+              <span class="bg-orange-100 dark:bg-dark-bg text-primary dark:text-primary-dark px-3 py-1 rounded-full text-sm">10 Days</span>
+              <span class="text-gray-600 dark:text-gray-400">From $2,000</span>
+            </div>
+            <h3 class="text-xl font-bold mb-4 dark:text-gray-200">10-Day Morocco Explorer</h3>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">The ultimate Moroccan adventure combining cities, desert, and mountains.</p>
+            <div class="flex items-center text-primary dark:text-primary-dark">
+              <span class="text-sm">View Itinerary</span>
+              <i class="ml-2 fas fa-arrow-right"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-12">
+        <button class="bg-primary dark:bg-primary-dark text-white px-8 py-3 rounded-full hover:bg-primary-dark dark:hover:bg-opacity-90">
+          <a href="/pages/wizard.html">Create Custom Itinerary</a>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us (Continued) -->
+  <section id="benefits" class="py-20 bg-gray-50 dark:bg-dark-bg-alt">
+    <div class="container mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-16 dark:text-gray-100">Why Choose Tsafira?</h2>
+      <div class="grid md:grid-cols-3 gap-12">
+        <div class="text-center">
+          <div class="w-16 h-16 bg-orange-100 dark:bg-dark-bg rounded-full flex items-center justify-center mx-auto mb-6">
+            <i class="text-3xl text-primary dark:text-primary-dark fas fa-wand-magic-sparkles"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-4 dark:text-gray-200">Personalized Itineraries</h3>
+          <p class="text-gray-600 dark:text-gray-400">Customized travel plans that match your unique preferences and style</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 bg-orange-100 dark:bg-dark-bg rounded-full flex items-center justify-center mx-auto mb-6">
+            <i class="text-3xl text-primary dark:text-primary-dark fas fa-coins"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-4 dark:text-gray-200">Budget-Friendly Planning</h3>
+          <p class="text-gray-600 dark:text-gray-400">Optimize your travel budget with smart recommendations and local insights</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 bg-orange-100 dark:bg-dark-bg rounded-full flex items-center justify-center mx-auto mb-6">
+            <i class="text-3xl text-primary dark:text-primary-dark fas fa-map-location-dot"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-4 dark:text-gray-200">Local Expertise</h3>
+          <p class="text-gray-600 dark:text-gray-400">Access to authentic experiences curated by Moroccan travel experts</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" class="py-20 bg-gray-50 dark:bg-dark-bg-alt">
+    <div class="container mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-16 dark:text-gray-100">What Our Travelers Say</h2>
+      <div class="max-w-4xl mx-auto">
+        <div class="testimonial-container">
+          <!-- Testimonials will be inserted here by JavaScript -->
+        </div>
+        <div class="flex justify-center mt-8 space-x-2" id="carousel-dots">
+          <!-- Dots will be generated by JavaScript -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call-to-Action -->
+  <section id="cta" class="relative py-20">
+    <div class="absolute inset-0">
+      <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/d774e5d0b5-d438ccc560ba8fad89ed.png" alt="moroccan desert sunset with camels, dramatic landscape, professional travel photography">
+      <div class="absolute inset-0 bg-black opacity-50"></div>
+    </div>
+    <div class="container mx-auto px-4 relative">
+      <div class="max-w-2xl mx-auto text-center text-white">
+        <h2 class="text-4xl font-bold mb-4">Ready to Experience Morocco?</h2>
+        <p class="text-xl mb-8">Let us help you create the perfect journey tailored to your dreams.</p>
+        <button class="bg-primary dark:bg-primary-dark text-white px-8 py-3 rounded-full hover:bg-primary-dark dark:hover:bg-opacity-90">
+          <a href="/pages/wizard.html">Start Planning</a>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section id="newsletter" class="py-20 bg-cream-50 dark:bg-dark-bg">
+    <div class="container mx-auto px-4">
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-4 dark:text-gray-100">Stay Updated with Travel Inspiration</h2>
+        <p class="text-gray-600 dark:text-gray-400 mb-8">Get exclusive travel tips, destination guides, and special offers delivered to your inbox.</p>
+        <form class="space-y-4">
+          <div class="flex gap-4 relative">
+            <input type="email" placeholder="Enter your email" class="flex-1 px-4 py-3 rounded-lg border border-gray-300 dark:border-dark-border dark:bg-dark-bg-accent dark:text-gray-100 transition-colors duration-200">
+            <button type="submit" class="bg-primary dark:bg-primary-dark text-white px-8 py-3 rounded-lg hover:bg-primary-dark dark:hover:bg-opacity-90 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed">Subscribe</button>
+          </div>
+          <label class="flex items-center justify-center space-x-2 cursor-pointer">
+            <input type="checkbox" class="rounded text-primary dark:text-primary-dark focus:ring-primary dark:focus:ring-primary-dark">
+            <span class="text-sm text-gray-600 dark:text-gray-400">I agree to receive travel updates and newsletters</span>
+          </label>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Placeholder -->
+  <footer id="footer-placeholder" class="bg-white dark:bg-dark-bg border-t border-gray-200 dark:border-dark-border"></footer>
+
+<!-- Scripts -->
+<script type="module" src="./js/main.js"></script>
+<script type="module" src="./js/index-page.js"></script>
+</body>
+</html>

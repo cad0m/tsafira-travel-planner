@@ -1,0 +1,74 @@
+[
+    {
+        "name": "Marrakech",
+        "description": "The Red City with its bustling souks and historic medina",
+        "image": "https://storage.googleapis.com/uxpilot-auth.appspot.com/142411fd97-29251fbcae2275a38d4e.png",
+        "region": "North",
+        "url": "/pages/city.html?id=marrakech",
+        "features": ["landmark", "utensils", "shop"]
+    },
+    {
+        "name": "Rabat",
+        "description": "Elegant capital with coastal views and UNESCO heritage",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/8/81/Tour_Hassan-Rabat-2.jpg",
+        "region": "West",
+        "url": "/pages/city.html?id=rabat",
+        "features": ["landmark", "utensils", "shop"]
+    },
+    {
+        "name": "Casablanca",
+        "description": "Big, modern coastal city with a unique blend of old and new.",
+        "image": "https://www.leben-pur.ch/wp-content/uploads/2025/01/Leben-pur-250117-13-48-004-scaled.jpg",
+        "region": "West",
+        "url": "/pages/city.html?id=casablanca",
+        "features": ["landmark", "utensils", "shop"]
+    },
+    {
+        "name": "Chefchaouen",
+        "description": "The blue city nestled in the Rif Mountains",
+        "image": "https://www.kanaga-at.com/wp-content/uploads/2021/07/marocco_chefchaouen.jpg",
+        "region": "North",
+        "url": "/pages/city.html?id=chefchaouen",
+        "features": ["landmark", "utensils", "shop"]
+    },
+    {
+        "name": "Fes",
+        "description": "Ancient cultural capital with the oldest university in the world",
+        "image": "https://cdn.bookaway.com/media/files/664dd55445e0b81f2d7f97ee.jpeg?width=1000&quality=20",
+        "region": "Central",
+        "url": "/pages/city.html?id=fes",
+        "features": ["landmark", "utensils", "shop"]
+    },
+    {
+    "name": "Essaouira",
+    "description": "Coastal gem with Portuguese influences and windy beaches",
+    "image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2018/03/02/11/istock-171589110.jpg",
+    "region": "West",
+    "url": "/pages/city.html?id=essaouira",
+    "features": ["landmark", "utensils", "shop"]
+    },
+    {
+        "name": "Merzouga",
+        "description": "Gateway to the Sahara Desert with stunning sand dunes",
+        "image": "https://www.naturallymorocco.co.uk/cms/destinations/13_6399d3af3eb59s_0.jpg?v=1686562388",
+        "region": "South",
+        "url": "/pages/city.html?id=merzouga",
+        "features": ["landmark", "shop"]
+    },
+    {
+        "name": "Tangier",
+        "description": "Historic port city where the Mediterranean meets the Atlantic",
+        "image": "https://bluedoorcuisine.com/wp-content/uploads/2019/12/tangier-morocco.jpg",
+        "region": "North",
+        "url": "/pages/city.html?id=tangier",
+        "features": ["landmark", "utensils", "shop"]
+    },
+    {
+        "name": "Agadir",
+        "description": "Modern resort town with beautiful beaches",
+        "image": "https://exploreessaouira.com/wp-content/uploads/2024/10/Agadir-sunset-1200x900.jpg",
+        "region": "South",
+        "url": "/pages/city.html?id=agadir",
+        "features": ["utensils", "shop"]
+    }
+]
