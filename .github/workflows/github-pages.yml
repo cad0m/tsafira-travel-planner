@@ -17,7 +17,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0  # Fetch all history for proper versioning
+          fetch-depth: 0
 
       - name: Setup GitHub Pages structure
         run: |
@@ -30,7 +30,24 @@ jobs:
           # Copy contents of pages directory to the root of _site
           cp -r pages/* _site/
           
-          # Debug - List what's in _site
+          # Fix paths in HTML files
+          find _site -name "*.html" -exec sed -i 's|href="/css/|href="./css/|g' {} \;
+          find _site -name "*.html" -exec sed -i 's|src="/js/|src="./js/|g' {} \;
+          find _site -name "*.html" -exec sed -i 's|href="/pages/|href="./|g' {} \;
+          find _site -name "*.html" -exec sed -i 's|src="/partials/|src="./partials/|g' {} \;
+          find _site -name "*.html" -exec sed -i 's|href="/data/|href="./data/|g' {} \;
+          find _site -name "*.html" -exec sed -i 's|src="/data/|src="./data/|g' {} \;
+          
+          # Fix paths in JavaScript files
+          find _site -name "*.js" -exec sed -i 's|import .* from "/js/|import * from "./|g' {} \;
+          find _site -name "*.js" -exec sed -i 's|from "/js/|from "./|g' {} \;
+          find _site -name "*.js" -exec sed -i 's|"/js/|"./|g' {} \;
+          find _site -name "*.js" -exec sed -i 's|"/css/|"./css/|g' {} \;
+          find _site -name "*.js" -exec sed -i 's|"/partials/|"./partials/|g' {} \;
+          find _site -name "*.js" -exec sed -i 's|"/data/|"./data/|g' {} \;
+          find _site -name "*.js" -exec sed -i 's|"/pages/|"./|g' {} \;
+          
+          # Debug - List what's in _site directory
           echo "Contents of _site directory:"
           ls -la _site/
 
@@ -39,5 +56,5 @@ jobs:
         with:
           folder: _site
           branch: gh-pages
-          clean: true  # Automatically remove deleted files from the deploy branch
-          single-commit: true  # Maintain only one commit in the gh-pages branch
+          clean: true
+          single-commit: true
