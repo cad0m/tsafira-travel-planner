@@ -30,7 +30,7 @@ jobs:
           # Copy contents of pages directory to the root of _site
           cp -r pages/* _site/
           
-          # Fix paths in HTML files
+          # Fix paths in HTML files (be more precise with replacements)
           find _site -name "*.html" -exec sed -i 's|href="/css/|href="./css/|g' {} \;
           find _site -name "*.html" -exec sed -i 's|src="/js/|src="./js/|g' {} \;
           find _site -name "*.html" -exec sed -i 's|href="/pages/|href="./|g' {} \;
@@ -38,16 +38,28 @@ jobs:
           find _site -name "*.html" -exec sed -i 's|href="/data/|href="./data/|g' {} \;
           find _site -name "*.html" -exec sed -i 's|src="/data/|src="./data/|g' {} \;
           
-          # Fix paths in JavaScript files
-          find _site -name "*.js" -exec sed -i 's|import .* from "/js/|import * from "./|g' {} \;
-          find _site -name "*.js" -exec sed -i 's|from "/js/|from "./|g' {} \;
-          find _site -name "*.js" -exec sed -i 's|"/js/|"./|g' {} \;
-          find _site -name "*.js" -exec sed -i 's|"/css/|"./css/|g' {} \;
-          find _site -name "*.js" -exec sed -i 's|"/partials/|"./partials/|g' {} \;
-          find _site -name "*.js" -exec sed -i 's|"/data/|"./data/|g' {} \;
-          find _site -name "*.js" -exec sed -i 's|"/pages/|"./|g' {} \;
+          # More specific fixes for JavaScript module imports
+          find _site/js -name "*.js" -exec sed -i "s|import { .* } from '/js/|import { * } from './|g" {} \;
+          find _site/js -name "*.js" -exec sed -i "s|import { .* } from \"/js/|import { * } from \"./|g" {} \;
+          find _site/js -name "*.js" -exec sed -i "s|from '/js/|from './|g" {} \;
+          find _site/js -name "*.js" -exec sed -i "s|from \"/js/|from \"./|g" {} \;
           
-          # Debug - List what's in _site directory
+          # Fix fetch and other resource requests in JS files
+          find _site/js -name "*.js" -exec sed -i "s|'/js/|'./|g" {} \;
+          find _site/js -name "*.js" -exec sed -i "s|\"/js/|\\"./|g" {} \;
+          find _site/js -name "*.js" -exec sed -i "s|'/css/|'./css/|g" {} \;
+          find _site/js -name "*.js" -exec sed -i "s|\"/css/|\\"./css/|g" {} \;
+          find _site/js -name "*.js" -exec sed -i "s|'/partials/|'./partials/|g" {} \;
+          find _site/js -name "*.js" -exec sed -i "s|\"/partials/|\\"./partials/|g" {} \;
+          find _site/js -name "*.js" -exec sed -i "s|'/data/|'./data/|g" {} \;
+          find _site/js -name "*.js" -exec sed -i "s|\"/data/|\\"./data/|g" {} \;
+          find _site/js -name "*.js" -exec sed -i "s|'/pages/|'./|g" {} \;
+          find _site/js -name "*.js" -exec sed -i "s|\"/pages/|\\"./|g" {} \;
+          
+          # Debug - Show some of the modified files
+          echo "Showing sample of modified JS files:"
+          grep -r "import" _site/js/ | head -10
+          
           echo "Contents of _site directory:"
           ls -la _site/
 
