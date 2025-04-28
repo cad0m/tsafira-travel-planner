@@ -35,7 +35,7 @@ export const selectors = {
 // Default configuration values
 export const defaults = {
   carouselAutoplayDelay: 5000, // Milliseconds between testimonial slides
-  apiBaseUrl: '/api', // Base URL for API calls
+  apiBaseUrl: '/api'/tsafira-travel-planner// Base URL for API calls
   headerColor: {
     transparent: 'bg-transparent',
     solid: 'bg-white shadow-sm'

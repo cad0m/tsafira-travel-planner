@@ -4,17 +4,17 @@
  */
 
 // Core utilities
-export * from './utils.js';
-export * from './config.js';
+export * from '/tsafira-travel-planner/utils.js';
+export * from '/tsafira-travel-planner/config.js';
 
 // UI Components
-export * as UI from './ui.js';
+export * as UI from '/tsafira-travel-planner/ui.js';
 
 // API and Auth
-export * from './api.js';
-export * from './auth.js';
-export * from './loader.js';
-export * from './validate.js';
+export * from '/tsafira-travel-planner/api.js';
+export * from '/tsafira-travel-planner/auth.js';
+export * from '/tsafira-travel-planner/loader.js';
+export * from '/tsafira-travel-planner/validate.js';
 
 // Default export
 export default {
