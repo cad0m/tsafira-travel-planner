@@ -1,6 +1,6 @@
-import { apiGet } from '/js/api.js';
-import { loadPartial } from '/js/loader.js';
-import { initUI } from '/js/ui.js';
+import { apiGet } from './api.js';
+import { loadPartial } from './loader.js';
+import { initUI } from './ui.js';
 
 document.addEventListener('DOMContentLoaded', async function() {
   try {

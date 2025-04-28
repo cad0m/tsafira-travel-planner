@@ -1,4 +1,4 @@
-import { apiGet } from '/js/api.js';
+import { apiGet } from './api.js';
 
 document.addEventListener('DOMContentLoaded', async function() {
   // DOM elements

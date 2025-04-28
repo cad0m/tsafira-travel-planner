@@ -1,9 +1,9 @@
 /**
  * Loader module for loading and injecting HTML partials
  */
-import { partials } from '/js/config.js';
-import { qs } from '/js/utils.js';
-import { fetchHtml } from '/js/api.js';
+import { partials } from './config.js';
+import { qs } from './utils.js';
+import { fetchHtml } from './api.js';
 
 /**
  * Load and inject a partial into a placeholder element

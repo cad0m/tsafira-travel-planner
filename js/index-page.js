@@ -2,11 +2,11 @@
  * JavaScript for the index page
  * Handles specific functionality and interactions for the home page
  */
-import { selectors, defaults } from '/js/config.js';
-import { qs, qsa, on, createElement } from '/js/utils.js';
-import { isValidEmail } from '/js/validate.js';
-import { initUI } from '/js/ui.js';
-import { apiGet } from '/js/api.js';
+import { selectors, defaults } from './config.js';
+import { qs, qsa, on, createElement } from './utils.js';
+import { isValidEmail } from './validate.js';
+import { initUI } from './ui.js';
+import { apiGet } from './api.js';
 /**
  * Initialize the testimonial carousel
  */

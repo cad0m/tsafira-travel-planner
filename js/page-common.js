@@ -3,8 +3,8 @@
  * Shared across multiple pages to reduce code duplication
  */
 
-import { loadPartial } from '/js/loader.js';
-import { initUI } from '/js/ui.js';
+import { loadPartial } from './loader.js';
+import { initUI } from './ui.js';
 
 /**
  * Initializes common functions needed across most pages
