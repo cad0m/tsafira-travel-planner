@@ -16,39 +16,44 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      
-      - name: Setup GitHub Pages deployment
+
+      - name: Setup deployment
         run: |
-          # Create directory for deployment
+          # Create a temporary directory for processing
           mkdir -p _site
           
-          # Copy files maintaining structure
-          cp -r js css data partials _site/
+          # Copy everything to _site
+          cp -r * _site/ || true
           
-          # Move index.html from pages to the root
-          cp pages/index.html _site/
+          # Create a base path script that can be included in all pages
+          echo "window.BASE_PATH = '/tsafira-travel-planner';" > _site/js/base-path.js
           
-          # Create pages directory in _site and copy other HTML files
-          mkdir -p _site/pages
-          find pages -name "*.html" -not -name "index.html" -exec cp {} _site/pages/ \;
+          # Fix paths in HTML files
+          find _site -name "*.html" -type f -exec sed -i 's|href="../|href="/tsafira-travel-planner/|g' {} \;
+          find _site -name "*.html" -type f -exec sed -i 's|src="../|src="/tsafira-travel-planner/|g' {} \;
+          find _site -name "*.html" -type f -exec sed -i 's|href="./|href="/tsafira-travel-planner/|g' {} \;
+          find _site -name "*.html" -type f -exec sed -i 's|src="./|src="/tsafira-travel-planner/|g' {} \;
           
-          # Fix paths in HTML files - this is critical
-          # 1. Leave paths in root index.html referring to js, css, etc.
-          sed -i 's|src="../js/|src="./js/|g' _site/index.html
-          sed -i 's|href="../css/|href="./css/|g' _site/index.html
+          # Specifically fix paths in index.html if it exists in pages folder
+          if [ -f "_site/pages/index.html" ]; then
+            cp _site/pages/index.html _site/index.html
+            sed -i 's|href="../|href="/tsafira-travel-planner/|g' _site/index.html
+            sed -i 's|src="../|src="/tsafira-travel-planner/|g' _site/index.html
+          fi
           
-          # 2. Keep paths in pages/*.html as they are (using relative ../js/, ../css/)
+          # Fix paths in JavaScript files
+          find _site -name "*.js" -type f -exec sed -i "s|from '../|from '/tsafira-travel-planner/|g" {} \;
+          find _site -name "*.js" -type f -exec sed -i "s|from './|from '/tsafira-travel-planner/|g" {} \;
+          find _site -name "*.js" -type f -exec sed -i "s|'../|'/tsafira-travel-planner/|g" {} \;
+          find _site -name "*.js" -type f -exec sed -i "s|'./|'/tsafira-travel-planner/|g" {} \;
           
-          # Debug info
-          echo "Structure of _site directory:"
-          find _site -type f | sort
-      
+          # Debug output
+          echo "Files in _site:"
+          find _site -type f | sort | head -n 20
+
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4.4.1
         with:
           folder: _site
           branch: gh-pages
           clean: true
-          single-commit: true
