@@ -5,6 +5,9 @@ on:
     branches: [ main ]  # Or your default branch name
   workflow_dispatch:    # Allow manual trigger
 
+permissions:
+  contents: write       # Add explicit permissions
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -27,7 +30,8 @@ jobs:
           # cp README.md _site/ 
 
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@v4.4.1  # Specify a precise version
         with:
           folder: _site
           branch: gh-pages
+          token: ${{ secrets.GITHUB_TOKEN }}  # Use the automatic token
