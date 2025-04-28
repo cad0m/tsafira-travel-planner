@@ -2,11 +2,11 @@
  * JavaScript for the index page
  * Handles specific functionality and interactions for the home page
  */
-import { selectors, defaults } from '/js/config.js';
-import { qs, qsa, on, createElement } from '/js/utils.js';
-import { isValidEmail } from '/js/validate.js';
-import { initUI } from '/js/ui.js';
-import { apiGet } from '/js/api.js';
+import { selectors, defaults } from '/tsafira-travel-planner/config.js';
+import { qs, qsa, on, createElement } from '/tsafira-travel-planner/utils.js';
+import { isValidEmail } from '/tsafira-travel-planner/validate.js';
+import { initUI } from '/tsafira-travel-planner/ui.js';
+import { apiGet } from '/tsafira-travel-planner/api.js';
 /**
  * Initialize the testimonial carousel
  */

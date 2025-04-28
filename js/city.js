@@ -1,6 +1,6 @@
-import { apiGet } from '/js/api.js';
-import { loadPartial } from '/js/loader.js';
-import { initUI } from '/js/ui.js';
+import { apiGet } from '/tsafira-travel-planner/api.js';
+import { loadPartial } from '/tsafira-travel-planner/loader.js';
+import { initUI } from '/tsafira-travel-planner/ui.js';
 
 document.addEventListener('DOMContentLoaded', async function() {
   try {

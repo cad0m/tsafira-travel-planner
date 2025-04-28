@@ -1,9 +1,9 @@
 /**
  * Loader module for loading and injecting HTML partials
  */
-import { partials } from '/js/config.js';
-import { qs } from '/js/utils.js';
-import { fetchHtml } from '/js/api.js';
+import { partials } from '/tsafira-travel-planner/config.js';
+import { qs } from '/tsafira-travel-planner/utils.js';
+import { fetchHtml } from '/tsafira-travel-planner/api.js';
 
 /**
  * Load and inject a partial into a placeholder element

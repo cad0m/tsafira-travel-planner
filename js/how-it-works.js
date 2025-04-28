@@ -2,9 +2,9 @@
  * How It Works page functionality for Tsafira
  */
 
-import { loadPartial } from '/js/loader.js';
-import { initUI } from '/js/ui.js';
-import { initCommonPageFunctions } from '/js/page-common.js';
+import { loadPartial } from '/tsafira-travel-planner/loader.js';
+import { initUI } from '/tsafira-travel-planner/ui.js';
+import { initCommonPageFunctions } from '/tsafira-travel-planner/page-common.js';
 
 document.addEventListener('DOMContentLoaded', function() {
   console.log('How It Works page initialized');

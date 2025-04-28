@@ -3,8 +3,8 @@
  * Shared across multiple pages to reduce code duplication
  */
 
-import { loadPartial } from '/js/loader.js';
-import { initUI } from '/js/ui.js';
+import { loadPartial } from '/tsafira-travel-planner/loader.js';
+import { initUI } from '/tsafira-travel-planner/ui.js';
 
 /**
  * Initializes common functions needed across most pages
