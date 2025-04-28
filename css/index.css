@@ -1,0 +1,129 @@
+/* Index page specific styling */
+
+/* Hero section styles */
+#hero {
+  background-color: #2a2a2a;
+}
+
+/* Custom background for trip wizard */
+.bg-cream-50 {
+  background-color: #FFF8F2;
+}
+
+/* Testimonial carousel */
+.testimonial-slide {
+  opacity: 0;
+  transform: translateX(50px);
+  position: absolute;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  width: 100%;
+}
+
+.testimonial-slide.active {
+  opacity: 1;
+  transform: translateX(0);
+  position: relative;
+}
+
+.testimonial-container {
+  position: relative;
+  min-height: 240px;
+}
+
+.carousel-dot {
+  transition: background-color 0.3s ease;
+}
+
+/* Destination card hover effects */
+.destination-card:hover img {
+  transform: scale(1.05);
+}
+
+.destination-card img {
+  transition: transform 0.3s ease;
+}
+
+/* Experience category cards */
+.experience-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* CTA section overlay */
+#cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 100%);
+  z-index: 1;
+}
+
+/* Newsletter form styles */
+.newsletter-input {
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.newsletter-input:focus {
+  border-color: #F26522;
+  box-shadow: 0 0 0 3px rgba(242, 101, 34, 0.2);
+  outline: none;
+}
+
+.subscribe-btn {
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.subscribe-btn:hover {
+  background-color: #e05a1c;
+}
+
+.subscribe-btn:active {
+  transform: translateY(1px);
+}
+
+/* Featured itinerary card hover effects */
+.itinerary-card {
+  transition: transform 0.3s ease;
+}
+
+.itinerary-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Benefits section icon pulse effect */
+@keyframes iconPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.benefit-icon:hover {
+  animation: iconPulse 1.5s ease infinite;
+}
+
+/* Mobile menu animation */
+#mobile-menu {
+  transition: opacity 0.3s ease;
+}
+
+#mobile-menu.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#mobile-menu:not(.hidden) {
+  opacity: 1;
+}

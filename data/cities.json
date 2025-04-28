@@ -1,0 +1,766 @@
+[
+  {
+    "id": "chefchaouen",
+    "name": "Chefchaouen",
+    "heroImage": "https://www.visitmorocco.com/sites/default/files/styles/thumbnail_events_slider/public/thumbnails/image/panorama-of-chefchaouen-with-buildings-painted-in-blue-color-morocco-yakthai_0.jpg?itok=DpxCxPCL",
+    "shortDescription": "The famous Blue Pearl of Morocco nestled in the Rif Mountains, where every street and building is painted in mesmerizing shades of blue.",
+    "quickFacts": {
+      "bestTimeToVisit": "April to June & September to October",
+      "averageBudget": "$50-100 per day",
+      "recommendedStay": "2-3 days"
+    },
+    "about": "Founded in 1471, Chefchaouen is a picturesque town famous for its blue-painted buildings and streets. This unique color scheme dates back to the 15th century when Jewish refugees settled here, bringing their tradition of painting buildings blue, symbolizing the sky and heaven.",
+    "highlights": [
+      {
+        "icon": "mountain",
+        "title": "Natural Beauty",
+        "description": "Stunning Rif Mountain views"
+      },
+      {
+        "icon": "paint-brush",
+        "title": "Blue Streets",
+        "description": "Photogenic blue cityscape"
+      },
+      {
+        "icon": "shopping-bag",
+        "title": "Handicrafts",
+        "description": "Wool garments and local crafts"
+      },
+      {
+        "icon": "water",
+        "title": "Waterfalls",
+        "description": "Cascades and natural pools"
+      }
+    ],
+    "galleryImages": [
+      "https://traveladdicts.net/wp-content/uploads/2018/05/Chefchaouen-Morocco-shops-rugs.jpg.webp",
+      "https://i0.wp.com/www.bonjoursunset.com/wp-content/uploads/2020/05/DSCF8394.jpg?resize=1000%2C1500&ssl=1",
+      "https://mustvisitmorocco.com/wp-content/uploads/2025/04/Where-To-Stay-in-Chefchaouen.jpg",
+      "https://marthapfeil.com/wp-content/uploads/2014/03/l1250221.jpg"
+    ],
+    "itinerary": [
+      {
+        "day": "01",
+        "title": "Blue City Discovery",
+        "activities": [
+          "Morning: Plaza Uta el-Hammam & Kasbah",
+          "Afternoon: Medina exploration",
+          "Evening: Sunset from Spanish Mosque"
+        ]
+      },
+      {
+        "day": "02",
+        "title": "Nature & Culture",
+        "activities": [
+          "Morning: Akchour Waterfalls hike",
+          "Afternoon: Artisan workshops",
+          "Evening: Rooftop dinner with views"
+        ]
+      }
+    ],
+    "videoUrl": "https://www.youtube.com/embed/mqYw_3Oovmo?si=ikPHibPUHWdfDPJv?controls=1&modestbranding=1&rel=0",
+    "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13060.550920320109!2d-5.274177799999999!3d35.168799999999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0b265e6402c4ed%3A0x75407c90bfe66bcd!2sChefchaouen%2C%20Morocco!5e0!3m2!1sen!2sus!4v1625761234567!5m2!1sen!2sus",
+    "localGuides": [
+      {
+        "name": "Yousef T.",
+        "profession": "Local Photographer",
+        "avatar": "https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-1.jpg",
+        "rating": 5.0,
+        "reviewCount": 74
+      },
+      {
+        "name": "Nadia R.",
+        "profession": "Hiking Guide",
+        "avatar": "https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-6.jpg",
+        "rating": 4.8,
+        "reviewCount": 92
+      }
+    ]
+  },
+  {
+    "id": "agadir",
+    "name": "Agadir",
+    "heroImage": "https://t3.ftcdn.net/jpg/00/57/84/30/360_F_57843073_fk8NHHLOk7wHimEt5DxpjAInEQW7q2bL.jpg",
+    "shortDescription": "Morocco's premier beach destination with a modern, laid-back atmosphere, offering magnificent coastlines, year-round sunshine, and a vibrant resort culture.",
+    "quickFacts": {
+      "bestTimeToVisit": "Year-round (300+ sunny days)",
+      "averageBudget": "$60-120 per day",
+      "recommendedStay": "3-7 days"
+    },
+    "about": "Rebuilt after a devastating earthquake in 1960, Agadir is now Morocco's premier coastal resort destination. With its 10km crescent-shaped beach, modern infrastructure, and relaxed atmosphere, it offers a different experience from Morocco's more traditional imperial cities.",
+    "highlights": [
+      {
+        "icon": "umbrella-beach",
+        "title": "Beautiful Beaches",
+        "description": "Golden sands & blue waters"
+      },
+      {
+        "icon": "water",
+        "title": "Water Activities",
+        "description": "Surfing, sailing & water sports"
+      },
+      {
+        "icon": "fish",
+        "title": "Fresh Seafood",
+        "description": "Port restaurants & markets"
+      },
+      {
+        "icon": "mountain",
+        "title": "Nature Excursions",
+        "description": "Paradise Valley & Atlas foothills"
+      }
+    ],
+    "galleryImages": [
+      "https://media.tacdn.com/media/attractions-splice-spp-674x446/0b/39/8e/3e.jpg",
+      "https://www.infinite-morocco.com/wp-content/uploads/2024/02/Kasbah-of-Agadir-Oufella-3-1024x683.jpg",
+      "https://www.guide-agadir.fr/wp-content/uploads/2023/11/telepherique-agadir-nuit-600x400.jpg",
+      "https://marrakechtourcompany.com/wp-content/uploads/elementor/thumbs/oaradise-6-1-p1f484l7ph0kcr6zt9isd5tt6b499swt0oire2z0xc.png"
+    ],
+    "itinerary": [
+      {
+        "day": "01",
+        "title": "Beach Day",
+        "activities": [
+          "Morning: Agadir Beach",
+          "Afternoon: Water sports",
+          "Evening: Beachfront dining"
+        ]
+      },
+      {
+        "day": "02",
+        "title": "City Exploration",
+        "activities": [
+          "Morning: Agadir Kasbah",
+          "Afternoon: Souk El Had",
+          "Evening: Marina promenade"
+        ]
+      },
+      {
+        "day": "03",
+        "title": "Nature & Adventure",
+        "activities": [
+          "Morning: Paradise Valley",
+          "Afternoon: Swimming in natural pools",
+          "Evening: Berber dinner experience"
+        ]
+      },
+      {
+        "day": "04",
+        "title": "Coastal Towns",
+        "activities": [
+          "Morning: Taghazout fishing village",
+          "Afternoon: Surfing lessons",
+          "Evening: Seafood feast"
+        ]
+      }
+    ],
+    "videoUrl": "https://www.youtube.com/embed/6GME_pODsJQ?si=d5JJRwAHPalnVQcZ?controls=1&modestbranding=1&rel=0",
+    "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d54812.111230335924!2d-9.625407939577178!3d30.418655748404595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdb3b6e9daad1cc9%3A0xbcf8d0b77af51d4c!2sAgadir%2C%20Morocco!5e0!3m2!1sen!2sus!4v1682599441521!5m2!1sen!2sus",
+    "localGuides": [
+      {
+        "name": "Omar A.",
+        "profession": "Surf Instructor",
+        "avatar": "https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-4.jpg",
+        "rating": 4.8,
+        "reviewCount": 156
+      },
+      {
+        "name": "Fatima K.",
+        "profession": "Local Foodie",
+        "avatar": "https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-6.jpg",
+        "rating": 5.0,
+        "reviewCount": 82
+      }
+    ]
+  },
+  {
+    "id": "casablanca",
+    "name": "Casablanca",
+    "heroImage": "https://mediaim.expedia.com/destination/1/47704bbfccc18fa70f994e87f9d737c1.jpg",
+    "shortDescription": "Morocco's economic capital and largest city, blending Art Deco architecture, coastal beauty, and cosmopolitan energy with traditional Moroccan charm.",
+    "quickFacts": {
+      "bestTimeToVisit": "May to October",
+      "averageBudget": "$90-160 per day",
+      "recommendedStay": "2-4 days"
+    },
+    "about": "Casablanca, or \"Casa\" as locals call it, is Morocco's bustling commercial hub where traditional Moroccan culture meets European influences. Famous for its stunning Hassan II Mosque and Art Deco architecture, the city offers visitors a glimpse of modern Morocco.",
+    "highlights": [
+      {
+        "icon": "mosque",
+        "title": "Iconic Architecture",
+        "description": "Hassan II Mosque & Art Deco buildings"
+      },
+      {
+        "icon": "umbrella-beach",
+        "title": "Corniche",
+        "description": "Beachfront promenade & dining"
+      },
+      {
+        "icon": "store",
+        "title": "Shopping",
+        "description": "Modern malls & traditional markets"
+      },
+      {
+        "icon": "utensils",
+        "title": "Cuisine",
+        "description": "Seafood specialties & international dining"
+      }
+    ],
+    "galleryImages": [
+      "https://www.leben-pur.ch/wp-content/uploads/2025/01/Leben-pur-250117-13-48-004-scaled.jpg",
+      "https://static.independent.co.uk/s3fs-public/thumbnails/image/2018/05/04/14/centreville-49-0.jpg",
+      "https://sspark.ai/cfimages?u1=qOuaDrN4dLMYT%2BsNIFSOu4Nm0RDobxGCA35U4YX6r4aX0zC9MGk2K7Uoc67JK5k9kj4SZJiO3nqjsnfWpj0xasvPdkEdDH8Z5AtcP4SIR5Pky%2BuTIxFJO263sQ2pdX7Llo6A7gPPbrK%2BBpB4Pr9bvPVqdoZ7HJ00ZgTimIhtYHE2gyloVHoQFe7OM3AvC4%2FckRzBUR8%3D&u2=dGfIAHLPJKhha8Mc&width=1024",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Downtown%2C_Casablanca.jpg/1200px-Downtown%2C_Casablanca.jpg"
+    ],
+    "itinerary": [
+      {
+        "day": "01",
+        "title": "Sacred & Historic",
+        "activities": [
+          "Morning: Hassan II Mosque",
+          "Afternoon: Old Medina",
+          "Evening: Mohammed V Square"
+        ]
+      },
+      {
+        "day": "02",
+        "title": "Art & Culture",
+        "activities": [
+          "Morning: Art Deco Tour",
+          "Afternoon: Villa des Arts",
+          "Evening: Dining in Quartier Habous"
+        ]
+      },
+      {
+        "day": "03",
+        "title": "Modern Casa",
+        "activities": [
+          "Morning: Morocco Mall",
+          "Afternoon: Ain Diab Beach",
+          "Evening: Corniche restaurants"
+        ]
+      }
+    ],
+    "videoUrl": "https://www.youtube.com/embed/yQ1C0o8nVYI?si=qi4enqRqe2P866bC?si=g19gPgRTi9DA1zqf?controls=1&modestbranding=1&rel=0",
+    "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106386.45109225067!2d-7.699237376789351!3d33.57225157476496!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7cd4778aa113b%3A0xb06c1d84f310fd3!2sCasablanca%2C%20Morocco!5e0!3m2!1sen!2sus!4v1682599198392!5m2!1sen!2sus",
+    "localGuides": [
+      {
+        "name": "Youssef R.",
+        "profession": "Architecture Expert",
+        "avatar": "https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-1.jpg",
+        "rating": 4.9,
+        "reviewCount": 143
+      },
+      {
+        "name": "Laila M.",
+        "profession": "Urban Explorer",
+        "avatar": "https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-8.jpg",
+        "rating": 4.6,
+        "reviewCount": 108
+      }
+    ]
+  },
+  {
+    "id": "essaouira",
+    "name": "Essaouira",
+    "heroImage": "https://www.visitmorocco.com/sites/default/files/styles/thumbnail_events_slider/public/thumbnails/image/essaouira-port-in-morocco-shot-after-sunset-at-blue-hour-ruslan-kalnitsky.jpg?itok=G1bPw1F7",
+    "shortDescription": "A charming coastal city with a rich history, vibrant art scene, and world-class surfing, where Atlantic breezes blend with Moroccan traditions.",
+    "quickFacts": {
+      "bestTimeToVisit": "April to October",
+      "averageBudget": "$65-110 per day",
+      "recommendedStay": "2-4 days"
+    },
+    "about": "Essaouira, formerly known as Mogador, is a UNESCO World Heritage-listed city on Morocco's Atlantic coast. With its 18th-century fortifications, whitewashed buildings with blue accents, and constant ocean breeze, this laid-back coastal gem offers a refreshing contrast to Morocco's busier imperial cities.",
+    "highlights": [
+      {
+        "icon": "water",
+        "title": "Coastal Beauty",
+        "description": "Pristine beaches and port"
+      },
+      {
+        "icon": "wind",
+        "title": "Water Sports",
+        "description": "Surfing, kitesurfing, windsurfing"
+      },
+      {
+        "icon": "fish",
+        "title": "Seafood",
+        "description": "Fresh catches and local cuisine"
+      },
+      {
+        "icon": "palette",
+        "title": "Art Scene",
+        "description": "Galleries and music traditions"
+      }
+    ],
+    "galleryImages": [
+      "https://anzaltours.com/wp-content/uploads/2016/05/mini_magick20170630-4-1i5t5ab.jpg",
+      "https://storage.googleapis.com/hizan-network-app.appspot.com/marrakechtricks/essaouira%20port/main_large.webp",
+      "https://cdn.getyourguide.com/img/location/5cf7d535e2c33.jpeg/150.webp",
+      "https://exploreessaouira.com/wp-content/uploads/2022/07/Essaouira-walking-tour-feature.jpg"
+    ],
+    "itinerary": [
+      {
+        "day": "01",
+        "title": "Historic Exploration",
+        "activities": [
+          "Morning: Skala de la Ville",
+          "Afternoon: Medina wandering",
+          "Evening: Seafood at port"
+        ]
+      },
+      {
+        "day": "02",
+        "title": "Beach & Activities",
+        "activities": [
+          "Morning: Surf lesson",
+          "Afternoon: Beach relaxation",
+          "Evening: Sunset camel ride"
+        ]
+      },
+      {
+        "day": "03",
+        "title": "Art & Culture",
+        "activities": [
+          "Morning: Art galleries",
+          "Afternoon: Thuya wood workshops",
+          "Evening: Gnawa music show"
+        ]
+      }
+    ],
+    "videoUrl": "https://www.youtube.com/embed/joRZxY4gcyQ?si=UHZPacOI5qyvKobl?controls=1&modestbranding=1&rel=0",
+    "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d54674.68208480534!2d-9.793358899999999!3d31.5084926!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdad9a4e9f588ccf%3A0x57421a176d5d7d30!2sEssaouira%2C%20Morocco!5e0!3m2!1sen!2sus!4v1625761234567!5m2!1sen!2sus",
+    "localGuides": [
+      {
+        "name": "Karima H.",
+        "profession": "Art Expert",
+        "avatar": "https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-9.jpg",
+        "rating": 5.0,
+        "reviewCount": 87
+      },
+      {
+        "name": "Jamal A.",
+        "profession": "Surf Instructor",
+        "avatar": "https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-10.jpg",
+        "rating": 4.8,
+        "reviewCount": 124
+      }
+    ]
+  },
+  {
+    "id": "merzouga",
+    "name": "Merzouga",
+    "heroImage": "https://www.gomorocconow.com/wp-content/uploads/2022/05/Sand-in-Merzouga-1379x917.jpeg",
+    "shortDescription": "Gateway to the breathtaking Erg Chebbi dunes, offering an unforgettable Sahara Desert experience with golden sands and nomadic traditions.",
+    "quickFacts": {
+      "bestTimeToVisit": "October to April",
+      "averageBudget": "$60-130 per day",
+      "recommendedStay": "2-3 days"
+    },
+    "about": "Merzouga is a small village located in southeastern Morocco, known worldwide as the gateway to the stunning Erg Chebbi dunes. These majestic orange-hued sand dunes can reach heights of up to 150 meters and stretch as far as the eye can see, offering one of Morocco's most iconic desert landscapes.",
+    "highlights": [
+      {
+        "icon": "desert",
+        "title": "Desert Adventures",
+        "description": "Camel treks and 4x4 excursions"
+      },
+      {
+        "icon": "campground",
+        "title": "Desert Camping",
+        "description": "Traditional Berber camps"
+      },
+      {
+        "icon": "drum",
+        "title": "Berber Culture",
+        "description": "Music, dance, and traditions"
+      },
+      {
+        "icon": "star",
+        "title": "Stargazing",
+        "description": "Pristine night skies"
+      }
+    ],
+    "galleryImages": [
+      "https://www.pelago.com/img/products/MA-Morocco/3-day-tour-to-merzouga-erg-chebbi-with-food-camel-trek/f0f4cc90-c6ce-411f-9ebd-0bbc1dc41fff_3-day-tour-to-merzouga-erg-chebbi-with-food-camel-trek.jpg",
+      "https://cdn.kimkim.com/files/a/images/e73e33261c705a1188fe75606fdc857808ad4c5b/big-e698626565b48bc64f08d110b8dd59a8.jpg",
+      "https://www.kiwi.com/stories/wp-content/uploads/2024/10/2f197d1e-500f-494e-a32a-00bf44228eb8-1000x667.jpg",
+      "https://www.moroccodesertstargazing.com/star-watching-2.jpg"
+    ],
+    "itinerary": [
+      {
+        "day": "01",
+        "title": "Desert Arrival",
+        "activities": [
+          "Morning: Arrival & village walk",
+          "Afternoon: Khamlia music village",
+          "Evening: Sunset camel ride"
+        ]
+      },
+      {
+        "day": "02",
+        "title": "Desert Adventure",
+        "activities": [
+          "Morning: 4x4 desert tour",
+          "Afternoon: Visit nomad families",
+          "Evening: Camp dinner & stargazing"
+        ]
+      },
+      {
+        "day": "03",
+        "title": "Desert Activities",
+        "activities": [
+          "Morning: Desert sunrise",
+          "Afternoon: Sandboarding",
+          "Evening: Berber drum circle"
+        ]
+      }
+    ],
+    "videoUrl": "https://www.youtube.com/embed/ErBC2qPK68w?si=lJdSXu8tn95icncm?controls=1&modestbranding=1&rel=0",
+    "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d16289.82082478475!2d-4.0227780223836165!3d31.09771092386382!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd975672d84ece09%3A0x7dafa22b9dcd8ce4!2sMerzouga%2C%20Morocco!5e0!3m2!1sen!2sus!4v1625761234567!5m2!1sen!2sus",
+    "localGuides": [
+      {
+        "name": "Omar S.",
+        "profession": "Desert Navigator",
+        "avatar": "https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-4.jpg",
+        "rating": 5.0,
+        "reviewCount": 156
+      },
+      {
+        "name": "Rachid B.",
+        "profession": "Berber Culture Expert",
+        "avatar": "https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-8.jpg",
+        "rating": 4.9,
+        "reviewCount": 103
+      }
+    ]
+  },{
+    "id": "marrakech",
+    "name": "Marrakech",
+    "heroImage": "https://www.naturallymorocco.co.uk/cms/destinations/23_6399d46fb9383s_0.jpg?v=1685633524",
+    "shortDescription": "The Red City where ancient traditions meet modern luxury, featuring bustling souks, peaceful gardens, and magnificent palaces.",
+    "quickFacts": {
+      "bestTimeToVisit": "March to May & September to November",
+      "averageBudget": "$80-150 per day",
+      "recommendedStay": "3-5 days"
+    },
+    "about": "Marrakech, the \"Pearl of the South,\" is a magical place where African, Arab and European influences intermingle. Founded in 1062, this imperial city has been one of Morocco's most important cities for centuries.",
+    "highlights": [
+      {
+        "icon": "landmark",
+        "title": "Historical Sites",
+        "description": "Ancient medina, palaces, and mosques"
+      },
+      {
+        "icon": "shopping-bag",
+        "title": "Shopping",
+        "description": "Traditional souks and modern malls"
+      },
+      {
+        "icon": "utensils",
+        "title": "Cuisine",
+        "description": "Rich flavors and local delicacies"
+      },
+      {
+        "icon": "spa",
+        "title": "Wellness",
+        "description": "Traditional hammams and spas"
+      }
+    ],
+    "galleryImages": [
+      "https://storage.googleapis.com/uxpilot-auth.appspot.com/6c279c1736-627fbcec8e7a12d8540d.png",
+      "https://storage.googleapis.com/uxpilot-auth.appspot.com/7feed26c23-4620657d31ce480a0cd8.png",
+      "https://storage.googleapis.com/uxpilot-auth.appspot.com/2cc2674512-52de112062c733cef802.png",
+      "https://storage.googleapis.com/uxpilot-auth.appspot.com/c9219361df-472ed482b8303ce65343.png"
+    ],
+    "itinerary": [
+      {
+        "day": "01",
+        "title": "Medina Explorer",
+        "activities": [
+          "Morning: Djemaa el-Fna Square",
+          "Afternoon: Souk exploration",
+          "Evening: Food tour"
+        ]
+      },
+      {
+        "day": "02",
+        "title": "Cultural Immersion",
+        "activities": [
+          "Morning: Majorelle Gardens",
+          "Afternoon: Palace visits",
+          "Evening: Sunset camel ride"
+        ]
+      },
+      {
+        "day": "03",
+        "title": "Relaxation Day",
+        "activities": [
+          "Morning: Hammam experience",
+          "Afternoon: Cooking class",
+          "Evening: Rooftop dinner"
+        ]
+      }
+    ],
+    "videoUrl": "https://www.youtube.com/embed/Lu6M1-HMvxc?si=qkIduYaF4Lw0aa0H?controls=1&modestbranding=1&rel=0",
+    "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d54341.401538575254!2d-8.0317935!3d31.6294723!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdafee8d96179e51%3A0x5950b6534f87adb8!2sMarrakesh%2C%20Morocco!5e0!3m2!1sen!2sus!4v1625761234567!5m2!1sen!2sus",
+    "localGuides": [
+      {
+        "name": "Hassan M.",
+        "profession": "Cultural Expert",
+        "avatar": "https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-2.jpg",
+        "rating": 4.5,
+        "reviewCount": 126
+      },
+      {
+        "name": "Amira L.",
+        "profession": "Food Specialist",
+        "avatar": "https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-5.jpg",
+        "rating": 5.0,
+        "reviewCount": 98
+      }
+    ]
+  },
+  {
+    "id": "fez",
+    "name": "Fez",
+    "heroImage": "https://afktravel.com/wp-content/uploads/2015/09/fez-morocco-normal.jpg",
+    "shortDescription": "The cultural capital of Morocco with the world's largest car-free urban area, ancient medina, and centuries of scholarly tradition.",
+    "quickFacts": {
+      "bestTimeToVisit": "March to May & September to November",
+      "averageBudget": "$70-120 per day",
+      "recommendedStay": "2-4 days"
+    },
+    "about": "Founded in the 9th century, Fes is Morocco's oldest imperial city and a UNESCO World Heritage site. Its labyrinthine medina, Fes el-Bali, is considered the most well-preserved medieval city in the Arab world, featuring historic madrasas, fondouks, and the world's oldest university.",
+    "highlights": [
+      {
+        "icon": "landmark",
+        "title": "Cultural Heritage",
+        "description": "Ancient universities and medersas"
+      },
+      {
+        "icon": "brush",
+        "title": "Craftsmanship",
+        "description": "Traditional artisans and tanneries"
+      },
+      {
+        "icon": "utensils",
+        "title": "Cuisine",
+        "description": "Authentic Fassi delicacies"
+      },
+      {
+        "icon": "mosque",
+        "title": "Architecture",
+        "description": "Ornate mosques and palaces"
+      }
+    ],
+    "galleryImages": [
+      "https://hungariandreamers.com/wp-content/uploads/2024/03/Fes27-819x1024.jpg",
+      "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/06/3e/ab/47/caption.jpg?w=1200&h=1200&s=1",
+      "https://babfez.com/wp-content/uploads/2022/11/zelliges-importes-de-fes.jpg",
+      "https://img.atlasobscura.com/Q7HmaecIxaQN5oltwxl1UYA5GjMC4cU1q214TtwXumQ/rs:fill:780:520:1/g:ce/q:81/sm:1/scp:1/ar:1/aHR0cHM6Ly9hdGxh/cy1kZXYuczMuYW1h/em9uYXdzLmNvbS91/cGxvYWRzL3BsYWNl/X2ltYWdlcy8wMTMy/OTdkOTljMTU2Mjdi/MWVfOTAzNzU5MjM4/MF9hMjFmMjFhNTIx/X2suanBn.jpg"
+    ],
+    "itinerary": [
+      {
+        "day": "01",
+        "title": "Historic Medina",
+        "activities": [
+          "Morning: Al-Qarawiyyin Mosque",
+          "Afternoon: Bou Inania Madrasa",
+          "Evening: Dinner at a traditional riad"
+        ]
+      },
+      {
+        "day": "02",
+        "title": "Artisan Discovery",
+        "activities": [
+          "Morning: Chouara Tannery",
+          "Afternoon: Pottery workshops",
+          "Evening: Souk exploration"
+        ]
+      },
+      {
+        "day": "03",
+        "title": "Cultural Immersion",
+        "activities": [
+          "Morning: Cooking class",
+          "Afternoon: Borj Nord Museum",
+          "Evening: Traditional music show"
+        ]
+      }
+    ],
+    "videoUrl": "https://www.youtube.com/embed/kYxBn98X3Ig?si=uboz2o4KinTpFKE0?controls=1&modestbranding=1&rel=0",
+    "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53202.59433974084!2d-5.037768665104876!3d34.03333056807693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd9f8b484d445777%3A0x10e6aaaeedd802ef!2sFez%2C%20Morocco!5e0!3m2!1sen!2sus!4v1625761234567!5m2!1sen!2sus",
+    "localGuides": [
+      {
+        "name": "Mohammed K.",
+        "profession": "History Expert",
+        "avatar": "https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-3.jpg",
+        "rating": 5.0,
+        "reviewCount": 112
+      },
+      {
+        "name": "Fatima B.",
+        "profession": "Craft Expert",
+        "avatar": "https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-7.jpg",
+        "rating": 4.7,
+        "reviewCount": 89
+      }
+    ]
+  },
+  {
+    "id": "rabat",
+    "name": "Rabat",
+    "heroImage": "https://www.dollar-maroc.com/upload/stuff/images/dma/d2.webp",
+    "shortDescription": "Morocco's capital city where elegant modernity meets rich heritage, featuring stunning coastal views, peaceful gardens, and magnificent UNESCO World Heritage sites.",
+    "quickFacts": {
+      "bestTimeToVisit": "April to October",
+      "averageBudget": "$70-130 per day",
+      "recommendedStay": "2-3 days"
+    },
+    "about": "Rabat, Morocco's political and administrative capital, is a city of elegance and contrast. With its beautiful beaches, historic Kasbah, and modern districts, Rabat offers visitors a glimpse into both Morocco's storied past and its promising future.",
+    "highlights": [
+      {
+        "icon": "landmark",
+        "title": "Cultural Heritage",
+        "description": "UNESCO World Heritage Sites"
+      },
+      {
+        "icon": "water",
+        "title": "Coastal Beauty",
+        "description": "Atlantic beaches and waterfronts"
+      },
+      {
+        "icon": "palette",
+        "title": "Arts Scene",
+        "description": "Museums and galleries"
+      },
+      {
+        "icon": "leaf",
+        "title": "Green Spaces",
+        "description": "Beautiful gardens and parks"
+      }
+    ],
+    "galleryImages": [
+      "https://upload.wikimedia.org/wikipedia/commons/8/81/Tour_Hassan-Rabat-2.jpg",
+      "https://a.travel-assets.com/findyours-php/viewfinder/images/res70/469000/469959-Kasbah-Of-The-Udayas.jpg",
+      "https://www.story-rabat.com/wp-content/uploads/2024/02/Chellah-ruins-2048x1365-1.webp",
+      "https://upload.wikimedia.org/wikipedia/commons/e/e4/Rabat%2C_old_and_new_%28Mausoleum_of_Mohammed_V_and_new_Mohammed_VI_Tower_behind%3B_%D8%B6%D8%B1%D9%8A%D8%AD_%D9%85%D8%AD%D9%85%D8%AF_%D8%A7%D9%84%D8%AE%D8%A7%D9%85%D8%B3%29.jpg"
+    ],
+    "itinerary": [
+      {
+        "day": "01",
+        "title": "Historic Discovery",
+        "activities": [
+          "Morning: Kasbah of the Udayas",
+          "Afternoon: Hassan Tower & Mohammed V Mausoleum",
+          "Evening: Dinner in Rabat Medina"
+        ]
+      },
+      {
+        "day": "02",
+        "title": "Modern & Ancient",
+        "activities": [
+          "Morning: Chellah Necropolis",
+          "Afternoon: Contemporary Art Museum",
+          "Evening: Sunset at Rabat Beach"
+        ]
+      }
+    ],
+    "videoUrl": "https://www.youtube.com/embed/PyxBp6YTEo8?si=xOoWyfOn1FYHF09O",
+    "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106376.56320600183!2d-6.913329426678671!3d34.01868834987248!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda76b871f50c5c1%3A0x7ac946ed7408076b!2sRabat%2C%20Morocco!5e0!3m2!1sen!2sus!4v1682599014583!5m2!1sen!2sus",
+    "localGuides": [
+      {
+        "name": "Karim B.",
+        "profession": "History Expert",
+        "avatar": "https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-3.jpg",
+        "rating": 5.0,
+        "reviewCount": 89
+      },
+      {
+        "name": "Samira T.",
+        "profession": "Art & Culture Guide",
+        "avatar": "https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-7.jpg",
+        "rating": 4.7,
+        "reviewCount": 112
+      }
+    ]
+  },
+  {
+    "id": "tangier",
+    "name": "Tangier",
+    "heroImage": "https://media.tacdn.com/media/attractions-content--1x-1/10/7d/46/8a.jpg",
+    "shortDescription": "The gateway between Europe and Africa, a multicultural port city with a bohemian past, where Mediterranean and Atlantic waters meet beneath dramatic coastal views.",
+    "quickFacts": {
+      "bestTimeToVisit": "April to October",
+      "averageBudget": "$65-125 per day",
+      "recommendedStay": "2-3 days"
+    },
+    "about": "Tangier, where Africa meets Europe, has long captivated artists, writers, and travelers with its unique blend of cultures and dramatic setting. Once an international zone with a reputation for intrigue, today's Tangier balances its storied past with a rapidly modernizing present.",
+    "highlights": [
+      {
+        "icon": "map-location-dot",
+        "title": "Strategic Location",
+        "description": "Where Mediterranean meets Atlantic"
+      },
+      {
+        "icon": "book",
+        "title": "Literary Heritage",
+        "description": "Inspirational creative history"
+      },
+      {
+        "icon": "building",
+        "title": "Architectural Mix",
+        "description": "Moroccan, Spanish, French influences"
+      },
+      {
+        "icon": "mug-tea",
+        "title": "Café Culture",
+        "description": "Historic cafés & meeting places"
+      }
+    ],
+    "galleryImages": [
+      "https://live.staticflickr.com/65535/47710269622_96d9a36412_b.jpg",
+      "https://static.wixstatic.com/media/cb3b78_70387d645c414067b3bf1159861890ad~mv2.jpg/v1/fill/w_640,h_640,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/cb3b78_70387d645c414067b3bf1159861890ad~mv2.jpg",
+      "https://lp-cms-production.imgix.net/2019-06/GettyImages-494359253_full.jpg",
+      "https://stayhere.ma/wp-content/uploads/2023/10/Hercules-Cave-1140x753.webp"
+    ],
+    "itinerary": [
+      {
+        "day": "01",
+        "title": "City & History",
+        "activities": [
+          "Morning: Kasbah Museum & Medina",
+          "Afternoon: Petit Socco & American Legation",
+          "Evening: Sunset at Café Hafa"
+        ]
+      },
+      {
+        "day": "02",
+        "title": "Coastal Wonders",
+        "activities": [
+          "Morning: Caves of Hercules",
+          "Afternoon: Cap Spartel & Atlantic beaches",
+          "Evening: Seafood dinner at the port"
+        ]
+      }
+    ],
+    "videoUrl": "https://www.youtube.com/embed/qGUwPoOuFuA?si=hcNKbMn7IgDqH4PW?controls=1&modestbranding=1&rel=0",
+    "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d51815.98087366539!2d-5.833459391480959!3d35.76516376646315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0b875cf04c132d%3A0x76bfc571bfb4e17a!2sTangier%2C%20Morocco!5e0!3m2!1sen!2sus!4v1682599585808!5m2!1sen!2sus",
+    "localGuides": [
+      {
+        "name": "Mehdi F.",
+        "profession": "Cultural Historian",
+        "avatar": "https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-9.jpg",
+        "rating": 4.9,
+        "reviewCount": 78
+      },
+      {
+        "name": "Nadia H.",
+        "profession": "Literary Tour Guide",
+        "avatar": "https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-10.jpg",
+        "rating": 4.7,
+        "reviewCount": 94
+      }
+    ]
+  }
+]
