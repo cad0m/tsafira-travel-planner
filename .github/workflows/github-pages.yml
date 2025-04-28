@@ -17,27 +17,38 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0  # Fetch all history for proper versioning
-
-      - name: Setup GitHub Pages structure
+          fetch-depth: 0
+      
+      - name: Setup GitHub Pages deployment
         run: |
-          # Create a temp directory for the built site
+          # Create directory for deployment
           mkdir -p _site
           
-          # Copy all files except 'pages' folder
-          cp -r js css partials data _site/
+          # Copy files maintaining structure
+          cp -r js css data partials _site/
           
-          # Copy contents of pages directory to the root of _site
-          cp -r pages/* _site/
+          # Move index.html from pages to the root
+          cp pages/index.html _site/
           
-          # Debug - List what's in _site
-          echo "Contents of _site directory:"
-          ls -la _site/
-
+          # Create pages directory in _site and copy other HTML files
+          mkdir -p _site/pages
+          find pages -name "*.html" -not -name "index.html" -exec cp {} _site/pages/ \;
+          
+          # Fix paths in HTML files - this is critical
+          # 1. Leave paths in root index.html referring to js, css, etc.
+          sed -i 's|src="../js/|src="./js/|g' _site/index.html
+          sed -i 's|href="../css/|href="./css/|g' _site/index.html
+          
+          # 2. Keep paths in pages/*.html as they are (using relative ../js/, ../css/)
+          
+          # Debug info
+          echo "Structure of _site directory:"
+          find _site -type f | sort
+      
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4.4.1
         with:
           folder: _site
           branch: gh-pages
-          clean: true  # Automatically remove deleted files from the deploy branch
-          single-commit: true  # Maintain only one commit in the gh-pages branch
+          clean: true
+          single-commit: true
