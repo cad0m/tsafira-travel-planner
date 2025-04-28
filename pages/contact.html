@@ -106,8 +106,8 @@
     };
   </script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
-  <link rel="stylesheet" href="/css/main.css">
-  <link rel="stylesheet" href="/css/contact.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/contact.css">
 </head>
 <body class="bg-[var(--color-bg)] text-[var(--color-text)]">
   <div class="scroll-progress-container">
@@ -231,7 +231,7 @@
               <p class="text-[var(--color-text-muted)] mb-4"> 
                 Check our frequently asked questions for immediate assistance. 
               </p> 
-              <a href="/faq" class="text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] font-medium inline-flex items-center group"> 
+              <a href="../pages/faq.html" class="text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] font-medium inline-flex items-center group"> 
                 View FAQs <i class="fa-solid fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i> 
               </a> 
             </div> 
@@ -407,10 +407,10 @@
     <!-- Footer will be loaded by JavaScript -->
   </footer>
 
-  <script type="module" src="/js/main.js"></script>
+  <script type="module" src="../js/main.js"></script>
   <script type="module">
-    import { initCommonPageFunctions } from '/js/page-common.js';
-    import { validateInput, isValidEmail, isValidPhone, isValidName } from '/js/validate.js';
+    import { initCommonPageFunctions } from '../js/page-common.js';
+    import { validateInput, isValidEmail, isValidPhone, isValidName } from '../js/validate.js';
     
     document.addEventListener('DOMContentLoaded', function() {
       console.log('Contact page initialized');
