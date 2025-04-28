@@ -1,38 +1,47 @@
 /**
- * Global fixes for all pages in Tsafira website
- * Handles dark mode toggle and mobile menu functionality
+ * UI Module for Tsafira Travel Planner
+ * Handles theme management and mobile menu functionality
  */
 
-// Make functions globally available
-window.openMobileMenu = openMobileMenu;
-window.closeMobileMenu = closeMobileMenu;
-window.toggleTheme = toggleTheme;
+// Constants for theme handling 
+const THEME_KEY = 'theme';
+const DARK_CLASS = 'dark';
 
-document.addEventListener('DOMContentLoaded', function() {
-  console.log('Global fixes initialized');
+/**
+ * Initialize UI components when DOM is ready
+ */
+export function initUI() {
+  console.log('Initializing UI components');
   
-  // Initialize theme on load
-  initTheme();
-  
-  // Initialize mobile menu
-  initMobileMenu();
-  
-  // Mark body as loaded
-  document.body.classList.add('loaded');
-});
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize theme
+    initTheme();
+    
+    // Initialize mobile menu
+    initMobileMenu();
+    
+    // Initialize scroll progress bar
+    initScrollProgressBar();
+    
+    // Mark body as loaded for proper CSS transitions
+    setTimeout(() => {
+      document.body.classList.add('loaded');
+    }, 100);
+  });
+}
 
 /**
  * Initialize theme based on stored preference
  */
-function initTheme() {
-  const storedTheme = localStorage.getItem('theme') || 'light';
+export function initTheme() {
+  const storedTheme = localStorage.getItem(THEME_KEY) || 'light';
   const htmlElement = document.documentElement;
   
   // Apply theme class
   if (storedTheme === 'dark') {
-    htmlElement.classList.add('dark');
+    htmlElement.classList.add(DARK_CLASS);
   } else {
-    htmlElement.classList.remove('dark');
+    htmlElement.classList.remove(DARK_CLASS);
   }
   
   // Update all toggle buttons
@@ -46,7 +55,7 @@ function initTheme() {
     if (!toggle.hasThemeListener) {
       toggle.addEventListener('click', function(e) {
         e.preventDefault();
-        toggleTheme(this);
+        toggleTheme();
       });
       toggle.hasThemeListener = true;
     }
@@ -56,30 +65,38 @@ function initTheme() {
 /**
  * Toggle between dark and light themes
  */
-function toggleTheme(button) {
+export function toggleTheme() {
   // Toggle dark/light theme
   const html = document.documentElement;
-  const isDark = html.classList.contains('dark');
+  const isDark = html.classList.contains(DARK_CLASS);
+  
+  // Add transition class for smooth color change
+  html.classList.add('transition');
   
   if (isDark) {
-    html.classList.remove('dark');
-    localStorage.setItem('theme', 'light');
+    html.classList.remove(DARK_CLASS);
+    localStorage.setItem(THEME_KEY, 'light');
   } else {
-    html.classList.add('dark');
-    localStorage.setItem('theme', 'dark');
+    html.classList.add(DARK_CLASS);
+    localStorage.setItem(THEME_KEY, 'dark');
   }
   
   console.log('Theme toggled to:', !isDark ? 'dark' : 'light');
   
   // Update all theme buttons
   updateThemeIcons();
+  
+  // Remove transition class after animation completes
+  setTimeout(() => {
+    html.classList.remove('transition');
+  }, 500);
 }
 
 /**
  * Update all theme toggle button icons
  */
-function updateThemeIcons() {
-  const isDark = document.documentElement.classList.contains('dark');
+export function updateThemeIcons() {
+  const isDark = document.documentElement.classList.contains(DARK_CLASS);
   const toggles = document.querySelectorAll('[data-theme-toggle], #theme-toggle, #theme-toggle-mobile');
   
   toggles.forEach(toggle => {
@@ -101,7 +118,7 @@ function updateThemeIcons() {
 /**
  * Initialize mobile menu
  */
-function initMobileMenu() {
+export function initMobileMenu() {
   // Ensure the mobile menu is hidden initially
   const mobileMenu = document.getElementById('mobile-menu');
   if (mobileMenu) {
@@ -111,21 +128,21 @@ function initMobileMenu() {
   
   // Set up click handlers for mobile menu buttons if not already set via inline handlers
   const menuButton = document.getElementById('mobile-menu-button');
-  if (menuButton && !menuButton.hasMobileListener) {
-    menuButton.addEventListener('click', function(e) {
+  if (menuButton) {
+    menuButton.onclick = function(e) {
       e.preventDefault();
       openMobileMenu();
-    });
-    menuButton.hasMobileListener = true;
+      return false;
+    };
   }
   
   const closeButton = document.getElementById('close-menu-button');
-  if (closeButton && !closeButton.hasMobileListener) {
-    closeButton.addEventListener('click', function(e) {
+  if (closeButton) {
+    closeButton.onclick = function(e) {
       e.preventDefault();
       closeMobileMenu();
-    });
-    closeButton.hasMobileListener = true;
+      return false;
+    };
   }
   
   // Also watch for dynamically loaded elements
@@ -142,32 +159,44 @@ function initMobileMenu() {
           newMobileMenu.isFixed = true;
         }
         
-        if (newMenuButton && !newMenuButton.hasMobileListener) {
-          newMenuButton.addEventListener('click', function(e) {
+        if (newMenuButton) {
+          newMenuButton.onclick = function(e) {
             e.preventDefault();
             openMobileMenu();
-          });
-          newMenuButton.hasMobileListener = true;
+            return false;
+          };
         }
         
-        if (newCloseButton && !newCloseButton.hasMobileListener) {
-          newCloseButton.addEventListener('click', function(e) {
+        if (newCloseButton) {
+          newCloseButton.onclick = function(e) {
             e.preventDefault();
             closeMobileMenu();
-          });
-          newCloseButton.hasMobileListener = true;
+            return false;
+          };
         }
       }
     });
   });
   
   observer.observe(document.body, { childList: true, subtree: true });
+  
+  // Add click outside handler to close menu
+  document.addEventListener('click', function(e) {
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuButton = document.getElementById('mobile-menu-button');
+    
+    if (mobileMenu && mobileMenu.classList.contains('visible') && 
+        (!menuButton || !menuButton.contains(e.target)) && 
+        (!mobileMenu || !mobileMenu.contains(e.target))) {
+      closeMobileMenu();
+    }
+  });
 }
 
 /**
  * Open the mobile menu
  */
-function openMobileMenu() {
+export function openMobileMenu() {
   const mobileMenu = document.getElementById('mobile-menu');
   const menuButton = document.getElementById('mobile-menu-button');
   
@@ -191,6 +220,13 @@ function openMobileMenu() {
       icon.classList.remove('fa-bars');
       icon.classList.add('fa-times');
     }
+    
+    // Change the onclick handler to close the menu when clicked again
+    menuButton.onclick = function(e) {
+      e.preventDefault();
+      closeMobileMenu();
+      return false;
+    };
   }
   
   // Prevent scrolling
@@ -200,7 +236,7 @@ function openMobileMenu() {
 /**
  * Close the mobile menu
  */
-function closeMobileMenu() {
+export function closeMobileMenu() {
   const mobileMenu = document.getElementById('mobile-menu');
   const menuButton = document.getElementById('mobile-menu-button');
   
@@ -221,6 +257,13 @@ function closeMobileMenu() {
       icon.classList.remove('fa-times');
       icon.classList.add('fa-bars');
     }
+    
+    // Reset the onclick handler to open the menu again
+    menuButton.onclick = function(e) {
+      e.preventDefault();
+      openMobileMenu();
+      return false;
+    };
   }
   
   // Wait for animation to complete
@@ -228,4 +271,54 @@ function closeMobileMenu() {
     mobileMenu.style.display = 'none';
     document.body.style.overflow = '';
   }, 300);
-} 
+}
+
+/**
+ * Initialize scroll progress bar
+ */
+export function initScrollProgressBar() {
+  const scrollProgressBar = document.querySelector('.scroll-progress-bar');
+  
+  // Exit if scroll progress bar doesn't exist on this page
+  if (!scrollProgressBar) return;
+  
+  function updateScrollProgress() {
+    const scrollPosition = window.scrollY;
+    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+    
+    // Avoid division by zero
+    if (scrollHeight <= 0) {
+      scrollProgressBar.style.width = '0%';
+      return;
+    }
+    
+    const scrollPercentage = (scrollPosition / scrollHeight) * 100;
+    
+    scrollProgressBar.style.width = `${scrollPercentage}%`;
+    // Add a subtle animation effect when scrolling
+    scrollProgressBar.style.boxShadow = `0 1px ${3 + scrollPercentage/20}px rgba(242, 101, 34, 0.4)`;
+  }
+  
+  // Add event listener for scroll
+  window.addEventListener('scroll', updateScrollProgress);
+  
+  // Initialize on page load
+  updateScrollProgress();
+}
+
+// Export all functions and initialize UI
+export default {
+  initUI,
+  initTheme,
+  toggleTheme,
+  updateThemeIcons,
+  initMobileMenu,
+  openMobileMenu,
+  closeMobileMenu,
+  initScrollProgressBar
+};
+
+// Make functions globally available for inline handlers
+window.toggleTheme = toggleTheme;
+window.openMobileMenu = openMobileMenu;
+window.closeMobileMenu = closeMobileMenu; 

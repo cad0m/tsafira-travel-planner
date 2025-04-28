@@ -5,7 +5,8 @@
 import { selectors, defaults } from '/js/config.js';
 import { qs, qsa, on, createElement } from '/js/utils.js';
 import { isValidEmail } from '/js/validate.js';
-
+import { initUI } from '/js/ui.js';
+import { apiGet } from '/js/api.js';
 /**
  * Initialize the testimonial carousel
  */
@@ -15,79 +16,54 @@ export function initTestimonialCarousel() {
   // Exit if testimonial container doesn't exist on this page
   if (!container) return;
   
-  // Testimonial data
-  const testimonials = [
-    // First slide (2 testimonials)
-    [
-      {
-        name: "Sarah M.",
-        location: "New York, USA",
-        rating: 5,
-        text: "Tsafira made planning our Moroccan adventure effortless. The personalized itinerary perfectly matched our interests and budget.",
-        avatar: "https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-1.jpg"
-      },
-      {
-        name: "James R.",
-        location: "London, UK",
-        rating: 5,
-        text: "An incredible experience from start to finish. The local expertise really showed in the unique experiences we had.",
-        avatar: "https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-2.jpg"
-      }
-    ],
-    // Second slide (2 testimonials)
-    [
-      {
-        name: "Maria L.",
-        location: "Barcelona, Spain",
-        rating: 5,
-        text: "Our family trip to Morocco was the highlight of our year. The local guides were exceptional and the accommodations were perfect.",
-        avatar: "https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-3.jpg"
-      },
-      {
-        name: "David K.",
-        location: "Toronto, Canada",
-        rating: 4,
-        text: "The attention to detail in our itinerary was impressive. Every recommendation was spot on and saved us so much research time.",
-        avatar: "https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-4.jpg"
-      }
-    ],
-    // Third slide (2 testimonials)
-    [
-      {
-        name: "Sophia T.",
-        location: "Sydney, Australia",
-        rating: 5,
-        text: "I never would have discovered those hidden gems without Tsafira's expertise. The authentic experiences made this trip unforgettable.",
-        avatar: "https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-5.jpg"
-      },
-      {
-        name: "Michael B.",
-        location: "Berlin, Germany",
-        rating: 5,
-        text: "From the desert to the mountains, our journey through Morocco was flawless. The cultural insights provided added so much depth to our travels.",
-        avatar: "https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-6.jpg"
-      }
-    ]
-  ];
-  
   let currentSlide = 0;
   let carouselIntervalId = null;
   
-  // Create slides
-  testimonials.forEach((slideData, index) => {
-    const slide = createTestimonialSlide(slideData, index);
-    container.appendChild(slide);
-  });
+  // Fetch testimonial data from JSON file
+  apiGet('/data/testimonials.json')
+    .then(testimonialData => {
+      // Group testimonials into pairs for slides
+      const testimonials = groupTestimonialsInPairs(testimonialData);
+      
+      // Create slides
+      testimonials.forEach((slideData, index) => {
+        const slide = createTestimonialSlide(slideData, index);
+        container.appendChild(slide);
+      });
+      
+      // Create navigation dots
+      createNavigationDots(testimonials.length);
+      
+      // Start auto-rotation
+      startCarouselRotation();
+      
+      // Add event listeners for pause/resume
+      on(container, 'mouseenter', pauseCarouselRotation);
+      on(container, 'mouseleave', startCarouselRotation);
+    })
+    .catch(error => {
+      console.error('Failed to load testimonials:', error);
+      // Optional: Show error message or fallback content
+      container.innerHTML = '<p class="text-center py-4">Unable to load testimonials</p>';
+    });
   
-  // Create navigation dots
-  createNavigationDots(testimonials.length);
-  
-  // Start auto-rotation
-  startCarouselRotation();
-  
-  // Add event listeners for pause/resume
-  on(container, 'mouseenter', pauseCarouselRotation);
-  on(container, 'mouseleave', startCarouselRotation);
+  /**
+   * Group testimonials into pairs for slides
+   * @param {Array} flatTestimonials - Flat array of testimonial objects
+   * @returns {Array} - Array of testimonial pairs for slides
+   */
+  function groupTestimonialsInPairs(flatTestimonials) {
+    const groupedTestimonials = [];
+    
+    // Loop through the flat array and create pairs
+    for (let i = 0; i < flatTestimonials.length; i += 2) {
+      // If we have an odd number of testimonials, the last "pair" might only have one item
+      const pair = flatTestimonials.slice(i, i + 2);
+      groupedTestimonials.push(pair);
+    }
+    
+    return groupedTestimonials;
+  }
   
   /**
    * Create a testimonial slide
@@ -400,50 +376,34 @@ export function initNewsletterForm() {
 }
 
 /**
- * Initialize scroll progress bar
- */
-export function initScrollProgressBar() {
-  const scrollProgressBar = qs(selectors.scrollProgressBar);
-  
-  // Exit if scroll progress bar doesn't exist on this page
-  if (!scrollProgressBar) return;
-  
-  function updateScrollProgress() {
-    const scrollPosition = window.scrollY;
-    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-    
-    // Avoid division by zero
-    if (scrollHeight <= 0) {
-      scrollProgressBar.style.width = '0%';
-      return;
-    }
-    
-    const scrollPercentage = (scrollPosition / scrollHeight) * 100;
-    
-    scrollProgressBar.style.width = `${scrollPercentage}%`;
-    // Add a subtle animation effect when scrolling
-    scrollProgressBar.style.boxShadow = `0 1px ${3 + scrollPercentage/20}px rgba(242, 101, 34, 0.4)`;
-  }
-  
-  on(window, 'scroll', updateScrollProgress);
-  
-  // Initialize on page load
-  updateScrollProgress();
-}
-
-/**
- * Initialize all index page functionality
+ * Initialize index page functionality
  */
 export function init() {
+  console.log('Initializing index page');
+  
+  // Initialize UI framework components first
+  initUI();
+  
+  // Initialize page-specific components
   initTestimonialCarousel();
-  initScrollProgressBar();
   initNewsletterForm();
+  
+  // Handle destination selection
+  const destinationCards = qsa(selectors.destinationCard);
+  destinationCards.forEach(card => {
+    on(card, 'click', function(e) {
+      e.preventDefault();
+      const destination = this.dataset.destination;
+      window.location.href = `/pages/destination.html?name=${destination}`;
+    });
+  });
+  
+  console.log('Index page initialization complete');
 }
 
-// Export default object with all functions
+// Export main functions
 export default {
   init,
   initTestimonialCarousel,
-  initScrollProgressBar,
   initNewsletterForm
 };

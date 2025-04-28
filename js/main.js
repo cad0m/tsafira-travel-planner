@@ -3,32 +3,27 @@
  * Initializes all necessary components based on the current page
  */
 import { initPartials } from '/js/loader.js';
-import { qs, on } from '/js/utils.js';
-import { selectors } from '/js/config.js';
+import { qs } from '/js/utils.js';
 import { initAuth, updateAuthUI } from '/js/auth.js';
-import { initTheme, updateThemeClass } from '/js/theme.js';
+import { initUI } from '/js/ui.js';
 
 // Initialize the partials (header and footer)
 initPartials();
 
 // Main initialization function
 function init() {
+  // Initialize UI components
+  initUI();
+  
   // Initialize theme and auth after partials are loaded
   document.addEventListener('partialLoaded', function(e) {
     if (e.detail.id === '#header-placeholder') {
-      // Initialize theme after header is loaded
-      initTheme();
-      
-      // Initialize mobile menu
-      initMobileMenu();
-      
       // Initialize authentication
       initAuth();
     }
   });
   
-  // Also initialize for cases where partials might already be loaded
-  initTheme();
+  // Also initialize auth for cases where partials might already be loaded
   initAuth();
   
   // Dynamically import page-specific modules based on data-page attribute
@@ -52,57 +47,13 @@ function init() {
   }
 }
 
-/**
- * Initialize mobile menu functionality
- */
-function initMobileMenu() {
-  const mobileMenuButton = qs(selectors.mobileMenuButton);
-  const closeMenuButton = qs(selectors.closeMenuButton);
-  const mobileMenu = qs(selectors.mobileMenu);
-  
-  // Exit if elements don't exist on this page
-  if (!mobileMenuButton || !closeMenuButton || !mobileMenu) return;
-  
-  // Add hidden class to mobile menu on init
-  if (!mobileMenu.classList.contains('hidden')) {
-    mobileMenu.classList.add('hidden');
+// Make sure auth UI is updated when auth state changes
+document.addEventListener('authStateChanged', () => {
+  const mobileNavActions = qs('#mobile-nav-actions');
+  if (mobileNavActions) {
+    updateAuthUI(mobileNavActions);
   }
-  
-  // Open mobile menu when hamburger icon is clicked
-  on(mobileMenuButton, 'click', (e) => {
-    e.preventDefault();
-    mobileMenu.classList.remove('hidden');
-    document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
-  });
-  
-  // Close mobile menu when X icon is clicked
-  on(closeMenuButton, 'click', (e) => {
-    e.preventDefault();
-    mobileMenu.classList.add('hidden');
-    document.body.style.overflow = ''; // Re-enable scrolling
-  });
-  
-  // Close menu when clicking outside
-  on(document, 'click', (e) => {
-    if (!mobileMenu.classList.contains('hidden') && 
-        !mobileMenuButton.contains(e.target) && 
-        !mobileMenu.contains(e.target)) {
-      mobileMenu.classList.add('hidden');
-      document.body.style.overflow = '';
-    }
-  });
-  
-  // Make sure mobile auth UI is updated when auth state changes
-  document.addEventListener('authStateChanged', () => {
-    const mobileNavActions = qs('#mobile-nav-actions');
-    if (mobileNavActions) {
-      updateAuthUI(mobileNavActions);
-    }
-    
-    // Also ensure theme is applied correctly on auth state change
-    updateThemeClass();
-  });
-}
+});
 
 // Initialize when DOM is fully loaded
 if (document.readyState === 'loading') {

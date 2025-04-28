@@ -20,7 +20,7 @@
         id="theme-toggle" 
         class="p-2 rounded-full hover:bg-[var(--color-bg-alt)] text-[var(--color-text)]"
         data-theme-toggle
-        onclick="toggleTheme(this); return false;"
+        onclick="toggleTheme(); return false;"
       >
         <i class="fas fa-moon moon-icon"></i>
         <i class="fas fa-sun sun-icon hidden"></i>
@@ -45,7 +45,7 @@
         id="theme-toggle-mobile" 
         class="p-2 rounded-full hover:bg-[var(--color-bg-alt)] text-[var(--color-text)]"
         data-theme-toggle
-        onclick="toggleTheme(this); return false;"
+        onclick="toggleTheme(); return false;"
       >
         <i class="fas fa-moon moon-icon"></i>
         <i class="fas fa-sun sun-icon hidden"></i>
@@ -128,102 +128,12 @@
   }
 </style>
 
-<script>
-  // Direct inline scripts to ensure functionality even if JS modules fail
-  function toggleTheme(button) {
-    // Toggle dark/light theme
-    const html = document.documentElement;
-    const isDark = html.classList.contains('dark');
-    
-    if (isDark) {
-      html.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    } else {
-      html.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    }
-    
-    // Update button icons
-    const moonIcon = button.querySelector('.moon-icon, .fa-moon');
-    const sunIcon = button.querySelector('.sun-icon, .fa-sun');
-    
-    if (moonIcon && sunIcon) {
-      if (!isDark) { // Now dark
-        moonIcon.classList.add('hidden');
-        sunIcon.classList.remove('hidden');
-      } else { // Now light
-        moonIcon.classList.remove('hidden');
-        sunIcon.classList.add('hidden');
-      }
-    }
-    
-    // Update all other theme toggles
-    const allToggles = document.querySelectorAll('[data-theme-toggle], #theme-toggle, #theme-toggle-mobile');
-    allToggles.forEach(toggle => {
-      if (toggle !== button) {
-        const otherMoonIcon = toggle.querySelector('.moon-icon, .fa-moon');
-        const otherSunIcon = toggle.querySelector('.sun-icon, .fa-sun');
-        
-        if (otherMoonIcon && otherSunIcon) {
-          if (!isDark) { // Now dark
-            otherMoonIcon.classList.add('hidden');
-            otherSunIcon.classList.remove('hidden');
-          } else { // Now light
-            otherMoonIcon.classList.remove('hidden');
-            otherSunIcon.classList.add('hidden');
-          }
-        }
-      }
-    });
-  }
+<!-- Import UI module (will be loaded by the browser) -->
+<script type="module">
+  import { initTheme, updateThemeIcons, closeMobileMenu, openMobileMenu } from '/js/ui.js';
   
-  function openMobileMenu() {
-    const mobileMenu = document.getElementById('mobile-menu');
-    const menuButton = document.getElementById('mobile-menu-button');
-    
-    if (mobileMenu) {
-      // Show the menu
-      mobileMenu.style.display = 'block';
-      setTimeout(() => {
-        mobileMenu.classList.add('visible');
-      }, 10);
-      
-      // Change hamburger to X
-      const icon = menuButton.querySelector('i');
-      if (icon) {
-        icon.classList.remove('fa-bars');
-        icon.classList.add('fa-times');
-      }
-      
-      // Prevent scrolling
-      document.body.style.overflow = 'hidden';
-    }
-  }
-  
-  function closeMobileMenu() {
-    const mobileMenu = document.getElementById('mobile-menu');
-    const menuButton = document.getElementById('mobile-menu-button');
-    
-    if (mobileMenu) {
-      // Hide the menu
-      mobileMenu.classList.remove('visible');
-      
-      // Change X back to hamburger
-      const icon = menuButton.querySelector('i');
-      if (icon) {
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
-      }
-      
-      // Wait for animation to complete
-      setTimeout(() => {
-        mobileMenu.style.display = 'none';
-        document.body.style.overflow = '';
-      }, 300);
-    }
-  }
-  
-  // Apply theme on load
+  // Run a quick theme check to make sure UI is correct
+  // even if the main UI initialization happens later
   document.addEventListener('DOMContentLoaded', function() {
     const storedTheme = localStorage.getItem('theme') || 'light';
     const html = document.documentElement;
@@ -236,22 +146,29 @@
     }
     
     // Update toggle button icons
-    const isDark = html.classList.contains('dark');
-    const toggles = document.querySelectorAll('[data-theme-toggle], #theme-toggle, #theme-toggle-mobile');
+    updateThemeIcons();
     
-    toggles.forEach(toggle => {
-      const moonIcon = toggle.querySelector('.moon-icon, .fa-moon');
-      const sunIcon = toggle.querySelector('.sun-icon, .fa-sun');
-      
-      if (moonIcon && sunIcon) {
-        if (isDark) {
-          moonIcon.classList.add('hidden');
-          sunIcon.classList.remove('hidden');
-        } else {
-          moonIcon.classList.remove('hidden');
-          sunIcon.classList.add('hidden');
-        }
-      }
-    });
+    // Ensure mobile menu functions are attached to window
+    window.closeMobileMenu = closeMobileMenu;
+    window.openMobileMenu = openMobileMenu;
+    
+    // Set up mobile menu button handlers
+    const closeButton = document.getElementById('close-menu-button');
+    if (closeButton) {
+      closeButton.onclick = function(e) {
+        e.preventDefault();
+        closeMobileMenu();
+        return false;
+      };
+    }
+    
+    const menuButton = document.getElementById('mobile-menu-button');
+    if (menuButton) {
+      menuButton.onclick = function(e) {
+        e.preventDefault();
+        openMobileMenu();
+        return false;
+      };
+    }
   });
 </script>

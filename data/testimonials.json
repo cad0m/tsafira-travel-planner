@@ -1,0 +1,44 @@
+[
+    {
+      "name": "Sarah M.",
+      "location": "New York, USA",
+      "rating": 5,
+      "text": "Tsafira made planning our Moroccan adventure effortless. The personalized itinerary perfectly matched our interests and budget.",
+      "avatar": "https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-1.jpg"
+    },
+    {
+      "name": "James R.",
+      "location": "London, UK",
+      "rating": 5,
+      "text": "An incredible experience from start to finish. The local expertise really showed in the unique experiences we had.",
+      "avatar": "https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-2.jpg"
+    },
+    {
+      "name": "Maria L.",
+      "location": "Barcelona, Spain",
+      "rating": 5,
+      "text": "Our family trip to Morocco was the highlight of our year. The local guides were exceptional and the accommodations were perfect.",
+      "avatar": "https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-3.jpg"
+    },
+    {
+      "name": "David K.",
+      "location": "Toronto, Canada",
+      "rating": 4,
+      "text": "The attention to detail in our itinerary was impressive. Every recommendation was spot on and saved us so much research time.",
+      "avatar": "https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-4.jpg"
+    },
+    {
+      "name": "Sophia T.",
+      "location": "Sydney, Australia",
+      "rating": 5,
+      "text": "I never would have discovered those hidden gems without Tsafira's expertise. The authentic experiences made this trip unforgettable.",
+      "avatar": "https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-5.jpg"
+    },
+    {
+      "name": "Michael B.",
+      "location": "Berlin, Germany",
+      "rating": 5,
+      "text": "From the desert to the mountains, our journey through Morocco was flawless. The cultural insights provided added so much depth to our travels.",
+      "avatar": "https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-6.jpg"
+    }
+]

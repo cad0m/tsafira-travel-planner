@@ -1,9 +1,14 @@
 import { apiGet } from '/js/api.js';
 import { loadPartial } from '/js/loader.js';
+import { initUI } from '/js/ui.js';
 
 document.addEventListener('DOMContentLoaded', async function() {
   try {
     console.log('City page initialized');
+    
+    // Initialize UI components
+    initUI();
+    
     // Load header and footer
     await loadPartial('/partials/header.html', 'header-placeholder');
     await loadPartial('/partials/footer.html', 'footer-placeholder');
@@ -48,7 +53,7 @@ function showError(message) {
   loadingState.innerHTML = `
     <div class="text-center">
       <p class="text-red-600 dark:text-red-400 text-xl">${message}</p>
-      <a href="/destinations.html" class="inline-block mt-4 text-blue-600 dark:text-blue-400 hover:underline">
+      <a href="/pages/destinations.html" class="inline-block mt-4 text-blue-600 dark:text-blue-400 hover:underline">
         Back to Destinations
       </a>
     </div>

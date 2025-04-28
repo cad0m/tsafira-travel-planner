@@ -31,6 +31,28 @@
       position: absolute;
       z-index: 1000;
     }
+    
+    /* FAQ Styles */
+    .faq-content {
+      transition: all 0.3s ease;
+    }
+    .faq-content:not(.hidden) {
+      animation: fadeInDown 0.5s ease;
+    }
+    .fa-chevron-up {
+      transform: rotate(180deg);
+      transition: transform 0.3s ease;
+    }
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   </style>
 
   <!-- Color variables -->
@@ -248,10 +270,11 @@
         <div class="max-w-3xl mx-auto space-y-6">
           <!-- FAQ Item 1 -->
           <div class="bg-[var(--color-bg)] rounded-lg shadow-md border border-[var(--color-border)]">
-            <button class="faq-toggle w-full px-6 py-4 text-left focus:outline-none">
+            <button class="faq-toggle w-full px-6 py-4 text-left focus:outline-none hover:bg-[var(--color-bg-alt)]" 
+                    onclick="toggleFAQ(this); return false;">
               <div class="flex items-center justify-between">
                 <span class="font-semibold text-[var(--color-text)]">How accurate are the budget estimates?</span>
-                <i class="fa-solid fa-chevron-down text-[var(--color-text-muted)]"></i>
+                <i class="fa-solid fa-chevron-down text-[var(--color-text-muted)] transition-transform duration-300"></i>
               </div>
             </button>
             <div class="faq-content px-6 pb-4 hidden">
@@ -263,10 +286,11 @@
           
           <!-- FAQ Item 2 -->
           <div class="bg-[var(--color-bg)] rounded-lg shadow-md border border-[var(--color-border)]">
-            <button class="faq-toggle w-full px-6 py-4 text-left focus:outline-none">
+            <button class="faq-toggle w-full px-6 py-4 text-left focus:outline-none hover:bg-[var(--color-bg-alt)]"
+                    onclick="toggleFAQ(this); return false;">
               <div class="flex items-center justify-between">
                 <span class="font-semibold text-[var(--color-text)]">Can I customize the generated itinerary?</span>
-                <i class="fa-solid fa-chevron-down text-[var(--color-text-muted)]"></i>
+                <i class="fa-solid fa-chevron-down text-[var(--color-text-muted)] transition-transform duration-300"></i>
               </div>
             </button>
             <div class="faq-content px-6 pb-4 hidden">
@@ -278,10 +302,11 @@
           
           <!-- FAQ Item 3 -->
           <div class="bg-[var(--color-bg)] rounded-lg shadow-md border border-[var(--color-border)]">
-            <button class="faq-toggle w-full px-6 py-4 text-left focus:outline-none">
+            <button class="faq-toggle w-full px-6 py-4 text-left focus:outline-none hover:bg-[var(--color-bg-alt)]"
+                    onclick="toggleFAQ(this); return false;">
               <div class="flex items-center justify-between">
                 <span class="font-semibold text-[var(--color-text)]">Is there a mobile app available?</span>
-                <i class="fa-solid fa-chevron-down text-[var(--color-text-muted)]"></i>
+                <i class="fa-solid fa-chevron-down text-[var(--color-text-muted)] transition-transform duration-300"></i>
               </div>
             </button>
             <div class="faq-content px-6 pb-4 hidden">
@@ -293,161 +318,104 @@
         </div>
       </div>
     </section>
-  
-    <!-- Testimonial Section (improved) -->
-    <section id="testimonial" class="py-16 bg-[var(--color-bg-alt)]">
-      <div class="container mx-auto px-6">
-        <div class="max-w-3xl mx-auto text-center relative">
-          <div class="testimonial-container">
-            <!-- Testimonial 1 -->
-            <div class="testimonial-slide">
-              <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-7.jpg" alt="Sarah" class="w-20 h-20 rounded-full mx-auto mb-4"/>
-              <div class="flex justify-center text-[var(--color-primary)] mb-4">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-              </div>
-              <p class="text-[var(--color-text-muted)] italic mb-4">
-                "The planning process was incredibly easy and enjoyable. Within minutes, I had a custom Moroccan itinerary that perfectly matched my interests. The flexibility to adjust activities and accommodations was fantastic!"
-              </p>
-              <p class="font-semibold text-[var(--color-text)]">Sarah T. - London, UK</p>
-            </div>
-            
-            <!-- Testimonial 2 (hidden initially) -->
-            <div class="testimonial-slide hidden">
-              <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-3.jpg" alt="James" class="w-20 h-20 rounded-full mx-auto mb-4"/>
-              <div class="flex justify-center text-[var(--color-primary)] mb-4">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-              </div>
-              <p class="text-[var(--color-text-muted)] italic mb-4">
-                "As a solo traveler, I was worried about planning a trip to Morocco. Tsafira made it stress-free and exciting. Every recommendation was spot-on for my adventure style!"
-              </p>
-              <p class="font-semibold text-[var(--color-text)]">James M. - Toronto, Canada</p>
-            </div>
-            
-            <!-- Testimonial 3 (hidden initially) -->
-            <div class="testimonial-slide hidden">
-              <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-5.jpg" alt="Elena" class="w-20 h-20 rounded-full mx-auto mb-4"/>
-              <div class="flex justify-center text-[var(--color-primary)] mb-4">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star-half-alt"></i>
-              </div>
-              <p class="text-[var(--color-text-muted)] italic mb-4">
-                "Our family of four had specific needs for our Morocco vacation. The customized itinerary balanced adventure and relaxation perfectly, with child-friendly activities that everyone loved."
-              </p>
-              <p class="font-semibold text-[var(--color-text)]">Elena R. - Madrid, Spain</p>
-            </div>
-          </div>
-          
-          <div class="flex justify-center space-x-2 mt-6">
-            <button class="testimonial-dot w-3 h-3 rounded-full bg-[var(--color-primary)]"></button>
-            <button class="testimonial-dot w-3 h-3 rounded-full bg-[var(--color-border)]"></button>
-            <button class="testimonial-dot w-3 h-3 rounded-full bg-[var(--color-border)]"></button>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-
+    
   <!-- Footer Placeholder -->
   <footer id="footer-placeholder">
     <!-- Footer will be loaded by JavaScript -->
   </footer>
   
-  <!-- JavaScript imports -->
-  <script type="module">
-    import { initPartials } from '/js/loader.js';
-    import { initTheme } from '/js/theme.js';
-    import howItWorks from '/js/how-it-works.js';
-    
-    // Initialize components when DOM is ready
-    document.addEventListener('DOMContentLoaded', function() {
-      initPartials();
-      initTheme();
+  <!-- Inline script for FAQ functionality -->
+  <script>
+    // Global function to toggle FAQ items - used by inline onclick handlers
+    function toggleFAQ(button) {
+      console.log('toggleFAQ called directly');
       
-      // Initialize scroll progress bar
-      const scrollProgressBar = document.querySelector('.scroll-progress-bar');
+      // Get the content and icon elements
+      const content = button.nextElementSibling;
+      const icon = button.querySelector('i');
       
-      function updateScrollProgress() {
-        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrolled = (winScroll / height) * 100;
-        
-        if (scrollProgressBar) {
-          scrollProgressBar.style.width = scrolled + '%';
+      // Toggle visibility
+      if (content.classList.contains('hidden')) {
+        content.classList.remove('hidden');
+      } else {
+        content.classList.add('hidden');
+      }
+      
+      // Toggle icon
+      if (icon) {
+        if (icon.classList.contains('fa-chevron-down')) {
+          icon.classList.remove('fa-chevron-down');
+          icon.classList.add('fa-chevron-up');
+        } else {
+          icon.classList.remove('fa-chevron-up');
+          icon.classList.add('fa-chevron-down');
         }
       }
       
-      // Update progress bar on scroll
-      window.addEventListener('scroll', updateScrollProgress);
+      return false;
+    }
+    
+    // Direct approach to set up FAQ toggles
+    function setupFAQsDirectly() {
+      console.log('Setting up FAQ toggles directly');
       
-      // Initial update
-      updateScrollProgress();
+      // Get all the toggles
+      const toggles = document.querySelectorAll('.faq-toggle');
+      console.log('Found', toggles.length, 'FAQ toggles');
       
-      // Fix navigation - make sure "How It Works" link is active
-      document.addEventListener('allPartialsLoaded', function() {
-        const howItWorksLinks = document.querySelectorAll('a[href="/pages/how-it-works.html"]');
-        howItWorksLinks.forEach(link => {
-          link.classList.add('text-[var(--color-primary)]');
-        });
+      // Add click handler to each toggle
+      for (let i = 0; i < toggles.length; i++) {
+        const toggle = toggles[i];
         
-        // Fix "Get Started" button link
-        const getStartedButton = document.querySelector('a[href="/wizard.html"]');
-        if (getStartedButton) {
-          getStartedButton.href = '/pages/index.html';
-        }
-        
-        // Setup FAQ toggles
-        const faqToggles = document.querySelectorAll('.faq-toggle');
-        faqToggles.forEach(toggle => {
-          toggle.addEventListener('click', function() {
-            const content = this.nextElementSibling;
-            const icon = this.querySelector('i');
-            
-            // Toggle content
-            content.classList.toggle('hidden');
-            
-            // Rotate icon
-            if (content.classList.contains('hidden')) {
-              icon.classList.remove('fa-chevron-up');
-              icon.classList.add('fa-chevron-down');
-            } else {
+        // Add direct inline click handler
+        toggle.onclick = function() {
+          // This is the toggle button that was clicked
+          console.log('Toggle clicked!');
+          
+          // Get the next element (content panel) and the icon
+          const content = this.nextElementSibling;
+          const icon = this.querySelector('i');
+          
+          // Toggle hidden class
+          if (content.classList.contains('hidden')) {
+            content.classList.remove('hidden');
+          } else {
+            content.classList.add('hidden');
+          }
+          
+          // Toggle icon
+          if (icon) {
+            if (icon.classList.contains('fa-chevron-down')) {
               icon.classList.remove('fa-chevron-down');
               icon.classList.add('fa-chevron-up');
+            } else {
+              icon.classList.remove('fa-chevron-up');
+              icon.classList.add('fa-chevron-down');
             }
-          });
-        });
-        
-        // Setup testimonial carousel
-        const testimonialDots = document.querySelectorAll('.testimonial-dot');
-        const testimonialSlides = document.querySelectorAll('.testimonial-slide');
-        
-        testimonialDots.forEach((dot, index) => {
-          dot.addEventListener('click', function() {
-            // Hide all slides
-            testimonialSlides.forEach(slide => slide.classList.add('hidden'));
-            
-            // Show selected slide
-            testimonialSlides[index].classList.remove('hidden');
-            
-            // Update dots
-            testimonialDots.forEach(d => d.classList.remove('bg-[var(--color-primary)]'));
-            testimonialDots.forEach(d => d.classList.add('bg-[var(--color-border)]'));
-            dot.classList.remove('bg-[var(--color-border)]');
-            dot.classList.add('bg-[var(--color-primary)]');
-          });
-        });
-      });
-    });
+          }
+          
+          // Stop event propagation
+          return false;
+        };
+      }
+    }
+    
+    // Run setup on load and after a delay
+    document.addEventListener('DOMContentLoaded', setupFAQsDirectly);
+    setTimeout(setupFAQsDirectly, 1000); // Also try after a delay
+    
+    // Trigger a test open after 2 seconds
+    setTimeout(function() {
+      const firstToggle = document.querySelector('.faq-toggle');
+      if (firstToggle) {
+        console.log('Testing first toggle click');
+        firstToggle.click();
+      }
+    }, 2000);
   </script>
+  
+  <!-- JavaScript imports -->
+  <script type="module" src="/js/main.js"></script>
+  <script type="module" src="/js/how-it-works.js"></script>
 </body>
 </html>
