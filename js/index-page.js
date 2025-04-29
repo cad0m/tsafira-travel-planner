@@ -376,6 +376,142 @@ export function initNewsletterForm() {
 }
 
 /**
+ * Handle the quick trip form submission from the index page
+ */
+export function initQuickTripForm() {
+  const quickFormButton = document.getElementById('quick-generate-btn');
+  if (!quickFormButton) return;
+
+  quickFormButton.addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    // Get form values
+    const budget = document.getElementById('quick-budget').value;
+    const departure = document.getElementById('quick-departure').value;
+    const startDate = document.getElementById('quick-start-date').value;
+    const endDate = document.getElementById('quick-end-date').value;
+    
+    // Get preferences
+    const cultureChecked = document.getElementById('quick-culture').checked;
+    const natureChecked = document.getElementById('quick-nature').checked;
+    const luxuryChecked = document.getElementById('quick-luxury').checked;
+    const sightseeingChecked = document.getElementById('quick-sightseeing').checked;
+    
+    // Validate the form
+    if (!validateQuickForm(startDate, endDate, departure)) {
+      return;
+    }
+
+    // Create wizard state object
+    const tripWizardState = {
+      budget: budget,
+      currency: "MAD", // Default currency
+      startDate: startDate,
+      endDate: endDate,
+      flexibleDates: false, // Default
+      departure: departure,
+      preferences: {
+        culture: cultureChecked,
+        nature: natureChecked,
+        luxury: luxuryChecked,
+        sightseeing: sightseeingChecked
+      },
+      interestLevels: {}, // Will be populated below
+      dietary: "No specific requirements", // Default
+      accessibility: "No specific requirements", // Default
+      specialRequests: "",
+      emailCopy: false,
+      termsAgreed: true, // Set to true by default for quick form
+      currentStep: 2 // Set to step 3 (index 2)
+    };
+    
+    // Set medium interest level (50) for any checked preference
+    if (cultureChecked) tripWizardState.interestLevels.culture = 50;
+    if (natureChecked) tripWizardState.interestLevels.nature = 50;
+    if (luxuryChecked) tripWizardState.interestLevels.luxury = 50;
+    if (sightseeingChecked) tripWizardState.interestLevels.sightseeing = 50;
+    
+    // Save to localStorage
+    localStorage.setItem('tripWizardState', JSON.stringify(tripWizardState));
+    
+    // Redirect to wizard page step 3
+    window.location.href = '/tsafira-travel-planner/pages/wizard.html?step=3';
+  });
+  
+  /**
+   * Validate the quick form
+   * @param {string} startDate - Check-in date
+   * @param {string} endDate - Check-out date
+   * @param {string} departure - Departure airport
+   * @returns {boolean} - Whether the form is valid
+   */
+  function validateQuickForm(startDate, endDate, departure) {
+    let isValid = true;
+    
+    // Clear previous error messages
+    const errorMessages = document.querySelectorAll('.quick-form-error');
+    errorMessages.forEach(el => el.remove());
+    
+    // Validate start date
+    if (!startDate) {
+      showQuickFormError('quick-start-date', 'Please select a check-in date');
+      isValid = false;
+    }
+    
+    // Validate end date
+    if (!endDate) {
+      showQuickFormError('quick-end-date', 'Please select a check-out date');
+      isValid = false;
+    }
+    
+    // Validate date range
+    if (startDate && endDate) {
+      const start = new Date(startDate);
+      const end = new Date(endDate);
+      if (start >= end) {
+        showQuickFormError('quick-end-date', 'Check-out date must be after check-in date');
+        isValid = false;
+      }
+    }
+    
+    // Validate departure
+    if (!departure) {
+      showQuickFormError('quick-departure', 'Please enter your departure location');
+      isValid = false;
+    }
+    
+    return isValid;
+  }
+  
+  /**
+   * Show an error message for a form field
+   * @param {string} elementId - ID of the form element
+   * @param {string} message - Error message
+   */
+  function showQuickFormError(elementId, message) {
+    const element = document.getElementById(elementId);
+    if (!element) return;
+    
+    // Add error styling to element
+    element.classList.add('border-red-500');
+    
+    // Create error message
+    const errorElement = document.createElement('div');
+    errorElement.className = 'quick-form-error text-red-500 text-sm mt-1';
+    errorElement.textContent = message;
+    
+    // Insert after the element
+    element.parentNode.insertBefore(errorElement, element.nextSibling);
+    
+    // Remove error after 3 seconds
+    setTimeout(() => {
+      element.classList.remove('border-red-500');
+      errorElement.remove();
+    }, 3000);
+  }
+}
+
+/**
  * Initialize index page functionality
  */
 export function init() {
@@ -387,6 +523,7 @@ export function init() {
   // Initialize page-specific components
   initTestimonialCarousel();
   initNewsletterForm();
+  initQuickTripForm();
   
   // Handle destination selection
   const destinationCards = qsa(selectors.destinationCard);
@@ -405,5 +542,6 @@ export function init() {
 export default {
   init,
   initTestimonialCarousel,
-  initNewsletterForm
+  initNewsletterForm,
+  initQuickTripForm
 };
