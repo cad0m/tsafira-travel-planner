@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tsafira | Trip Wizard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../css/wizard.css">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            orange: {
+              50: '#fff7ed',
+              100: '#ffedd5',
+              200: '#fed7aa',
+              300: '#fdba74',
+              400: '#fb923c',
+              500: '#f97316',
+              600: '#ea580c',
+              700: '#c2410c',
+              800: '#9a3412',
+              900: '#7c2d12'
+            }
+          },
+          boxShadow: {
+            'custom': '0 4px 20px -2px rgba(0, 0, 0, 0.18)',
+            'custom-lg': '0 10px 25px -3px rgba(0, 0, 0, 0.18)'
+          },
+          animation: {
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'scale-in': 'scaleIn 0.2s ease-out',
+            'slide-up': 'slideUp 0.3s ease-out',
+            'slide-down': 'slideDown 0.3s ease-out',
+          },
+          keyframes: {
+            scaleIn: {
+              '0%': { transform: 'scale(0.9)', opacity: '0' },
+              '100%': { transform: 'scale(1)', opacity: '1' }
+            },
+            slideUp: {
+              '0%': { transform: 'translateY(10px)', opacity: '0' },
+              '100%': { transform: 'translateY(0)', opacity: '1' }
+            },
+            slideDown: {
+              '0%': { transform: 'translateY(-10px)', opacity: '0' },
+              '100%': { transform: 'translateY(0)', opacity: '1' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 min-h-screen transition-colors duration-200">
+  <!-- Header -->
+  <header class="bg-white dark:bg-gray-800 shadow-sm fixed w-full z-50 top-0 transition-colors duration-200">
+    <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="/" class="text-2xl font-bold text-orange-600 dark:text-orange-500 hover:scale-105 transition-transform duration-150">Tsafira</a>
+      <div class="flex items-center gap-4">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+          <i id="theme-icon" class="fa-solid fa-moon"></i>
+        </button>
+        <a href="/" class="text-gray-600 dark:text-gray-300 hover:text-orange-600 dark:hover:text-orange-500 transition-colors duration-150 hover:scale-110 transition-transform duration-150">
+          <i class="fa-solid fa-home"></i>
+        </a>
+        <button class="text-gray-600 dark:text-gray-300 hover:text-orange-600 dark:hover:text-orange-500 transition-colors duration-150 hover:scale-110 transition-transform duration-150" aria-label="Help">
+          <i class="fa-solid fa-circle-question"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Progress Bar -->
+  <div class="bg-white dark:bg-gray-800 border-b dark:border-gray-700 pt-16 transition-colors duration-200">
+    <div class="container mx-auto px-4 py-4">
+      <div class="flex flex-wrap justify-between items-center">
+        <div class="flex items-center space-x-2 md:space-x-4 mb-2 md:mb-0">
+          <div class="flex items-center">
+            <div id="step-1-indicator" class="progress-step active-step relative">
+              <span>1</span>
+            </div>
+            <div class="ml-2 dark:text-white transition-colors duration-200 font-medium">Trip Basics</div>
+          </div>
+          <div class="progress-line h-0.5 w-8 md:w-12"></div>
+          <div class="flex items-center">
+            <div id="step-2-indicator" class="progress-step bg-gray-200 dark:bg-gray-700 transition-colors duration-200 relative">
+              <span>2</span>
+            </div>
+            <div class="ml-2 text-gray-500 dark:text-gray-400 transition-colors duration-200 font-medium">Preferences</div>
+          </div>
+          <div class="progress-line h-0.5 w-8 md:w-12"></div>
+          <div class="flex items-center">
+            <div id="step-3-indicator" class="progress-step bg-gray-200 dark:bg-gray-700 transition-colors duration-200 relative">
+              <span>3</span>
+            </div>
+            <div class="ml-2 text-gray-500 dark:text-gray-400 transition-colors duration-200 font-medium">Review</div>
+          </div>
+        </div>
+        <button id="save-exit-btn" class="text-orange-600 dark:text-orange-500 hover:text-orange-700 dark:hover:text-orange-400 transition-colors duration-150 hover:scale-105 transition-transform duration-150">Save & Exit</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Wizard Content -->
+  <div class="container mx-auto px-4 py-8">
+    <form id="trip-wizard-form">
+      <!-- Step 1: Trip Basics -->
+      <div id="step-1-content" class="max-w-3xl mx-auto">
+        <h1 class="text-4xl font-bold mb-4 text-gray-900 dark:text-white transition-colors duration-200">Step 1: Trip Basics</h1>
+        <p class="text-xl text-gray-600 dark:text-gray-400 mb-8 transition-colors duration-200 leading-relaxed">Tell us about your travel plans so we can create your perfect Moroccan adventure.</p>
+
+        <!-- Budget Section -->
+        <div class="preference-card mb-8">
+          <label class="block text-xl font-semibold mb-4 text-gray-900 dark:text-white transition-colors duration-200" for="budget-slider">
+            What's your total budget for this trip?
+            <span class="ml-2 text-gray-400 dark:text-gray-500 text-sm cursor-help" title="This includes accommodations, activities, and local transportation">
+              <i class="fas fa-circle-info"></i>
+            </span>
+          </label>
+          
+          <div class="space-y-6 budget-section">
+            <div class="relative">
+              <div class="currency-tooltip">5000 MAD</div>
+              <input 
+                id="budget-slider" 
+                type="range" 
+                class="w-full h-2 rounded-lg appearance-none cursor-pointer" 
+                min="500" 
+                max="10000" 
+                step="100" 
+                value="5000"
+                aria-label="Budget amount">
+            </div>
+            
+            <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+              <div class="flex-1">
+                <label for="budget-input" class="sr-only">Enter budget amount</label>
+                <input 
+                  id="budget-input" 
+                  type="number" 
+                  class="w-full px-4 py-2 border dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors duration-200 focus:ring-orange-500 focus:border-orange-500 focus:ring-2" 
+                  placeholder="Enter amount"
+                  min="500"
+                  max="10000"
+                  value="5000">
+              </div>
+              <label for="currency-select" class="sr-only">Select currency</label>
+              <select 
+                id="currency-select" 
+                class="px-4 py-2 border dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-200 focus:ring-orange-500 focus:border-orange-500 focus:ring-2">
+                <option value="MAD">MAD (Moroccan Dirham)</option>
+                <option value="USD">USD (US Dollar)</option>
+                <option value="EUR">EUR (Euro)</option>
+                <option value="GBP">GBP (British Pound)</option>
+                <option value="CAD">CAD (Canadian Dollar)</option>
+                <option value="AUD">AUD (Australian Dollar)</option>
+                <option value="JPY">JPY (Japanese Yen)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dates Section -->
+        <div class="preference-card mb-8">
+          <label class="block text-xl font-semibold mb-4 text-gray-900 dark:text-white transition-colors duration-200">When do you plan to travel?</label>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label for="start-date" class="block text-base text-gray-600 dark:text-gray-400 mb-2 transition-colors duration-200">Check-in Date</label>
+              <input id="start-date" type="date" class="w-full px-4 py-2 border dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors duration-200 focus:ring-orange-500 focus:border-orange-500 focus:ring-2">
+              <div id="start-date-error" class="error-text hidden">Please select a check-in date</div>
+            </div>
+            <div>
+              <label for="end-date" class="block text-base text-gray-600 dark:text-gray-400 mb-2 transition-colors duration-200">Check-out Date</label>
+              <input id="end-date" type="date" class="w-full px-4 py-2 border dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors duration-200 focus:ring-orange-500 focus:border-orange-500 focus:ring-2">
+              <div id="end-date-error" class="error-text hidden">Please select a check-out date</div>
+            </div>
+          </div>
+          <div id="date-range-error" class="error-text mt-2 hidden">Check-out date must be after check-in date</div>
+
+          <div class="mt-4">
+            <label class="flex items-center">
+              <input id="flexible-dates" type="checkbox" class="form-checkbox text-orange-600 dark:text-orange-500 border-gray-300 dark:border-gray-600 rounded transition-colors duration-200">
+              <span class="ml-2 text-gray-600 dark:text-gray-400 transition-colors duration-200">My dates are flexible (±3 days)</span>
+            </label>
+            <div id="flexible-dates-explanation" class="mt-2 text-sm text-gray-500 dark:text-gray-400 hidden">
+              We'll check availability for dates 3 days before and after your selected range.
+            </div>
+          </div>
+        </div>
+
+        <!-- Departure Section -->
+        <div class="preference-card mb-12">
+          <label for="departure-input" class="block text-xl font-semibold mb-4 text-gray-900 dark:text-white transition-colors duration-200">Where will you be departing from?</label>
+          
+          <div class="relative">
+            <input 
+              id="departure-input" 
+              type="text" 
+              class="w-full px-4 py-2 border dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white pr-10 transition-colors duration-200 focus:ring-orange-500 focus:border-orange-500 focus:ring-2" 
+              placeholder="Search airports...">
+            <i class="absolute right-4 top-3 text-gray-400 dark:text-gray-500 fas fa-plane transition-colors duration-200"></i>
+            <div id="departure-error" class="error-text hidden">Please enter your departure location</div>
+          </div>
+
+          <div class="mt-6">
+            <h4 class="text-base text-gray-600 dark:text-gray-400 mb-3 transition-colors duration-200">Popular Departures</h4>
+            <div class="flex flex-wrap gap-2">
+              <button type="button" class="popular-departure px-4 py-2 bg-gray-100 dark:bg-gray-700 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-900 dark:text-white transition-colors duration-150">New York (JFK)</button>
+              <button type="button" class="popular-departure px-4 py-2 bg-gray-100 dark:bg-gray-700 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-900 dark:text-white transition-colors duration-150">London (LHR)</button>
+              <button type="button" class="popular-departure px-4 py-2 bg-gray-100 dark:bg-gray-700 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-900 dark:text-white transition-colors duration-150">Paris (CDG)</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="flex justify-between items-center">
+          <button type="button" id="save-progress-btn-1" class="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 transition-colors duration-150">
+            Save Progress
+          </button>
+          <button type="button" id="next-btn-1" class="btn-primary">
+            Next Step <i class="fas fa-arrow-right ml-2"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 2: Travel Preferences -->
+      <div id="step-2-content" class="max-w-3xl mx-auto hidden">
+        <h1 class="text-4xl font-bold mb-4 text-gray-900 dark:text-white transition-colors duration-200">Step 2: Travel Preferences</h1>
+        <p class="text-xl text-gray-600 dark:text-gray-400 mb-8 transition-colors duration-200 leading-relaxed">Tell us what interests you most so we can tailor your perfect Moroccan experience.</p>
+
+        <!-- Preference Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <!-- Culture Card -->
+          <div class="preference-card">
+            <div class="flex items-start justify-between mb-4">
+              <div class="flex items-center">
+                <i class="text-2xl text-orange-600 dark:text-orange-500 mr-3 fas fa-landmark transition-colors duration-200"></i>
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white transition-colors duration-200">Cultural Experiences</h3>
+              </div>
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" class="sr-only peer" name="culture">
+                <div class="w-11 h-6 bg-gray-200 dark:bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 dark:after:border-gray-600 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-orange-600 dark:peer-checked:bg-orange-500 transition-colors duration-200"></div>
+              </label>
+            </div>
+            <p class="text-base text-gray-600 dark:text-gray-400 mb-4 transition-colors duration-200 leading-relaxed">Immerse yourself in Morocco's rich heritage through historical sites, traditional crafts, and local customs.</p>
+            <div class="text-sm text-gray-500 dark:text-gray-400 mb-4 transition-colors duration-200">
+              <p><i class="text-orange-600 dark:text-orange-500 mr-2 fas fa-circle-check transition-colors duration-200"></i>Museums & Art Galleries</p>
+              <p><i class="text-orange-600 dark:text-orange-500 mr-2 fas fa-circle-check transition-colors duration-200"></i>Historical Monuments</p>
+              <p><i class="text-orange-600 dark:text-orange-500 mr-2 fas fa-circle-check transition-colors duration-200"></i>Local Festivals & Events</p>
+            </div>
+            <div class="interest-slider-container hidden">
+              <div class="interest-slider-label">
+                <span>Interest Level</span>
+                <span class="interest-value">Medium</span>
+              </div>
+              <input type="range" class="interest-slider" min="0" max="100" step="25" value="50">
+              <div class="interest-slider-labels">
+                <span class="interest-slider-label-item">Very Low</span>
+                <span class="interest-slider-label-item">Low</span>
+                <span class="interest-slider-label-item">Medium</span>
+                <span class="interest-slider-label-item">High</span>
+                <span class="interest-slider-label-item">Very High</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Nature Card -->
+          <div class="preference-card">
+            <div class="flex items-start justify-between mb-4">
+              <div class="flex items-center">
+                <i class="text-2xl text-orange-600 dark:text-orange-500 mr-3 fas fa-mountain transition-colors duration-200"></i>
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white transition-colors duration-200">Natural Wonders</h3>
+              </div>
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" class="sr-only peer" name="nature">
+                <div class="w-11 h-6 bg-gray-200 dark:bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 dark:after:border-gray-600 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-orange-600 dark:peer-checked:bg-orange-500 transition-colors duration-200"></div>
+              </label>
+            </div>
+            <p class="text-base text-gray-600 dark:text-gray-400 mb-4 transition-colors duration-200 leading-relaxed">Explore Morocco's diverse landscapes from the Sahara Desert to the Atlas Mountains.</p>
+            <div class="text-sm text-gray-500 dark:text-gray-400 mb-4 transition-colors duration-200">
+              <p><i class="text-orange-600 dark:text-orange-500 mr-2 fas fa-circle-check transition-colors duration-200"></i>Desert Adventures</p>
+              <p><i class="text-orange-600 dark:text-orange-500 mr-2 fas fa-circle-check transition-colors duration-200"></i>Mountain Hiking</p>
+              <p><i class="text-orange-600 dark:text-orange-500 mr-2 fas fa-circle-check transition-colors duration-200"></i>Coastal Experiences</p>
+            </div>
+            <div class="interest-slider-container hidden">
+              <div class="interest-slider-label">
+                <span>Interest Level</span>
+                <span class="interest-value">Medium</span>
+              </div>
+              <input type="range" class="interest-slider" min="0" max="100" step="25" value="50">
+              <div class="interest-slider-labels">
+                <span class="interest-slider-label-item">Very Low</span>
+                <span class="interest-slider-label-item">Low</span>
+                <span class="interest-slider-label-item">Medium</span>
+                <span class="interest-slider-label-item">High</span>
+                <span class="interest-slider-label-item">Very High</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Luxury Card -->
+          <div class="preference-card">
+            <div class="flex items-start justify-between mb-4">
+              <div class="flex items-center">
+                <i class="text-2xl text-orange-600 dark:text-orange-500 mr-3 fas fa-star transition-colors duration-200"></i>
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white transition-colors duration-200">Luxury Experiences</h3>
+              </div>
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" class="sr-only peer" name="luxury">
+                <div class="w-11 h-6 bg-gray-200 dark:bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 dark:after:border-gray-600 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-orange-600 dark:peer-checked:bg-orange-500 transition-colors duration-200"></div>
+              </label>
+            </div>
+            <p class="text-base text-gray-600 dark:text-gray-400 mb-4 transition-colors duration-200 leading-relaxed">Indulge in premium accommodations, fine dining, and exclusive experiences.</p>
+            <div class="text-sm text-gray-500 dark:text-gray-400 mb-4 transition-colors duration-200">
+              <p><i class="text-orange-600 dark:text-orange-500 mr-2 fas fa-circle-check transition-colors duration-200"></i>Luxury Riads & Hotels</p>
+              <p><i class="text-orange-600 dark:text-orange-500 mr-2 fas fa-circle-check transition-colors duration-200"></i>Gourmet Dining</p>
+              <p><i class="text-orange-600 dark:text-orange-500 mr-2 fas fa-circle-check transition-colors duration-200"></i>Private Tours & Spa</p>
+            </div>
+            <div class="interest-slider-container hidden">
+              <div class="interest-slider-label">
+                <span>Interest Level</span>
+                <span class="interest-value">Medium</span>
+              </div>
+              <input type="range" class="interest-slider" min="0" max="100" step="25" value="50">
+              <div class="interest-slider-labels">
+                <span class="interest-slider-label-item">Very Low</span>
+                <span class="interest-slider-label-item">Low</span>
+                <span class="interest-slider-label-item">Medium</span>
+                <span class="interest-slider-label-item">High</span>
+                <span class="interest-slider-label-item">Very High</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sightseeing Card -->
+          <div class="preference-card">
+            <div class="flex items-start justify-between mb-4">
+              <div class="flex items-center">
+                <i class="text-2xl text-orange-600 dark:text-orange-500 mr-3 fas fa-camera transition-colors duration-200"></i>
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white transition-colors duration-200">Sightseeing</h3>
+              </div>
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" class="sr-only peer" name="sightseeing">
+                <div class="w-11 h-6 bg-gray-200 dark:bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 dark:after:border-gray-600 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-orange-600 dark:peer-checked:bg-orange-500 transition-colors duration-200"></div>
+              </label>
+            </div>
+            <p class="text-base text-gray-600 dark:text-gray-400 mb-4 transition-colors duration-200 leading-relaxed">Visit iconic landmarks and discover hidden gems across Morocco.</p>
+            <div class="text-sm text-gray-500 dark:text-gray-400 mb-4 transition-colors duration-200">
+              <p><i class="text-orange-600 dark:text-orange-500 mr-2 fas fa-circle-check transition-colors duration-200"></i>Famous Landmarks</p>
+              <p><i class="text-orange-600 dark:text-orange-500 mr-2 fas fa-circle-check transition-colors duration-200"></i>Photography Spots</p>
+              <p><i class="text-orange-600 dark:text-orange-500 mr-2 fas fa-circle-check transition-colors duration-200"></i>Guided Tours</p>
+            </div>
+            <div class="interest-slider-container hidden">
+              <div class="interest-slider-label">
+                <span>Interest Level</span>
+                <span class="interest-value">Medium</span>
+              </div>
+              <input type="range" class="interest-slider" min="0" max="100" step="25" value="50">
+              <div class="interest-slider-labels">
+                <span class="interest-slider-label-item">Very Low</span>
+                <span class="interest-slider-label-item">Low</span>
+                <span class="interest-slider-label-item">Medium</span>
+                <span class="interest-slider-label-item">High</span>
+                <span class="interest-slider-label-item">Very High</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Additional Preferences -->
+        <div class="preference-card mb-12">
+          <h3 class="text-xl font-semibold mb-6 text-gray-900 dark:text-white transition-colors duration-200">Additional Preferences</h3>
+          
+          <!-- Dietary Requirements -->
+          <div class="mb-6">
+            <label for="dietary" class="block text-base text-gray-600 dark:text-gray-400 mb-2 transition-colors duration-200">Dietary Requirements</label>
+            <select id="dietary" class="w-full px-4 py-2 border dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors duration-200 focus:ring-orange-500 focus:border-orange-500 focus:ring-2">
+              <option>No specific requirements</option>
+              <option>Vegetarian</option>
+              <option>Vegan</option>
+              <option>Halal</option>
+              <option>Gluten-free</option>
+            </select>
+          </div>
+
+          <!-- Accessibility Needs -->
+          <div class="mb-6">
+            <label for="accessibility" class="block text-base text-gray-600 dark:text-gray-400 mb-2 transition-colors duration-200">Accessibility Requirements</label>
+            <select id="accessibility" class="w-full px-4 py-2 border dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors duration-200 focus:ring-orange-500 focus:border-orange-500 focus:ring-2">
+              <option>No specific requirements</option>
+              <option>Wheelchair accessible</option>
+              <option>Limited mobility</option>
+              <option>Hearing impaired</option>
+              <option>Visually impaired</option>
+            </select>
+          </div>
+
+          <!-- Special Requests -->
+          <div>
+            <label for="special-requests" class="block text-base text-gray-600 dark:text-gray-400 mb-2 transition-colors duration-200">Additional Notes or Special Requests</label>
+            <textarea 
+              id="special-requests"
+              class="w-full px-4 py-2 border dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors duration-200 focus:ring-orange-500 focus:border-orange-500 focus:ring-2" 
+              rows="4" 
+              placeholder="Tell us about any other preferences or requirements..."></textarea>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="flex justify-between items-center">
+          <div class="flex gap-4">
+            <button type="button" id="back-btn-2" class="btn-secondary">
+              <i class="fas fa-arrow-left mr-2"></i> Back
+            </button>
+            <button type="button" id="save-progress-btn-2" class="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 transition-colors duration-150">
+              Save Progress
+            </button>
+          </div>
+          <button type="button" id="next-btn-2" class="btn-primary">
+            Next Step <i class="fas fa-arrow-right ml-2"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 3: Review & Generate -->
+      <div id="step-3-content" class="max-w-3xl mx-auto hidden">
+        <h1 class="text-4xl font-bold mb-4 text-gray-900 dark:text-white transition-colors duration-200">Step 3: Review & Generate Itinerary</h1>
+        <p class="text-xl text-gray-600 dark:text-gray-400 mb-8 transition-colors duration-200 leading-relaxed">Review your selections before we create your custom Moroccan adventure.</p>
+
+        <!-- Trip Basics Summary -->
+        <div class="preference-card mb-8">
+          <div class="flex justify-between items-center mb-6">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white transition-colors duration-200">Trip Basics</h3>
+            <button type="button" id="edit-basics-btn" class="text-orange-600 dark:text-orange-500 hover:text-orange-700 dark:hover:text-orange-400 transition-colors duration-150 group">
+              <i class="fas fa-pen-to-square group-hover:rotate-12 transition-transform duration-150"></i> Edit
+            </button>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <p class="text-base text-gray-600 dark:text-gray-400 mb-2 transition-colors duration-200">Budget</p>
+              <p id="summary-budget" class="font-semibold text-gray-900 dark:text-white transition-colors duration-200 text-xl">5,000 MAD</p>
+            </div>
+            <div>
+              <p class="text-base text-gray-600 dark:text-gray-400 mb-2 transition-colors duration-200">Travel Dates</p>
+              <p id="summary-dates" class="font-semibold text-gray-900 dark:text-white transition-colors duration-200 text-xl">Not selected yet</p>
+            </div>
+            <div>
+              <p class="text-base text-gray-600 dark:text-gray-400 mb-2 transition-colors duration-200">Duration</p>
+              <p id="summary-duration" class="font-semibold text-gray-900 dark:text-white transition-colors duration-200 text-xl">Not calculated yet</p>
+            </div>
+            <div>
+              <p class="text-base text-gray-600 dark:text-gray-400 mb-2 transition-colors duration-200">Departure</p>
+              <p id="summary-departure" class="font-semibold text-gray-900 dark:text-white transition-colors duration-200 text-xl">Not selected yet</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Preferences Summary -->
+        <div class="preference-card mb-12">
+          <div class="flex justify-between items-center mb-6">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white transition-colors duration-200">Travel Preferences</h3>
+            <button type="button" id="edit-preferences-btn" class="text-orange-600 dark:text-orange-500 hover:text-orange-700 dark:hover:text-orange-400 transition-colors duration-150 group">
+              <i class="fas fa-pen-to-square group-hover:rotate-12 transition-transform duration-150"></i> Edit
+            </button>
+          </div>
+
+          <div id="preferences-summary" class="space-y-4">
+            <!-- Will be populated by JavaScript -->
+          </div>
+
+          <div class="mt-8 pt-6 border-t dark:border-gray-700 transition-colors duration-200">
+            <p class="text-base text-gray-600 dark:text-gray-400 mb-2 transition-colors duration-200">Additional Requirements</p>
+            <p id="summary-additional" class="font-semibold text-gray-900 dark:text-white transition-colors duration-200 text-xl">No specific requirements selected</p>
+          </div>
+        </div>
+
+        <!-- Generate Section -->
+        <div class="preference-card mb-12">
+          <h3 class="text-xl font-semibold mb-6 text-gray-900 dark:text-white transition-colors duration-200">Generate Your Itinerary</h3>
+          <p class="text-base text-gray-600 dark:text-gray-400 mb-6 transition-colors duration-200 leading-relaxed">We'll create a personalized day-by-day itinerary based on your preferences. This usually takes about 2-3 minutes.</p>
+
+          <div class="space-y-4 mb-8">
+            <label class="flex items-center">
+              <input type="checkbox" id="email-copy" class="form-checkbox text-orange-600 dark:text-orange-500 border-gray-300 dark:border-gray-600 rounded transition-colors duration-200">
+              <span class="ml-2 text-gray-600 dark:text-gray-400 transition-colors duration-200">Email me a copy of the itinerary</span>
+            </label>
+            <label class="flex items-center">
+              <input type="checkbox" id="terms" class="form-checkbox text-orange-600 dark:text-orange-500 border-gray-300 dark:border-gray-600 rounded transition-colors duration-200">
+              <span class="ml-2 text-gray-600 dark:text-gray-400 transition-colors duration-200">I agree to the <a href="#" class="text-orange-600 dark:text-orange-500 hover:text-orange-700 dark:hover:text-orange-400 transition-colors duration-150 underline">terms of service</a></span>
+            </label>
+            <div id="terms-warning" class="error-text hidden">Please agree to the terms to continue</div>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="flex justify-between items-center">
+          <div class="flex gap-4">
+            <button type="button" id="back-btn-3" class="btn-secondary">
+              <i class="fas fa-arrow-left mr-2"></i> Back
+            </button>
+            <button type="button" id="save-progress-btn-3" class="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 transition-colors duration-150">
+              Save Progress
+            </button>
+          </div>
+          <button type="button" id="generate-btn" class="btn-primary flex items-center gap-2">
+            <span>Generate Itinerary</span>
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <!-- Processing Overlay (Hidden by default) -->
+    <div id="processing-overlay" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+      <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 max-w-md w-full mx-4 transition-colors duration-200 shadow-custom-lg transform scale-105">
+        <div class="text-center">
+          <div class="animate-spin text-orange-600 dark:text-orange-500 text-4xl mb-4 transition-colors duration-200">
+            <i class="fas fa-circle-notch"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white transition-colors duration-200">Creating Your Perfect Itinerary</h3>
+          <p class="text-base text-gray-600 dark:text-gray-400 mb-4 transition-colors duration-200" id="processing-status">Finding the best accommodations...</p>
+          <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-1.5 mb-4 overflow-hidden">
+            <div class="bg-orange-600 h-1.5 rounded-full" style="width: 45%; animation: progressFill 60s ease-out;"></div>
+          </div>
+          <p class="text-sm text-gray-500 dark:text-gray-500 transition-colors duration-200">This may take a few minutes</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hidden element for screen readers to announce errors -->
+  <div id="error-region" aria-live="polite" class="sr-only"></div>
+
+  <script type="module" src="../js/wizard.js"></script>
+</body>
+</html>
