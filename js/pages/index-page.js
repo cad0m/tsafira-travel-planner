@@ -2,11 +2,11 @@
  * JavaScript for the index page
  * Handles specific functionality and interactions for the home page
  */
-import { selectors, defaults } from '/tsafira-travel-planner/config.js';
-import { qs, qsa, on, createElement } from '/tsafira-travel-planner/utils.js';
-import { isValidEmail } from '/tsafira-travel-planner/validate.js';
+import { selectors, defaults } from '/tsafira-travel-planner/core/config.js';
+import { qs, qsa, on, createElement } from '/tsafira-travel-planner/utils/utils.js';
+import { isValidEmail } from '/tsafira-travel-planner/utils/validate.js';
 import { initUI } from '/tsafira-travel-planner/ui.js';
-import { apiGet } from '/tsafira-travel-planner/api.js';
+import { apiGet } from '/tsafira-travel-planner/core/api.js';
 /**
  * Initialize the testimonial carousel
  */
@@ -20,7 +20,7 @@ export function initTestimonialCarousel() {
   let carouselIntervalId = null;
   
   // Fetch testimonial data from JSON file
-  apiGet('/data/testimonials.json')
+  apiGet('/tsafira-travel-planner/../assets/data/testimonials.json')
     .then(testimonialData => {
       // Group testimonials into pairs for slides
       const testimonials = groupTestimonialsInPairs(testimonialData);

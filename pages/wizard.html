@@ -122,36 +122,36 @@
               <i class="fas fa-circle-info"></i>
             </span>
           </label>
-          
+
           <div class="space-y-6 budget-section">
             <div class="relative">
               <div class="currency-tooltip">5000 MAD</div>
-              <input 
-                id="budget-slider" 
-                type="range" 
-                class="w-full h-2 rounded-lg appearance-none cursor-pointer" 
-                min="500" 
-                max="10000" 
-                step="100" 
+              <input
+                id="budget-slider"
+                type="range"
+                class="w-full h-2 rounded-lg appearance-none cursor-pointer"
+                min="500"
+                max="10000"
+                step="100"
                 value="5000"
                 aria-label="Budget amount">
             </div>
-            
+
             <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
               <div class="flex-1">
                 <label for="budget-input" class="sr-only">Enter budget amount</label>
-                <input 
-                  id="budget-input" 
-                  type="number" 
-                  class="w-full px-4 py-2 border dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors duration-200 focus:ring-orange-500 focus:border-orange-500 focus:ring-2" 
+                <input
+                  id="budget-input"
+                  type="number"
+                  class="w-full px-4 py-2 border dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors duration-200 focus:ring-orange-500 focus:border-orange-500 focus:ring-2"
                   placeholder="Enter amount"
                   min="500"
                   max="10000"
                   value="5000">
               </div>
               <label for="currency-select" class="sr-only">Select currency</label>
-              <select 
-                id="currency-select" 
+              <select
+                id="currency-select"
                 class="px-4 py-2 border dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-200 focus:ring-orange-500 focus:border-orange-500 focus:ring-2">
                 <option value="MAD">MAD (Moroccan Dirham)</option>
                 <option value="USD">USD (US Dollar)</option>
@@ -168,7 +168,7 @@
         <!-- Dates Section -->
         <div class="preference-card mb-8">
           <label class="block text-xl font-semibold mb-4 text-gray-900 dark:text-white transition-colors duration-200">When do you plan to travel?</label>
-          
+
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label for="start-date" class="block text-base text-gray-600 dark:text-gray-400 mb-2 transition-colors duration-200">Check-in Date</label>
@@ -195,14 +195,14 @@
         </div>
 
         <!-- Departure Section -->
-        <div class="preference-card mb-12">
+        <div class="preference-card mb-8">
           <label for="departure-input" class="block text-xl font-semibold mb-4 text-gray-900 dark:text-white transition-colors duration-200">Where will you be departing from?</label>
-          
+
           <div class="relative">
-            <input 
-              id="departure-input" 
-              type="text" 
-              class="w-full px-4 py-2 border dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white pr-10 transition-colors duration-200 focus:ring-orange-500 focus:border-orange-500 focus:ring-2" 
+            <input
+              id="departure-input"
+              type="text"
+              class="w-full px-4 py-2 border dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white pr-10 transition-colors duration-200 focus:ring-orange-500 focus:border-orange-500 focus:ring-2"
               placeholder="Search airports...">
             <i class="absolute right-4 top-3 text-gray-400 dark:text-gray-500 fas fa-plane transition-colors duration-200"></i>
             <div id="departure-error" class="error-text hidden">Please enter your departure location</div>
@@ -214,6 +214,70 @@
               <button type="button" class="popular-departure px-4 py-2 bg-gray-100 dark:bg-gray-700 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-900 dark:text-white transition-colors duration-150">New York (JFK)</button>
               <button type="button" class="popular-departure px-4 py-2 bg-gray-100 dark:bg-gray-700 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-900 dark:text-white transition-colors duration-150">London (LHR)</button>
               <button type="button" class="popular-departure px-4 py-2 bg-gray-100 dark:bg-gray-700 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-900 dark:text-white transition-colors duration-150">Paris (CDG)</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- City Card Section -->
+        <div class="preference-card mb-12">
+          <div class="flex items-center mb-4">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white transition-colors duration-200">City Card Options</h3>
+            <div class="ml-2 bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 text-xs px-2 py-1 rounded-full">
+              Recommended
+            </div>
+            <div class="ml-2 text-gray-500 dark:text-gray-400 text-sm">
+              <i class="fas fa-circle-info cursor-help" title="City Cards provide free entry to attractions and public transport"></i>
+            </div>
+          </div>
+
+          <p class="text-gray-600 dark:text-gray-400 mb-6 transition-colors duration-200">
+            City Cards give you unlimited access to public transportation and free entry to major attractions, helping you save money during your visit.
+          </p>
+
+          <div class="mb-6">
+            <label class="flex items-center space-x-3 cursor-pointer group">
+              <input
+                id="include-city-card"
+                type="checkbox"
+                class="form-checkbox w-5 h-5 text-orange-600 dark:text-orange-500 border-gray-300 dark:border-gray-600 rounded transition-colors duration-200 focus:ring-orange-500 focus:border-orange-500">
+              <span class="text-gray-700 dark:text-gray-300 group-hover:text-orange-600 dark:group-hover:text-orange-500 transition-colors duration-200 font-medium">Include City Card in my itinerary</span>
+            </label>
+            <a href="/tsafira-travel-planner/pages/city-pass.html" class="text-orange-600 dark:text-orange-500 hover:text-orange-700 dark:hover:text-orange-400 transition-colors duration-150 text-sm mt-2 inline-block">
+              Learn more about City Cards <i class="fas fa-arrow-right ml-1"></i>
+            </a>
+          </div>
+
+          <!-- City Card Duration Options (Hidden by default) -->
+          <div id="city-card-duration-options" class="pl-6 hidden animate-slide-up">
+            <p class="text-base text-gray-600 dark:text-gray-400 mb-3 transition-colors duration-200">Select card duration:</p>
+            <div class="grid grid-cols-3 gap-4 max-w-md">
+              <label class="relative cursor-pointer">
+                <input type="radio" name="city-card-duration" value="2" class="sr-only peer" checked>
+                <div class="flex flex-col items-center justify-center p-4 rounded-xl bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 peer-checked:border-orange-500 dark:peer-checked:border-orange-400 peer-checked:bg-orange-50 dark:peer-checked:bg-orange-900/20 transition-colors duration-200 h-full">
+                  <span class="text-2xl font-bold text-gray-900 dark:text-white transition-colors duration-200">2</span>
+                  <span class="text-gray-600 dark:text-gray-400 transition-colors duration-200">Days</span>
+                  <span class="mt-2 text-orange-600 dark:text-orange-500 font-medium">$29</span>
+                </div>
+              </label>
+              <label class="relative cursor-pointer">
+                <input type="radio" name="city-card-duration" value="4" class="sr-only peer">
+                <div class="flex flex-col items-center justify-center p-4 rounded-xl bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 peer-checked:border-orange-500 dark:peer-checked:border-orange-400 peer-checked:bg-orange-50 dark:peer-checked:bg-orange-900/20 transition-colors duration-200 h-full">
+                  <span class="text-2xl font-bold text-gray-900 dark:text-white transition-colors duration-200">4</span>
+                  <span class="text-gray-600 dark:text-gray-400 transition-colors duration-200">Days</span>
+                  <span class="mt-2 text-orange-600 dark:text-orange-500 font-medium">$49</span>
+                </div>
+              </label>
+              <label class="relative cursor-pointer">
+                <input type="radio" name="city-card-duration" value="7" class="sr-only peer">
+                <div class="flex flex-col items-center justify-center p-4 rounded-xl bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 peer-checked:border-orange-500 dark:peer-checked:border-orange-400 peer-checked:bg-orange-50 dark:peer-checked:bg-orange-900/20 transition-colors duration-200 h-full">
+                  <div class="absolute -top-2 -right-2 bg-orange-600 text-white text-xs px-2 py-1 rounded-full">
+                    Best Value
+                  </div>
+                  <span class="text-2xl font-bold text-gray-900 dark:text-white transition-colors duration-200">7</span>
+                  <span class="text-gray-600 dark:text-gray-400 transition-colors duration-200">Days</span>
+                  <span class="mt-2 text-orange-600 dark:text-orange-500 font-medium">$69</span>
+                </div>
+              </label>
             </div>
           </div>
         </div>
@@ -376,7 +440,7 @@
         <!-- Additional Preferences -->
         <div class="preference-card mb-12">
           <h3 class="text-xl font-semibold mb-6 text-gray-900 dark:text-white transition-colors duration-200">Additional Preferences</h3>
-          
+
           <!-- Dietary Requirements -->
           <div class="mb-6">
             <label for="dietary" class="block text-base text-gray-600 dark:text-gray-400 mb-2 transition-colors duration-200">Dietary Requirements</label>
@@ -404,10 +468,10 @@
           <!-- Special Requests -->
           <div>
             <label for="special-requests" class="block text-base text-gray-600 dark:text-gray-400 mb-2 transition-colors duration-200">Additional Notes or Special Requests</label>
-            <textarea 
+            <textarea
               id="special-requests"
-              class="w-full px-4 py-2 border dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors duration-200 focus:ring-orange-500 focus:border-orange-500 focus:ring-2" 
-              rows="4" 
+              class="w-full px-4 py-2 border dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors duration-200 focus:ring-orange-500 focus:border-orange-500 focus:ring-2"
+              rows="4"
               placeholder="Tell us about any other preferences or requirements..."></textarea>
           </div>
         </div>
@@ -441,7 +505,7 @@
               <i class="fas fa-pen-to-square group-hover:rotate-12 transition-transform duration-150"></i> Edit
             </button>
           </div>
-          
+
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <p class="text-base text-gray-600 dark:text-gray-400 mb-2 transition-colors duration-200">Budget</p>
@@ -538,6 +602,7 @@
   <!-- Hidden element for screen readers to announce errors -->
   <div id="error-region" aria-live="polite" class="sr-only"></div>
 
-  <script type="module" src="/tsafira-travel-planner/js/wizard.js"></script>
+  <script type="module" src="/tsafira-travel-planner/js/pages/wizard.js"></script>
+  <script type="module" src="/tsafira-travel-planner/js/city-card.js"></script>
 </body>
 </html>

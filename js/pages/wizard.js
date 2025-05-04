@@ -1,4 +1,4 @@
-import { apiGet } from '/tsafira-travel-planner/api.js';
+import { apiGet } from '/tsafira-travel-planner/core/api.js';
 
 // Supported currencies and symbols
 const SUPPORTED_CURRENCIES = ['MAD', 'USD', 'EUR', 'GBP', 'CAD', 'AUD', 'JPY'];

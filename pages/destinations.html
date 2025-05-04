@@ -16,7 +16,7 @@
     };
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  
+
   <!-- Tailwind CSS with dark mode enabled -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -55,12 +55,12 @@
       },
     };
   </script>
-  
+
   <!-- Base styles -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
   <link rel="stylesheet" href="/tsafira-travel-planner/css/main.css">
   <link rel="stylesheet" href="/tsafira-travel-planner/css/index.css">
-  
+
   <style>
     /* Additional styles for dark mode transitions */
     html.transition,
@@ -80,98 +80,455 @@
   </div>
 
   <!-- Header Placeholder with Dark Mode Toggle -->
-  <header id="header-placeholder" class="bg-white dark:bg-dark-bg border-b border-gray-200 dark:border-dark-border"> 
-    <!-- Dark mode toggle button will be inserted here by JavaScript --> 
-  </header> 
-  
-  <!-- Hero Section --> 
-  <!-- Page Title -->
-  <section id="page-title" class="pt-24 pb-12 bg-gray-50 dark:bg-dark-bg-alt"> 
-    <div class="container mx-auto px-6"> 
-      <h1 class="text-4xl md:text-5xl font-bold text-center mb-6 dark:text-gray-100">Explore Morocco's Destinations</h1> 
-      <p class="text-gray-600 dark:text-gray-300 text-center max-w-2xl mx-auto"> 
-        Discover the magic of Morocco through our curated collection of destinations, from ancient medinas to stunning coastlines and desert landscapes. 
-      </p> 
-    </div> 
-  </section> 
-  
-  <!-- Search & Filters --> 
-  <section id="search-filters" class="py-8 bg-white dark:bg-dark-bg border-b dark:border-dark-border"> 
-    <div class="container mx-auto px-6"> 
-      <div class="flex flex-col md:flex-row gap-6"> 
-        <!-- Search Bar --> 
-        <div class="flex-1"> 
-          <div class="relative"> 
-            <input type="text" placeholder="Search destinations, activities, or interests" class="w-full px-6 py-3 border rounded-full pr-12 focus:outline-none focus:ring-2 focus:ring-orange-600 dark:bg-dark-bg-accent dark:border-dark-border dark:text-gray-100 dark:placeholder-gray-400"/> 
-            <i class="fa-solid fa-search absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500"></i> 
-          </div> 
-        </div> 
-        <!-- Filters --> 
-        <div class="flex flex-wrap gap-4"> 
-          <div class="relative"> 
-            <select class="appearance-none bg-white dark:bg-dark-bg-accent border dark:border-dark-border px-6 py-3 rounded-full pr-12 focus:outline-none focus:ring-2 focus:ring-orange-600 dark:text-gray-100"> 
-              <option value="">Region</option> 
-              <option value="North">North</option> 
-              <option value="South">South</option> 
-              <option value="Coastal">Coastal</option> 
-              <option value="Mountains">Mountains</option> 
-              <option value="Desert">Desert</option> 
-              <option value="West">West</option>
-            </select> 
-            <i class="fa-solid fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500"></i> 
-          </div> 
-          <div class="relative"> 
-            <select class="appearance-none bg-white dark:bg-dark-bg-accent border dark:border-dark-border px-6 py-3 rounded-full pr-12 focus:outline-none focus:ring-2 focus:ring-orange-600 dark:text-gray-100"> 
-              <option value="">Duration</option> 
-              <option value="weekend">Weekend</option> 
-              <option value="1-week">1 Week</option> 
-              <option value="2-weeks">2 Weeks</option> 
-              <option value="custom">Custom</option> 
-            </select> 
-            <i class="fa-solid fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500"></i> 
-          </div> 
-          <button class="bg-orange-600 text-white px-6 py-3 rounded-full hover:bg-orange-700 dark:bg-orange-700 dark:hover:bg-orange-800"> 
-            Apply Filters 
-          </button> 
-        </div> 
-      </div> 
-      <div class="flex flex-wrap gap-4 mt-6"> 
-        <label class="flex items-center space-x-2 cursor-pointer dark:text-gray-300"> 
-          <input type="checkbox" class="form-checkbox text-orange-600 dark:border-dark-border"/><span>Cultural</span> 
-        </label> 
-        <label class="flex items-center space-x-2 cursor-pointer dark:text-gray-300"> 
-          <input type="checkbox" class="form-checkbox text-orange-600 dark:border-dark-border"/><span>Nature</span> 
-        </label> 
-        <label class="flex items-center space-x-2 cursor-pointer dark:text-gray-300"> 
-          <input type="checkbox" class="form-checkbox text-orange-600 dark:border-dark-border"/><span>Luxury</span> 
-        </label> 
-        <label class="flex items-center space-x-2 cursor-pointer dark:text-gray-300"> 
-          <input type="checkbox" class="form-checkbox text-orange-600 dark:border-dark-border"/><span>Historical</span> 
-        </label> 
-        <button class="text-orange-600 hover:text-orange-700 dark:text-orange-500 dark:hover:text-orange-400">Clear All</button> 
-      </div> 
-    </div> 
-  </section> 
-  
-  <section id="destinations-grid" class="py-16 dark:bg-dark-bg"> 
-    <div class="container mx-auto px-6"> 
-      <div id="destinations-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"> 
-        <!-- Destinations will be loaded here --> 
-      </div> 
-      <!-- Load More --> 
-      <div class="flex justify-center mt-12"> 
-        <button id="load-more-btn" class="bg-white dark:bg-dark-bg-accent border-2 border-orange-600 dark:border-orange-700 text-orange-600 dark:text-orange-500 px-8 py-3 rounded-full hover:bg-orange-50 dark:hover:bg-dark-bg-accent/80 flex items-center space-x-2"> 
-          <span>Load More Destinations</span><i class="fa-solid fa-arrow-down"></i> 
-        </button> 
-      </div> 
-    </div> 
-  </section> 
-  
-  <!-- Footer Placeholder --> 
+  <header id="header-placeholder" class="bg-white dark:bg-dark-bg border-b border-gray-200 dark:border-dark-border">
+    <!-- Dark mode toggle button will be inserted here by JavaScript -->
+  </header>
+
+  <!-- Hero Section with Parallax Effect -->
+  <section id="page-title" class="pt-32 pb-20 destinations-hero">
+    <div class="container mx-auto px-6 relative z-10">
+      <div class="animate-fadeIn" style="animation-delay: 0.1s;">
+        <h1 class="text-4xl md:text-6xl font-bold text-center mb-6 text-white drop-shadow-lg">Explore Morocco's Destinations</h1>
+        <p class="text-gray-200 text-center max-w-2xl mx-auto text-lg drop-shadow-md">
+          Discover the magic of Morocco through our curated collection of destinations, from ancient medinas to stunning coastlines and desert landscapes.
+        </p>
+      </div>
+      <div class="flex justify-center mt-8 animate-fadeIn" style="animation-delay: 0.3s;">
+        <a href="#search-filters" class="bg-white hover:bg-gray-100 text-gray-800 px-6 py-3 rounded-full flex items-center space-x-2 transition-all duration-300 hover:shadow-lg focus-visible">
+          <span>Start Exploring</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enhanced Search & Filters -->
+  <section id="search-filters" class="py-12 bg-white dark:bg-dark-bg border-b dark:border-dark-border">
+    <div class="container mx-auto px-6">
+      <!-- View Toggle -->
+      <div class="flex justify-end mb-6">
+        <div class="view-toggle bg-gray-100 dark:bg-dark-bg-accent p-1 rounded-full inline-flex">
+          <button class="active px-4 py-2 rounded-full text-sm font-medium" aria-label="Grid view">
+            <i class="fa-solid fa-grip mr-2"></i>Grid
+          </button>
+          <button class="px-4 py-2 rounded-full text-sm font-medium" aria-label="Map view">
+            <i class="fa-solid fa-map-location-dot mr-2"></i>Map
+          </button>
+        </div>
+      </div>
+
+      <!-- Enhanced Search Bar with Animation -->
+      <div class="search-container relative mb-8 animate-fadeIn" style="animation-delay: 0.1s;">
+        <input
+          type="text"
+          placeholder="Where would you like to explore in Morocco?"
+          class="w-full px-8 py-5 border-2 rounded-full pr-16 focus:outline-none focus:ring-2 focus:ring-orange-600 dark:bg-dark-bg-accent dark:border-dark-border dark:text-gray-100 dark:placeholder-gray-400 search-input shadow-sm"
+          aria-label="Search destinations"
+        />
+        <button class="absolute right-3 top-1/2 -translate-y-1/2 bg-orange-600 hover:bg-orange-700 text-white p-3 rounded-full transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-orange-600 focus:ring-offset-2">
+          <i class="fa-solid fa-search"></i>
+          <span class="sr-only">Search</span>
+        </button>
+      </div>
+
+      <!-- Popular Searches -->
+      <div class="mb-8 animate-fadeIn" style="animation-delay: 0.2s;">
+        <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-3">Popular Searches:</h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="popular-search-tag px-3 py-1 bg-gray-100 dark:bg-dark-bg-accent rounded-full text-sm cursor-pointer">Beaches</span>
+          <span class="popular-search-tag px-3 py-1 bg-gray-100 dark:bg-dark-bg-accent rounded-full text-sm cursor-pointer">Desert Tours</span>
+          <span class="popular-search-tag px-3 py-1 bg-gray-100 dark:bg-dark-bg-accent rounded-full text-sm cursor-pointer">Medinas</span>
+          <span class="popular-search-tag px-3 py-1 bg-gray-100 dark:bg-dark-bg-accent rounded-full text-sm cursor-pointer">Mountains</span>
+          <span class="popular-search-tag px-3 py-1 bg-gray-100 dark:bg-dark-bg-accent rounded-full text-sm cursor-pointer">Historical Sites</span>
+        </div>
+      </div>
+
+      <!-- Advanced Filters with Enhanced UI -->
+      <div class="filter-section bg-gray-50 dark:bg-dark-bg-accent rounded-2xl p-8 shadow-sm animate-fadeIn" style="animation-delay: 0.3s;">
+        <div class="flex items-center justify-between mb-6">
+          <h3 class="text-xl font-semibold flex items-center">
+            <i class="fa-solid fa-sliders text-orange-600 mr-3"></i>
+            <span>Refine Your Search</span>
+          </h3>
+          <button class="text-orange-600 hover:text-orange-700 dark:text-orange-500 dark:hover:text-orange-400 text-sm font-medium focus-visible flex items-center space-x-2 transition-all duration-300 hover:translate-x-1">
+            <span>Clear All Filters</span>
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Region Filter with Enhanced UI -->
+          <div class="relative group">
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 flex items-center">
+              <i class="fa-solid fa-map-location-dot text-orange-600 mr-2"></i>
+              <span>Region</span>
+            </label>
+            <div class="relative">
+              <select class="appearance-none bg-white dark:bg-dark-bg border-2 dark:border-dark-border w-full px-5 py-4 rounded-xl pr-12 focus:outline-none focus:ring-2 focus:ring-orange-600 focus:border-orange-600 dark:text-gray-100 transition-all duration-300 hover:shadow-md">
+                <option value="">All Regions</option>
+                <option value="North">North</option>
+                <option value="South">South</option>
+                <option value="Coastal">Coastal</option>
+                <option value="Mountains">Mountains</option>
+                <option value="Desert">Desert</option>
+                <option value="West">West</option>
+              </select>
+              <div class="absolute right-4 top-1/2 -translate-y-1/2 text-orange-600 dark:text-orange-500 pointer-events-none bg-white dark:bg-dark-bg rounded-full w-8 h-8 flex items-center justify-center group-hover:bg-orange-100 dark:group-hover:bg-dark-bg-accent transition-all duration-300">
+                <i class="fa-solid fa-chevron-down"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sort By with Enhanced UI -->
+          <div class="relative group">
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 flex items-center">
+              <i class="fa-solid fa-arrow-up-wide-short text-orange-600 mr-2"></i>
+              <span>Sort By</span>
+            </label>
+            <div class="relative">
+              <select class="appearance-none bg-white dark:bg-dark-bg border-2 dark:border-dark-border w-full px-5 py-4 rounded-xl pr-12 focus:outline-none focus:ring-2 focus:ring-orange-600 focus:border-orange-600 dark:text-gray-100 transition-all duration-300 hover:shadow-md">
+                <option value="popular">Most Popular</option>
+                <option value="az">Name (A-Z)</option>
+                <option value="za">Name (Z-A)</option>
+                <option value="recommended">Recommended</option>
+              </select>
+              <div class="absolute right-4 top-1/2 -translate-y-1/2 text-orange-600 dark:text-orange-500 pointer-events-none bg-white dark:bg-dark-bg rounded-full w-8 h-8 flex items-center justify-center group-hover:bg-orange-100 dark:group-hover:bg-dark-bg-accent transition-all duration-300">
+                <i class="fa-solid fa-chevron-down"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Enhanced Experience Types -->
+        <div class="mt-8">
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-4 flex items-center">
+            <i class="fa-solid fa-compass text-orange-600 mr-2"></i>
+            <span>Experience Types</span>
+          </label>
+          <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+            <label class="filter-tag flex flex-col items-center justify-center px-4 py-3 bg-white dark:bg-dark-bg border dark:border-dark-border rounded-xl cursor-pointer hover:border-orange-600 dark:hover:border-orange-500 text-center h-full">
+              <input type="checkbox" class="filter-checkbox text-orange-600 dark:border-dark-border sr-only" />
+              <div class="w-12 h-12 rounded-full bg-orange-100 dark:bg-dark-bg-accent flex items-center justify-center mb-2 transition-all duration-300">
+                <i class="fa-solid fa-landmark text-orange-600 dark:text-orange-500 text-xl"></i>
+              </div>
+              <span class="text-sm font-medium">Cultural</span>
+            </label>
+            <label class="filter-tag flex flex-col items-center justify-center px-4 py-3 bg-white dark:bg-dark-bg border dark:border-dark-border rounded-xl cursor-pointer hover:border-orange-600 dark:hover:border-orange-500 text-center h-full">
+              <input type="checkbox" class="filter-checkbox text-orange-600 dark:border-dark-border sr-only" />
+              <div class="w-12 h-12 rounded-full bg-orange-100 dark:bg-dark-bg-accent flex items-center justify-center mb-2 transition-all duration-300">
+                <i class="fa-solid fa-mountain-sun text-orange-600 dark:text-orange-500 text-xl"></i>
+              </div>
+              <span class="text-sm font-medium">Nature</span>
+            </label>
+            <label class="filter-tag flex flex-col items-center justify-center px-4 py-3 bg-white dark:bg-dark-bg border dark:border-dark-border rounded-xl cursor-pointer hover:border-orange-600 dark:hover:border-orange-500 text-center h-full">
+              <input type="checkbox" class="filter-checkbox text-orange-600 dark:border-dark-border sr-only" />
+              <div class="w-12 h-12 rounded-full bg-orange-100 dark:bg-dark-bg-accent flex items-center justify-center mb-2 transition-all duration-300">
+                <i class="fa-solid fa-spa text-orange-600 dark:text-orange-500 text-xl"></i>
+              </div>
+              <span class="text-sm font-medium">Luxury</span>
+            </label>
+            <label class="filter-tag flex flex-col items-center justify-center px-4 py-3 bg-white dark:bg-dark-bg border dark:border-dark-border rounded-xl cursor-pointer hover:border-orange-600 dark:hover:border-orange-500 text-center h-full">
+              <input type="checkbox" class="filter-checkbox text-orange-600 dark:border-dark-border sr-only" />
+              <div class="w-12 h-12 rounded-full bg-orange-100 dark:bg-dark-bg-accent flex items-center justify-center mb-2 transition-all duration-300">
+                <i class="fa-solid fa-monument text-orange-600 dark:text-orange-500 text-xl"></i>
+              </div>
+              <span class="text-sm font-medium">Historical</span>
+            </label>
+            <label class="filter-tag flex flex-col items-center justify-center px-4 py-3 bg-white dark:bg-dark-bg border dark:border-dark-border rounded-xl cursor-pointer hover:border-orange-600 dark:hover:border-orange-500 text-center h-full">
+              <input type="checkbox" class="filter-checkbox text-orange-600 dark:border-dark-border sr-only" />
+              <div class="w-12 h-12 rounded-full bg-orange-100 dark:bg-dark-bg-accent flex items-center justify-center mb-2 transition-all duration-300">
+                <i class="fa-solid fa-umbrella-beach text-orange-600 dark:text-orange-500 text-xl"></i>
+              </div>
+              <span class="text-sm font-medium">Beaches</span>
+            </label>
+            <label class="filter-tag flex flex-col items-center justify-center px-4 py-3 bg-white dark:bg-dark-bg border dark:border-dark-border rounded-xl cursor-pointer hover:border-orange-600 dark:hover:border-orange-500 text-center h-full">
+              <input type="checkbox" class="filter-checkbox text-orange-600 dark:border-dark-border sr-only" />
+              <div class="w-12 h-12 rounded-full bg-orange-100 dark:bg-dark-bg-accent flex items-center justify-center mb-2 transition-all duration-300">
+                <i class="fa-solid fa-utensils text-orange-600 dark:text-orange-500 text-xl"></i>
+              </div>
+              <span class="text-sm font-medium">Culinary</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Apply Filters Button with Enhanced UI -->
+        <div class="mt-8 flex justify-end">
+          <button class="btn-primary flex items-center space-x-2 px-8 py-4 text-base font-medium shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+            <i class="fa-solid fa-filter"></i>
+            <span>Apply Filters</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Enhanced Mobile Filter Button (visible on small screens) -->
+      <div class="fixed bottom-6 right-6 md:hidden z-30">
+        <button class="bg-gradient-to-r from-orange-600 to-orange-500 text-white p-5 rounded-full shadow-xl hover:shadow-2xl hover:scale-105 focus:outline-none focus:ring-2 focus:ring-orange-600 focus:ring-offset-2 transition-all duration-300 animate-bounce-subtle">
+          <i class="fa-solid fa-sliders text-xl"></i>
+          <span class="sr-only">Open Filters</span>
+        </button>
+        <div class="absolute inset-0 bg-orange-600 rounded-full blur-md opacity-30 -z-10 animate-pulse-slow"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enhanced Destinations Grid with Recently Viewed Section -->
+  <section id="destinations-grid" class="py-16 dark:bg-dark-bg">
+    <div class="container mx-auto px-6">
+      <!-- Recently Viewed Section (Hidden initially, shown when there are items) -->
+      <div id="recently-viewed-section" class="mb-12 hidden">
+        <h2 class="text-2xl font-bold mb-6 dark:text-gray-100">Recently Viewed</h2>
+        <div class="recently-viewed flex space-x-4 pb-4">
+          <!-- Recently viewed items will be added here by JavaScript -->
+        </div>
+      </div>
+
+      <!-- Destinations Header -->
+      <div class="flex justify-between items-center mb-8">
+        <h2 class="text-2xl font-bold dark:text-gray-100">Explore Destinations</h2>
+        <div class="text-sm text-gray-500 dark:text-gray-400">
+          Showing <span id="destinations-count">0</span> destinations
+        </div>
+      </div>
+
+      <!-- Enhanced Skeleton Loading (shown while loading) -->
+      <div id="skeleton-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white dark:bg-dark-bg-accent rounded-xl overflow-hidden shadow-lg skeleton-card">
+          <div class="h-64 skeleton"></div>
+          <div class="p-6">
+            <div class="h-7 w-3/4 mb-4 skeleton rounded-lg"></div>
+            <div class="h-4 w-full mb-2 skeleton rounded-lg"></div>
+            <div class="h-4 w-5/6 mb-6 skeleton rounded-lg"></div>
+            <div class="flex space-x-2 mb-6">
+              <div class="h-8 w-8 rounded-full skeleton"></div>
+              <div class="h-8 w-8 rounded-full skeleton"></div>
+              <div class="h-8 w-8 rounded-full skeleton"></div>
+            </div>
+            <div class="h-12 w-full skeleton rounded-full"></div>
+          </div>
+        </div>
+        <div class="bg-white dark:bg-dark-bg-accent rounded-xl overflow-hidden shadow-lg skeleton-card">
+          <div class="h-64 skeleton"></div>
+          <div class="p-6">
+            <div class="h-7 w-2/3 mb-4 skeleton rounded-lg"></div>
+            <div class="h-4 w-full mb-2 skeleton rounded-lg"></div>
+            <div class="h-4 w-4/5 mb-6 skeleton rounded-lg"></div>
+            <div class="flex space-x-2 mb-6">
+              <div class="h-8 w-8 rounded-full skeleton"></div>
+              <div class="h-8 w-8 rounded-full skeleton"></div>
+            </div>
+            <div class="h-12 w-full skeleton rounded-full"></div>
+          </div>
+        </div>
+        <div class="bg-white dark:bg-dark-bg-accent rounded-xl overflow-hidden shadow-lg skeleton-card">
+          <div class="h-64 skeleton"></div>
+          <div class="p-6">
+            <div class="h-7 w-1/2 mb-4 skeleton rounded-lg"></div>
+            <div class="h-4 w-full mb-2 skeleton rounded-lg"></div>
+            <div class="h-4 w-3/4 mb-6 skeleton rounded-lg"></div>
+            <div class="flex space-x-2 mb-6">
+              <div class="h-8 w-8 rounded-full skeleton"></div>
+              <div class="h-8 w-8 rounded-full skeleton"></div>
+              <div class="h-8 w-8 rounded-full skeleton"></div>
+              <div class="h-8 w-8 rounded-full skeleton"></div>
+            </div>
+            <div class="h-12 w-full skeleton rounded-full"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Actual Destinations Container -->
+      <div id="destinations-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 hidden">
+        <!-- Destinations will be loaded here -->
+      </div>
+
+      <!-- Enhanced No Results Message -->
+      <div id="no-results" class="hidden py-20 text-center max-w-lg mx-auto">
+        <div class="relative inline-block mb-8">
+          <div class="w-24 h-24 bg-orange-100 dark:bg-dark-bg-accent rounded-full flex items-center justify-center mx-auto">
+            <i class="fa-solid fa-map-location-dot text-5xl text-orange-600 dark:text-orange-500"></i>
+          </div>
+          <div class="absolute -top-2 -right-2 w-10 h-10 bg-gray-100 dark:bg-dark-bg rounded-full flex items-center justify-center animate-bounce-subtle">
+            <i class="fa-solid fa-search text-gray-400 dark:text-gray-500"></i>
+          </div>
+        </div>
+        <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-3">No destinations found</h3>
+        <p class="text-gray-600 dark:text-gray-400 mb-8 text-lg">We couldn't find any destinations matching your criteria. Try adjusting your search or filters.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <button id="reset-search-btn" class="btn-primary flex items-center justify-center space-x-2 px-6 py-3">
+            <i class="fa-solid fa-rotate-left"></i>
+            <span>Reset All Filters</span>
+          </button>
+          <button class="btn-secondary flex items-center justify-center space-x-2 px-6 py-3">
+            <i class="fa-solid fa-compass"></i>
+            <span>Explore Popular Destinations</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Enhanced Load More Button -->
+      <div class="flex justify-center mt-16">
+        <button id="load-more-btn" class="btn-secondary group relative overflow-hidden flex items-center space-x-3 px-10 py-4 border-2 border-orange-600 dark:border-orange-500 hover:bg-orange-50 dark:hover:bg-dark-bg-accent transition-all duration-300 transform hover:scale-105">
+          <span class="font-medium">Load More Destinations</span>
+          <i class="fa-solid fa-arrow-down group-hover:animate-bounce-subtle"></i>
+          <span class="absolute inset-0 w-full h-full bg-orange-600 dark:bg-orange-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
+        </button>
+      </div>
+
+      <!-- Map View Container (Hidden by default) -->
+      <div id="map-view" class="hidden mt-8 rounded-xl overflow-hidden h-[600px] shadow-lg">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6810853.435943959!2d-11.644536506054668!3d31.79193016153469!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0b88619651c58d%3A0xd9d39381c42cffc3!2sMorocco!5e0!3m2!1sen!2sus!4v1682599441521!5m2!1sen!2sus"
+          width="100%"
+          height="100%"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enhanced Mobile Filter Sheet (Hidden by default) -->
+  <div class="mobile-filter-sheet bg-white dark:bg-dark-bg rounded-t-3xl shadow-xl p-8">
+    <div class="flex justify-between items-center mb-6">
+      <h3 class="text-xl font-bold dark:text-gray-100 flex items-center">
+        <i class="fa-solid fa-sliders text-orange-600 mr-3"></i>
+        <span>Filters</span>
+      </h3>
+      <button class="text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-dark-bg-accent p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300" id="close-filter-sheet">
+        <i class="fa-solid fa-xmark text-xl"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Filter Content -->
+    <div class="space-y-8">
+      <!-- Region Filter -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3 flex items-center">
+          <i class="fa-solid fa-map-location-dot text-orange-600 mr-2"></i>
+          <span>Region</span>
+        </label>
+        <div class="relative">
+          <select class="appearance-none bg-white dark:bg-dark-bg-accent border-2 dark:border-dark-border w-full px-5 py-4 rounded-xl pr-12 focus:outline-none focus:ring-2 focus:ring-orange-600 focus:border-orange-600 dark:text-gray-100 transition-all duration-300 hover:shadow-md">
+            <option value="">All Regions</option>
+            <option value="North">North</option>
+            <option value="South">South</option>
+            <option value="Coastal">Coastal</option>
+            <option value="Mountains">Mountains</option>
+            <option value="Desert">Desert</option>
+            <option value="West">West</option>
+          </select>
+          <div class="absolute right-4 top-1/2 -translate-y-1/2 text-orange-600 dark:text-orange-500 pointer-events-none bg-white dark:bg-dark-bg rounded-full w-8 h-8 flex items-center justify-center">
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sort By -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3 flex items-center">
+          <i class="fa-solid fa-arrow-up-wide-short text-orange-600 mr-2"></i>
+          <span>Sort By</span>
+        </label>
+        <div class="relative">
+          <select class="appearance-none bg-white dark:bg-dark-bg-accent border-2 dark:border-dark-border w-full px-5 py-4 rounded-xl pr-12 focus:outline-none focus:ring-2 focus:ring-orange-600 focus:border-orange-600 dark:text-gray-100 transition-all duration-300 hover:shadow-md">
+            <option value="popular">Most Popular</option>
+            <option value="az">Name (A-Z)</option>
+            <option value="za">Name (Z-A)</option>
+            <option value="recommended">Recommended</option>
+          </select>
+          <div class="absolute right-4 top-1/2 -translate-y-1/2 text-orange-600 dark:text-orange-500 pointer-events-none bg-white dark:bg-dark-bg rounded-full w-8 h-8 flex items-center justify-center">
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Experience Types -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3 flex items-center">
+          <i class="fa-solid fa-compass text-orange-600 mr-2"></i>
+          <span>Experience Types</span>
+        </label>
+        <div class="grid grid-cols-2 gap-3">
+          <label class="filter-tag flex items-center space-x-3 px-4 py-3 bg-white dark:bg-dark-bg border-2 dark:border-dark-border rounded-xl cursor-pointer">
+            <div class="w-10 h-10 rounded-full bg-orange-100 dark:bg-dark-bg-accent flex items-center justify-center">
+              <i class="fa-solid fa-landmark text-orange-600 dark:text-orange-500"></i>
+            </div>
+            <div class="flex flex-col">
+              <input type="checkbox" class="filter-checkbox text-orange-600 dark:border-dark-border sr-only" />
+              <span class="text-sm font-medium">Cultural</span>
+            </div>
+          </label>
+          <label class="filter-tag flex items-center space-x-3 px-4 py-3 bg-white dark:bg-dark-bg border-2 dark:border-dark-border rounded-xl cursor-pointer">
+            <div class="w-10 h-10 rounded-full bg-orange-100 dark:bg-dark-bg-accent flex items-center justify-center">
+              <i class="fa-solid fa-mountain-sun text-orange-600 dark:text-orange-500"></i>
+            </div>
+            <div class="flex flex-col">
+              <input type="checkbox" class="filter-checkbox text-orange-600 dark:border-dark-border sr-only" />
+              <span class="text-sm font-medium">Nature</span>
+            </div>
+          </label>
+          <label class="filter-tag flex items-center space-x-3 px-4 py-3 bg-white dark:bg-dark-bg border-2 dark:border-dark-border rounded-xl cursor-pointer">
+            <div class="w-10 h-10 rounded-full bg-orange-100 dark:bg-dark-bg-accent flex items-center justify-center">
+              <i class="fa-solid fa-spa text-orange-600 dark:text-orange-500"></i>
+            </div>
+            <div class="flex flex-col">
+              <input type="checkbox" class="filter-checkbox text-orange-600 dark:border-dark-border sr-only" />
+              <span class="text-sm font-medium">Luxury</span>
+            </div>
+          </label>
+          <label class="filter-tag flex items-center space-x-3 px-4 py-3 bg-white dark:bg-dark-bg border-2 dark:border-dark-border rounded-xl cursor-pointer">
+            <div class="w-10 h-10 rounded-full bg-orange-100 dark:bg-dark-bg-accent flex items-center justify-center">
+              <i class="fa-solid fa-monument text-orange-600 dark:text-orange-500"></i>
+            </div>
+            <div class="flex flex-col">
+              <input type="checkbox" class="filter-checkbox text-orange-600 dark:border-dark-border sr-only" />
+              <span class="text-sm font-medium">Historical</span>
+            </div>
+          </label>
+          <label class="filter-tag flex items-center space-x-3 px-4 py-3 bg-white dark:bg-dark-bg border-2 dark:border-dark-border rounded-xl cursor-pointer">
+            <div class="w-10 h-10 rounded-full bg-orange-100 dark:bg-dark-bg-accent flex items-center justify-center">
+              <i class="fa-solid fa-umbrella-beach text-orange-600 dark:text-orange-500"></i>
+            </div>
+            <div class="flex flex-col">
+              <input type="checkbox" class="filter-checkbox text-orange-600 dark:border-dark-border sr-only" />
+              <span class="text-sm font-medium">Beaches</span>
+            </div>
+          </label>
+          <label class="filter-tag flex items-center space-x-3 px-4 py-3 bg-white dark:bg-dark-bg border-2 dark:border-dark-border rounded-xl cursor-pointer">
+            <div class="w-10 h-10 rounded-full bg-orange-100 dark:bg-dark-bg-accent flex items-center justify-center">
+              <i class="fa-solid fa-utensils text-orange-600 dark:text-orange-500"></i>
+            </div>
+            <div class="flex flex-col">
+              <input type="checkbox" class="filter-checkbox text-orange-600 dark:border-dark-border sr-only" />
+              <span class="text-sm font-medium">Culinary</span>
+            </div>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Apply Button -->
+    <div class="mt-10">
+      <button class="btn-primary w-full py-4 text-base font-medium flex items-center justify-center space-x-2">
+        <i class="fa-solid fa-filter"></i>
+        <span>Apply Filters</span>
+      </button>
+      <button class="w-full py-3 mt-4 text-orange-600 dark:text-orange-500 font-medium hover:underline">
+        Clear All Filters
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Filter Overlay -->
+  <div class="mobile-filter-overlay"></div>
+
+  <!-- Footer Placeholder -->
   <footer id="footer-placeholder" class="bg-white dark:bg-dark-bg border-t border-gray-200 dark:border-dark-border"></footer>
 
 <!-- Scripts -->
 <script type="module" src="/tsafira-travel-planner/js/main.js"></script>
-<script type="module" src="/tsafira-travel-planner/js/distinations.js"></script>
+<script type="module" src="/tsafira-travel-planner/js/pages/destinations.js"></script>
 </body>
 </html>

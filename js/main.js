@@ -2,9 +2,9 @@
  * Main JavaScript entry point
  * Initializes all necessary components based on the current page
  */
-import { initPartials } from '/tsafira-travel-planner/loader.js';
-import { qs } from '/tsafira-travel-planner/utils.js';
-import { initAuth, updateAuthUI } from '/tsafira-travel-planner/auth.js';
+import { initPartials } from '/tsafira-travel-planner/core/loader.js';
+import { qs } from '/tsafira-travel-planner/utils/utils.js';
+import { initAuth, updateAuthUI } from '/tsafira-travel-planner/core/auth.js';
 import { initUI } from '/tsafira-travel-planner/ui.js';
 
 // Initialize the partials (header and footer)

@@ -8,22 +8,22 @@ export const selectors = {
   // Header and footer placeholders
   headerPlaceholder: '#header-placeholder',
   footerPlaceholder: '#footer-placeholder',
-  
+
   // Mobile menu elements
   mobileMenuButton: '#mobile-menu-button',
   closeMenuButton: '#close-menu-button',
   mobileMenu: '#mobile-menu',
-  
+
   // Navigation and auth elements
   navActions: '#nav-actions',
-  
+
   // Testimonial carousel elements
   testimonialContainer: '.testimonial-container',
   carouselDots: '#carousel-dots',
-  
+
   // Scroll progress bar
   scrollProgressBar: '.scroll-progress-bar',
-  
+
   // Newsletter form
   newsletterForm: '#newsletter form',
   emailInput: '#newsletter input[type="email"]',
@@ -53,6 +53,6 @@ export const pages = {
 
 // Path to partials
 export const partials = {
-  header: '/partials/header.html',
-  footer: '/partials/footer.html'
+  header: '/tsafira-travel-planner/partials/header.html',
+  footer: '/tsafira-travel-planner/partials/footer.html'
 };
