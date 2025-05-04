@@ -1,0 +1,153 @@
+{
+  "userData": {
+    "role": "traveler",
+    "name": "Ayoub Erraouy",
+    "email": "ayoub.erraouy@tsafira.com",
+    "phone": "+212 777 044 447",
+    "avatarUrl": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSBfGjV83r6lnGai-mjjBjCv9vcizZ-WspiMCLY_zxsrycBe5pI4dlGTHOW-QXyA329LqrVdJDbuUiX0yzNVl0h5DXHZYSU8uZvc-HJAg",
+    "profileCompletion": 75,
+    "preferences": {
+      "currency": "USD",
+      "language": "English",
+      "timezone": "Morocco Time (GMT+1)",
+      "dateFormat": "DD/MM/YYYY"
+    },
+    "travelPreferences": {
+      "style": "Cultural",
+      "accommodation": "Boutique Hotels",
+      "interests": [
+        "Historical Sites & Museums",
+        "Local Cuisine & Food Tours",
+        "Outdoor Activities & Nature",
+        "Shopping & Markets",
+        "Arts & Cultural Events"
+      ]
+    },
+    "notifications": {
+      "email": true,
+      "trip_updates": true,
+      "sms": true,
+      "marketing": false
+    }
+  },
+  "itineraries": [
+    {
+      "id": "trip-1",
+      "title": "Marrakech Explorer",
+      "location": "Marrakech, Morocco",
+      "image": "https://images.pexels.com/photos/3889843/pexels-photo-3889843.jpeg",
+      "startDate": "2023-06-15",
+      "endDate": "2023-06-22",
+      "status": "confirmed",
+      "description": "7-day cultural tour of Marrakech with guided visits to historical sites, local markets, and authentic cuisine experiences."
+    },
+    {
+      "id": "trip-2",
+      "title": "Atlas Mountains Trek",
+      "location": "Atlas Mountains, Morocco",
+      "image": "https://images.pexels.com/photos/1591373/pexels-photo-1591373.jpeg",
+      "startDate": "2023-08-10",
+      "endDate": "2023-08-17",
+      "status": "pending",
+      "description": "Guided hiking tour in the Atlas Mountains with experienced local guides, visiting Berber villages and scenic viewpoints."
+    },
+    {
+      "id": "trip-3",
+      "title": "Sahara Desert Adventure",
+      "location": "Sahara Desert, Morocco",
+      "image": "https://images.pexels.com/photos/2387873/pexels-photo-2387873.jpeg",
+      "startDate": "2023-10-05",
+      "endDate": "2023-10-10",
+      "status": "draft",
+      "description": "Experience the magic of the Sahara Desert with camel trekking, overnight camping under the stars, and traditional Berber entertainment."
+    }
+  ],
+  "notifications": [
+    {
+      "id": "notif-1",
+      "title": "New message from Mohammed A.",
+      "message": "Hello Ayoub, I'm looking forward to our tour next week. I wanted to confirm our meeting point at Jemaa el-Fnaa square at 9:00 AM.",
+      "timestamp": "2023-05-20T14:30:00",
+      "read": false,
+      "type": "message"
+    },
+    {
+      "id": "notif-2",
+      "title": "Important: Trip Update",
+      "message": "Your Atlas Mountains Trek has been updated. The meeting time has changed from 8:00 AM to 7:30 AM due to weather conditions.",
+      "timestamp": "2023-05-19T10:15:00",
+      "read": false,
+      "type": "alert",
+      "priority": true
+    },
+    {
+      "id": "notif-3",
+      "title": "Payment Confirmed",
+      "message": "Your payment of $450.00 for the Marrakech Explorer tour has been successfully processed. Your booking is now confirmed.",
+      "timestamp": "2023-05-18T09:00:00",
+      "read": true,
+      "type": "success"
+    },
+    {
+      "id": "notif-4",
+      "title": "Welcome to Tsafira!",
+      "message": "Thank you for joining Tsafira! We're excited to help you discover the beauty of Morocco. Complete your profile to get personalized recommendations.",
+      "timestamp": "2023-05-15T09:00:00",
+      "read": true,
+      "type": "message"
+    }
+  ],
+  "guideStats": {
+    "earnings": {
+      "total": 12500,
+      "pending": 2800,
+      "lastMonth": 3200,
+      "trend": "up"
+    },
+    "rating": {
+      "average": 4.8,
+      "count": 47,
+      "trend": "up"
+    },
+    "bookings": {
+      "total": 24,
+      "pending": 4,
+      "cancelled": 2,
+      "trend": "up"
+    },
+    "views": {
+      "total": 156,
+      "lastMonth": 120,
+      "trend": "up"
+    }
+  },
+  "guideRequests": [
+    {
+      "id": "req-1",
+      "traveler": {
+        "name": "Michael Brown",
+        "avatar": "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg"
+      },
+      "tripTitle": "Marrakech City Tour - 1 Day",
+      "date": "2023-06-18",
+      "time": "9:00 AM - 5:00 PM",
+      "travelers": 2,
+      "amount": 650,
+      "status": "pending"
+    },
+    {
+      "id": "req-2",
+      "traveler": {
+        "name": "Emma Wilson",
+        "avatar": "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg"
+      },
+      "tripTitle": "Food Tour in Medina - Half Day",
+      "date": "2023-06-20",
+      "time": "11:00 AM - 3:00 PM",
+      "travelers": 4,
+      "amount": 420,
+      "status": "pending"
+    }
+  ],
+  "savedPlaces": []
+}

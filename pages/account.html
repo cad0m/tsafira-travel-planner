@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tsafira | My Account</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/tsafira-travel-planner/css/account.css">
+  <link rel="stylesheet" href="/tsafira-travel-planner/css/calendar-events.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <meta name="description" content="Manage your Tsafira account, view itineraries, and access your travel information.">
+  <meta name="theme-color" content="#ff7e33">
+</head>
+<body>
+  <!-- Header -->
+  <header class="app-header">
+    <div class="container">
+      <div class="header-content">
+        <div class="header-left">
+          <button class="mobile-menu-toggle focus-visible" aria-label="Toggle menu">
+            <i class="fas fa-bars"></i>
+          </button>
+          <a href="/" class="logo">Tsafira</a>
+        </div>
+        <nav class="header-nav">
+          <a href="/" class="nav-link focus-visible">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+          </a>
+          <a href="/tsafira-travel-planner/destinations.html" class="nav-link focus-visible">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Destinations</span>
+          </a>
+          <button class="theme-toggle nav-link focus-visible" aria-label="Toggle dark/light mode">
+            <i class="fas fa-sun"></i>
+            <i class="fas fa-moon"></i>
+            <span class="visually-hidden">Toggle dark mode</span>
+          </button>
+          <div class="profile-dropdown">
+            <img src=""
+                 alt="Profile"
+                 class="profile-image"/>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar-nav">
+      <!-- Profile Summary - Will be populated from userData.json -->
+      <div class="sidebar-profile">
+        <div class="profile-photo-container">
+          <img src=""
+               alt="Profile"
+               class="profile-photo"/>
+          <div class="photo-upload-overlay">
+            <i class="fas fa-camera"></i>
+            Change Photo
+          </div>
+        </div>
+        <h2 class="profile-name"></h2>
+        <p class="profile-email">
+          <i class="fas fa-envelope"></i>
+          <span></span>
+        </p>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="sidebar-menu">
+        <div class="nav-item active" data-section="profile">
+          <i class="fas fa-user"></i>
+          <span>Profile & Settings</span>
+        </div>
+        <div class="nav-item traveler-only" data-section="itineraries">
+          <i class="fas fa-route"></i>
+          <span>My Itineraries</span>
+        </div>
+        <div class="nav-item" data-section="notifications">
+          <i class="fas fa-bell"></i>
+          <span>Notifications</span>
+          <span class="notification-badge">3</span>
+        </div>
+        <div class="nav-item guide-only" data-section="guide">
+          <i class="fas fa-compass"></i>
+          <span>Guide Dashboard</span>
+        </div>
+        <div class="nav-item" data-section="saved">
+          <i class="fas fa-bookmark"></i>
+          <span>Saved Places</span>
+        </div>
+        <div class="nav-item" data-section="help">
+          <i class="fas fa-question-circle"></i>
+          <span>Help & Support</span>
+        </div>
+      </nav>
+
+      <!-- Logout -->
+      <div class="sidebar-footer">
+        <div class="nav-item logout-button">
+          <i class="fas fa-sign-out-alt"></i>
+          <span>Log Out</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="content-container">
+        <!-- Profile & Settings -->
+        <section id="profile" class="content-section active slide-in-up">
+          <div class="section-header">
+            <h1>Profile & Settings</h1>
+            <button class="primary-button focus-visible">
+              <i class="fas fa-save"></i>
+              Save Changes
+            </button>
+          </div>
+
+          <!-- Profile Completion -->
+          <div class="profile-progress">
+            <div class="progress-info">
+              <span>Profile Completion</span>
+              <span class="progress-percentage">75%</span>
+            </div>
+            <div class="progress-bar" style="width: 75%;"></div>
+          </div>
+
+          <!-- Personal Information -->
+          <div class="card">
+            <h2 class="card-title"><i class="fas fa-user-circle"></i> Personal Information</h2>
+            <p class="card-subtitle">Update your basic profile information</p>
+
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" class="form-input focus-visible" value=""/>
+              </div>
+              <div class="form-group">
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" class="form-input focus-visible" value=""/>
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <div class="form-input-with-icon">
+                  <input type="email" id="email" class="form-input is-valid" value="" readonly/>
+                  <span class="input-icon success">
+                    <i class="fas fa-check-circle"></i>
+                  </span>
+                </div>
+                <div class="form-hint">Your email is verified and cannot be changed</div>
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <div class="form-input-with-icon">
+                  <input type="tel" id="phone" class="form-input focus-visible" value=""/>
+                  <span class="input-icon">
+                    <i class="fas fa-phone"></i>
+                  </span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <div class="form-input-with-icon">
+                  <input type="password" id="password" class="form-input password-input focus-visible" placeholder="Change your password" />
+                  <span class="input-icon toggle-password">
+                    <i class="fas fa-eye"></i>
+                  </span>
+                </div>
+                <div class="password-strength">
+                  <div class="strength-meter">
+                    <div class="strength-meter-fill"></div>
+                  </div>
+                  <div class="strength-text">Password strength will appear here</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <div class="form-input-with-icon">
+                  <input type="password" id="confirm-password" class="form-input confirm-password-input focus-visible" placeholder="Confirm new password" />
+                  <span class="input-icon toggle-password">
+                    <i class="fas fa-eye"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Preferences -->
+          <div class="card">
+            <h2 class="card-title"><i class="fas fa-sliders-h"></i> Preferences</h2>
+            <p class="card-subtitle">Customize your account settings</p>
+
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="currency">Currency</label>
+                <select id="currency" class="form-input focus-visible">
+                  <option value="USD">USD ($)</option>
+                  <option value="EUR">EUR (€)</option>
+                  <option value="MAD">MAD (د.م.)</option>
+                  <option value="GBP">GBP (£)</option>
+                  <option value="JPY">JPY (¥)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="language">Language</label>
+                <select id="language" class="form-input focus-visible">
+                  <option value="English">English</option>
+                  <option value="Français">Français</option>
+                  <option value="العربية">العربية</option>
+                  <option value="Español">Español</option>
+                  <option value="Deutsch">Deutsch</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="timezone">Time Zone</label>
+                <select id="timezone" class="form-input focus-visible">
+                  <option value="Eastern Time (ET)">Eastern Time (ET)</option>
+                  <option value="Pacific Time (PT)">Pacific Time (PT)</option>
+                  <option value="Morocco Time (GMT+1)">Morocco Time (GMT+1)</option>
+                  <option value="Central European Time (CET)">Central European Time (CET)</option>
+                  <option value="Japan Standard Time (JST)">Japan Standard Time (JST)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="date-format">Date Format</label>
+                <select id="date-format" class="form-input focus-visible">
+                  <option>MM/DD/YYYY</option>
+                  <option>DD/MM/YYYY</option>
+                  <option>YYYY-MM-DD</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Travel Preferences -->
+          <div class="card">
+            <h2 class="card-title"><i class="fas fa-plane"></i> Travel Preferences</h2>
+            <p class="card-subtitle">Help us personalize your travel experience</p>
+
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="travel-style">Travel Style</label>
+                <select id="travel-style" class="form-input focus-visible">
+                  <option>Adventure</option>
+                  <option>Cultural</option>
+                  <option>Relaxation</option>
+                  <option>Luxury</option>
+                  <option>Budget</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="accommodation">Preferred Accommodation</label>
+                <select id="accommodation" class="form-input focus-visible">
+                  <option>Hotels</option>
+                  <option>Hostels</option>
+                  <option>Vacation Rentals</option>
+                  <option>Boutique Hotels</option>
+                  <option>Resorts</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Interests</label>
+              <div class="checkbox-group">
+                <label class="checkbox-label">
+                  <div class="custom-checkbox-container">
+                    <input type="checkbox" class="custom-checkbox" checked/>
+                    <span class="checkbox-control"></span>
+                  </div>
+                  <span>Historical Sites & Museums</span>
+                </label>
+                <label class="checkbox-label">
+                  <div class="custom-checkbox-container">
+                    <input type="checkbox" class="custom-checkbox" checked/>
+                    <span class="checkbox-control"></span>
+                  </div>
+                  <span>Local Cuisine & Food Tours</span>
+                </label>
+                <label class="checkbox-label">
+                  <div class="custom-checkbox-container">
+                    <input type="checkbox" class="custom-checkbox" checked/>
+                    <span class="checkbox-control"></span>
+                  </div>
+                  <span>Outdoor Activities & Nature</span>
+                </label>
+                <label class="checkbox-label">
+                  <div class="custom-checkbox-container">
+                    <input type="checkbox" class="custom-checkbox"/>
+                    <span class="checkbox-control"></span>
+                  </div>
+                  <span>Shopping & Markets</span>
+                </label>
+                <label class="checkbox-label">
+                  <div class="custom-checkbox-container">
+                    <input type="checkbox" class="custom-checkbox"/>
+                    <span class="checkbox-control"></span>
+                  </div>
+                  <span>Arts & Cultural Events</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Notification Settings -->
+          <div class="card">
+            <h2 class="card-title"><i class="fas fa-bell"></i> Notification Settings</h2>
+            <p class="card-subtitle">Manage how you receive notifications</p>
+
+            <div class="checkbox-group">
+              <label class="checkbox-label">
+                <div class="custom-checkbox-container">
+                  <input type="checkbox" class="custom-checkbox" checked/>
+                  <span class="checkbox-control"></span>
+                </div>
+                <span>Email notifications for new messages</span>
+              </label>
+              <label class="checkbox-label">
+                <div class="custom-checkbox-container">
+                  <input type="checkbox" class="custom-checkbox" checked/>
+                  <span class="checkbox-control"></span>
+                </div>
+                <span>Email notifications for trip updates</span>
+              </label>
+              <label class="checkbox-label">
+                <div class="custom-checkbox-container">
+                  <input type="checkbox" class="custom-checkbox" checked/>
+                  <span class="checkbox-control"></span>
+                </div>
+                <span>SMS notifications for urgent updates</span>
+              </label>
+              <label class="checkbox-label">
+                <div class="custom-checkbox-container">
+                  <input type="checkbox" class="custom-checkbox"/>
+                  <span class="checkbox-control"></span>
+                </div>
+                <span>Marketing emails and newsletters</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Account Type (for testing) -->
+          <div class="card">
+            <h2 class="card-title"><i class="fas fa-user-tag"></i> Account Type</h2>
+            <p class="card-subtitle">Switch between traveler and guide views</p>
+
+            <div class="form-group">
+              <label for="role-selector">User Role</label>
+              <select id="role-selector" class="form-input focus-visible">
+                <option value="traveler">Traveler</option>
+                <option value="guide">Guide</option>
+              </select>
+              <button id="switch-role-btn" class="primary-button focus-visible" style="margin-top: 1rem;">
+                <i class="fas fa-exchange-alt"></i>
+                Switch Role
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- My Itineraries -->
+        <section id="itineraries" class="content-section slide-in-up">
+          <div class="section-header">
+            <h1>My Itineraries</h1>
+            <button class="primary-button focus-visible">
+              <i class="fas fa-plus"></i>
+              Create New Trip
+            </button>
+          </div>
+
+          <!-- Filters -->
+          <div class="itinerary-filters">
+            <span class="filter-label">Filter by:</span>
+            <div class="filter-group" id="status-filters">
+              <div id="filter-all" class="filter-option active" data-filter="all">All</div>
+              <div id="filter-upcoming" class="filter-option" data-filter="upcoming">Upcoming</div>
+              <div id="filter-past" class="filter-option" data-filter="past">Past</div>
+              <div id="filter-drafts" class="filter-option" data-filter="drafts">Drafts</div>
+            </div>
+
+            <span class="filter-label">Sort by:</span>
+            <div class="filter-group" id="sort-filters">
+              <div id="sort-date" class="filter-option active" data-sort="date">Date</div>
+              <div id="sort-duration" class="filter-option" data-sort="duration">Duration</div>
+              <div id="sort-destination" class="filter-option" data-sort="destination">Destination</div>
+            </div>
+          </div>
+
+          <div class="itinerary-grid">
+            <!-- Itinerary cards will be populated dynamically from userData.json -->
+          </div>
+
+          <!-- Empty state for itineraries -->
+          <div class="empty-itineraries" style="display: none;">
+            <div class="empty-itineraries-icon">
+              <i class="fas fa-route"></i>
+            </div>
+            <h3>No itineraries yet</h3>
+            <p>You haven't created any itineraries yet. Start planning your next adventure!</p>
+            <button class="primary-button focus-visible">
+              <i class="fas fa-plus"></i>
+              Create New Trip
+            </button>
+          </div>
+
+          <!-- Calendar View Toggle -->
+          <div class="view-toggle" style="margin-top: 2rem; text-align: center;">
+            <button id="calendar-view-toggle" class="secondary-button focus-visible">
+              <i class="far fa-calendar-alt"></i>
+              Switch to Calendar View
+            </button>
+          </div>
+
+          <!-- Itinerary Calendar View (hidden by default) -->
+          <div id="itinerary-calendar-view" style="display: none; margin-top: 2rem;">
+            <div class="calendar-container">
+              <div class="calendar-header">
+                <h2 class="calendar-title"><i class="far fa-calendar-alt"></i> Itinerary Calendar</h2>
+                <div class="calendar-year-nav">
+                  <button id="prev-year-btn" class="calendar-nav-btn focus-visible">
+                    <i class="fas fa-angle-double-left"></i>
+                  </button>
+                  <div id="calendar-year-display" class="calendar-year-display">2023</div>
+                  <button id="next-year-btn" class="calendar-nav-btn focus-visible">
+                    <i class="fas fa-angle-double-right"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Month selector -->
+              <div class="month-selector" id="month-selector">
+                <div class="month-option" data-month="0">Jan</div>
+                <div class="month-option" data-month="1">Feb</div>
+                <div class="month-option" data-month="2">Mar</div>
+                <div class="month-option" data-month="3">Apr</div>
+                <div class="month-option active" data-month="4">May</div>
+                <div class="month-option" data-month="5">Jun</div>
+                <div class="month-option" data-month="6">Jul</div>
+                <div class="month-option" data-month="7">Aug</div>
+                <div class="month-option" data-month="8">Sep</div>
+                <div class="month-option" data-month="9">Oct</div>
+                <div class="month-option" data-month="10">Nov</div>
+                <div class="month-option" data-month="11">Dec</div>
+              </div>
+
+              <div class="calendar-nav">
+                <button id="prev-month-btn" class="calendar-nav-btn focus-visible">
+                  <i class="fas fa-chevron-left"></i>
+                </button>
+                <h3 style="margin: 0;" id="calendar-month-year">May 2023</h3>
+                <button id="next-month-btn" class="calendar-nav-btn focus-visible">
+                  <i class="fas fa-chevron-right"></i>
+                </button>
+              </div>
+
+              <div class="calendar-grid">
+                <!-- Day headers -->
+                <div class="calendar-day-header">Sun</div>
+                <div class="calendar-day-header">Mon</div>
+                <div class="calendar-day-header">Tue</div>
+                <div class="calendar-day-header">Wed</div>
+                <div class="calendar-day-header">Thu</div>
+                <div class="calendar-day-header">Fri</div>
+                <div class="calendar-day-header">Sat</div>
+
+                <!-- Calendar days will be populated dynamically -->
+              </div>
+            </div>
+
+            <!-- List View Toggle -->
+            <div class="view-toggle" style="margin-top: 2rem; text-align: center;">
+              <button id="list-view-toggle" class="secondary-button focus-visible">
+                <i class="fas fa-list"></i>
+                Switch to List View
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Notifications -->
+        <section id="notifications" class="content-section slide-in-up">
+          <div class="section-header">
+            <h1>Notifications</h1>
+            <button class="text-button focus-visible">
+              <i class="fas fa-check-double"></i>
+              Mark all as read
+            </button>
+          </div>
+
+          <!-- Notification Filters -->
+          <div class="notification-filters">
+            <span class="filter-label">Filter by:</span>
+            <div class="notification-category-filter">
+              <div class="category-option active" data-filter="all">All</div>
+              <div class="category-option" data-filter="messages">Messages</div>
+              <div class="category-option" data-filter="trips">Trips</div>
+              <div class="category-option" data-filter="system">System</div>
+            </div>
+          </div>
+
+          <div class="notification-list">
+            <div class="notifications-container">
+              <!-- Notifications will be populated dynamically from userData.json -->
+            </div>
+
+            <!-- Empty state for notifications -->
+            <div class="empty-notifications" style="display: none;">
+              <div class="empty-notifications-icon">
+                <i class="fas fa-bell-slash"></i>
+              </div>
+              <h3>No notifications</h3>
+              <p>You don't have any notifications at the moment.</p>
+            </div>
+          </div>
+
+          <!-- Pagination -->
+          <div class="pagination" style="margin-top: 1.5rem; text-align: center;">
+            <button class="icon-button focus-visible">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <span style="margin: 0 1rem;">Page 1 of 1</span>
+            <button class="icon-button focus-visible">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </section>
+
+        <!-- Guide Dashboard -->
+        <section id="guide" class="content-section slide-in-up">
+          <div class="section-header">
+            <h1>Guide Dashboard</h1>
+          </div>
+
+          <!-- Dashboard Header with Date Range -->
+          <div class="dashboard-header">
+            <h2 class="text-secondary">Performance Overview</h2>
+            <div class="date-range-selector">
+              <div class="date-option">Week</div>
+              <div class="date-option active">Month</div>
+              <div class="date-option">Quarter</div>
+              <div class="date-option">Year</div>
+            </div>
+          </div>
+
+          <!-- Stats Overview -->
+          <div class="stats-grid">
+            <!-- Stat cards will be populated dynamically from userData.json -->
+          </div>
+
+          <!-- Incoming Requests -->
+          <div class="card">
+            <div class="guide-requests-header">
+              <h2 class="guide-requests-title"><i class="fas fa-envelope-open-text"></i> Incoming Requests</h2>
+              <div class="guide-requests-tabs">
+                <div class="request-tab active">All</div>
+                <div class="request-tab">Pending</div>
+                <div class="request-tab">Accepted</div>
+              </div>
+            </div>
+
+            <div class="guide-requests">
+              <!-- Guide requests will be populated dynamically from userData.json -->
+              <div class="empty-state" style="display: none;">
+                <div class="empty-state-icon">
+                  <i class="fas fa-inbox"></i>
+                </div>
+                <h3>No requests yet</h3>
+                <p>You don't have any pending requests at the moment.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Calendar View -->
+          <div class="calendar-container">
+            <div class="calendar-header">
+              <h2 class="calendar-title"><i class="far fa-calendar-alt"></i> Availability Calendar</h2>
+              <div class="calendar-nav">
+                <button class="calendar-nav-btn focus-visible">
+                  <i class="fas fa-chevron-left"></i>
+                </button>
+                <h3 style="margin: 0;">June 2023</h3>
+                <button class="calendar-nav-btn focus-visible">
+                  <i class="fas fa-chevron-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="calendar-grid">
+              <!-- Day headers -->
+              <div class="calendar-day-header">Sun</div>
+              <div class="calendar-day-header">Mon</div>
+              <div class="calendar-day-header">Tue</div>
+              <div class="calendar-day-header">Wed</div>
+              <div class="calendar-day-header">Thu</div>
+              <div class="calendar-day-header">Fri</div>
+              <div class="calendar-day-header">Sat</div>
+
+              <!-- Calendar days (just a sample row) -->
+              <div class="calendar-day">
+                <div class="calendar-day-number">4</div>
+              </div>
+              <div class="calendar-day">
+                <div class="calendar-day-number">5</div>
+              </div>
+              <div class="calendar-day">
+                <div class="calendar-day-number">6</div>
+              </div>
+              <div class="calendar-day">
+                <div class="calendar-day-number">7</div>
+              </div>
+              <div class="calendar-day has-events">
+                <div class="calendar-day-number">8</div>
+                <div class="calendar-day-events">
+                  <div class="calendar-event"></div>
+                </div>
+              </div>
+              <div class="calendar-day">
+                <div class="calendar-day-number">9</div>
+              </div>
+              <div class="calendar-day">
+                <div class="calendar-day-number">10</div>
+              </div>
+
+              <!-- More days would be here in a real implementation -->
+            </div>
+          </div>
+        </section>
+
+        <!-- Saved Places Section -->
+        <section id="saved" class="content-section slide-in-up">
+          <div class="section-header">
+            <h1>Saved Places</h1>
+            <div class="d-flex gap-2">
+              <button class="text-button focus-visible">
+                <i class="fas fa-th-large"></i>
+                Grid View
+              </button>
+              <button class="text-button focus-visible">
+                <i class="fas fa-list"></i>
+                List View
+              </button>
+            </div>
+          </div>
+
+          <!-- Filters -->
+          <div class="itinerary-filters">
+            <span class="filter-label">Filter by:</span>
+            <div class="filter-group">
+              <div class="filter-option active">All</div>
+              <div class="filter-option">Attractions</div>
+              <div class="filter-option">Restaurants</div>
+              <div class="filter-option">Hotels</div>
+            </div>
+          </div>
+
+          <!-- Empty state for saved places -->
+          <div class="empty-state">
+            <div class="empty-state-icon">
+              <i class="fas fa-bookmark"></i>
+            </div>
+            <h3>No saved places yet</h3>
+            <p>Start exploring destinations and save your favorite places to visit during your trip.</p>
+            <button class="primary-button focus-visible">
+              <i class="fas fa-globe-africa"></i>
+              Explore Destinations
+            </button>
+          </div>
+        </section>
+
+        <!-- Help & Support Section -->
+        <section id="help" class="content-section slide-in-up">
+          <div class="section-header">
+            <h1>Help & Support</h1>
+          </div>
+
+          <div class="card">
+            <h2 class="card-title"><i class="fas fa-question-circle"></i> Frequently Asked Questions</h2>
+            <p class="card-subtitle">Find quick answers to common questions</p>
+
+            <div class="faq-list" style="margin-top: 1.5rem;">
+              <div class="faq-item" style="margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1.5rem;">
+                <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem;">How do I book a guide?</h3>
+                <p style="color: var(--text-color-secondary);">You can book a guide by browsing our guide listings, selecting a guide that matches your needs, and sending a booking request with your preferred dates and details.</p>
+              </div>
+
+              <div class="faq-item" style="margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1.5rem;">
+                <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem;">What is the cancellation policy?</h3>
+                <p style="color: var(--text-color-secondary);">Our standard cancellation policy allows free cancellation up to 48 hours before your scheduled tour. Cancellations made within 48 hours may be subject to a fee.</p>
+              </div>
+
+              <div class="faq-item" style="margin-bottom: 1.5rem;">
+                <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem;">How do I become a guide on Tsafira?</h3>
+                <p style="color: var(--text-color-secondary);">To become a guide, you need to create an account, complete your profile with relevant experience and qualifications, and submit an application for review by our team.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h2 class="card-title"><i class="fas fa-headset"></i> Contact Support</h2>
+            <p class="card-subtitle">Get in touch with our support team</p>
+
+            <div class="form-group" style="margin-top: 1.5rem;">
+              <label for="support-subject">Subject</label>
+              <select id="support-subject" class="form-input focus-visible">
+                <option>Booking Issue</option>
+                <option>Account Problem</option>
+                <option>Payment Question</option>
+                <option>Guide Inquiry</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="support-message">Message</label>
+              <textarea id="support-message" class="form-input focus-visible" rows="5" placeholder="Describe your issue or question in detail..."></textarea>
+            </div>
+
+            <button class="primary-button focus-visible" style="margin-top: 1rem;">
+              <i class="fas fa-paper-plane"></i>
+              Send Message
+            </button>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <!-- Toast Message Example -->
+  <div class="toast-message success" style="display: none;">
+    <div class="toast-icon">
+      <i class="fas fa-check-circle"></i>
+    </div>
+    <div class="toast-content">
+      <div class="toast-title">Success!</div>
+      <div>Your changes have been saved successfully.</div>
+    </div>
+    <button class="toast-close">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+
+  <!-- Scripts -->
+  <script type="module" src="/tsafira-travel-planner/js/pages/account/index-acc.js"></script>
+
+  <!-- Initial theme application to prevent flash of wrong theme -->
+  <script>
+    (function() {
+      // Apply theme immediately before any JS modules load
+      const isDark = localStorage.getItem('theme') === 'dark';
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+        document.body.classList.add('dark-mode');
+      }
+    })();
+  </script>
+
+</body>
+</html>
