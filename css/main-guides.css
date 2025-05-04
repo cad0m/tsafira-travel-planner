@@ -1,0 +1,259 @@
+/* Main CSS for Tsafira website */
+
+/* Base CSS variables */
+:root {
+  --color-primary: #f97316;
+  --color-primary-hover: #ea580c;
+  --color-secondary: #1f2937;
+  --color-accent: #4f46e5;
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  
+  --color-bg: #ffffff;
+  --color-bg-alt: #f8fafc;
+  --color-text: #1f2937;
+  --color-text-secondary: #6b7280;
+  --color-text-inverse: #ffffff;
+  --color-border: #e5e7eb;
+  --color-card-bg: #ffffff;
+  --color-input-bg: #ffffff;
+  
+  --border-radius-sm: 0.25rem;
+  --border-radius-md: 0.375rem;
+  --border-radius-lg: 0.5rem;
+  --border-radius-xl: 1rem;
+  --border-radius-full: 9999px;
+  
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  
+  --transition-speed: 0.3s;
+  --font-family: 'Inter', sans-serif;
+}
+
+/* Dark mode variables */
+.dark-mode,
+.dark {
+  --color-bg: #1f2937;
+  --color-bg-alt: #111827;
+  --color-text: #f3f4f6;
+  --color-text-secondary: #d1d5db;
+  --color-border: #374151;
+  --color-card-bg: #111827;
+  --color-input-bg: #374151;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+}
+
+/* Body base styles */
+body {
+  font-family: var(--font-family);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  margin: 0;
+  padding: 0;
+  transition: background-color var(--transition-speed) ease-in-out, color var(--transition-speed) ease-in-out;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+* {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Common text elements */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-text);
+  transition: color var(--transition-speed) ease-in-out;
+}
+
+p {
+  color: var(--color-text-secondary);
+  transition: color var(--transition-speed) ease-in-out;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: all var(--transition-speed) ease-in-out;
+}
+
+a:hover {
+  color: var(--color-primary-hover);
+}
+
+/* Form elements */
+input, select, textarea {
+  font-family: var(--font-family);
+  background-color: var(--color-input-bg);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  padding: 0.5rem 1rem;
+  transition: all var(--transition-speed) ease-in-out;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.2);
+}
+
+button {
+  font-family: var(--font-family);
+  cursor: pointer;
+  transition: all var(--transition-speed) ease-in-out;
+}
+
+/* Theme toggle styles */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  font-size: 1.25rem;
+  transition: color var(--transition-speed) ease-in-out;
+}
+
+.theme-toggle:hover {
+  color: var(--color-primary);
+}
+
+.theme-toggle .fa-sun,
+.theme-toggle .fa-moon {
+  transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover .fa-sun,
+.theme-toggle:hover .fa-moon {
+  transform: rotate(12deg);
+}
+
+/* Show the right icon based on theme */
+.dark-mode .theme-toggle .fa-moon,
+.dark .theme-toggle .fa-moon,
+.theme-toggle .sun-icon.hidden,
+.theme-toggle .moon-icon:not(.hidden) {
+  display: none;
+}
+
+.dark-mode .theme-toggle .fa-sun,
+.dark .theme-toggle .fa-sun,
+.theme-toggle .sun-icon:not(.hidden),
+.theme-toggle .moon-icon.hidden {
+  display: inline-block;
+}
+
+/* Utility classes */
+.text-primary {
+  color: var(--color-primary) !important;
+}
+
+.bg-primary {
+  background-color: var(--color-primary) !important;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius-full);
+  font-weight: 500;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+}
+
+/* Global transition for elements when theme changes */
+.transition-theme {
+  transition: background-color var(--transition-speed) ease-in-out, 
+              color var(--transition-speed) ease-in-out,
+              border-color var(--transition-speed) ease-in-out,
+              box-shadow var(--transition-speed) ease-in-out;
+}
+
+/* Mobile menu animation */
+#mobile-menu {
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+#mobile-menu.active {
+  transform: translateX(0);
+}
+
+/* Tailwind dark mode compatibility */
+/* 
+  These ensure that Tailwind dark: classes work with our 
+  CSS variable approach as well as with the .dark class
+*/
+.dark body,
+.dark-mode body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+.dark .dark\:bg-dark-bg,
+.dark-mode .dark\:bg-dark-bg {
+  background-color: var(--color-bg);
+}
+
+.dark .dark\:bg-dark-bg-alt,
+.dark-mode .dark\:bg-dark-bg-alt {
+  background-color: var(--color-bg-alt);
+}
+
+.dark .dark\:border-dark-border,
+.dark-mode .dark\:border-dark-border {
+  border-color: var(--color-border);
+}
+
+.dark .dark\:text-gray-100,
+.dark-mode .dark\:text-gray-100 {
+  color: var(--color-text);
+}
+
+.dark .dark\:text-gray-300,
+.dark-mode .dark\:text-gray-300 {
+  color: var(--color-text-secondary);
+}
+
+.dark .dark\:text-white,
+.dark-mode .dark\:text-white {
+  color: #ffffff;
+}
+
+.dark .dark\:bg-gray-700,
+.dark-mode .dark\:bg-gray-700 {
+  background-color: #374151;
+}
+
+.dark .dark\:bg-gray-800,
+.dark-mode .dark\:bg-gray-800 {
+  background-color: #1f2937;
+}
+
+.dark .dark\:hover\:bg-gray-600:hover,
+.dark-mode .dark\:hover\:bg-gray-600:hover {
+  background-color: #4b5563;
+}
+
+/* Fix for mobile menu in dark mode */
+.dark #mobile-menu.visible,
+.dark-mode #mobile-menu.visible {
+  display: block !important;
+}

@@ -1,0 +1,173 @@
+{   
+    "city": "Marrakech",
+    "guides": [
+      {
+        "id": "guide-001",
+        "name": "Mohammed A.",
+        "profile_image": "https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-1.jpg",
+        "rating": 4.5,
+        "review_count": 120,
+        "specialization": "Marrakech history and culture",
+        "description": "Experienced guide specializing in Marrakech history and culture.",
+        "languages": ["English", "French", "Arabic"],
+        "locations": ["Marrakech"],
+        "available_dates": ["2025-03-15", "2025-03-16", "2025-03-17", "2025-03-18", "2025-03-19"],
+        "hourly_rate": 45,
+        "full_day_rate": 180,
+        "certifications": ["Official Marrakech Tourism Board", "History Expert"],
+        "experience_years": 12,
+        "contact_info": {
+          "email": "mohammed.a@tsafira-guides.com",
+          "phone": "+212-555-123-456"
+        },
+        "category": "culture",
+        "about": "Born and raised in Marrakech's ancient medina, I've spent the last 12 years sharing my city's rich cultural heritage with visitors from around the world. My expertise spans Islamic architecture, traditional crafts, and the fascinating history of Morocco's imperial cities.",
+        "specialties": [
+          { "icon": "fa-landmark", "name": "Historical Monuments" },
+          { "icon": "fa-mosque", "name": "Islamic Architecture" },
+          { "icon": "fa-hands", "name": "Traditional Crafts" },
+          { "icon": "fa-book", "name": "Cultural Heritage" }
+        ]
+      },
+      {
+        "id": "guide-002",
+        "name": "Fatima L.",
+        "profile_image": "https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-2.jpg",
+        "rating": 5.0,
+        "review_count": 87,
+        "specialization": "Food tour specialist",
+        "description": "Food tour specialist with knowledge of traditional Moroccan cuisine.",
+        "languages": ["English", "French"],
+        "locations": ["Marrakech", "Fez"],
+        "available_dates": ["2025-03-14", "2025-03-15", "2025-03-16", "2025-03-17", "2025-03-20"],
+        "hourly_rate": 50,
+        "full_day_rate": 200,
+        "certifications": ["Culinary Institute of Morocco", "Food Safety"],
+        "experience_years": 8,
+        "contact_info": {
+          "email": "fatima.l@tsafira-guides.com",
+          "phone": "+212-555-789-123"
+        },
+        "category": "food",
+        "about": "I'm passionate about Moroccan cuisine and its rich flavors. With 8 years of experience, I offer unique food tours that take you through the vibrant markets and hidden gems of Marrakech. You'll taste authentic dishes and learn about the spices and techniques that make our cuisine unique.",
+        "specialties": [
+          { "icon": "fa-utensils", "name": "Local Cuisine" },
+          { "icon": "fa-mortar-pestle", "name": "Spice Markets" },
+          { "icon": "fa-coffee", "name": "Traditional Tea Ceremonies" },
+          { "icon": "fa-shopping-basket", "name": "Food Markets" }
+        ]
+      },
+      {
+        "id": "guide-003",
+        "name": "Jamal K.",
+        "profile_image": "https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-3.jpg",
+        "rating": 4.8,
+        "review_count": 95,
+        "specialization": "Photography and art tours",
+        "description": "Professional photographer offering specialized photography tours of Marrakech.",
+        "languages": ["English", "Spanish", "Arabic"],
+        "locations": ["Marrakech"],
+        "available_dates": ["2025-03-18", "2025-03-19", "2025-03-20", "2025-03-21", "2025-03-22"],
+        "hourly_rate": 55,
+        "full_day_rate": 220,
+        "certifications": ["Professional Photographers Association", "Moroccan Art Institute"],
+        "experience_years": 10,
+        "contact_info": {
+          "email": "jamal.k@tsafira-guides.com",
+          "phone": "+212-555-987-654"
+        },
+        "category": "photography",
+        "about": "As a professional photographer with 10 years of experience, I'll guide you to the most photogenic spots in Marrakech. My tours are designed for both amateur and professional photographers looking to capture the unique colors, architecture, and atmosphere of our beautiful city.",
+        "specialties": [
+          { "icon": "fa-camera", "name": "Street Photography" },
+          { "icon": "fa-paint-brush", "name": "Art Galleries" },
+          { "icon": "fa-eye", "name": "Hidden Viewpoints" },
+          { "icon": "fa-palette", "name": "Color and Composition" }
+        ]
+      },
+      {
+        "id": "guide-004",
+        "name": "Aisha R.",
+        "profile_image": "https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-4.jpg",
+        "rating": 4.7,
+        "review_count": 112,
+        "specialization": "Desert and mountain adventures",
+        "description": "Adventure guide specializing in desert treks and Atlas Mountain excursions.",
+        "languages": ["English", "German", "Arabic", "Berber"],
+        "locations": ["Marrakech", "Atlas Mountains", "Sahara Desert"],
+        "available_dates": ["2025-03-16", "2025-03-17", "2025-03-18", "2025-03-19", "2025-03-20"],
+        "hourly_rate": 60,
+        "full_day_rate": 240,
+        "certifications": ["Mountain Guide Association", "Wilderness First Responder"],
+        "experience_years": 15,
+        "contact_info": {
+          "email": "aisha.r@tsafira-guides.com",
+          "phone": "+212-555-456-789"
+        },
+        "category": "adventure",
+        "about": "With 15 years of guiding experience, I specialize in adventure tours through the Atlas Mountains and Sahara Desert. Born in a Berber village, I bring authentic cultural knowledge and wilderness expertise to every excursion. Safety and unforgettable experiences are my top priorities.",
+        "specialties": [
+          { "icon": "fa-mountain", "name": "Atlas Mountains Trekking" },
+          { "icon": "fa-campground", "name": "Desert Camping" },
+          { "icon": "fa-hiking", "name": "Berber Village Visits" },
+          { "icon": "fa-star", "name": "Stargazing Tours" }
+        ]
+      },
+      {
+        "id": "guide-005",
+        "name": "Karim B.",
+        "profile_image": "https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-5.jpg",
+        "rating": 4.9,
+        "review_count": 76,
+        "specialization": "Art and architecture",
+        "description": "Art historian specializing in Moroccan architectural styles and contemporary art.",
+        "languages": ["English", "French", "Italian", "Arabic"],
+        "locations": ["Marrakech", "Fez"],
+        "available_dates": ["2025-03-15", "2025-03-16", "2025-03-17", "2025-03-21", "2025-03-22"],
+        "hourly_rate": 52,
+        "full_day_rate": 210,
+        "certifications": ["Art History PhD", "Architectural Heritage Preservation"],
+        "experience_years": 9,
+        "contact_info": {
+          "email": "karim.b@tsafira-guides.com",
+          "phone": "+212-555-321-654"
+        },
+        "category": "culture",
+        "about": "As an art historian with a PhD, I offer deep insights into Morocco's architectural heritage and thriving art scene. My tours combine visits to historical monuments with contemporary galleries and artist studios, providing a comprehensive view of Moroccan artistic expression across centuries.",
+        "specialties": [
+          { "icon": "fa-archway", "name": "Moroccan Architecture" },
+          { "icon": "fa-palette", "name": "Contemporary Art" },
+          { "icon": "fa-gem", "name": "Design and Craftsmanship" },
+          { "icon": "fa-pencil-alt", "name": "Art Workshops" }
+        ]
+      },
+      {
+        "id": "guide-006",
+        "name": "Sophia M.",
+        "profile_image": "https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-6.jpg",
+        "rating": 4.6,
+        "review_count": 83,
+        "specialization": "Culinary workshops",
+        "description": "Chef and culinary instructor offering cooking classes and market tours.",
+        "languages": ["English", "French", "Spanish", "Arabic"],
+        "locations": ["Marrakech"],
+        "available_dates": ["2025-03-14", "2025-03-15", "2025-03-19", "2025-03-20", "2025-03-21"],
+        "hourly_rate": 48,
+        "full_day_rate": 190,
+        "certifications": ["Professional Chef Certification", "Culinary Education"],
+        "experience_years": 11,
+        "contact_info": {
+          "email": "sophia.m@tsafira-guides.com",
+          "phone": "+212-555-789-012"
+        },
+        "category": "food",
+        "about": "I'm a professional chef with 11 years of experience teaching Moroccan cooking. My workshops include market tours where you'll learn to select the freshest ingredients, followed by hands-on cooking classes in a traditional riad. You'll master tagines, couscous, and pastries in a fun, relaxed atmosphere.",
+        "specialties": [
+          { "icon": "fa-utensils", "name": "Tagine Preparation" },
+          { "icon": "fa-bread-slice", "name": "Moroccan Breads" },
+          { "icon": "fa-cookie", "name": "Traditional Pastries" },
+          { "icon": "fa-pepper-hot", "name": "Spice Blending" }
+        ]
+      }
+    ]
+  }
