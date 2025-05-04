@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Local Expert Guides | Tsafira</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    window.FontAwesomeConfig = { autoReplaceSvg: 'nest' };
+
+    // Configure Tailwind for dark mode
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'dark-bg': '#1f2937',
+            'dark-bg-alt': '#111827',
+            'dark-border': '#374151'
+          }
+        }
+      }
+    };
+
+    // Check for theme preference on page load to prevent flash of wrong theme
+    (function() {
+      const theme = localStorage.getItem('theme') || 'light';
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+        document.body.classList.add('dark-mode');
+      } else {
+        document.documentElement.classList.remove('dark');
+        document.body.classList.remove('dark-mode');
+      }
+    })();
+
+    // Check auth state immediately
+    (function() {
+      // We can only check if user data exists in localStorage to determine auth state
+      const userData = localStorage.getItem('user');
+      const isAuthenticated = !!userData;
+
+      // Store this info on window so it's immediately available
+      window.initialAuthState = {
+        authenticated: isAuthenticated,
+        userData: isAuthenticated ? JSON.parse(userData) : null
+      };
+    })();
+  </script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <link rel="stylesheet" href="../css/main-guides.css">
+  <link rel="stylesheet" href="../css/guides.css">
+  <link rel="stylesheet" href="../css/guides-enhanced.css">
+</head>
+<body class="h-full text-base-content bg-white transition-colors duration-300">
+  <!-- Header -->
+  <header id="header-placeholder" class="bg-white dark:bg-dark-bg border-b border-gray-200 dark:border-dark-border">
+    <!-- Header will be loaded from partials by loader.js -->
+  </header>
+
+  <div class="pt-20">
+    <!-- Hero Section -->
+    <section class="hero-section py-20 transition-colors duration-300">
+      <div class="container mx-auto px-4 text-center max-w-5xl hero-content">
+        <h1 id="city-title" class="hero-title text-4xl md:text-5xl font-bold mb-6 text-white">
+          Discover <span id="city-name" data-city-name>Loading...</span> with Local Expert Guides
+        </h1>
+        <p class="hero-description text-xl text-white opacity-90 max-w-3xl mx-auto">
+          Connect with our handpicked local experts who bring <span id="city-name-inline" data-city-name>local</span>'s rich culture
+          and hidden gems to life through their personal stories and deep knowledge.
+        </p>
+      </div>
+    </section>
+
+    <!-- Guide Filters -->
+    <section class="relative z-10">
+      <div class="container mx-auto px-4 max-w-5xl text-center -mt-8">
+        <div class="filter-container mx-auto inline-block">
+          <button data-filter="all" class="filter-btn active">All Guides</button>
+          <button data-filter="culture" class="filter-btn">
+            <i class="fa-solid fa-landmark mr-2"></i>Culture
+          </button>
+          <button data-filter="food" class="filter-btn">
+            <i class="fa-solid fa-utensils mr-2"></i>Food
+          </button>
+          <button data-filter="photography" class="filter-btn">
+            <i class="fa-solid fa-camera mr-2"></i>Photography
+          </button>
+          <button data-filter="adventure" class="filter-btn">
+            <i class="fa-solid fa-mountain mr-2"></i>Adventure
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Guide Listing -->
+    <section class="py-16 transition-colors duration-300 bg-white dark:bg-dark-bg">
+      <div class="container mx-auto px-4 max-w-5xl">
+        <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-8 text-center">Your Personal Invitations</h2>
+        <div id="guides-list" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Guide cards will be dynamically inserted here -->
+          <div class="guides-loading-container col-span-2 py-20">
+            <div class="guides-loading-spinner"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Guide Detail Modal -->
+    <div id="guide-detail-modal" class="fixed inset-0 bg-black bg-opacity-70 z-50 hidden items-center justify-center opacity-0 transition-opacity duration-300">
+      <div class="container mx-auto px-4 h-full flex items-center justify-center">
+        <div class="guide-modal max-h-[90vh] overflow-y-auto transform scale-95 opacity-0 transition-all duration-300" id="modal-content">
+          <!-- Modal content will be dynamically inserted here -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Call to Action -->
+    <section class="cta-section py-16">
+      <div class="container mx-auto px-4 text-center max-w-5xl cta-content">
+        <h2 class="cta-title text-3xl font-bold mb-4">
+          Ready to explore <span id="cta-city-name" data-city-name>your destination</span> with a local expert?
+        </h2>
+        <p class="cta-description text-xl mb-8">
+          Let our guides create an unforgettable experience tailored just for you
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <button id="plan-trip-btn" class="cta-btn">
+            <i class="fa-solid fa-map-location-dot"></i> Plan Your Guided Trip
+          </button>
+
+          <!-- Sign in button (shows only when user is not authenticated) -->
+          <div id="auth-cta-button" class="hidden">
+            <!-- Will be populated by auth.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer id="footer-placeholder" class="bg-white dark:bg-dark-bg border-t border-gray-200 dark:border-dark-border">
+    <!-- Footer will be loaded from partials by loader.js -->
+  </footer>
+
+  <!-- Add debugging to help identify path issues -->
+  <script>
+    console.log('Current page path:', window.location.pathname);
+  </script>
+  <script type="module" src="../js/pages/guides/main.js"></script>
+
+  <!-- Backup script to load header and footer if the module system fails -->
+  <script>
+    // Wait for DOM to be ready
+    document.addEventListener('DOMContentLoaded', function() {
+      // Check if header and footer are loaded after 2 seconds
+      setTimeout(function() {
+        const header = document.getElementById('header-placeholder');
+        const footer = document.getElementById('footer-placeholder');
+        const guidesList = document.getElementById('guides-list');
+
+        // If header is empty, load it directly
+        if (header && header.innerHTML.trim() === '') {
+          console.log('Header not loaded by module system, loading directly...');
+          fetch('../partials/header.html')
+            .then(response => response.text())
+            .then(html => {
+              header.innerHTML = html;
+            })
+            .catch(error => console.error('Error loading header:', error));
+        }
+
+        // If footer is empty, load it directly
+        if (footer && footer.innerHTML.trim() === '') {
+          console.log('Footer not loaded by module system, loading directly...');
+          fetch('../partials/footer.html')
+            .then(response => response.text())
+            .then(html => {
+              footer.innerHTML = html;
+            })
+            .catch(error => console.error('Error loading footer:', error));
+        }
+
+        // If guides list is still showing loading spinner, load guides directly
+        if (guidesList && guidesList.querySelector('.guides-loading-spinner')) {
+          console.log('Guides not loaded by module system, loading directly...');
+          fetch('../assets/data/guides.json')
+            .then(response => response.json())
+            .then(data => {
+              // Simple rendering of guides
+              guidesList.innerHTML = '';
+
+              // Add guides count
+              const countElement = document.createElement('div');
+              countElement.className = 'guides-count col-span-2 mb-4 text-gray-600 dark:text-gray-400';
+              countElement.textContent = `Showing ${data.guides.length} guides in ${data.city}`;
+              guidesList.appendChild(countElement);
+
+              // Update city name elements
+              document.querySelectorAll('[data-city-name]').forEach(element => {
+                element.textContent = data.city;
+              });
+
+              // Render each guide
+              data.guides.forEach(guide => {
+                const card = document.createElement('div');
+                card.className = 'guide-card';
+                card.dataset.guideId = guide.id;
+
+                card.innerHTML = `
+                  <div class="guide-card-inner">
+                    <div class="rating-badge">
+                      <i class="fa-solid fa-star"></i> ${guide.rating.toFixed(1)}
+                    </div>
+                    <div class="guide-card-header">
+                      <img src="${guide.profile_image}" alt="Guide ${guide.name}" class="guide-profile-image" />
+                      <div class="guide-info">
+                        <h3 class="guide-name">${guide.name}</h3>
+                        <p class="guide-specialization">${guide.specialization}</p>
+                        <div class="guide-languages">
+                          ${guide.languages.map(lang => `<span class="guide-language">${lang}</span>`).join('')}
+                        </div>
+                      </div>
+                    </div>
+                    <p class="guide-description">${guide.description}</p>
+                    <div class="guide-meta">
+                      <div class="guide-stats">
+                        <span class="guide-stat"><i class="fa-solid fa-clock"></i>${guide.experience_years} Years</span>
+                        <span class="guide-stat"><i class="fa-solid fa-users"></i>${guide.review_count}+ Reviews</span>
+                      </div>
+                      <button class="guide-action">Send Invitation <i class="fa-solid fa-envelope-open-text"></i></button>
+                    </div>
+                  </div>
+                `;
+
+                guidesList.appendChild(card);
+              });
+            })
+            .catch(error => {
+              console.error('Error loading guides:', error);
+              guidesList.innerHTML = `
+                <div class="col-span-2 text-center py-10">
+                  <p class="text-red-500 mb-4">Failed to load guides. Please try again later.</p>
+                  <button class="px-4 py-2 bg-orange-600 text-white rounded-full" onclick="location.reload()">
+                    Retry
+                  </button>
+                </div>
+              `;
+            });
+        }
+      }, 2000);
+    });
+  </script>
+
+  <!-- Auth synchronization script -->
+  <script>
+    // This helps immediately show the correct auth state while the page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      // Dispatch auth state event so components can respond
+      if (window.initialAuthState && window.initialAuthState.authenticated) {
+        document.dispatchEvent(new CustomEvent('authStateChanged', {
+          detail: {
+            authenticated: true,
+            user: window.initialAuthState.userData
+          }
+        }));
+      }
+
+      // Also listen for when partials are fully loaded to force a final auth check
+      document.addEventListener('allPartialsLoaded', function() {
+        // Force sync auth after a short delay
+        setTimeout(function() {
+          window.forceSyncAuth = true;
+          // Dispatch an auth state changed event to trigger UI updates
+          document.dispatchEvent(new CustomEvent('authStateChanged', {
+            detail: {
+              authenticated: !!localStorage.getItem('user'),
+              user: localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null
+            }
+          }));
+        }, 200);
+      });
+    });
+  </script>
+</body>
+</html>

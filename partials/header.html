@@ -3,7 +3,7 @@
   <nav class="container mx-auto px-4 py-3 flex items-center justify-between">
     <!-- Logo -->
     <a href="../index.html" class="text-2xl font-bold text-[var(--color-primary)]">Tsafira</a>
-    
+
     <!-- Desktop Navigation -->
     <div class="hidden md:flex items-center space-x-6">
       <a href="../index.html" class="text-[var(--color-text)] hover:text-[var(--color-primary)]">Home</a>
@@ -12,12 +12,12 @@
       <a href="../pages/about.html" class="text-[var(--color-text)] hover:text-[var(--color-primary)]">About</a>
       <a href="../pages/contact.html" class="text-[var(--color-text)] hover:text-[var(--color-primary)]">Contact</a>
     </div>
-    
+
     <!-- Desktop Auth + Theme + CTA -->
     <div class="hidden md:flex items-center space-x-4">
       <!-- Theme Toggle -->
-      <button 
-        id="theme-toggle" 
+      <button
+        id="theme-toggle"
         class="p-2 rounded-full hover:bg-[var(--color-bg-alt)] text-[var(--color-text)]"
         data-theme-toggle
         onclick="toggleTheme(); return false;"
@@ -25,7 +25,7 @@
         <i class="fas fa-moon moon-icon"></i>
         <i class="fas fa-sun sun-icon hidden"></i>
       </button>
-      
+
       <!-- Auth Actions -->
       <div id="nav-actions" class="flex items-center space-x-4">
         <!-- Will be populated by auth.js -->
@@ -37,12 +37,12 @@
         </a>
       </div>
     </div>
-    
+
     <!-- Mobile CTA + Menu Button -->
     <div class="flex items-center space-x-2 md:hidden">
       <!-- Theme Toggle -->
-      <button 
-        id="theme-toggle-mobile" 
+      <button
+        id="theme-toggle-mobile"
         class="p-2 rounded-full hover:bg-[var(--color-bg-alt)] text-[var(--color-text)]"
         data-theme-toggle
         onclick="toggleTheme(); return false;"
@@ -50,16 +50,16 @@
         <i class="fas fa-moon moon-icon"></i>
         <i class="fas fa-sun sun-icon hidden"></i>
       </button>
-      
+
       <a href="../pages/signin.html" class="text-[var(--color-text)] hover:text-[var(--color-primary)]">
         <i class="fas fa-user"></i>
       </a>
-      
+
       <a href="../pages/wizard.html" class="bg-[var(--color-primary)] text-[var(--color-text-inverse)] px-4 py-1.5 rounded-full text-sm hover:bg-[var(--color-primary-hover)]">
         Plan Trip
       </a>
-      <button 
-        id="mobile-menu-button" 
+      <button
+        id="mobile-menu-button"
         class="p-2 rounded-md text-[var(--color-text)] hover:bg-[var(--color-bg-alt)]"
         onclick="openMobileMenu(); return false;"
       >
@@ -75,15 +75,15 @@
     <!-- Header with close button -->
     <div class="flex items-center justify-between px-6 py-4 border-b border-[var(--color-border)]">
       <a href="../index.html" class="text-2xl font-bold text-[var(--color-primary)]">Tsafira</a>
-      <button 
-        id="close-menu-button" 
+      <button
+        id="close-menu-button"
         class="p-2 rounded-md text-[var(--color-text)] hover:bg-[var(--color-bg-alt)]"
         onclick="closeMobileMenu(); return false;"
       >
         <i class="fas fa-times"></i>
       </button>
     </div>
-    
+
     <!-- Navigation Links -->
     <div class="flex-grow overflow-y-auto">
       <div class="py-2">
@@ -94,7 +94,7 @@
         <a href="../pages/contact.html" class="block px-6 py-3 text-[var(--color-text)] hover:bg-[var(--color-bg-alt)] hover:text-[var(--color-primary)] border-l-4 border-transparent hover:border-[var(--color-primary)]">Contact</a>
       </div>
     </div>
-    
+
     <!-- Auth Actions -->
     <div class="px-6 py-4 border-t border-[var(--color-border)]">
       <div id="mobile-nav-actions">
@@ -115,13 +115,13 @@
   #mobile-menu {
     display: none !important;
   }
-  
+
   /* Transition for mobile menu */
   #mobile-menu.visible {
     display: block !important;
     animation: fadeIn 0.3s ease-out;
   }
-  
+
   @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -130,28 +130,33 @@
 
 <!-- Import UI module (will be loaded by the browser) -->
 <script type="module">
+  // Dynamically determine the correct path to ui.js
+  const isInPagesDir = window.location.pathname.includes('/pages/');
+  const uiPath = isInPagesDir ? '../js/ui.js' : './js/ui.js';
+
+  // Import the UI functions
   import { initTheme, updateThemeIcons, closeMobileMenu, openMobileMenu } from '../js/ui.js';
-  
+
   // Run a quick theme check to make sure UI is correct
   // even if the main UI initialization happens later
   document.addEventListener('DOMContentLoaded', function() {
     const storedTheme = localStorage.getItem('theme') || 'light';
     const html = document.documentElement;
-    
+
     // Set theme class
     if (storedTheme === 'dark') {
       html.classList.add('dark');
     } else {
       html.classList.remove('dark');
     }
-    
+
     // Update toggle button icons
     updateThemeIcons();
-    
+
     // Ensure mobile menu functions are attached to window
     window.closeMobileMenu = closeMobileMenu;
     window.openMobileMenu = openMobileMenu;
-    
+
     // Set up mobile menu button handlers
     const closeButton = document.getElementById('close-menu-button');
     if (closeButton) {
@@ -161,7 +166,7 @@
         return false;
       };
     }
-    
+
     const menuButton = document.getElementById('mobile-menu-button');
     if (menuButton) {
       menuButton.onclick = function(e) {

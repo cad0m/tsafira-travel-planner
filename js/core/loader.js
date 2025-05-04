@@ -47,8 +47,11 @@ export async function loadPartial(partialUrl, placeholderId) {
 export async function loadAllPartials() {
   try {
     // Load header and footer partials
-    const headerUrl = '../partials/header.html';
-    const footerUrl = '../partials/footer.html';
+    // Use paths relative to the current page
+    // For pages in the pages directory, we need to go up one level
+    const isInPagesDir = window.location.pathname.includes('/pages/');
+    const headerUrl = isInPagesDir ? '../partials/header.html' : './partials/header.html';
+    const footerUrl = isInPagesDir ? '../partials/footer.html' : './partials/footer.html';
 
     const headerPromise = loadPartial(headerUrl, 'header-placeholder');
     const footerPromise = loadPartial(footerUrl, 'footer-placeholder');
