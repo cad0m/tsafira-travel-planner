@@ -2,9 +2,9 @@
  * Main JavaScript entry point
  * Initializes all necessary components based on the current page
  */
-import { initPartials } from './loader.js';
-import { qs } from './utils.js';
-import { initAuth, updateAuthUI } from './auth.js';
+import { initPartials } from './core/loader.js';
+import { qs } from './utils/utils.js';
+import { initAuth, updateAuthUI } from './core/auth.js';
 import { initUI } from './ui.js';
 
 // Initialize the partials (header and footer)

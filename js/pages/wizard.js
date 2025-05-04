@@ -1,4 +1,4 @@
-import { apiGet } from './api.js';
+import { apiGet } from '../core/api.js';
 
 // Supported currencies and symbols
 const SUPPORTED_CURRENCIES = ['MAD', 'USD', 'EUR', 'GBP', 'CAD', 'AUD', 'JPY'];

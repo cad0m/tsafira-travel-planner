@@ -2,7 +2,7 @@
  * Loader module for loading and injecting HTML partials
  */
 import { partials } from './config.js';
-import { qs } from './utils.js';
+import { qs } from '../utils/utils.js';
 import { fetchHtml } from './api.js';
 
 /**
@@ -18,20 +18,20 @@ export async function loadPartial(partialUrl, placeholderId) {
       console.warn(`Placeholder element ${placeholderId} not found.`);
       return;
     }
-    
+
     console.log(`Loading partial from: ${partialUrl} into #${placeholderId}`);
     const html = await fetchHtml(partialUrl);
     placeholder.innerHTML = html;
-    
+
     // Dispatch event when partial is loaded
-    const event = new CustomEvent('partialLoaded', { 
-      detail: { 
+    const event = new CustomEvent('partialLoaded', {
+      detail: {
         id: placeholderId,
-        url: partialUrl 
-      } 
+        url: partialUrl
+      }
     });
     document.dispatchEvent(event);
-    
+
     console.log(`Successfully loaded partial from: ${partialUrl} into #${placeholderId}`);
     return placeholder;
   } catch (error) {
@@ -47,15 +47,15 @@ export async function loadPartial(partialUrl, placeholderId) {
 export async function loadAllPartials() {
   try {
     // Load header and footer partials
-    const headerUrl = '/partials/header.html';
-    const footerUrl = '/partials/footer.html';
-    
+    const headerUrl = '../partials/header.html';
+    const footerUrl = '../partials/footer.html';
+
     const headerPromise = loadPartial(headerUrl, 'header-placeholder');
     const footerPromise = loadPartial(footerUrl, 'footer-placeholder');
-    
+
     // Wait for all partials to load
     await Promise.all([headerPromise, footerPromise]);
-    
+
     // Dispatch event when all partials are loaded
     document.dispatchEvent(new CustomEvent('allPartialsLoaded'));
   } catch (error) {

@@ -2,11 +2,11 @@
  * JavaScript for the index page
  * Handles specific functionality and interactions for the home page
  */
-import { selectors, defaults } from './config.js';
-import { qs, qsa, on, createElement } from './utils.js';
-import { isValidEmail } from './validate.js';
-import { initUI } from './ui.js';
-import { apiGet } from './api.js';
+import { selectors, defaults } from '../core/config.js';
+import { qs, qsa, on, createElement } from '../utils/utils.js';
+import { isValidEmail } from '../utils/validate.js';
+import { initUI } from '../ui.js';
+import { apiGet } from '../core/api.js';
 /**
  * Initialize the testimonial carousel
  */
@@ -20,7 +20,7 @@ export function initTestimonialCarousel() {
   let carouselIntervalId = null;
   
   // Fetch testimonial data from JSON file
-  apiGet('/data/testimonials.json')
+  apiGet('../../assets/data/testimonials.json')
     .then(testimonialData => {
       // Group testimonials into pairs for slides
       const testimonials = groupTestimonialsInPairs(testimonialData);

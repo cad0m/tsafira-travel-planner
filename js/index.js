@@ -4,17 +4,17 @@
  */
 
 // Core utilities
-export * from './utils.js';
-export * from './config.js';
+export * from './utils/utils.js';
+export * from './core/config.js';
 
 // UI Components
 export * as UI from './ui.js';
 
 // API and Auth
-export * from './api.js';
-export * from './auth.js';
-export * from './loader.js';
-export * from './validate.js';
+export * from './core/api.js';
+export * from './core/auth.js';
+export * from './core/loader.js';
+export * from './utils/validate.js';
 
 // Default export
 export default {
