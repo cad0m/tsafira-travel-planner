@@ -6,10 +6,10 @@
   <title>City - Morocco Travel</title>
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;500;600;700;800;900&display=swap" rel="stylesheet">
-  
+
   <!-- Font Awesome -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  
+
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -41,13 +41,13 @@
       },
     };
   </script>
-  
+
   <!-- Base styles -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
   <link rel="stylesheet" href="/tsafira-travel-planner/css/main.css">
   <link rel="stylesheet" href="/tsafira-travel-planner/css/index.css">
   <link rel="stylesheet" href="/tsafira-travel-planner/css/city.css">
-  
+
   <style>
     /* Additional styles for dark mode transitions */
     html.transition,
@@ -115,6 +115,128 @@
             <div>
               <h3 class="font-semibold dark:text-gray-100">Recommended Stay</h3>
               <p id="recommended-stay" class="text-gray-600 dark:text-gray-300"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- City Pass Card Section -->
+    <section id="city-pass-card" class="py-12 bg-gradient-to-br from-orange-50 to-white dark:from-dark-bg-alt dark:to-dark-bg relative overflow-hidden">
+      <!-- Decorative elements -->
+      <div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 dark:bg-primary-dark/5 rounded-full -mr-32 -mt-32 blur-2xl"></div>
+      <div class="absolute bottom-0 left-0 w-96 h-96 bg-primary/5 dark:bg-primary-dark/5 rounded-full -ml-48 -mb-48 blur-2xl"></div>
+
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="max-w-5xl mx-auto">
+          <!-- Section Header -->
+          <div class="text-center mb-10">
+            <span class="inline-block px-4 py-1 bg-orange-100 dark:bg-dark-bg-accent text-primary dark:text-primary-dark rounded-full text-sm font-medium mb-4">
+              <i class="fas fa-ticket-alt mr-1"></i> City Card
+            </span>
+            <h2 class="text-3xl font-bold mb-2 dark:text-gray-100">Explore <span id="city-card-name"></span> with a City Card</h2>
+            <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Free museums, easy transport, one smart card for your entire visit</p>
+          </div>
+
+          <!-- City Pass Card Content -->
+          <div class="grid md:grid-cols-2 gap-8 items-center">
+            <!-- Left Content: Physical Card Image -->
+            <div class="relative">
+              <div class="city-card-3d-container">
+                <!-- Mobile instruction -->
+                <div class="flip-instruction"></div>
+                <!-- Front of the card -->
+                <div class="city-card-front">
+                  <!-- City Card Image (dynamically set by JavaScript) -->
+                  <img id="city-card-front-image" src="" alt="City Card Front" class="w-full h-full object-contain">
+                </div>
+
+                <!-- Back of the card (shared back) -->
+                <div class="city-card-back">
+                  <img src="/tsafira-travel-planner/assets/image/back.png" alt="City Card Back" class="w-full h-full object-contain">
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Content: Card Overview -->
+            <div class="p-6 md:p-8 bg-white dark:bg-dark-bg-accent rounded-2xl shadow-xl relative overflow-hidden city-card-content">
+              <!-- Decorative elements -->
+              <div class="absolute top-0 right-0 w-40 h-40 bg-orange-100/30 dark:bg-orange-900/10 rounded-full -mr-20 -mt-20 blur-2xl"></div>
+              <div class="absolute bottom-0 left-0 w-32 h-32 bg-blue-100/20 dark:bg-blue-900/10 rounded-full -ml-16 -mb-16 blur-xl"></div>
+              <div class="absolute top-1/2 left-1/4 w-16 h-16 bg-yellow-100/20 dark:bg-yellow-900/10 rounded-full blur-lg"></div>
+
+              <div class="relative z-10">
+                <!-- Card Header -->
+                <div class="flex items-center mb-8">
+                  <div class="w-14 h-14 bg-gradient-to-br from-orange-100 to-orange-200 dark:from-orange-900/30 dark:to-orange-800/20 rounded-full flex items-center justify-center mr-4 shadow-md transform transition-transform duration-300 hover:scale-110">
+                    <i class="fas fa-ticket-alt text-2xl text-primary dark:text-primary-dark"></i>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-bold dark:text-gray-100"><span id="city-card-title"></span> City Card</h3>
+                    <p class="text-gray-600 dark:text-gray-400 flex items-center">
+                      <span class="bg-primary/10 dark:bg-primary-dark/10 px-2 py-0.5 rounded-md mr-2">
+                        <span id="city-card-price" class="font-semibold">$45</span>
+                      </span>
+                      for 2 days access
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Key Benefits -->
+                <div class="mb-8">
+                  <h4 class="text-lg font-semibold mb-4 dark:text-gray-100 flex items-center">
+                    <span class="inline-block w-8 h-0.5 bg-primary dark:bg-primary-dark mr-2"></span>
+                    Key Benefits
+                  </h4>
+                  <ul class="space-y-3">
+                    <li class="flex items-center benefit-item">
+                      <div class="flex-shrink-0 w-8 h-8 bg-green-100 dark:bg-green-900/20 rounded-full flex items-center justify-center mr-3 shadow-sm">
+                        <i class="fas fa-piggy-bank text-green-600 dark:text-green-400"></i>
+                      </div>
+                      <span class="text-gray-700 dark:text-gray-300">Save up to 60% on attraction tickets</span>
+                    </li>
+                    <li class="flex items-center benefit-item">
+                      <div class="flex-shrink-0 w-8 h-8 bg-blue-100 dark:bg-blue-900/20 rounded-full flex items-center justify-center mr-3 shadow-sm">
+                        <i class="fas fa-bolt text-blue-600 dark:text-blue-400"></i>
+                      </div>
+                      <span class="text-gray-700 dark:text-gray-300">Skip the lines at popular attractions</span>
+                    </li>
+                    <li class="flex items-center benefit-item">
+                      <div class="flex-shrink-0 w-8 h-8 bg-purple-100 dark:bg-purple-900/20 rounded-full flex items-center justify-center mr-3 shadow-sm">
+                        <i class="fas fa-bus text-purple-600 dark:text-purple-400"></i>
+                      </div>
+                      <span class="text-gray-700 dark:text-gray-300">Unlimited public transportation</span>
+                    </li>
+                    <li class="flex items-center benefit-item">
+                      <div class="flex-shrink-0 w-8 h-8 bg-amber-100 dark:bg-amber-900/20 rounded-full flex items-center justify-center mr-3 shadow-sm">
+                        <i class="fas fa-mobile-alt text-amber-600 dark:text-amber-400"></i>
+                      </div>
+                      <span class="text-gray-700 dark:text-gray-300">Digital and physical card options</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Top Attractions Preview -->
+                <div class="mb-8">
+                  <h4 class="text-lg font-semibold mb-4 dark:text-gray-100 flex items-center">
+                    <span class="inline-block w-8 h-0.5 bg-primary dark:bg-primary-dark mr-2"></span>
+                    Top Attractions
+                  </h4>
+                  <div id="city-card-attractions" class="flex flex-wrap gap-2">
+                    <!-- Attractions will be inserted here by JavaScript -->
+                  </div>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="relative">
+                  <div class="absolute inset-0 bg-gradient-to-r from-primary to-primary-dark blur-md opacity-30 rounded-xl transform -rotate-1 scale-105"></div>
+                  <a id="city-card-link" href="" class="city-card-cta relative inline-flex items-center justify-center w-full py-4 px-6 bg-primary hover:bg-primary-dark text-white font-medium rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:translate-y-[-2px] group">
+                    <i class="fas fa-info-circle mr-2 group-hover:animate-pulse"></i>
+                    <span>See Full Details</span>
+                    <i class="fas fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -202,7 +324,7 @@
   <footer id="footer-placeholder" class="bg-white dark:bg-dark-bg border-t border-gray-200 dark:border-dark-border">
     <!-- Footer will be loaded here -->
   </footer>
-  
+
   <!-- Scripts -->
   <script type="module" src="/tsafira-travel-planner/js/main.js"></script>
   <script type="module" src="/tsafira-travel-planner/js/pages/city.js"></script>

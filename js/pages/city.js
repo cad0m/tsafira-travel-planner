@@ -34,6 +34,12 @@ document.addEventListener('DOMContentLoaded', async function() {
     // Populate the page with city data
     populateCityData(city);
 
+    // Populate city pass card section
+    populateCityPassCard(city);
+
+    // Initialize duration option selection
+    initDurationOptions();
+
     // Hide loading state and show content
     document.getElementById('loading-state').classList.add('hidden');
     document.getElementById('city-content').classList.remove('hidden');
@@ -180,4 +186,119 @@ function populateCityData(city) {
 
     guidesContainer.appendChild(guideEl);
   });
+}
+
+/**
+ * Populate the city pass card section with data
+ * @param {Object} cityData - The city data object
+ */
+function populateCityPassCard(cityData) {
+  const cityPassSection = document.getElementById('city-pass-card');
+  const cityName = cityData.name;
+  const cityId = cityData.id;
+
+  // Function to check if an image exists
+  function imageExists(url) {
+    return new Promise((resolve) => {
+      const img = new Image();
+      img.onload = () => resolve(true);
+      img.onerror = () => resolve(false);
+      img.src = url;
+    });
+  }
+
+  // Check if the city card image exists
+  imageExists(`../assets/image/${cityId}.png`).then(exists => {
+    if (!exists) {
+      // If the city doesn't have a card image, hide the entire section
+      console.log(`No city card available for ${cityName}, hiding section`);
+      cityPassSection.style.display = 'none';
+      return;
+    }
+
+    // City card exists, show the section and populate it
+    cityPassSection.style.display = 'block';
+
+    // Set city name in all places
+    document.getElementById('city-card-name').textContent = cityName;
+    document.getElementById('city-card-title').textContent = cityName;
+
+    // Set the front card image
+    const frontCardImage = document.getElementById('city-card-front-image');
+    frontCardImage.src = `../assets/image/${cityId}.png`;
+    frontCardImage.alt = `${cityName} City Card`;
+
+    // Set city card link to the city-pass page for this city
+    document.getElementById('city-card-link').href = `./city-card.html?city=${cityId}`;
+
+    // Generate attraction tags based on highlights (limited to just 3 for overview)
+    const attractionsContainer = document.getElementById('city-card-attractions');
+    attractionsContainer.innerHTML = '/tsafira-travel-planner/tsafira-travel-planner// Clear existing content
+
+    if (cityData.highlights) {
+      // Use highlights to create attraction tags (just top 3)
+      cityData.highlights.slice(0, 3).forEach(highlight => {
+        const tag = document.createElement('span');
+        tag.className = 'attraction-tag';
+        tag.innerHTML = `<i class="fas fa-${highlight.icon} mr-1"></i> ${highlight.title}`;
+        attractionsContainer.appendChild(tag);
+      });
+    }
+
+    // Add a "more" tag to indicate there are more attractions
+    const moreTag = document.createElement('span');
+    moreTag.className = 'attraction-tag more-tag';
+    moreTag.innerHTML = `<i class="fas fa-ellipsis-h mr-1"></i> And more...`;
+    attractionsContainer.appendChild(moreTag);
+
+    // Add 3D card flip effect interaction
+    const cardContainer = document.querySelector('.city-card-3d-container');
+    if (cardContainer) {
+      // Preload the back image to ensure smooth flip
+      const backImage = new Image();
+      backImage.src = '/tsafira-travel-planner/assets/image/back.png';
+
+      // Add click event to flip the card
+      cardContainer.addEventListener('click', function() {
+        this.classList.toggle('flipped');
+
+        // Add a subtle floating animation after flip
+        if (this.classList.contains('flipped')) {
+          this.style.animation = 'float 3s ease-in-out infinite';
+        } else {
+          this.style.animation = '';
+        }
+      });
+
+      // Add touch events for mobile
+      cardContainer.addEventListener('touchstart', function(e) {
+        e.preventDefault();
+        this.classList.toggle('flipped');
+
+        // Add a subtle floating animation after flip
+        if (this.classList.contains('flipped')) {
+          this.style.animation = 'float 3s ease-in-out infinite';
+        } else {
+          this.style.animation = '';
+        }
+      });
+    }
+  });
+}
+
+/**
+ * Initialize duration option selection functionality
+ * (Simplified version for the overview card)
+ */
+function initDurationOptions() {
+  // Add click event to the "more" tag to navigate to the full details page
+  const moreTag = document.querySelector('.more-tag');
+  const cityCardLink = document.getElementById('city-card-link');
+
+  if (moreTag && cityCardLink) {
+    moreTag.addEventListener('click', function() {
+      // Navigate to the same URL as the main CTA button
+      window.location.href = cityCardLink.href;
+    });
+  }
 }
