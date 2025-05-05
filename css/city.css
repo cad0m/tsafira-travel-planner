@@ -46,7 +46,7 @@
 }
 
 /* Text colors */
-.dark .text-gray-600, 
+.dark .text-gray-600,
 .dark .text-gray-500 {
   color: #9ca3af;
 }
@@ -126,12 +126,28 @@ iframe {
   }
 }
 
+/* Price animation */
+.animate-pulse {
+  animation: pulse 1s cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
 /* Mobile adjustments */
 @media (max-width: 768px) {
   #destination-hero {
     height: 450px;
   }
-  
+
   #quick-facts {
     margin-top: -2rem;
   }
@@ -154,4 +170,493 @@ iframe {
 /* Important override to ensure menu is hidden by default */
 body.loaded #mobile-menu:not(.visible) {
   display: none !important;
-} 
+}
+
+/* City Pass Card Section Styles */
+#city-pass-card {
+  position: relative;
+  overflow: hidden;
+}
+
+/* 3D Card Flip Effect */
+.city-card-3d-container {
+  perspective: 1500px;
+  transform-style: preserve-3d;
+  height: 220px;
+  width: 100%;
+  max-width: 350px;
+  position: relative;
+  margin: 0 auto 30px; /* Added bottom margin for shadow space */
+  cursor: pointer;
+  transition: all 0.5s ease;
+  padding: 0;
+  border-radius: 1.2rem;
+}
+
+/* Floor shadow effect */
+.city-card-3d-container::after {
+  content: '';
+  position: absolute;
+  bottom: -25px;
+  left: 10%;
+  right: 10%;
+  height: 20px;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 80%);
+  border-radius: 50%;
+  z-index: -1;
+  transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-origin: center center;
+  opacity: 0.2;
+}
+
+/* Floating animation for card */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.city-card-3d-container:hover::after {
+  transform: scaleX(1.1) scaleY(0.8);
+  opacity: 0.9;
+  filter: blur(3px);
+}
+
+.city-card-3d-container.flipped::after {
+  animation: shadow-float 3s ease-in-out infinite;
+}
+
+@keyframes shadow-float {
+  0% {
+    transform: scaleX(1) scaleY(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scaleX(1.2) scaleY(0.7);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scaleX(1) scaleY(1);
+    opacity: 0.7;
+  }
+}
+
+.dark .city-card-3d-container::after {
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 80%);
+}
+
+/* Add subtle glow effect on hover */
+.city-card-3d-container::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #F26522, #ff9966, #F26522);
+  z-index: -1;
+  border-radius: 1.3rem;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  filter: blur(8px);
+}
+
+.city-card-3d-container:hover::before {
+  opacity: 0.7;
+}
+
+.dark .city-card-3d-container::before {
+  background: linear-gradient(45deg, #ff7733, #ff9966, #ff7733);
+}
+
+.city-card-front,
+.city-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transition: transform 1.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 1.2s ease;
+  transform-style: preserve-3d;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  border-radius: 1rem;
+  overflow: hidden;
+  background-color: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dark .city-card-front,
+.dark .city-card-back {
+  background-color: #2d3748;
+}
+
+.city-card-front {
+  transform: rotateY(0deg);
+  z-index: 2;
+}
+
+.city-card-back {
+  transform: rotateY(180deg);
+}
+
+.city-card-3d-container:hover .city-card-front,
+.city-card-3d-container.flipped .city-card-front {
+  transform: rotateY(180deg);
+  box-shadow: -15px 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.city-card-3d-container:hover .city-card-back,
+.city-card-3d-container.flipped .city-card-back {
+  transform: rotateY(360deg);
+  box-shadow: 15px 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+/* Card images */
+.city-card-front img,
+.city-card-back img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  transition: transform 0.8s ease, filter 0.8s ease;
+  border-radius: 0.75rem;
+  filter: brightness(1.05) contrast(1.05);
+  padding: 0;
+  margin: 0;
+  scale: 1.65;
+}
+
+.city-card-3d-container:hover img {
+  transform: scale(1.05);
+  filter: brightness(1.1) contrast(1.1) saturate(1.1);
+}
+
+/* Add subtle shine effect */
+.city-card-front::after,
+.city-card-back::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  transition: all 0s;
+  opacity: 0;
+}
+
+.city-card-3d-container:hover .city-card-front::after {
+  animation: shine 1.5s ease-in-out;
+  animation-delay: 0.5s;
+}
+
+@keyframes shine {
+  0% {
+    left: -100%;
+    opacity: 0.7;
+  }
+  100% {
+    left: 150%;
+    opacity: 0;
+  }
+}
+
+/* Card overlay styling */
+#city-card-title-overlay {
+  position: relative;
+  z-index: 10;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Card content styling */
+.city-card-content {
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  position: relative;
+  z-index: 2;
+}
+
+.city-card-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+/* Duration options */
+.duration-option {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.duration-option:hover {
+  transform: translateY(-2px);
+}
+
+.duration-option.active {
+  background-color: rgba(242, 101, 34, 0.1);
+}
+
+.dark .duration-option.active {
+  background-color: rgba(255, 119, 51, 0.1);
+}
+
+/* CTA button animation */
+.city-card-cta {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.city-card-cta:hover {
+  transform: translateY(-2px);
+}
+
+.city-card-cta::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: all 0.5s ease;
+}
+
+.city-card-cta:hover::after {
+  left: 100%;
+}
+
+/* Attractions tags */
+.attraction-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.85rem;
+  background-color: rgba(242, 101, 34, 0.1);
+  color: #F26522;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  margin-bottom: 0.5rem;
+  margin-right: 0.5rem;
+  border: 1px solid rgba(242, 101, 34, 0.05);
+  box-shadow: 0 2px 4px rgba(242, 101, 34, 0.05);
+  position: relative;
+  overflow: hidden;
+  opacity: 0.3;
+}
+
+.dark .attraction-tag {
+  background-color: rgba(255, 119, 51, 0.1);
+  color: #ff7733;
+  border-color: rgba(255, 119, 51, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  opacity: 0.3;
+}
+
+.attraction-tag:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 5px 15px rgba(242, 101, 34, 0.15);
+  background-color: rgba(242, 101, 34, 0.15);
+}
+
+.dark .attraction-tag:hover {
+  box-shadow: 0 5px 15px rgba(255, 119, 51, 0.2);
+  background-color: rgba(255, 119, 51, 0.15);
+}
+
+/* Tag icon styling */
+.attraction-tag i {
+  margin-right: 0.35rem;
+  transition: transform 0.3s ease;
+}
+
+.attraction-tag:hover i {
+  transform: scale(1.2);
+}
+
+/* More tag styling */
+.more-tag {
+  background-color: rgba(79, 70, 229, 0.1);
+  color: #4F46E5;
+  cursor: pointer;
+  border-color: rgba(79, 70, 229, 0.05);
+  box-shadow: 0 2px 4px rgba(79, 70, 229, 0.05);
+}
+
+.dark .more-tag {
+  background-color: rgba(129, 140, 248, 0.1);
+  color: #818CF8;
+  border-color: rgba(129, 140, 248, 0.1);
+}
+
+.more-tag:hover {
+  background-color: rgba(79, 70, 229, 0.2);
+  box-shadow: 0 5px 15px rgba(79, 70, 229, 0.15);
+  transform: translateY(-3px) scale(1.05);
+}
+
+.dark .more-tag:hover {
+  background-color: rgba(129, 140, 248, 0.2);
+  box-shadow: 0 5px 15px rgba(129, 140, 248, 0.2);
+}
+
+/* Staggered animation for tags */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#city-card-attractions .attraction-tag:nth-child(1) {
+  animation: fadeInUp 0.5s ease-out 0.1s both;
+}
+
+#city-card-attractions .attraction-tag:nth-child(2) {
+  animation: fadeInUp 0.5s ease-out 0.2s both;
+}
+
+#city-card-attractions .attraction-tag:nth-child(3) {
+  animation: fadeInUp 0.5s ease-out 0.3s both;
+}
+
+#city-card-attractions .attraction-tag:nth-child(4) {
+  animation: fadeInUp 0.5s ease-out 0.4s both;
+}
+
+/* Benefits icons animation */
+.benefit-item {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.benefit-item:hover {
+  transform: translateX(5px);
+}
+
+.benefit-item .flex-shrink-0 {
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  z-index: 1;
+}
+
+.benefit-item:hover .flex-shrink-0 {
+  transform: scale(1.15);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Subtle pulse animation for benefit icons on page load */
+@keyframes subtle-pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.benefit-item:nth-child(1) .flex-shrink-0 {
+  animation: subtle-pulse 2s ease-in-out 0.2s;
+}
+
+.benefit-item:nth-child(2) .flex-shrink-0 {
+  animation: subtle-pulse 2s ease-in-out 0.4s;
+}
+
+.benefit-item:nth-child(3) .flex-shrink-0 {
+  animation: subtle-pulse 2s ease-in-out 0.6s;
+}
+
+.benefit-item:nth-child(4) .flex-shrink-0 {
+  animation: subtle-pulse 2s ease-in-out 0.8s;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  #city-pass-card .grid {
+    grid-template-columns: 1fr;
+  }
+
+  #city-pass-card .md\:col-span-2,
+  #city-pass-card .md\:col-span-3 {
+    grid-column: span 1;
+  }
+
+  .city-card-content {
+    margin-top: -2rem;
+    border-radius: 1.5rem 1.5rem 1rem 1rem;
+  }
+
+  .city-card-3d-container {
+    height: 200px;
+    max-width: 300px;
+    margin-bottom: 2rem;
+  }
+
+  /* Adjust card flip for touch devices */
+  .city-card-3d-container.flipped .city-card-front {
+    transform: rotateY(180deg);
+  }
+
+  .city-card-3d-container.flipped .city-card-back {
+    transform: rotateY(360deg);
+  }
+
+  /* Add instruction for mobile */
+  .city-card-3d-container .flip-instruction {
+    content: 'Tap to flip';
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.75rem;
+    color: #6b7280;
+    opacity: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 4px 12px;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    animation: pulse-instruction 2s infinite;
+    z-index: 5;
+  }
+
+  .dark .city-card-3d-container .flip-instruction {
+    color: #e2e8f0;
+    background-color: rgba(45, 55, 72, 0.8);
+  }
+
+  @keyframes pulse-instruction {
+    0% {
+      opacity: 0;
+      transform: translateX(-50%) scale(0.95);
+    }
+    50% {
+      opacity: 0.9;
+      transform: translateX(-50%) scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(-50%) scale(0.95);
+    }
+  }
+}
