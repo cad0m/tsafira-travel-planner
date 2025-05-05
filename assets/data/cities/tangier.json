@@ -1,0 +1,219 @@
+{
+    "city": {
+      "name": "Tangier",
+      "title": "Tangier City Pass",
+      "subtitle": "Your gateway to exploring Morocco's fascinating crossroads between Europe and Africa",
+      "heroImage": "../../../assets/image/hero/tangier.png"
+    },
+    "features": [
+      {
+        "name": "Historic Sites",
+        "icon": "monument",
+        "description": "Access to 10+ historical and cultural landmarks"
+      },
+      {
+        "name": "Public Transport",
+        "icon": "bus",
+        "description": "Unlimited rides on city buses and petit taxis"
+      },
+      {
+        "name": "Guided Tours",
+        "icon": "map-marked-alt",
+        "description": "2 guided walking tours of the Kasbah and Medina included"
+      },
+      {
+        "name": "Strait Experience",
+        "icon": "ship",
+        "description": "One complimentary Strait of Gibraltar boat tour"
+      },
+      {
+        "name": "Cave Access",
+        "icon": "mountain",
+        "description": "Entry to Hercules Cave and other natural attractions"
+      },
+      {
+        "name": "Shopping Discounts",
+        "icon": "tags",
+        "description": "15% off at participating artisan shops and markets"
+      }
+    ],
+    "durations": [
+      {
+        "id": "2day",
+        "name": "2-Day Pass",
+        "price": 279,
+        "description": "Perfect for weekend trips",
+        "popular": false
+      },
+      {
+        "id": "3day",
+        "name": "3-Day Pass",
+        "price": 399,
+        "description": "Our most popular option",
+        "popular": true
+      },
+      {
+        "id": "5day",
+        "name": "5-Day Pass",
+        "price": 649,
+        "description": "Best value for longer stays",
+        "popular": false
+      }
+    ],
+    "attractions": [
+      {
+        "name": "Kasbah Museum",
+        "price": 70
+      },
+      {
+        "name": "Hercules Cave",
+        "price": 60
+      },
+      {
+        "name": "American Legation Museum",
+        "price": 50
+      },
+      {
+        "name": "Grand Socco",
+        "price": 0
+      },
+      {
+        "name": "Cape Spartel Lighthouse",
+        "price": 40
+      },
+      {
+        "name": "Petit Socco",
+        "price": 0
+      },
+      {
+        "name": "Strait of Gibraltar Boat Tour",
+        "price": 250
+      },
+      {
+        "name": "Tangier Beach Experience",
+        "price": 70
+      },
+      {
+        "name": "Day Trip to Chefchaouen",
+        "price": 500
+      },
+      {
+        "name": "Guided Kasbah & Medina Tour",
+        "price": 170
+      }
+    ],
+    "benefits": [
+      {
+        "title": "Skip-the-Line Access",
+        "icon": "clock",
+        "description": "Save time with priority entry at most attractions. Simply show your pass at the priority entrance and walk right in."
+      },
+      {
+        "title": "Unlimited Public Transport",
+        "icon": "bus",
+        "description": "Hop on and off buses and use petit taxis with ease during your pass validity. No need to buy separate tickets."
+      },
+      {
+        "title": "Guided Walking Tours",
+        "icon": "walking",
+        "description": "Join our daily walking tours led by expert local guides who will share fascinating stories about Tangier's multicultural history."
+      },
+      {
+        "title": "Mobile Pass Option",
+        "icon": "mobile-alt",
+        "description": "Keep your pass on your smartphone - no need to print anything. Works offline too!"
+      },
+      {
+        "title": "Exclusive Discounts",
+        "icon": "percentage",
+        "description": "Show your pass to receive special discounts at participating cafés, restaurants, and additional experiences."
+      }
+    ],
+    "usageSteps": [
+      {
+        "title": "Purchase & Download",
+        "description": "Buy your pass online and download the PDF or install our mobile app to access your digital pass."
+      },
+      {
+        "title": "Activation",
+        "description": "Your pass activates automatically the first time you use it at any attraction or on public transport."
+      },
+      {
+        "title": "Show & Scan",
+        "description": "Present your pass (digital or printed) at each attraction entrance or to transport operators. They'll scan the QR code for validation."
+      },
+      {
+        "title": "Enjoy!",
+        "description": "Make the most of your pass by visiting as many attractions as you can during your chosen duration."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "When does my pass expire?",
+        "answer": "Your pass is valid for consecutive days from first use. For example, a 3-day pass activated on Monday at 2pm will be valid until Thursday at 2pm."
+      },
+      {
+        "question": "Can I visit attractions multiple times?",
+        "answer": "Most attractions allow one-time entry with the pass. However, you can use public transport unlimited times during the validity period."
+      },
+      {
+        "question": "What happens if I don't use all the days on my pass?",
+        "answer": "Unused days are not refundable. We recommend selecting a duration that matches your planned stay in Tangier."
+      },
+      {
+        "question": "Can I share my pass with friends or family?",
+        "answer": "No, each pass is valid for one person only. Each traveler needs their own pass."
+      },
+      {
+        "question": "Is there a mobile app for the pass?",
+        "answer": "Yes, you can download our app to store and access your pass digitally. It works offline once downloaded."
+      },
+      {
+        "question": "Are guided tours in multiple languages?",
+        "answer": "Yes, our guided tours are available in English, French, Spanish, and Arabic. Please check the schedule for specific language timings."
+      }
+    ],
+    "itineraries": [
+      {
+        "title": "International Tangier",
+        "thumbnail": "/images/itinerary-international.jpg",
+        "description": "Explore Tangier's unique multicultural heritage over 2 days",
+        "url": "/itineraries/international-tangier"
+      },
+      {
+        "title": "Coastal & Natural Wonders",
+        "thumbnail": "/images/itinerary-coastal.jpg",
+        "description": "Discover Tangier's breathtaking coastline and natural attractions",
+        "url": "/itineraries/coastal-natural-wonders"
+      },
+      {
+        "title": "Complete Tangier Experience",
+        "thumbnail": "/images/itinerary-complete.jpg",
+        "description": "The perfect 3-day introduction to all Tangier has to offer",
+        "url": "/itineraries/complete-tangier"
+      }
+    ],
+    "contactMethods": [
+      {
+        "type": "chat",
+        "icon": "comments",
+        "title": "Live Chat",
+        "description": "Get instant answers from our team",
+        "value": "#chat"
+      },
+      {
+        "type": "email",
+        "icon": "envelope",
+        "title": "Email Support",
+        "description": "We usually respond within 24 hours",
+        "value": "support@tangierpass.com"
+      },
+      {
+        "type": "phone",
+        "icon": "phone",
+        "title": "Call Us",
+        "description": "Available 9am-6pm (GMT+1)",
+        "value": "+212 539 345 678"
+      }
+    ]
+  }

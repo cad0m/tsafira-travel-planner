@@ -1,13 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="light">
 <head>
   <meta charset="UTF-8">
+  <title>City Pass | Tsafira - Explore Morocco</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tsafira | City Pass</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <script>
+    window.FontAwesomeConfig = {
+      autoReplaceSvg: 'nest'
+    };
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <!-- Tailwind CSS with dark mode enabled -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="../css/main.css">
   <script>
     tailwind.config = {
       darkMode: 'class',
@@ -15,228 +23,504 @@
         extend: {
           colors: {
             primary: {
-              DEFAULT: '#F26522',
-              dark: '#ff7733',
+              DEFAULT: 'var(--color-primary)',
+              hover: 'var(--color-primary-hover)',
+              dark: 'var(--color-primary)',
             },
             secondary: {
-              DEFAULT: '#3F20FB',
-              dark: '#4f46e5',
-            },
-            accent: {
-              DEFAULT: '#FFF8F2',
-              dark: '#1f1f1f',
+              DEFAULT: 'var(--color-secondary)',
+              dark: 'var(--color-secondary)',
             },
             dark: {
-              bg: '#1f2937',
-              'bg-alt': '#111827',
-              'bg-accent': '#2d3748',
-              border: '#374151',
+              bg: 'var(--color-bg)',
+              'bg-alt': 'var(--color-bg-alt)',
+              'bg-accent': 'var(--color-bg-accent)',
+              border: 'var(--color-border)',
             }
           },
         }
       }
-    }
+    };
   </script>
+
+  <!-- Base styles -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="../css/city-pass/ph-cards.css">
+  <link rel="stylesheet" href="../css/city-pass/city-pass.css">
 </head>
-<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-100">
+
+<body class="h-full text-gray-800 dark:text-gray-100 bg-white dark:bg-dark-bg" data-page="city-pass">
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress-container dark:bg-gray-700">
+    <div class="scroll-progress-bar"></div>
+  </div>
+
   <!-- Header Placeholder -->
-  <header id="header-placeholder" class="bg-white dark:bg-dark-bg border-b border-gray-200 dark:border-dark-border"></header>
+  <header id="header-placeholder"></header>
 
-  <!-- Hero Section -->
-  <section class="relative py-20 bg-gray-900 text-white">
-    <div class="absolute inset-0 bg-gradient-to-r from-primary/80 to-secondary/80 opacity-90"></div>
-    <div class="container mx-auto px-6 relative z-10 pt-10">
-      <div class="max-w-3xl mx-auto text-center">
-        <h1 class="text-4xl md:text-5xl font-bold mb-6">Morocco City Pass</h1>
-        <p class="text-xl mb-8">Unlock the best of Morocco's cities with unlimited access to attractions and public transportation.</p>
-        <div class="flex flex-wrap justify-center gap-4">
-          <a href="wizard.html" class="bg-white text-primary hover:bg-gray-100 px-8 py-3 rounded-full font-medium transition duration-300">
-            Add to Your Itinerary
-          </a>
-          <a href="#benefits" class="bg-transparent border-2 border-white hover:bg-white/10 px-8 py-3 rounded-full font-medium transition duration-300">
-            Learn More
-          </a>
+  <!-- Main Content -->
+  <main class="container mx-auto px-4 py-12" data-page="city-pass-standalone">
+    <!-- Enhanced Hero Section -->
+    <section id="hero-section" class="relative bg-cover bg-center h-[80vh] md:h-[90vh] -mx-4 flex items-center justify-center text-white mb-16 overflow-hidden">
+      <!-- Parallax Background with multiple layers -->
+      <div class="hero-parallax-container absolute inset-0 w-full h-full">
+        <!-- Main background image with overlay -->
+        <div class="hero-bg-layer absolute inset-0 bg-cover bg-center transform scale-110 transition-transform duration-700"
+             style="background-image: url('https://www.kanaga-at.com/wp-content/uploads/2021/07/marocco_chefchaouen.jpg');">
+        </div>
+
+        <!-- Gradient overlay with animated effect -->
+        <div class="hero-overlay absolute inset-0 bg-gradient-to-b from-blue-900/40 via-indigo-900/50 to-purple-900/70 dark:from-blue-900/60 dark:via-indigo-900/70 dark:to-purple-900/80 opacity-80"></div>
+
+        <!-- Animated particles overlay -->
+        <div class="hero-particles absolute inset-0 opacity-30"></div>
+
+        <!-- Decorative shapes -->
+        <div class="absolute top-1/4 left-10 w-64 h-64 rounded-full bg-primary/10 blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-1/4 right-10 w-80 h-80 rounded-full bg-secondary/10 blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+      </div>
+
+      <!-- Content container with reveal animation -->
+      <div class="hero-content-container relative z-10 px-4 md:px-0 max-w-4xl mx-auto">
+        <!-- Animated badge -->
+        <div class="flex justify-center mb-6 hero-badge-animation">
+          <span class="inline-flex items-center px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm text-white text-sm font-medium">
+            <span class="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-primary opacity-75 mr-2"></span>
+            <span class="relative inline-flex rounded-full h-3 w-3 bg-primary mr-2"></span>
+            Explore Morocco's Most Beautiful Cities
+          </span>
+        </div>
+
+        <!-- Main content with staggered reveal -->
+        <div class="text-center hero-text-reveal">
+          <h1 id="hero-title" class="text-5xl md:text-7xl font-bold mb-6 text-white hero-title-glow">
+            Discover the Ultimate <span class="text-gradient bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">City Pass</span>
+          </h1>
+          <p id="hero-subtitle" class="text-xl md:text-2xl mb-10 text-gray-100 max-w-3xl mx-auto leading-relaxed">
+            Unlock unlimited museums, transport & tours—one simple pass for an unforgettable Moroccan adventure.
+          </p>
+
+          <!-- CTA buttons with enhanced styling -->
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 hero-cta-animation">
+            <a id="hero-cta" href="#purchase-section" class="hero-primary-btn bg-gradient-to-r from-primary to-primary-hover px-8 py-4 rounded-full text-white font-medium text-lg transition-all duration-300 inline-flex items-center justify-center group hover:shadow-lg hover:shadow-primary/30 transform hover:-translate-y-1">
+              <span>Buy Your Pass</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
+            <a href="#city-pass-carousel-section" class="hero-secondary-btn px-8 py-4 rounded-full text-white font-medium text-lg transition-all duration-300 inline-flex items-center justify-center border-2 border-white/30 hover:border-white/70 backdrop-blur-sm hover:bg-white/10">
+              <span>Explore Cities</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </a>
+          </div>
+
+          <!-- Trust indicators -->
+          <div class="mt-12 flex justify-center items-center gap-6 text-white/80 hero-trust-animation">
+            <div class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+              </svg>
+              <span>Secure Payment</span>
+            </div>
+            <div class="hidden md:flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              <span>Instant Delivery</span>
+            </div>
+            <div class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+              <span>100% Satisfaction</span>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Benefits Section -->
-  <section id="benefits" class="py-20 bg-white dark:bg-dark-bg">
-    <div class="container mx-auto px-6">
-      <h2 class="text-3xl font-bold text-center mb-16 dark:text-gray-100">Why Choose the City Pass?</h2>
-      <div class="grid md:grid-cols-3 gap-12">
-        <div class="text-center">
-          <div class="w-16 h-16 bg-primary/10 dark:bg-primary-dark/20 rounded-full flex items-center justify-center mx-auto mb-6">
-            <i class="text-2xl text-primary dark:text-primary-dark fas fa-ticket"></i>
-          </div>
-          <h3 class="text-xl font-bold mb-4 dark:text-gray-200">Free Entry to Attractions</h3>
-          <p class="text-gray-600 dark:text-gray-400">Skip the ticket lines and enjoy free entry to museums, palaces, and top attractions</p>
-        </div>
-        <div class="text-center">
-          <div class="w-16 h-16 bg-primary/10 dark:bg-primary-dark/20 rounded-full flex items-center justify-center mx-auto mb-6">
-            <i class="text-2xl text-primary dark:text-primary-dark fas fa-bus"></i>
-          </div>
-          <h3 class="text-xl font-bold mb-4 dark:text-gray-200">Unlimited Public Transport</h3>
-          <p class="text-gray-600 dark:text-gray-400">Travel freely on buses, trams, and other public transportation within the city</p>
-        </div>
-        <div class="text-center">
-          <div class="w-16 h-16 bg-primary/10 dark:bg-primary-dark/20 rounded-full flex items-center justify-center mx-auto mb-6">
-            <i class="text-2xl text-primary dark:text-primary-dark fas fa-percent"></i>
-          </div>
-          <h3 class="text-xl font-bold mb-4 dark:text-gray-200">Exclusive Discounts</h3>
-          <p class="text-gray-600 dark:text-gray-400">Enjoy special discounts at restaurants, shops, and additional attractions</p>
-        </div>
+      <!-- Wave divider at bottom -->
+      <div class="absolute bottom-0 left-0 right-0 w-full">
+        <svg class="wave-divider" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" preserveAspectRatio="none">
+          <path class="wave-path fill-white dark:fill-dark-bg" d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"></path>
+        </svg>
       </div>
-    </div>
-  </section>
 
-  <!-- Pricing Section -->
-  <section class="py-20 bg-gray-50 dark:bg-gray-800">
-    <div class="container mx-auto px-6">
-      <h2 class="text-3xl font-bold text-center mb-16 dark:text-gray-100">Choose Your Pass</h2>
-      
-      <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-        <!-- 2-Day Pass -->
-        <div class="bg-white dark:bg-gray-700 rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
-          <div class="p-8">
-            <h3 class="text-2xl font-bold mb-2 dark:text-white">2-Day Pass</h3>
-            <p class="text-gray-600 dark:text-gray-300 mb-6">Perfect for weekend trips</p>
-            <div class="text-4xl font-bold text-primary dark:text-primary-dark mb-6">$29</div>
-            <ul class="space-y-3 mb-8">
-              <li class="flex items-center">
-                <i class="fas fa-check text-green-500 mr-2"></i>
-                <span class="dark:text-gray-300">Access to 15+ attractions</span>
-              </li>
-              <li class="flex items-center">
-                <i class="fas fa-check text-green-500 mr-2"></i>
-                <span class="dark:text-gray-300">Unlimited public transport</span>
-              </li>
-              <li class="flex items-center">
-                <i class="fas fa-check text-green-500 mr-2"></i>
-                <span class="dark:text-gray-300">10% discount at partner restaurants</span>
-              </li>
-            </ul>
-            <button class="w-full bg-primary dark:bg-primary-dark text-white py-3 rounded-lg hover:bg-primary-dark dark:hover:bg-opacity-90 transition duration-300">
-              Select 2-Day Pass
+      <!-- Scroll indicator -->
+      <div class="absolute bottom-12 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        </svg>
+      </div>
+    </section>
+
+    <section id="city-pass-carousel-section" class="relative py-16">
+      <!-- Decorative background elements -->
+      <div class="decoration-blob absolute top-0 left-10 w-96 h-96 bg-blue-100 dark:bg-blue-900/20 animate-pulse" style="animation-duration: 15s;"></div>
+      <div class="decoration-blob absolute bottom-20 right-20 w-64 h-64 bg-orange-100 dark:bg-orange-700/20 animate-pulse" style="animation-duration: 10s; animation-delay: 2s;"></div>
+
+      <div class="container mx-auto px-4 relative">
+        <!-- Section title -->
+        <div class="text-center mb-12">
+          <h2 class="section-title text-4xl md:text-5xl font-bold text-gray-800 dark:text-gray-100">
+            Discover Our City Passes
+          </h2>
+        </div>
+
+        <!-- Carousel container -->
+        <div class="carousel-container">
+          <!-- Carousel cards wrapper -->
+          <div class="carousel-wrapper">
+            <div id="carousel-stage" class="carousel-stage">
+              <!-- City cards will be dynamically loaded here -->
+            </div>
+          </div>
+
+          <!-- Navigation controls -->
+          <div class="carousel-controls">
+            <button id="prev-button" class="control-button prev-button" aria-label="Previous city pass">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+              </svg>
+            </button>
+            <button id="next-button" class="control-button next-button" aria-label="Next city pass">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
             </button>
           </div>
+
+          <!-- Pagination dots will be dynamically generated -->
+          <div id="carousel-pagination" class="carousel-pagination" role="tablist"></div>
         </div>
-        
-        <!-- 4-Day Pass -->
-        <div class="bg-white dark:bg-gray-700 rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
-          <div class="p-8">
-            <h3 class="text-2xl font-bold mb-2 dark:text-white">4-Day Pass</h3>
-            <p class="text-gray-600 dark:text-gray-300 mb-6">Ideal for longer stays</p>
-            <div class="text-4xl font-bold text-primary dark:text-primary-dark mb-6">$49</div>
-            <ul class="space-y-3 mb-8">
-              <li class="flex items-center">
-                <i class="fas fa-check text-green-500 mr-2"></i>
-                <span class="dark:text-gray-300">Access to 20+ attractions</span>
-              </li>
-              <li class="flex items-center">
-                <i class="fas fa-check text-green-500 mr-2"></i>
-                <span class="dark:text-gray-300">Unlimited public transport</span>
-              </li>
-              <li class="flex items-center">
-                <i class="fas fa-check text-green-500 mr-2"></i>
-                <span class="dark:text-gray-300">15% discount at partner restaurants</span>
-              </li>
-              <li class="flex items-center">
-                <i class="fas fa-check text-green-500 mr-2"></i>
-                <span class="dark:text-gray-300">One free guided tour</span>
-              </li>
-            </ul>
-            <button class="w-full bg-primary dark:bg-primary-dark text-white py-3 rounded-lg hover:bg-primary-dark dark:hover:bg-opacity-90 transition duration-300">
-              Select 4-Day Pass
-            </button>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits-section" class="mb-16 relative overflow-hidden">
+      <!-- Decorative elements -->
+      <div class="absolute top-0 left-0 w-64 h-64 bg-blue-100/50 dark:bg-blue-900/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+      <div class="absolute bottom-0 right-0 w-80 h-80 bg-orange-100/50 dark:bg-orange-900/10 rounded-full blur-3xl translate-x-1/3 translate-y-1/3"></div>
+
+      <!-- Section content -->
+      <div class="relative z-10">
+        <div class="flex flex-col items-center mb-12">
+          <span class="inline-flex items-center px-4 py-1.5 rounded-full bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-dark text-sm font-medium mb-3">
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            Exclusive Benefits
+          </span>
+          <h2 id="benefits-title" class="text-4xl md:text-5xl font-bold text-center mb-3 text-gray-800 dark:text-gray-100">Top Benefits</h2>
+          <p class="text-center text-gray-600 dark:text-gray-400 max-w-2xl">Unlock these amazing perks with your City Pass and make the most of your Moroccan adventure.</p>
+        </div>
+
+        <div id="benefits-container" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Benefits cards will be loaded here by JavaScript -->
+        </div>
+        <!-- Hidden benefits and toggle button will be inserted by JavaScript -->
+      </div>
+    </section>
+
+    <!-- Savings Comparison Section -->
+    <section id="savings-section" class="mb-16 relative">
+      <!-- Background with gradient and pattern -->
+      <div class="absolute inset-0 bg-gradient-to-br from-gray-50 to-blue-50 dark:from-dark-bg-accent dark:to-dark-bg rounded-3xl overflow-hidden">
+        <div class="absolute inset-0 opacity-10 dark:opacity-5" style="background-image: url('data:image/svg+xml,%3Csvg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z\' fill=\'%23000000\' fill-opacity=\'0.1\' fill-rule=\'evenodd\'/%3E%3C/svg%3E')"></div>
+      </div>
+
+      <!-- Content container -->
+      <div class="relative py-16 px-6 md:px-12">
+        <!-- Section header -->
+        <div class="flex flex-col items-center mb-12">
+          <span class="inline-flex items-center px-4 py-1.5 rounded-full bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 text-sm font-medium mb-3">
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            Smart Savings
+          </span>
+          <h2 id="savings-title" class="text-4xl md:text-5xl font-bold text-center mb-3 text-gray-800 dark:text-gray-100">See Your Savings</h2>
+          <p id="savings-description" class="text-center text-gray-600 dark:text-gray-400 max-w-2xl">Compare the City Pass price against buying individual tickets and see how much you'll save.</p>
+        </div>
+
+        <!-- Comparison cards -->
+        <div class="flex flex-col lg:flex-row justify-center items-stretch gap-6 max-w-5xl mx-auto">
+          <!-- Individual tickets card -->
+          <div class="flex-1 bg-white dark:bg-dark-bg rounded-2xl shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl transform hover:-translate-y-1">
+            <div class="bg-gray-100 dark:bg-gray-800 px-6 py-4 border-b border-gray-200 dark:border-gray-700">
+              <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100">Individual Tickets</h3>
+              <p class="text-sm text-gray-500 dark:text-gray-400">Buying tickets separately</p>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-center mb-8">
+                <div class="relative w-48 h-48">
+                  <!-- Circular progress bar background -->
+                  <svg class="w-full h-full" viewBox="0 0 100 100">
+                    <circle class="text-gray-200 dark:text-gray-700" stroke-width="10" stroke="currentColor" fill="transparent" r="40" cx="50" cy="50" />
+                  </svg>
+                  <!-- Price display -->
+                  <div class="absolute inset-0 flex flex-col items-center justify-center">
+                    <span class="text-sm text-gray-500 dark:text-gray-400">Total Cost</span>
+                    <span id="regular-price-value" class="text-4xl font-bold text-gray-800 dark:text-gray-100">€0</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Features list -->
+              <ul class="space-y-3">
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-gray-400 mt-0.5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                  <span class="text-gray-600 dark:text-gray-300">Separate purchase for each attraction</span>
+                </li>
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-gray-400 mt-0.5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                  <span class="text-gray-600 dark:text-gray-300">Wait in regular ticket lines</span>
+                </li>
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-gray-400 mt-0.5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                  <span class="text-gray-600 dark:text-gray-300">Pay for transportation separately</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- VS element -->
+          <div class="hidden lg:flex items-center justify-center">
+            <div class="relative">
+              <div class="absolute -inset-3 bg-gradient-to-r from-primary/30 to-primary/10 dark:from-primary/20 dark:to-primary/5 rounded-full blur-lg animate-pulse"></div>
+              <div class="relative bg-white dark:bg-dark-bg shadow-lg rounded-full w-16 h-16 flex items-center justify-center text-lg font-bold text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700">VS</div>
+            </div>
+          </div>
+
+          <!-- City Pass card -->
+          <div class="flex-1 bg-white dark:bg-dark-bg rounded-2xl shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl transform hover:-translate-y-1 border-2 border-primary/20">
+            <div class="bg-primary/10 dark:bg-primary/20 px-6 py-4 border-b border-primary/20 dark:border-primary/30 relative">
+              <div class="absolute -right-8 -top-8 w-16 h-16 bg-primary/10 dark:bg-primary/20 rounded-full"></div>
+              <div class="absolute -right-5 -top-5 w-10 h-10 bg-primary/20 dark:bg-primary/30 rounded-full"></div>
+              <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100">City Pass</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400">All-inclusive experience</p>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-center mb-8">
+                <div class="relative w-48 h-48">
+                  <!-- Circular progress bar -->
+                  <svg class="w-full h-full" viewBox="0 0 100 100">
+                    <circle class="text-gray-200 dark:text-gray-700" stroke-width="10" stroke="currentColor" fill="transparent" r="40" cx="50" cy="50" />
+                    <circle id="pass-price-circle" class="text-primary dark:text-primary-dark transition-all duration-1000 ease-out" stroke-width="10" stroke="currentColor" fill="transparent" r="40" cx="50" cy="50" stroke-dasharray="251.2" stroke-dashoffset="251.2" transform="rotate(-90 50 50)" />
+                  </svg>
+                  <!-- Price display -->
+                  <div class="absolute inset-0 flex flex-col items-center justify-center">
+                    <span class="text-sm text-gray-500 dark:text-gray-400">Total Cost</span>
+                    <span id="pass-price-value" class="text-4xl font-bold text-primary dark:text-primary-dark">€0</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Features list -->
+              <ul class="space-y-3">
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-primary dark:text-primary-dark mt-0.5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="text-gray-700 dark:text-gray-200">One pass for all attractions</span>
+                </li>
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-primary dark:text-primary-dark mt-0.5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="text-gray-700 dark:text-gray-200">Skip-the-line access</span>
+                </li>
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-primary dark:text-primary-dark mt-0.5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="text-gray-700 dark:text-gray-200">Unlimited public transportation</span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
-        
-        <!-- 7-Day Pass -->
-        <div class="bg-white dark:bg-gray-700 rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105 relative">
-          <div class="absolute top-0 right-0 bg-primary text-white text-xs px-3 py-1 rounded-bl-lg font-medium">
-            BEST VALUE
-          </div>
-          <div class="p-8">
-            <h3 class="text-2xl font-bold mb-2 dark:text-white">7-Day Pass</h3>
-            <p class="text-gray-600 dark:text-gray-300 mb-6">Complete city experience</p>
-            <div class="text-4xl font-bold text-primary dark:text-primary-dark mb-6">$69</div>
-            <ul class="space-y-3 mb-8">
-              <li class="flex items-center">
-                <i class="fas fa-check text-green-500 mr-2"></i>
-                <span class="dark:text-gray-300">Access to 30+ attractions</span>
-              </li>
-              <li class="flex items-center">
-                <i class="fas fa-check text-green-500 mr-2"></i>
-                <span class="dark:text-gray-300">Unlimited public transport</span>
-              </li>
-              <li class="flex items-center">
-                <i class="fas fa-check text-green-500 mr-2"></i>
-                <span class="dark:text-gray-300">20% discount at partner restaurants</span>
-              </li>
-              <li class="flex items-center">
-                <i class="fas fa-check text-green-500 mr-2"></i>
-                <span class="dark:text-gray-300">Two free guided tours</span>
-              </li>
-              <li class="flex items-center">
-                <i class="fas fa-check text-green-500 mr-2"></i>
-                <span class="dark:text-gray-300">Airport transfer included</span>
-              </li>
-            </ul>
-            <button class="w-full bg-primary dark:bg-primary-dark text-white py-3 rounded-lg hover:bg-primary-dark dark:hover:bg-opacity-90 transition duration-300">
-              Select 7-Day Pass
-            </button>
+
+        <!-- Savings Summary -->
+        <div class="mt-12 max-w-lg mx-auto">
+          <div class="bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 rounded-2xl p-8 shadow-lg relative overflow-hidden">
+            <!-- Decorative elements -->
+            <div class="absolute -right-6 -top-6 w-24 h-24 bg-green-100 dark:bg-green-900/20 rounded-full"></div>
+            <div class="absolute -left-6 -bottom-6 w-24 h-24 bg-blue-100 dark:bg-blue-900/20 rounded-full"></div>
+
+            <!-- Content -->
+            <div class="relative">
+              <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4">Your Total Savings:</h3>
+
+              <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex flex-col items-center">
+                  <span class="text-sm text-gray-500 dark:text-gray-400 mb-1">You Save</span>
+                  <div class="flex items-baseline">
+                    <span id="savings-amount" class="text-4xl font-bold text-green-600 dark:text-green-500">€0</span>
+                  </div>
+                </div>
+
+                <div class="h-12 w-px bg-gray-200 dark:bg-gray-700 hidden md:block"></div>
+
+                <div class="flex flex-col items-center">
+                  <span class="text-sm text-gray-500 dark:text-gray-400 mb-1">Discount</span>
+                  <div class="relative">
+                    <div class="absolute -inset-1 bg-green-200 dark:bg-green-900/30 rounded-lg blur opacity-70"></div>
+                    <div class="relative bg-white dark:bg-dark-bg px-4 py-2 rounded-lg">
+                      <span id="savings-percentage" class="text-4xl font-bold text-green-600 dark:text-green-500">0%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- FAQ Section -->
-  <section class="py-20 bg-white dark:bg-dark-bg">
-    <div class="container mx-auto px-6">
-      <h2 class="text-3xl font-bold text-center mb-16 dark:text-gray-100">Frequently Asked Questions</h2>
-      
-      <div class="max-w-3xl mx-auto space-y-6">
-        <div class="border dark:border-gray-700 rounded-xl p-6">
-          <h3 class="text-xl font-semibold mb-3 dark:text-white">How does the City Pass work?</h3>
-          <p class="text-gray-600 dark:text-gray-400">The City Pass is a digital or physical card that gives you access to attractions and public transportation. Simply show your pass at the entrance of attractions or on public transport to gain entry.</p>
+
+    <!-- Purchase Options Section -->
+    <section id="purchase-section" class="mb-16">
+      <h2 id="purchase-title" class="text-3xl font-bold text-center mb-2 text-gray-800 dark:text-gray-100">Choose Your Duration</h2>
+      <p id="purchase-subtitle" class="text-center text-gray-600 dark:text-gray-400 mb-8">Select the pass that fits your trip duration</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8" role="radiogroup" aria-label="Duration options">
+        <!-- 2-Day Option -->
+        <div class="duration-option relative bg-white dark:bg-dark-bg-accent rounded-xl border-2 border-gray-200 dark:border-dark-border p-6 cursor-pointer transition-all duration-300 hover:shadow-md" role="radio" aria-checked="false" tabindex="0">
+          <div class="popular-badge hidden absolute -top-3 -right-3 bg-primary dark:bg-primary-dark text-white px-3 py-1 rounded-full text-sm font-medium">Popular</div>
+          <h3 class="duration-title text-xl font-bold mb-2">2-Day Pass</h3>
+          <p class="duration-price text-3xl font-bold mb-1">€0</p>
+          <p class="duration-price-details text-gray-600 dark:text-gray-400 mb-4">€0 per day</p>
+
+          <ul class="duration-features space-y-2 text-gray-700 dark:text-gray-300">
+            <!-- Features will be populated by JavaScript -->
+          </ul>
         </div>
-        
-        <div class="border dark:border-gray-700 rounded-xl p-6">
-          <h3 class="text-xl font-semibold mb-3 dark:text-white">When does my pass activate?</h3>
-          <p class="text-gray-600 dark:text-gray-400">Your pass activates the first time you use it at an attraction or on public transportation. From that moment, it's valid for the consecutive number of days you've purchased.</p>
+
+        <!-- 4-Day Option -->
+        <div class="duration-option relative bg-white dark:bg-dark-bg-accent rounded-xl border-2 border-gray-200 dark:border-dark-border p-6 cursor-pointer transition-all duration-300 hover:shadow-md" role="radio" aria-checked="false" tabindex="0">
+          <div class="popular-badge hidden absolute -top-3 -right-3 bg-primary dark:bg-primary-dark text-white px-3 py-1 rounded-full text-sm font-medium">Popular</div>
+         <h3 class="duration-title text-xl font-bold mb-2">4-Day Pass</h3>
+          <p class="duration-price text-3xl font-bold mb-1">€0</p>
+          <p class="duration-price-details text-gray-600 dark:text-gray-400 mb-4">€0 per day</p>
+
+          <ul class="duration-features space-y-2 text-gray-700 dark:text-gray-300">
+            <!-- Features will be populated by JavaScript -->
+          </ul>
         </div>
-        
-        <div class="border dark:border-gray-700 rounded-xl p-6">
-          <h3 class="text-xl font-semibold mb-3 dark:text-white">Can I visit the same attraction multiple times?</h3>
-          <p class="text-gray-600 dark:text-gray-400">Most attractions allow one-time entry with the City Pass. However, you can use public transportation as many times as you want during the validity period.</p>
-        </div>
-        
-        <div class="border dark:border-gray-700 rounded-xl p-6">
-          <h3 class="text-xl font-semibold mb-3 dark:text-white">How do I receive my City Pass?</h3>
-          <p class="text-gray-600 dark:text-gray-400">You can choose to receive your City Pass digitally via email or pick up a physical card at designated tourist information centers in the city.</p>
+
+        <!-- 7-Day Option -->
+        <div class="duration-option relative bg-white dark:bg-dark-bg-accent rounded-xl border-2 border-gray-200 dark:border-dark-border p-6 cursor-pointer transition-all duration-300 hover:shadow-md" role="radio" aria-checked="false" tabindex="0">
+          <div class="popular-badge hidden absolute -top-3 -right-3 bg-primary dark:bg-primary-dark text-white px-3 py-1 rounded-full text-sm font-medium">Popular</div>
+          <h3 class="duration-title text-xl font-bold mb-2">7-Day Pass</h3>
+          <p class="duration-price text-3xl font-bold mb-1">€0</p>
+          <p class="duration-price-details text-gray-600 dark:text-gray-400 mb-4">€0 per day</p>
+
+          <ul class="duration-features space-y-2 text-gray-700 dark:text-gray-300">
+            <!-- Features will be populated by JavaScript -->
+          </ul>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- CTA Section -->
-  <section class="py-20 bg-primary dark:bg-primary-dark text-white">
-    <div class="container mx-auto px-6 text-center">
-      <h2 class="text-3xl font-bold mb-6">Ready to Explore Morocco?</h2>
-      <p class="text-xl mb-8 max-w-2xl mx-auto">Add a City Pass to your itinerary and make the most of your Moroccan adventure.</p>
-      <a href="wizard.html" class="bg-white text-primary hover:bg-gray-100 px-8 py-3 rounded-full font-medium transition duration-300 inline-block">
-        Plan Your Trip Now
-      </a>
-    </div>
-  </section>
+      <!-- Proceed Button -->
+      <div class="text-center mobile-sticky-cta py-4 bg-white dark:bg-dark-bg md:bg-transparent md:dark:bg-transparent">
+        <button id="proceed-button" class="bg-primary hover:bg-primary-hover dark:bg-primary-dark dark:hover:bg-primary-hover px-10 py-4 rounded-full text-white font-medium text-lg transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-primary" disabled>
+          Proceed to Purchase
+        </button>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq-section" class="mb-16">
+      <h2 id="faq-title" class="text-3xl font-bold text-center mb-8 text-gray-800 dark:text-gray-100">Frequently Asked Questions</h2>
+
+      <div id="faq-accordion" class="max-w-3xl mx-auto">
+        <!-- FAQ items will be loaded here by JavaScript -->
+      </div>
+    </section>
+  </main>
 
   <!-- Footer Placeholder -->
   <footer id="footer-placeholder" class="bg-white dark:bg-dark-bg border-t border-gray-200 dark:border-dark-border"></footer>
 
   <!-- Scripts -->
-  <script type="module" src="../js/main.js"></script>
+  <script src="../js/pages/city-pass/city-pass-bundle.js"></script>
+  <script src="../js/pages/city-pass/mobile-menu-fix-v2.js"></script>
+
+  <!-- Theme toggle script -->
+  <script>
+    // Check for saved theme preference or respect OS setting
+    if (localStorage.getItem('theme') === 'dark' ||
+        (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.remove('light');
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      document.documentElement.classList.add('light');
+    }
+
+    // Watch for existing toggle click events from ui.js
+    document.addEventListener('DOMContentLoaded', function() {
+      // Wait for header to be loaded from placeholder
+      setTimeout(() => {
+        // Find theme toggle in header (assuming it has a common class or id)
+        const themeToggle = document.querySelector('.theme-toggle, #theme-toggle, [data-theme-toggle]');
+
+        if (themeToggle) {
+          // Listen to clicks on the existing toggle
+          themeToggle.addEventListener('click', function() {
+            // Toggle dark/light classes on html element
+            if (document.documentElement.classList.contains('dark')) {
+              document.documentElement.classList.remove('dark');
+              document.documentElement.classList.add('light');
+              localStorage.setItem('theme', 'light');
+            } else {
+              document.documentElement.classList.remove('light');
+              document.documentElement.classList.add('dark');
+              localStorage.setItem('theme', 'dark');
+            }
+          });
+        }
+      }, 500); // Give time for header to load
+
+      // Listen for theme changes from localStorage (in case ui.js updates it)
+      window.addEventListener('storage', function(event) {
+        if (event.key === 'theme') {
+          if (event.newValue === 'dark') {
+            document.documentElement.classList.remove('light');
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+            document.documentElement.classList.add('light');
+          }
+        }
+      });
+
+      // Create a MutationObserver to watch for class changes on body that might be done by ui.js
+      const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          if (mutation.attributeName === 'class') {
+            const bodyClasses = document.body.classList;
+            if (bodyClasses.contains('dark-mode') || bodyClasses.contains('dark-theme')) {
+              document.documentElement.classList.remove('light');
+              document.documentElement.classList.add('dark');
+            } else if (bodyClasses.contains('light-mode') || bodyClasses.contains('light-theme')) {
+              document.documentElement.classList.remove('dark');
+              document.documentElement.classList.add('light');
+            }
+          }
+        });
+      });
+
+      observer.observe(document.body, { attributes: true });
+    });
+  </script>
 </body>
 </html>

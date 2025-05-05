@@ -1,0 +1,219 @@
+{
+  "city": {
+    "name": "Marrakech",
+    "title": "marrakech City Pass",
+    "subtitle": "Your all-in-one ticket for a magical Moroccan adventure",
+    "heroImage": "../../../assets/image/hero/marrakech.png"
+  },
+  "features": [
+    {
+      "name": "Museums & Attractions",
+      "icon": "landmark",
+      "description": "Access to 15+ top museums and cultural sites"
+    },
+    {
+      "name": "Public Transport",
+      "icon": "bus",
+      "description": "Unlimited rides on city buses and trams"
+    },
+    {
+      "name": "Guided Tours",
+      "icon": "map-marked-alt",
+      "description": "3 guided walking tours included"
+    },
+    {
+      "name": "Traditional Hammam",
+      "icon": "hot-tub",
+      "description": "One complimentary hammam experience"
+    },
+    {
+      "name": "Garden Access",
+      "icon": "tree",
+      "description": "Entry to Majorelle Garden and other famous gardens"
+    },
+    {
+      "name": "Shopping Discounts",
+      "icon": "tags",
+      "description": "10-15% off at participating souk merchants"
+    }
+  ],
+  "durations": [
+    {
+      "id": "2day",
+      "name": "2-Day Pass",
+      "price": 349,
+      "description": "Perfect for weekend trips",
+      "popular": false
+    },
+    {
+      "id": "4day",
+      "name": "4-Day Pass",
+      "price": 549,
+      "description": "Our most popular option",
+      "popular": true
+    },
+    {
+      "id": "7day",
+      "name": "7-Day Pass",
+      "price": 849,
+      "description": "Best value for longer stays",
+      "popular": false
+    }
+  ],
+  "attractions": [
+    {
+      "name": "Bahia Palace",
+      "price": 70
+    },
+    {
+      "name": "Majorelle Garden",
+      "price": 150
+    },
+    {
+      "name": "Saadian Tombs",
+      "price": 70
+    },
+    {
+      "name": "Koutoubia Mosque",
+      "price": 0
+    },
+    {
+      "name": "El Badi Palace",
+      "price": 70
+    },
+    {
+      "name": "Marrakech Museum",
+      "price": 50
+    },
+    {
+      "name": "Traditional Hammam",
+      "price": 350
+    },
+    {
+      "name": "Menara Gardens",
+      "price": 30
+    },
+    {
+      "name": "Day Trip to Atlas Mountains",
+      "price": 500
+    },
+    {
+      "name": "Guided Souks Tour",
+      "price": 200
+    }
+  ],
+  "benefits": [
+    {
+      "title": "Skip-the-Line Access",
+      "icon": "clock",
+      "description": "Save time with priority entry at most attractions. Simply show your pass at the priority entrance and walk right in."
+    },
+    {
+      "title": "Unlimited Public Transport",
+      "icon": "bus",
+      "description": "Hop on and off buses and trams as much as you want during your pass validity. No need to buy separate tickets."
+    },
+    {
+      "title": "Guided Walking Tours",
+      "icon": "walking",
+      "description": "Join any of our daily walking tours led by expert local guides who will share fascinating insights about Marrakech's history and culture."
+    },
+    {
+      "title": "Mobile Pass Option",
+      "icon": "mobile-alt",
+      "description": "Keep your pass on your smartphone - no need to print anything. Works offline too!"
+    },
+    {
+      "title": "Exclusive Discounts",
+      "icon": "percentage",
+      "description": "Show your pass to receive special discounts at participating restaurants, shops, and additional attractions."
+    }
+  ],
+  "usageSteps": [
+    {
+      "title": "Purchase & Download",
+      "description": "Buy your pass online and download the PDF or install our mobile app to access your digital pass."
+    },
+    {
+      "title": "Activation",
+      "description": "Your pass activates automatically the first time you use it at any attraction or on public transport."
+    },
+    {
+      "title": "Show & Scan",
+      "description": "Present your pass (digital or printed) at each attraction entrance or to bus drivers. They'll scan the QR code for validation."
+    },
+    {
+      "title": "Enjoy!",
+      "description": "Make the most of your pass by visiting as many attractions as you can during your chosen duration."
+    }
+  ],
+  "faqs": [
+    {
+      "question": "When does my pass expire?",
+      "answer": "Your pass is valid for consecutive days from first use. For example, a 4-day pass activated on Monday at 2pm will be valid until Friday at 2pm."
+    },
+    {
+      "question": "Can I visit attractions multiple times?",
+      "answer": "Most attractions allow one-time entry with the pass. However, you can use public transport unlimited times during the validity period."
+    },
+    {
+      "question": "What happens if I don't use all the days on my pass?",
+      "answer": "Unused days are not refundable. We recommend selecting a duration that matches your planned stay in Marrakech."
+    },
+    {
+      "question": "Can I share my pass with friends or family?",
+      "answer": "No, each pass is valid for one person only. Each traveler needs their own pass."
+    },
+    {
+      "question": "Is there a mobile app for the pass?",
+      "answer": "Yes, you can download our app to store and access your pass digitally. It works offline once downloaded."
+    },
+    {
+      "question": "Are guided tours in multiple languages?",
+      "answer": "Yes, our guided tours are available in English, French, Spanish, and Arabic. Please check the schedule for specific language timings."
+    }
+  ],
+  "itineraries": [
+    {
+      "title": "Historic Medina Experience",
+      "thumbnail": "/images/itinerary-medina.jpg",
+      "description": "Explore the ancient heart of Marrakech over 2 days",
+      "url": "/itineraries/historic-medina"
+    },
+    {
+      "title": "Gardens & Palaces",
+      "thumbnail": "/images/itinerary-gardens.jpg",
+      "description": "Discover the most beautiful green spaces and royal residences",
+      "url": "/itineraries/gardens-palaces"
+    },
+    {
+      "title": "Complete Marrakech",
+      "thumbnail": "/images/itinerary-complete.jpg",
+      "description": "The perfect 4-day introduction to all Marrakech has to offer",
+      "url": "/itineraries/complete-marrakech"
+    }
+  ],
+  "contactMethods": [
+    {
+      "type": "chat",
+      "icon": "comments",
+      "title": "Live Chat",
+      "description": "Get instant answers from our team",
+      "value": "#chat"
+    },
+    {
+      "type": "email",
+      "icon": "envelope",
+      "title": "Email Support",
+      "description": "We usually respond within 24 hours",
+      "value": "support@tsafira.com"
+    },
+    {
+      "type": "phone",
+      "icon": "phone",
+      "title": "Call Us",
+      "description": "Available 9am-6pm (GMT+1)",
+      "value": "+212 522 123 456"
+    }
+  ]
+}

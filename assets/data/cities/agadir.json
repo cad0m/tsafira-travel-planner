@@ -1,0 +1,219 @@
+{
+    "city": {
+      "name": "Agadir",
+      "title": "Agadir City Pass",
+      "subtitle": "Experience Morocco's premier beach destination with its perfect blend of sun, sea, and culture",
+      "heroImage": "../../../assets/image/hero/agadir.png"
+    },
+    "features": [
+      {
+        "name": "Beach Activities",
+        "icon": "umbrella-beach",
+        "description": "Access to premium beach clubs and water activities"
+      },
+      {
+        "name": "Public Transport",
+        "icon": "bus",
+        "description": "Unlimited rides on city buses and petit taxis"
+      },
+      {
+        "name": "Guided Tours",
+        "icon": "map-marked-alt",
+        "description": "2 guided tours including Kasbah and city highlights"
+      },
+      {
+        "name": "Nature Experience",
+        "icon": "leaf",
+        "description": "One complimentary Paradise Valley or Souss-Massa National Park visit"
+      },
+      {
+        "name": "Wellness Access",
+        "icon": "spa",
+        "description": "Entry to a traditional hammam and spa experience"
+      },
+      {
+        "name": "Shopping Discounts",
+        "icon": "tags",
+        "description": "10-20% off at participating shops in Souk El Had and marina area"
+      }
+    ],
+    "durations": [
+      {
+        "id": "3day",
+        "name": "3-Day Pass",
+        "price": 349,
+        "description": "Perfect for weekend trips",
+        "popular": false
+      },
+      {
+        "id": "5day",
+        "name": "5-Day Pass",
+        "price": 499,
+        "description": "Our most popular option",
+        "popular": true
+      },
+      {
+        "id": "7day",
+        "name": "7-Day Pass",
+        "price": 649,
+        "description": "Best value for longer beach vacations",
+        "popular": false
+      }
+    ],
+    "attractions": [
+      {
+        "name": "Agadir Kasbah Ruins",
+        "price": 50
+      },
+      {
+        "name": "Premium Beach Club Access",
+        "price": 200
+      },
+      {
+        "name": "Agadir Marina Boat Tour",
+        "price": 250
+      },
+      {
+        "name": "Souk El Had Market",
+        "price": 0
+      },
+      {
+        "name": "Crocoparc Agadir",
+        "price": 120
+      },
+      {
+        "name": "Valley of the Birds",
+        "price": 40
+      },
+      {
+        "name": "Traditional Hammam Experience",
+        "price": 300
+      },
+      {
+        "name": "Paradise Valley Excursion",
+        "price": 400
+      },
+      {
+        "name": "Day Trip to Taghazout",
+        "price": 350
+      },
+      {
+        "name": "Guided City Tour",
+        "price": 150
+      }
+    ],
+    "benefits": [
+      {
+        "title": "Skip-the-Line Access",
+        "icon": "clock",
+        "description": "Save time with priority entry at most attractions. Simply show your pass at the priority entrance and walk right in."
+      },
+      {
+        "title": "Unlimited Public Transport",
+        "icon": "bus",
+        "description": "Hop on and off buses and use petit taxis with ease during your pass validity. No need to buy separate tickets."
+      },
+      {
+        "title": "Guided Tours & Activities",
+        "icon": "walking",
+        "description": "Join our scheduled tours led by knowledgeable local guides who will share fascinating insights about Agadir's rebirth and coastal culture."
+      },
+      {
+        "title": "Mobile Pass Option",
+        "icon": "mobile-alt",
+        "description": "Keep your pass on your smartphone - no need to print anything. Works offline too!"
+      },
+      {
+        "title": "Exclusive Discounts",
+        "icon": "percentage",
+        "description": "Show your pass to receive special discounts at participating restaurants, beach clubs, and additional attractions."
+      }
+    ],
+    "usageSteps": [
+      {
+        "title": "Purchase & Download",
+        "description": "Buy your pass online and download the PDF or install our mobile app to access your digital pass."
+      },
+      {
+        "title": "Activation",
+        "description": "Your pass activates automatically the first time you use it at any attraction or on public transport."
+      },
+      {
+        "title": "Show & Scan",
+        "description": "Present your pass (digital or printed) at each attraction entrance or to transport operators. They'll scan the QR code for validation."
+      },
+      {
+        "title": "Enjoy!",
+        "description": "Make the most of your pass by visiting as many attractions as you can during your chosen duration."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "When does my pass expire?",
+        "answer": "Your pass is valid for consecutive days from first use. For example, a 5-day pass activated on Monday at 2pm will be valid until Saturday at 2pm."
+      },
+      {
+        "question": "Can I visit attractions multiple times?",
+        "answer": "Most attractions allow one-time entry with the pass. However, you can use public transport unlimited times during the validity period."
+      },
+      {
+        "question": "What happens if I don't use all the days on my pass?",
+        "answer": "Unused days are not refundable. We recommend selecting a duration that matches your planned stay in Agadir."
+      },
+      {
+        "question": "Can I share my pass with friends or family?",
+        "answer": "No, each pass is valid for one person only. Each traveler needs their own pass."
+      },
+      {
+        "question": "Is there a mobile app for the pass?",
+        "answer": "Yes, you can download our app to store and access your pass digitally. It works offline once downloaded."
+      },
+      {
+        "question": "Are guided tours in multiple languages?",
+        "answer": "Yes, our guided tours are available in English, French, German, Arabic, and Russian. Please check the schedule for specific language timings."
+      }
+    ],
+    "itineraries": [
+      {
+        "title": "Beach & Relaxation",
+        "thumbnail": "/images/itinerary-beach.jpg",
+        "description": "Enjoy the best of Agadir's famous coastline and wellness offerings",
+        "url": "/itineraries/beach-relaxation"
+      },
+      {
+        "title": "Nature & Adventure",
+        "thumbnail": "/images/itinerary-nature.jpg",
+        "description": "Discover the spectacular natural surroundings of Agadir from mountains to coastline",
+        "url": "/itineraries/nature-adventure"
+      },
+      {
+        "title": "Complete Agadir Experience",
+        "thumbnail": "/images/itinerary-complete.jpg",
+        "description": "The perfect 5-day introduction to all Agadir has to offer",
+        "url": "/itineraries/complete-agadir"
+      }
+    ],
+    "contactMethods": [
+      {
+        "type": "chat",
+        "icon": "comments",
+        "title": "Live Chat",
+        "description": "Get instant answers from our team",
+        "value": "#chat"
+      },
+      {
+        "type": "email",
+        "icon": "envelope",
+        "title": "Email Support",
+        "description": "We usually respond within 24 hours",
+        "value": "support@agadirpass.com"
+      },
+      {
+        "type": "phone",
+        "icon": "phone",
+        "title": "Call Us",
+        "description": "Available 9am-6pm (GMT+1)",
+        "value": "+212 528 876 543"
+      }
+    ]
+  }

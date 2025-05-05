@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en" class="light scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>City Pass - Tsafira</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <script>
+    window.FontAwesomeConfig = {
+      autoReplaceSvg: 'nest'
+    };
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Tailwind CSS with dark mode enabled -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              DEFAULT: 'var(--color-primary)',
+              hover: 'var(--color-primary-hover)',
+              dark: 'var(--color-primary)',
+            },
+            secondary: {
+              DEFAULT: 'var(--color-secondary)',
+              dark: 'var(--color-secondary)',
+            },
+            dark: {
+              bg: 'var(--color-bg)',
+              'bg-alt': 'var(--color-bg-alt)',
+              'bg-accent': 'var(--color-bg-accent)',
+              border: 'var(--color-border)',
+            }
+          },
+        }
+      }
+    };
+  </script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/city-pass/city-card.css">
+</head>
+<body class="h-full text-[var(--color-text)] bg-[var(--color-bg)]" data-page="city-card">
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress-container bg-[var(--color-bg-accent)]">
+    <div class="scroll-progress-bar"></div>
+  </div>
+
+  <!-- Custom Theme Toggle Button removed -->
+
+  <!-- Header Placeholder -->
+  <header id="header-placeholder"></header>
+
+  <main class="city-card-container">
+    <!-- 1. Hero Banner (full-bleed) -->
+    <section class="hero-banner" id="hero-banner">
+      <div class="container mx-auto px-4 h-full flex items-end justify-start pb-16">
+        <div class="text-white max-w-lg hero-content">
+          <h1 class="text-4xl md:text-5xl font-bold mb-2" id="city-title"><!-- Will be populated by JS --></h1>
+          <p class="text-xl mb-6" id="city-subtitle"><!-- Will be populated by JS --></p>
+          <div class="flex flex-wrap gap-4">
+            <button class="bg-primary hover:bg-primary-hover text-white px-6 py-3 rounded-full font-medium transition-colors">
+              Buy Pass
+            </button>
+            <a href="#what-included" class="bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 text-white px-6 py-3 rounded-full font-medium transition-colors">
+              Learn More
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Sticky Purchase Bar -->
+    <div class="purchase-bar shadow-lg" id="purchase-bar">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row items-center justify-between">
+          <div class="flex items-center">
+            <div>
+              <span class="font-bold text-lg" id="sticky-duration"><!-- Will be populated by JS --></span>
+              <span class="mx-2">•</span>
+              <span class="text-text-muted" id="sticky-price"><!-- Will be populated by JS --></span>
+            </div>
+          </div>
+          <button class="bg-primary hover:bg-primary-hover text-white px-6 py-3 rounded-full font-medium transition-colors mt-4 md:mt-0 w-full md:w-auto">
+            Proceed to Purchase
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. What's Included Snapshot - Enhanced Version -->
+    <section id="what-included" class="py-20 bg-bg dark:bg-bg-alt relative overflow-hidden">
+      <!-- Decorative background elements -->
+      <div class="absolute top-0 left-0 w-64 h-64 bg-primary opacity-5 rounded-full -translate-x-1/3 -translate-y-1/3"></div>
+      <div class="absolute bottom-0 right-0 w-96 h-96 bg-secondary opacity-5 rounded-full translate-x-1/3 translate-y-1/3"></div>
+
+      <!-- Decorative pattern -->
+      <div class="absolute inset-0 pattern-dots opacity-5 dark:opacity-10"></div>
+
+      <div class="container mx-auto px-4 relative z-10">
+        <!-- Section Header with Icon -->
+        <div class="flex flex-col items-center mb-16">
+          <div class="w-20 h-20 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6 relative">
+            <i class="fas fa-ticket-alt text-primary text-3xl"></i>
+            <!-- Decorative rings -->
+            <div class="absolute inset-0 border-2 border-primary border-opacity-20 rounded-full animate-ping-slow"></div>
+            <div class="absolute inset-0 border border-primary border-opacity-40 rounded-full" style="transform: scale(1.2)"></div>
+          </div>
+          <h2 class="text-3xl md:text-4xl font-bold text-center mb-3 relative">
+            <span class="relative z-10">What's Included</span>
+            <span class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-primary rounded"></span>
+          </h2>
+          <p class="text-center text-text-muted max-w-2xl mx-auto mt-6 mb-2">
+            Your all-access pass to the best experiences the city has to offer
+          </p>
+        </div>
+
+        <!-- Two-column layout for features and city card -->
+        <div class="whats-included-container">
+          <!-- Left column: Features grid -->
+          <div class="features-column">
+            <div class="features-grid" id="features-grid">
+              <!-- Features will be populated by JavaScript -->
+            </div>
+          </div>
+
+          <!-- Right column: City card image -->
+          <div class="city-card-column">
+            <div class="city-card-showcase">
+              <div class="city-card-wrapper" id="city-card-image">
+                <!-- City card image will be populated by JavaScript -->
+              </div>
+              <div class="city-card-shadow"></div>
+              <div class="city-card-reflection"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Choose Your Duration -->
+    <section id="choose-duration" class="py-16 bg-bg-alt dark:bg-bg">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-6">Choose Your Duration</h2>
+        <p class="text-center text-text-muted mb-8 max-w-2xl mx-auto">
+          Select the duration that best fits your travel plans. Longer passes offer better value.
+        </p>
+
+        <div class="duration-cards" id="duration-cards">
+          <!-- Duration cards will be populated by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Savings Calculator -->
+    <section id="savings-calculator" class="py-16 bg-bg dark:bg-bg-alt relative overflow-hidden">
+      <!-- Background decoration elements -->
+      <div class="absolute top-0 left-0 w-64 h-64 bg-primary opacity-5 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+      <div class="absolute bottom-0 right-0 w-96 h-96 bg-secondary opacity-5 rounded-full translate-x-1/3 translate-y-1/3"></div>
+
+      <div class="container mx-auto px-4 relative z-10">
+        <!-- Section Header with Icon -->
+        <div class="flex flex-col items-center mb-10">
+          <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-4">
+            <i class="fas fa-calculator text-primary text-2xl"></i>
+          </div>
+          <h2 class="text-3xl md:text-4xl font-bold text-center mb-3">Calculate Your Savings</h2>
+          <div class="w-20 h-1 bg-primary rounded mb-4"></div>
+          <p class="text-center text-text-muted max-w-2xl mx-auto">
+            Select the attractions you plan to visit and see how much you'll save with the City Pass.
+          </p>
+        </div>
+
+        <div class="savings-calculator">
+          <!-- Interactive Tabs -->
+          <div class="savings-tabs flex mb-6 border-b border-[var(--color-border)]">
+            <button id="tab-attractions" class="savings-tab active py-3 px-6 font-medium border-b-2 border-primary relative">
+              <span class="flex items-center">
+                <i class="fas fa-map-marker-alt mr-2"></i>
+                Select Attractions
+                <span id="attractions-badge" class="ml-2 w-5 h-5 bg-primary text-white rounded-full text-xs flex items-center justify-center">0</span>
+              </span>
+            </button>
+            <button id="tab-results" class="savings-tab py-3 px-6 font-medium border-b-2 border-transparent hover:border-primary-hover transition-colors">
+              <span class="flex items-center">
+                <i class="fas fa-chart-bar mr-2"></i>
+                View Results
+              </span>
+            </button>
+          </div>
+
+          <!-- Tab Content Container -->
+          <div class="savings-tab-content">
+            <!-- Attractions Selection Tab -->
+            <div id="content-attractions" class="tab-pane active">
+              <div class="attractions-header flex justify-between items-center mb-4">
+                <h3 class="text-xl font-bold flex items-center">
+                  <i class="fas fa-ticket-alt text-primary mr-2"></i>
+                  Available Attractions
+                </h3>
+                <div class="flex items-center">
+                  <button id="select-all-btn" class="text-sm font-medium text-primary hover:text-primary-hover mr-4">
+                    <i class="fas fa-check-square mr-1"></i> Select All
+                  </button>
+                  <button id="clear-all-btn" class="text-sm font-medium text-text-muted hover:text-primary-hover">
+                    <i class="fas fa-times-circle mr-1"></i> Clear All
+                  </button>
+                </div>
+              </div>
+
+              <div class="attractions-container">
+                <div class="attractions-list" id="attractions-list">
+                  <!-- Attractions will be populated by JavaScript -->
+                </div>
+
+                <div class="attractions-summary">
+                  <div class="sticky top-4 bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
+                    <!-- Summary Header -->
+                    <div class="bg-primary bg-opacity-10 dark:bg-opacity-20 p-4 border-b border-[var(--color-border)]">
+                      <h4 class="font-bold text-lg flex items-center">
+                        <i class="fas fa-shopping-basket text-primary mr-2"></i>
+                        Your Selection
+                      </h4>
+                    </div>
+
+                    <!-- Summary Content -->
+                    <div class="p-4">
+                      <div class="flex justify-between items-center mb-3">
+                        <span class="font-medium">Selected:</span>
+                        <span id="selected-count" class="font-bold text-lg">0</span>
+                      </div>
+
+                      <div class="flex justify-between items-center mb-3">
+                        <span class="font-medium">Total Value:</span>
+                        <span id="total-value" class="font-bold text-lg">€0</span>
+                      </div>
+
+                      <div class="flex justify-between items-center mb-4">
+                        <span class="font-medium">Pass Price:</span>
+                        <span id="pass-price" class="font-bold text-lg">€549</span>
+                      </div>
+
+                      <div class="savings-preview p-3 bg-green-50 dark:bg-green-900 dark:bg-opacity-20 rounded-lg mb-4">
+                        <div class="flex justify-between items-center">
+                          <span class="font-medium">Your Savings:</span>
+                          <span id="preview-savings" class="font-bold text-green-500 text-lg">€0</span>
+                        </div>
+                      </div>
+
+                      <button id="view-results-btn" class="w-full py-3 px-4 bg-primary hover:bg-primary-hover text-white rounded-lg font-medium transition-colors flex items-center justify-center">
+                        <i class="fas fa-chart-pie mr-2"></i>
+                        View Detailed Results
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Results Visualization Tab -->
+            <div id="content-results" class="tab-pane">
+              <div class="results-container bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
+                <!-- Results Header -->
+                <div class="bg-primary bg-opacity-10 dark:bg-opacity-20 p-4 border-b border-[var(--color-border)]">
+                  <h3 class="font-bold text-xl flex items-center">
+                    <i class="fas fa-chart-line text-primary mr-2"></i>
+                    Your Savings Analysis
+                  </h3>
+                </div>
+
+                <!-- Results Content -->
+                <div class="p-6">
+                  <div class="savings-results grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Left Column: Bar Chart -->
+                    <div class="chart-container overflow-visible">
+                      <h4 class="text-lg font-bold mb-4 text-center">Cost Comparison</h4>
+
+                      <div class="bar-chart-wrapper relative overflow-visible">
+                        <!-- Y-axis labels -->
+                        <div class="y-axis-labels absolute left-0 top-0 bottom-0 w-8 flex flex-col justify-between text-xs text-text-muted">
+                          <span class="transform -translate-y-1/2">€1000</span>
+                          <span class="transform -translate-y-1/2">€750</span>
+                          <span class="transform -translate-y-1/2">€500</span>
+                          <span class="transform -translate-y-1/2">€250</span>
+                          <span class="transform -translate-y-1/2">€0</span>
+                        </div>
+
+                        <!-- Chart area -->
+                        <div class="chart-area ml-10 border-b border-l border-[var(--color-border)] overflow-visible h-64">
+                          <!-- Grid lines -->
+                          <div class="grid-lines absolute left-0 right-0 top-0 bottom-0 flex flex-col justify-between pointer-events-none">
+                            <div class="h-px w-full bg-[var(--color-border)] bg-opacity-50"></div>
+                            <div class="h-px w-full bg-[var(--color-border)] bg-opacity-50"></div>
+                            <div class="h-px w-full bg-[var(--color-border)] bg-opacity-50"></div>
+                            <div class="h-px w-full bg-[var(--color-border)] bg-opacity-50"></div>
+                            <div class="h-px w-full bg-[var(--color-border)] bg-opacity-50"></div>
+                          </div>
+
+                          <!-- Bars -->
+                          <div class="bar-chart flex justify-center items-end gap-16 h-full py-4 relative">
+                            <div class="bar-wrapper text-center">
+                              <div class="bar with-pass bg-primary rounded-t-lg shadow-lg absolute bottom-0" style="height: 0;">
+                                <div class="bar-value -mt-10 font-bold text-lg px-3 py-1 bg-white dark:bg-gray-800 rounded-full shadow-sm">€0</div>
+                              </div>
+                              <div class="bar-label mt-4 font-medium absolute -bottom-16 left-1/2 transform -translate-x-1/2 w-full">With Pass</div>
+                              <div class="mt-1 text-sm text-text-muted absolute -bottom-24 left-1/2 transform -translate-x-1/2 w-full">Fixed price</div>
+                            </div>
+                            <div class="bar-wrapper text-center">
+                              <div class="bar without-pass bg-secondary rounded-t-lg shadow-lg absolute bottom-0" style="height: 0;">
+                                <div class="bar-value -mt-10 font-bold text-lg px-3 py-1 bg-white dark:bg-gray-800 rounded-full shadow-sm">€0</div>
+                              </div>
+                              <div class="bar-label mt-4 font-medium absolute -bottom-16 left-1/2 transform -translate-x-1/2 w-full">Without Pass</div>
+                              <div class="mt-1 text-sm text-text-muted absolute -bottom-24 left-1/2 transform -translate-x-1/2 w-full">Pay per attraction</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Right Column: Savings Summary -->
+                    <div class="savings-summary relative z-10">
+                      <h4 class="text-lg font-bold mb-4 text-center">Your Savings Summary</h4>
+
+                      <!-- Savings Card -->
+                      <div class="savings-card bg-gradient-to-br from-green-50 to-white dark:from-green-900 dark:from-opacity-20 dark:to-gray-800 p-6 rounded-xl shadow-md border border-green-100 dark:border-green-900 dark:border-opacity-20">
+                        <div class="flex items-center mb-6">
+                          <div class="savings-icon w-16 h-16 bg-green-100 dark:bg-green-900 dark:bg-opacity-30 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-piggy-bank text-3xl text-green-500"></i>
+                          </div>
+                          <div>
+                            <div class="text-sm uppercase tracking-wider text-text-muted font-medium">Total Savings</div>
+                            <div class="text-5xl font-bold text-green-500 mt-1 savings-counter" id="savings-amount">€0</div>
+                          </div>
+                        </div>
+
+                        <div class="savings-message text-sm text-text-muted mb-6 p-3 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
+                          Select attractions to calculate your potential savings
+                        </div>
+
+                        <!-- Selected Pass Info -->
+                        <div class="selected-pass-info">
+                          <div class="text-sm uppercase tracking-wider text-text-muted font-medium mb-2">Selected Pass</div>
+                          <div class="flex items-center p-3 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
+                            <div class="w-10 h-10 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mr-3">
+                              <i class="fas fa-ticket-alt text-primary"></i>
+                            </div>
+                            <div>
+                              <div class="font-bold" id="selected-pass-display">4-Day Pass</div>
+                              <div class="text-sm text-text-muted" id="selected-pass-price">€549</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Action Button -->
+                      <button id="back-to-attractions-btn" class="w-full mt-4 py-3 px-4 bg-transparent border border-primary hover:bg-primary hover:text-white text-primary rounded-lg font-medium transition-colors flex items-center justify-center">
+                        <i class="fas fa-arrow-left mr-2"></i>
+                        Back to Attractions
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Detailed Benefits (Improved) -->
+    <section id="benefits" class="benefits-section py-20 bg-bg-alt dark:bg-bg relative overflow-hidden">
+      <!-- Background decoration -->
+      <div class="benefits-background"></div>
+
+      <!-- Decorative elements -->
+      <div class="absolute top-0 right-0 w-64 h-64 bg-primary opacity-5 rounded-full translate-x-1/3 -translate-y-1/3"></div>
+      <div class="absolute bottom-0 left-0 w-96 h-96 bg-secondary opacity-5 rounded-full -translate-x-1/3 translate-y-1/3"></div>
+
+      <div class="container mx-auto px-4 relative z-10">
+        <!-- Section Header with Icon -->
+        <div class="flex flex-col items-center mb-16">
+          <div class="w-20 h-20 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6 relative">
+            <i class="fas fa-star text-primary text-3xl"></i>
+            <!-- Decorative rings -->
+            <div class="absolute inset-0 border-2 border-primary border-opacity-20 rounded-full animate-ping-slow"></div>
+            <div class="absolute inset-0 border border-primary border-opacity-40 rounded-full" style="transform: scale(1.2)"></div>
+          </div>
+          <h2 class="text-3xl md:text-4xl font-bold text-center mb-3 relative">
+            <span class="relative z-10">Premium Pass Benefits</span>
+            <span class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-primary rounded"></span>
+          </h2>
+          <p class="text-center text-text-muted max-w-2xl mx-auto mt-6 mb-2">
+            Enjoy these exclusive advantages when you purchase our city pass
+          </p>
+        </div>
+
+        <div class="benefits-container max-w-6xl mx-auto" id="benefits-container">
+          <!-- Benefits will be populated by JavaScript -->
+        </div>
+
+        <!-- Additional decorative element -->
+        <div class="flex justify-center mt-16">
+          <div class="w-16 h-1 bg-primary bg-opacity-30 rounded"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. How to Use / Activation Steps (Improved) -->
+    <section id="how-to-use" class="py-16 bg-bg dark:bg-bg-alt relative overflow-hidden">
+      <!-- Background decoration elements -->
+      <div class="absolute top-0 right-0 w-64 h-64 bg-primary opacity-5 rounded-full translate-x-1/3 -translate-y-1/3"></div>
+      <div class="absolute bottom-0 left-0 w-96 h-96 bg-secondary opacity-5 rounded-full -translate-x-1/3 translate-y-1/3"></div>
+
+      <div class="container mx-auto px-4 relative z-10">
+        <!-- Section Header with Icon -->
+        <div class="flex flex-col items-center mb-16">
+          <div class="w-20 h-20 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6">
+            <i class="fas fa-ticket-alt text-primary text-3xl"></i>
+          </div>
+          <h2 class="text-3xl md:text-4xl font-bold text-center mb-3">How to Use Your Pass</h2>
+          <div class="w-24 h-1 bg-primary rounded mb-6"></div>
+          <p class="text-center text-text-muted max-w-2xl mx-auto">
+            Follow these simple steps to make the most of your city pass experience
+          </p>
+        </div>
+
+        <div class="usage-steps max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-6 lg:gap-8" id="usage-steps">
+          <!-- Usage steps will be populated by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. FAQs -->
+    <section id="faqs" class="py-16 bg-bg-alt dark:bg-bg">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+
+        <div class="faq-container max-w-3xl mx-auto" id="faq-container">
+          <!-- FAQs will be populated by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. Social Proof & Urgency -->
+    <section id="social-proof" class="py-16 bg-bg dark:bg-bg-alt">
+      <div class="container mx-auto px-4">
+        <div class="social-proof flex flex-col md:flex-row justify-center items-center gap-12 max-w-4xl mx-auto bg-bg-accent dark:bg-bg p-8 rounded-2xl">
+          <div class="recent-buyers text-center md:text-left">
+            <div class="text-4xl font-bold mb-2 text-primary" id="recent-buyers-count"><!-- Will be populated by JS --></div>
+            <div class="text-text-muted">travelers bought this pass<br>in the last 24 hours</div>
+          </div>
+
+          <div class="discount-timer text-center">
+            <div class="text-lg font-semibold mb-4">Limited Time Offer Ends In:</div>
+            <div class="countdown flex justify-center gap-4" id="countdown">
+              <div class="countdown-item bg-bg-alt dark:bg-bg-accent p-4 rounded-lg shadow-sm">
+                <span class="countdown-value block text-2xl font-bold" id="days">00</span>
+                <span class="countdown-label text-text-muted text-sm">Days</span>
+              </div>
+              <div class="countdown-item bg-bg-alt dark:bg-bg-accent p-4 rounded-lg shadow-sm">
+                <span class="countdown-value block text-2xl font-bold" id="hours">00</span>
+                <span class="countdown-label text-text-muted text-sm">Hours</span>
+              </div>
+              <div class="countdown-item bg-bg-alt dark:bg-bg-accent p-4 rounded-lg shadow-sm">
+                <span class="countdown-value block text-2xl font-bold" id="minutes">00</span>
+                <span class="countdown-label text-text-muted text-sm">Mins</span>
+              </div>
+              <div class="countdown-item bg-bg-alt dark:bg-bg-accent p-4 rounded-lg shadow-sm">
+                <span class="countdown-value block text-2xl font-bold" id="seconds">00</span>
+                <span class="countdown-label text-text-muted text-sm">Secs</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. Related Itineraries -->
+    <section id="related-itineraries" class="py-16 bg-bg-alt dark:bg-bg">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12">Recommended Itineraries</h2>
+
+        <div class="itinerary-cards" id="itinerary-cards">
+          <!-- Itinerary cards will be populated by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. Support & Contact (Improved) -->
+    <section id="support-contact" class="py-20 bg-bg dark:bg-bg-alt relative overflow-hidden">
+      <!-- Background decoration elements -->
+      <div class="absolute top-0 left-0 w-64 h-64 bg-primary opacity-5 rounded-full -translate-x-1/3 -translate-y-1/3"></div>
+      <div class="absolute bottom-0 right-0 w-96 h-96 bg-secondary opacity-5 rounded-full translate-x-1/3 translate-y-1/3"></div>
+
+      <div class="container mx-auto px-4 relative z-10">
+        <!-- Section Header with Icon -->
+        <div class="flex flex-col items-center mb-16">
+          <div class="w-20 h-20 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6">
+            <i class="fas fa-headset text-primary text-3xl"></i>
+          </div>
+          <h2 class="text-3xl md:text-4xl font-bold text-center mb-3">Questions? We're Here to Help</h2>
+          <div class="w-24 h-1 bg-primary rounded mb-6"></div>
+          <p class="text-center text-text-muted max-w-2xl mx-auto">
+            Our support team is ready to assist you with any questions about your city pass
+          </p>
+        </div>
+
+        <div class="support-section max-w-5xl mx-auto">
+          <div class="contact-methods-container">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="contact-methods">
+              <!-- Contact methods will be populated by JavaScript -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Placeholder -->
+  <footer id="footer-placeholder" class="bg-[var(--color-bg)] border-t border-[var(--color-border)]"></footer>
+
+  <!-- Scripts -->
+  <script type="module">
+    // Import UI functions from ui.js
+    import { initTheme, toggleTheme, updateThemeIcons, initScrollProgressBar } from '../js/ui.js';
+
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize theme based on localStorage
+      const storedTheme = localStorage.getItem('theme') || 'light';
+      const htmlElement = document.documentElement;
+
+      // Apply theme class
+      if (storedTheme === 'dark') {
+        htmlElement.classList.remove('light');
+        htmlElement.classList.add('dark');
+      } else {
+        htmlElement.classList.remove('dark');
+        htmlElement.classList.add('light');
+      }
+
+      // Initialize scroll progress bar
+      initScrollProgressBar();
+
+      // Wait for header to be loaded from placeholder
+      setTimeout(() => {
+        // Update theme icons to match current theme
+        updateThemeIcons();
+
+        // Add click handlers to theme toggle buttons
+        const themeToggles = document.querySelectorAll('#theme-toggle, #theme-toggle-mobile, [data-theme-toggle]');
+        themeToggles.forEach(toggle => {
+          toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            toggleTheme();
+            return false;
+          });
+        });
+      }, 1000);
+    });
+
+    // Make the original toggleTheme function available globally
+    window.toggleTheme = toggleTheme;
+  </script>
+
+  <!-- Mobile Menu Fix Script -->
+  <script src="../js/pages/city-pass/mobile-menu-fix-v2.js"></script>
+
+  <script src="../js/pages/city-pass/city-card.js"></script>
+
+  <!-- Fallback theme toggle script in case module import fails -->
+  <script>
+    // Only define if not already defined by the module
+    if (typeof window.toggleTheme !== 'function') {
+      window.toggleTheme = function() {
+        const html = document.documentElement;
+        if (html.classList.contains('dark')) {
+          html.classList.remove('dark');
+          html.classList.add('light');
+          localStorage.setItem('theme', 'light');
+        } else {
+          html.classList.remove('light');
+          html.classList.add('dark');
+          localStorage.setItem('theme', 'dark');
+        }
+
+        // Update theme icons if the function exists
+        if (typeof window.updateThemeIcons === 'function') {
+          window.updateThemeIcons();
+        }
+      };
+    }
+
+    // Add click handlers to theme toggle buttons after a delay
+    setTimeout(() => {
+      const themeToggles = document.querySelectorAll('#theme-toggle, #theme-toggle-mobile, [data-theme-toggle]');
+      themeToggles.forEach(toggle => {
+        toggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          window.toggleTheme();
+          return false;
+        });
+      });
+    }, 1500);
+  </script>
+</body>
+</html>
