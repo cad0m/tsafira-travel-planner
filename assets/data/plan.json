@@ -1,0 +1,840 @@
+{
+  "trip": {
+    "id": "mor-2025-03-15",
+    "name": "My Morocco Adventure",
+    "country": "Morocco",
+    "region": "North Africa",
+    "dates": {
+      "start": "March 15, 2025",
+      "end": "March 22, 2025",
+      "duration": 8,
+      "current_day": 1
+    },
+    "budget": {
+      "currency": "USD",
+      "total_allocated": 3800,
+      "spent_to_date": 3600,
+      "remaining": 200,
+      "expenses_by_category": [
+        {
+          "name": "Accommodation",
+          "spent": 1200,
+          "allocated": 1500,
+          "remaining": 300
+        },
+        {
+          "name": "Transportation",
+          "spent": 800,
+          "allocated": 1900,
+          "remaining": 1100
+        },
+        {
+          "name": "Activities",
+          "spent": 400,
+          "allocated": 600,
+          "remaining": 200
+        },
+        {
+          "name": "Meals",
+          "spent": 225,
+          "allocated": 500,
+          "remaining": 275
+        }
+      ],
+      "daily_average_spent": 131.25,
+      "daily_average_remaining": 125
+    }
+  },
+  "regional_info": {
+    "country": "Morocco",
+    "dining_tips": [
+      {
+        "icon": "fa-clock",
+        "title": "Dining Times",
+        "description": "Moroccans typically dine later. Lunch is around 1-3 PM and dinner starts after 7 PM."
+      },
+      {
+        "icon": "fa-hands",
+        "title": "Eating Etiquette",
+        "description": "It's customary to eat with your right hand. Many traditional dishes are shared from a common plate."
+      },
+      {
+        "icon": "fa-mug-hot",
+        "title": "Mint Tea Culture",
+        "description": "Mint tea is offered as a gesture of hospitality. It's polite to accept and sip slowly."
+      }
+    ],
+    "transport_tips": [
+      {
+        "icon": "fa-circle-info",
+        "title": "Local Transport Tips",
+        "description": "Always agree on taxi fares before starting your journey. In cities, red petits taxis are metered."
+      },
+      {
+        "icon": "fa-mobile-screen",
+        "title": "Useful Apps",
+        "description": "Download the ONCF train app for real-time updates and digital tickets."
+      },
+      {
+        "icon": "fa-phone",
+        "title": "Emergency Contacts",
+        "description": "Save our 24/7 support number: +212 6XX XXX XXX"
+      }
+    ],
+    "emergency_contacts": {
+      "police": "190",
+      "ambulance": "150",
+      "tourist_police": "+212 5XXXXXXXX",
+      "embassy": {
+        "us": "+212 5XXXXXXXX",
+        "uk": "+212 5XXXXXXXX",
+        "eu": "+212 5XXXXXXXX"
+      }
+    },
+    "local_customs": [
+      {
+        "icon": "fa-mosque",
+        "title": "Religious Customs",
+        "description": "Morocco is a Muslim country. Dress modestly when visiting religious sites and respect prayer times."
+      },
+      {
+        "icon": "fa-camera",
+        "title": "Photography",
+        "description": "Always ask permission before taking photos of locals, especially in rural areas."
+      }
+    ]
+  },
+  "days": [
+    {
+      "day_number": 1,
+      "date": "March 15, 2025",
+      "location": {
+        "city": "Marrakech",
+        "region": "Marrakech-Safi",
+        "country": "Morocco"
+      },
+      "weather": {
+        "condition": "Sunny",
+        "temperature": "25°C",
+        "icon": "fa-sun",
+        "humidity": "30%",
+        "wind": "10 km/h",
+        "sunrise": "6:45 AM",
+        "sunset": "6:30 PM"
+      },
+      "budget": {
+        "daily_allocated": 150,
+        "daily_spent": 125,
+        "breakdown": {
+          "accommodation": 50,
+          "meals": 85,
+          "transport": 15,
+          "activities": 25
+        }
+      },
+      "notes": "Comfortable walking shoes recommended for the medina tour. Don't forget sun protection and water.",
+      "lodging": {
+        "name": "La Mamounia Hotel",
+        "location": "Marrakech, Morocco",
+        "address": "Avenue Bab Jdid, 40040 Marrakech, Morocco",
+        "check_in": "3:00 PM",
+        "check_out": "12:00 PM",
+        "confirmation_number": "LMH2025031501",
+        "phone": "+212 524 388 600",
+        "email": "reservations@lamamounia.com",
+        "image": "https://storage.googleapis.com/uxpilot-auth.appspot.com/19540e3f23-5e53c2711e6b7ae672fe.png",
+        "rating": {
+          "stars": 5,
+          "score": 9.2,
+          "description": "Exceptional"
+        },
+        "room_details": {
+          "type": "Deluxe Suite with Garden View",
+          "guests": "2 Adults",
+          "beds": "1 King",
+          "size": "55 m²"
+        },
+        "amenities": [
+          {
+            "name": "Swimming Pool",
+            "icon": "fa-water-ladder"
+          },
+          {
+            "name": "Free Wi-Fi",
+            "icon": "fa-wifi"
+          },
+          {
+            "name": "Spa Services",
+            "icon": "fa-spa"
+          },
+          {
+            "name": "Restaurant",
+            "icon": "fa-utensils"
+          },
+          {
+            "name": "Room Service",
+            "icon": "fa-bell-concierge"
+          },
+          {
+            "name": "Air Conditioning",
+            "icon": "fa-snowflake"
+          }
+        ],
+        "location_details": {
+          "description": "Located in the heart of Marrakech's medina, La Mamounia offers easy access to the city's main attractions while providing a peaceful oasis within its historic walls.",
+          "points": [
+            {
+              "icon": "fa-person-walking",
+              "text": "10 min to Jemaa el-Fnaa Square"
+            },
+            {
+              "icon": "fa-person-walking",
+              "text": "5 min to Koutoubia Mosque"
+            },
+            {
+              "icon": "fa-person-walking",
+              "text": "15 min to Bahia Palace"
+            }
+          ],
+          "map_coordinates": {
+            "latitude": 31.6246,
+            "longitude": -7.9941
+          }
+        },
+        "costs": {
+          "currency": "USD",
+          "nightly": 350,
+          "nights": 7,
+          "taxes": 245,
+          "total": 2695
+        },
+        "cancellation": "Free cancellation until Mar 8, 2025"
+      },
+      "transport": [
+        {
+          "sequence": 1,
+          "type": "flight",
+          "iconType": "blue",
+          "icon": "fa-plane",
+          "from": "Paris, France",
+          "from_code": "CDG",
+          "to": "Casablanca, Morocco",
+          "to_code": "CMN",
+          "date": "Mar 15, 2025",
+          "departureTime": "7:30 AM",
+          "arrivalTime": "9:45 AM",
+          "duration": "3h 15m",
+          "provider": "Royal Air Maroc",
+          "provider_code": "AT",
+          "class": "Economy",
+          "price": 450,
+          "confirmation_code": "AT751RES",
+          "details": [
+            {
+              "label": "Baggage Allowance",
+              "value": "23kg checked + 8kg cabin"
+            },
+            {
+              "label": "Flight Number",
+              "value": "AT751"
+            },
+            {
+              "label": "Meal Service",
+              "value": "Included"
+            }
+          ],
+          "status": "confirmed"
+        },
+        {
+          "sequence": 2,
+          "type": "train",
+          "iconType": "green",
+          "icon": "fa-train",
+          "from": "Casablanca",
+          "from_code": "CASAVOY",
+          "to": "Marrakech",
+          "to_code": "MARRAKE",
+          "date": "Mar 15, 2025",
+          "departureTime": "11:30 AM",
+          "arrivalTime": "2:45 PM",
+          "duration": "3h 15m",
+          "provider": "ONCF Train",
+          "class": "First Class",
+          "price": 35,
+          "confirmation_code": "ONCF154822",
+          "details": [
+            {
+              "label": "Departure Station",
+              "value": "Casa Voyageurs - Platform 3"
+            },
+            {
+              "label": "Arrival Station",
+              "value": "Marrakech Station - Platform 1"
+            }
+          ],
+          "status": "confirmed"
+        },
+        {
+          "sequence": 3,
+          "type": "local",
+          "iconType": "orange",
+          "icon": "fa-taxi",
+          "from": "Marrakech Station",
+          "to": "La Mamounia Hotel",
+          "date": "Mar 15, 2025",
+          "departureTime": "3:00 PM",
+          "arrivalTime": "3:20 PM",
+          "duration": "20m",
+          "provider": "Private Transfer",
+          "price": 15,
+          "confirmation_code": "MT15032025",
+          "details": [
+            {
+              "label": "Driver Contact",
+              "value": "Mohammed: +212 6XX XXX XXX"
+            },
+            {
+              "label": "Vehicle",
+              "value": "Mercedes E-Class (Air Conditioned)"
+            }
+          ],
+          "status": "confirmed"
+        }
+      ],
+      "meals": [
+        {
+          "sequence": 1,
+          "type": "Breakfast",
+          "time": "8:00 AM - 10:00 AM",
+          "restaurant": "Café Arabe",
+          "location": {
+            "address": "184 rue Mouassine, Marrakech",
+            "coordinates": {
+              "latitude": 31.6295,
+              "longitude": -7.9897
+            },
+            "distance_from_lodging": "10 min walk"
+          },
+          "description": "Traditional Moroccan Breakfast",
+          "details": "Start your day with a traditional Moroccan breakfast featuring fresh bread, local honey, eggs, and mint tea. Experience the morning ambiance of the medina.",
+          "price": 15,
+          "reservation": {
+            "status": "recommended - no reservation needed",
+            "time": "flexible"
+          },
+          "image": "https://storage.googleapis.com/uxpilot-auth.appspot.com/6df77de220-aee7568e7016dc527d51.png",
+          "tags": [
+            {
+              "icon": "fa-leaf",
+              "description": "Vegetarian options available"
+            },
+            {
+              "icon": "fa-moon",
+              "description": "Breakfast served all day"
+            }
+          ],
+          "timeIcon": "fa-sun"
+        },
+        {
+          "sequence": 2,
+          "type": "Lunch",
+          "time": "1:00 PM - 2:30 PM",
+          "restaurant": "Nomad Restaurant",
+          "location": {
+            "address": "1 Derb Aarjane, Marrakech",
+            "coordinates": {
+              "latitude": 31.6309,
+              "longitude": -7.9841
+            },
+            "distance_from_lodging": "15 min walk"
+          },
+          "description": "Modern Moroccan Fusion",
+          "details": "Modern takes on traditional Moroccan dishes served on a stunning rooftop terrace. Enjoy panoramic views of the medina while dining.",
+          "price": 25,
+          "reservation": {
+            "status": "confirmed",
+            "confirmation": "NMD15032025",
+            "time": "1:00 PM"
+          },
+          "image": "https://storage.googleapis.com/uxpilot-auth.appspot.com/53db3a4f9f-afa2fa71bd0ab327f41f.png",
+          "tags": [
+            {
+              "icon": "fa-leaf",
+              "description": "Vegetarian options available"
+            },
+            {
+              "icon": "fa-fish",
+              "description": "Fresh seafood"
+            }
+          ],
+          "timeIcon": "fa-sun"
+        },
+        {
+          "sequence": 3,
+          "type": "Dinner",
+          "time": "7:00 PM - 9:00 PM",
+          "restaurant": "La Maison Arabe",
+          "location": {
+            "address": "1 Derb Assehbe, Marrakech",
+            "coordinates": {
+              "latitude": 31.6336,
+              "longitude": -7.9905
+            },
+            "distance_from_lodging": "8 min walk"
+          },
+          "description": "Traditional Moroccan Cuisine",
+          "details": "An elegant dining experience featuring traditional tagines, couscous, and local specialties. Live Moroccan music creates the perfect ambiance.",
+          "price": 45,
+          "reservation": {
+            "status": "confirmed",
+            "confirmation": "LMA15032025",
+            "time": "7:00 PM"
+          },
+          "image": "https://storage.googleapis.com/uxpilot-auth.appspot.com/4c489c5576-db689f810b0ed94243d7.png",
+          "tags": [
+            {
+              "icon": "fa-leaf",
+              "description": "Vegetarian options available"
+            },
+            {
+              "icon": "fa-star",
+              "description": "Chef's recommended"
+            }
+          ],
+          "timeIcon": "fa-moon"
+        }
+      ],
+      "activities": [
+        {
+          "sequence": 1,
+          "time": "10:00 AM - 12:30 PM",
+          "title": "Medina Walking Tour",
+          "description": "Explore the historic medina of Marrakech with a local guide. Visit key landmarks including Bahia Palace and the Koutoubia Mosque.",
+          "category": "Cultural",
+          "timeOfDay": "Morning",
+          "location": {
+            "meeting_point": "Jemaa el-Fnaa Square, north entrance",
+            "coordinates": {
+              "latitude": 31.6258,
+              "longitude": -7.9891
+            }
+          },
+          "price": 25,
+          "duration": "2.5 hours",
+          "booking_status": "confirmed",
+          "booking_reference": "MWT15032025",
+          "guide": {
+            "name": "Hassan",
+            "contact": "+212 6XX XXX XXX",
+            "languages": ["English", "French", "Arabic"]
+          }
+        },
+        {
+          "sequence": 2,
+          "time": "3:00 PM - 5:30 PM",
+          "title": "Majorelle Garden Visit",
+          "description": "Explore the stunning botanical gardens and vibrant blue villa formerly owned by Yves Saint Laurent.",
+          "category": "Nature",
+          "timeOfDay": "Afternoon",
+          "location": {
+            "address": "Rue Yves St Laurent, Marrakech",
+            "coordinates": {
+              "latitude": 31.6423,
+              "longitude": -8.0035
+            },
+            "transport_options": ["Taxi (10 min)", "Walking (30 min)"]
+          },
+          "price": 15,
+          "duration": "2.5 hours",
+          "booking_status": "confirmed",
+          "booking_reference": "MJG15032025",
+          "notes": "Entrance fee includes access to the Berber Museum."
+        }
+      ]
+    },
+    {
+      "day_number": 2,
+      "date": "March 16, 2025", 
+      "location": {
+        "city": "Casablanca",
+        "region": "Casablanca-Settat",
+        "country": "Morocco"
+      },
+      "weather": {
+        "condition": "Partly Cloudy",
+        "temperature": "22°C",
+        "icon": "fa-cloud-sun",
+        "humidity": "45%",
+        "wind": "15 km/h",
+        "sunrise": "6:44 AM",
+        "sunset": "6:31 PM"
+      },
+      "budget": {
+        "daily_allocated": 140,
+        "daily_spent": 120,
+        "breakdown": {
+          "accommodation": 50,
+          "meals": 70,
+          "transport": 0,
+          "activities": 0
+        }
+      },
+      "notes": "Comfortable attire recommended for mosque visit. Women should bring a scarf to cover their heads.",
+      "lodging": {
+        "name": "Hyatt Regency Casablanca",
+        "location": "Casablanca, Morocco",
+        "address": "Place des Nations Unies, 20000 Casablanca, Morocco",
+        "check_in": "3:00 PM",
+        "check_out": "12:00 PM",
+        "confirmation_number": "HRC2025031601",
+        "phone": "+212 522 431 234",
+        "email": "reservations.casablanca@hyatt.com",
+        "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/457942021.jpg?k=7c752e91d0ba09a7258c360fbadeea6013d4ac587d1cc15e6c258fdac79200cf&o=&hp=1",
+        "rating": {
+          "stars": 5,
+          "score": 9.0,
+          "description": "Excellent"
+        },
+        "room_details": {
+          "type": "Deluxe Room with City View",
+          "guests": "2 Adults",
+          "beds": "1 King",
+          "size": "42 m²"
+        },
+        "costs": {
+          "currency": "USD",
+          "nightly": 310,
+          "nights": 1,
+          "taxes": 40,
+          "total": 350
+        },
+        "cancellation": "Free cancellation until Mar 9, 2025"
+      },
+      "transport": [
+        {
+          "sequence": 1,
+          "type": "train",
+          "iconType": "green",
+          "icon": "fa-train",
+          "from": "Marrakech",
+          "from_code": "MARRAKE",
+          "to": "Casablanca",
+          "to_code": "CASAVOY",
+          "date": "Mar 16, 2025",
+          "departureTime": "9:30 AM",
+          "arrivalTime": "12:45 PM",
+          "duration": "3h 15m",
+          "provider": "ONCF Train",
+          "class": "First Class",
+          "price": 35,
+          "confirmation_code": "ONCF154823",
+          "details": [
+            {
+              "label": "Departure Station",
+              "value": "Marrakech Station - Platform 2"
+            },
+            {
+              "label": "Arrival Station",
+              "value": "Casa Voyageurs - Platform 1"
+            }
+          ],
+          "status": "confirmed"
+        },
+        {
+          "sequence": 2,
+          "type": "local",
+          "iconType": "orange",
+          "icon": "fa-taxi",
+          "from": "Casa Voyageurs Station",
+          "to": "Hyatt Regency Casablanca",
+          "date": "Mar 16, 2025",
+          "departureTime": "1:00 PM",
+          "arrivalTime": "1:20 PM",
+          "duration": "20m",
+          "provider": "Petit Taxi",
+          "price": 10,
+          "details": [
+            {
+              "label": "Note",
+              "value": "Taxis are readily available at the station exit"
+            }
+          ],
+          "status": "planned"
+        }
+      ],
+      "meals": [
+        {
+          "sequence": 1,
+          "type": "Breakfast",
+          "time": "7:00 AM - 9:00 AM",
+          "restaurant": "La Mamounia Breakfast Buffet",
+          "location": {
+            "address": "At hotel",
+            "distance_from_lodging": "0 min"
+          },
+          "description": "Luxury Hotel Breakfast",
+          "details": "Extensive international breakfast buffet with Moroccan specialties, freshly baked pastries, and made-to-order egg station.",
+          "price": 0,
+          "reservation": {
+            "status": "included with stay",
+            "time": "flexible"
+          },
+          "tags": [
+            {
+              "icon": "fa-leaf",
+              "description": "Vegetarian options available"
+            },
+            {
+              "icon": "fa-bread-slice",
+              "description": "Fresh pastries"
+            }
+          ],
+          "timeIcon": "fa-sun"
+        }
+      ],
+      "activities": [
+        {
+          "sequence": 1,
+          "time": "3:00 PM - 5:00 PM",
+          "title": "Hassan II Mosque Tour",
+          "description": "Visit one of the largest mosques in the world with its stunning architecture and oceanfront location.",
+          "category": "Cultural",
+          "timeOfDay": "Afternoon",
+          "location": {
+            "address": "Bd de la Corniche, Casablanca",
+            "coordinates": {
+              "latitude": 33.6086,
+              "longitude": -7.6326
+            },
+            "transport_options": ["Taxi (15 min)"]
+          },
+          "price": 20,
+          "duration": "2 hours",
+          "booking_status": "confirmed",
+          "booking_reference": "HM16032025",
+          "notes": "Tours in English available at 3:00 PM. Remember appropriate attire."
+        }
+      ]
+    },
+    {
+      "day_number": 3,
+      "date": "March 16, 2025",
+      "location": {
+        "city": "Marrakech",
+        "region": "Marrakech-Safi",
+        "country": "Morocco"
+      },
+      "weather": {
+        "condition": "Partly Cloudy",
+        "temperature": "23°C",
+        "icon": "fa-cloud-sun",
+        "humidity": "35%",
+        "wind": "12 km/h",
+        "sunrise": "6:44 AM",
+        "sunset": "6:31 PM"
+      },
+      "budget": {
+        "daily_allocated": 150,
+        "daily_spent": 135,
+        "breakdown": {
+          "accommodation": 50,
+          "meals": 60,
+          "transport": 10,
+          "activities": 40
+        }
+      },
+      "notes": "Light jacket recommended in the evening. Stay hydrated and enjoy bargaining in the souks.",
+      "lodging": {
+        "name": "Hotel test hamid zit ",
+        "location": "Casablanca, Morocco",
+        "address": "Place des Nations Unies, 20000 Casablanca, Morocco",
+        "check_in": "3:00 PM",
+        "check_out": "12:00 PM",
+        "confirmation_number": "HRC2025031601",
+        "phone": "+212 522 431 234",
+        "email": "reservations.casablanca@hyatt.com",
+        "image": "https://dyn.eu.mktgcdn.com/f/100004519/VlWvXANgDdbmjDwvGRYKJcH2o19D8aQ_mwMLktFYhOM.jpg",
+        "rating": {
+          "stars": 5,
+          "score": 9.0,
+          "description": "Excellent"
+        },
+        "room_details": {
+          "type": "Deluxe Room with City View",
+          "guests": "2 Adults",
+          "beds": "1 King",
+          "size": "42 m²"
+        },
+        "costs": {
+          "currency": "USD",
+          "nightly": 310,
+          "nights": 1,
+          "taxes": 40,
+          "total": 350
+        },
+        "cancellation": "Free cancellation until Mar 9, 2025"
+      },
+      "transport": [
+        {
+          "sequence": 1,
+          "type": "flight",
+          "iconType": "blue",
+          "icon": "fa-plane",
+          "from": "Paris, France",
+          "from_code": "CDG",
+          "to": "Casablanca, Morocco",
+          "to_code": "CMN",
+          "date": "Mar 15, 2025",
+          "departureTime": "7:30 AM",
+          "arrivalTime": "9:45 AM",
+          "duration": "3h 15m",
+          "provider": "Royal Air Maroc",
+          "provider_code": "AT",
+          "class": "Economy",
+          "price": 450,
+          "confirmation_code": "AT751RES",
+          "details": [
+            {
+              "label": "Baggage Allowance",
+              "value": "23kg checked + 8kg cabin"
+            },
+            {
+              "label": "Flight Number",
+              "value": "AT751"
+            },
+            {
+              "label": "Meal Service",
+              "value": "Included"
+            }
+          ],
+          "status": "confirmed"
+        },
+        {
+          "sequence": 2,
+          "type": "train",
+          "iconType": "green",
+          "icon": "fa-train",
+          "from": "Casablanca",
+          "from_code": "CASAVOY",
+          "to": "Marrakech",
+          "to_code": "MARRAKE",
+          "date": "Mar 15, 2025",
+          "departureTime": "11:30 AM",
+          "arrivalTime": "2:45 PM",
+          "duration": "3h 15m",
+          "provider": "ONCF Train",
+          "class": "First Class",
+          "price": 35,
+          "confirmation_code": "ONCF154822",
+          "details": [
+            {
+              "label": "Departure Station",
+              "value": "Casa Voyageurs - Platform 3"
+            },
+            {
+              "label": "Arrival Station",
+              "value": "Marrakech Station - Platform 1"
+            }
+          ],
+          "status": "confirmed"
+        }
+      ],
+      "meals": [
+        {
+          "sequence": 1,
+          "type": "Breakfast",
+          "time": "8:00 AM - 9:00 AM",
+          "restaurant": "Dar Cherifa",
+          "location": {
+            "address": "8 Derb Chorfa Lakbir, Marrakech",
+            "coordinates": { "latitude": 31.6291, "longitude": -7.9865 },
+            "distance_from_lodging": "12 min walk"
+          },
+          "description": "Light Moroccan breakfast in a historical riad.",
+          "details": "Homemade breads, olive oil, local jams, and mint tea served in a tranquil courtyard.",
+          "price": 12,
+          "reservation": { "status": "walk-in", "time": "flexible" },
+          "image": "",
+          "tags": [],
+          "timeIcon": "fa-sun"
+        },
+        {
+          "sequence": 2,
+          "type": "Lunch",
+          "time": "12:30 PM - 2:00 PM",
+          "restaurant": "Ksar Essaoussan",
+          "location": {
+            "address": "Rue des Ksour, Marrakech",
+            "coordinates": { "latitude": 31.6279, "longitude": -7.9880 },
+            "distance_from_lodging": "10 min walk"
+          },
+          "description": "Hidden gem with traditional dishes.",
+          "details": "Try the lamb tagine with prunes and almonds.",
+          "price": 30,
+          "reservation": { "status": "recommended", "time": "12:30 PM" },
+          "image": "",
+          "tags": [{ "icon": "fa-star", "description": "Highly rated" }],
+          "timeIcon": "fa-sun"
+        },
+        {
+          "sequence": 3,
+          "type": "Dinner",
+          "time": "7:30 PM - 9:30 PM",
+          "restaurant": "Dar Yacout",
+          "location": {
+            "address": "79 Derb Sidi Ahmed Soussi, Marrakech",
+            "coordinates": { "latitude": 31.6347, "longitude": -7.9902 },
+            "distance_from_lodging": "15 min walk"
+          },
+          "description": "A luxurious Moroccan dinner experience.",
+          "details": "Multi-course meal in a stunning riad with rooftop views.",
+          "price": 50,
+          "reservation": { "status": "confirmed", "confirmation": "DY16032025", "time": "7:30 PM" },
+          "image": "",
+          "tags": [{ "icon": "fa-music", "description": "Live music" }],
+          "timeIcon": "fa-moon"
+        }
+      ],
+      "activities": [
+        {
+          "sequence": 1,
+          "time": "10:00 AM - 12:00 PM",
+          "title": "Cooking Class",
+          "description": "Hands-on Moroccan cooking experience at a riad kitchen.",
+          "category": "Cultural",
+          "timeOfDay": "Morning",
+          "location": {
+            "meeting_point": "Riad Dar Attajmil",
+            "coordinates": { "latitude": 31.6311, "longitude": -7.9920 }
+          },
+          "price": 40,
+          "duration": "2 hours",
+          "booking_status": "confirmed",
+          "booking_reference": "COOK16032025",
+          "guide": {
+            "name": "Fatima",
+            "contact": "+212 6XX XXX XXX",
+            "languages": ["English", "Arabic"]
+          }
+        },
+        {
+          "sequence": 2,
+          "time": "4:00 PM - 6:00 PM",
+          "title": "Hammam and Spa Experience",
+          "description": "Relax at a traditional Moroccan hammam with a scrub and massage.",
+          "category": "Wellness",
+          "timeOfDay": "Afternoon",
+          "location": {
+            "address": "Les Bains de Marrakech",
+            "coordinates": { "latitude": 31.6221, "longitude": -7.9937 }
+          },
+          "price": 45,
+          "duration": "2 hours",
+          "booking_status": "confirmed",
+          "booking_reference": "SPA16032025",
+          "notes": "Arrive 15 minutes early. Towels and toiletries provided."
+        }
+      ]
+    }    
+  ]
+}

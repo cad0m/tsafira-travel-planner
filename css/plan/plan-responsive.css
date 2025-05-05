@@ -1,0 +1,228 @@
+/* Animation Classes */
+.slide-in-right {
+  animation: slideInRight var(--transition-normal) forwards;
+}
+
+.slide-in-left {
+  animation: slideInLeft var(--transition-normal) forwards;
+}
+
+.fade-in {
+  animation: fadeIn var(--transition-normal) forwards;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Styles */
+@media (min-width: 640px) {
+  .budget-categories {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .recommendations-grid, .videos-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .main-nav {
+    display: flex;
+    gap: var(--spacing-6);
+  }
+  
+  .itinerary-details {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .itinerary-name {
+    width: auto;
+    font-size: 2.25rem;
+  }
+  
+  .itinerary-actions {
+    flex-wrap: nowrap;
+  }
+  
+  .overview-grid {
+    grid-template-columns: 2fr 1fr;
+  }
+  
+  .day-detail-grid {
+    grid-template-columns: 2fr 1fr;
+  }
+  
+  .lodging-details, .meals-summary, .transport-summary {
+    grid-template-columns: 2fr 1fr;
+  }
+  
+  .lodging-meta {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .amenities-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .meal-content {
+    flex-direction: row;
+  }
+  
+  .meal-image {
+    width: 40%;
+    min-width: 200px;
+    height: auto;
+  }
+  
+  .meal-details {
+    width: 60%;
+  }
+  
+  .transport-card {
+    grid-template-columns: 60px 1fr;
+  }
+  
+  .transport-info {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .action-content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .action-left {
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .recommendations-grid, .videos-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .timeline-card, .meal-card, .transport-card, .recommendation-card, .video-card {
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  }
+  
+  .timeline-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .amenity-item, .tip-item {
+    transition: all var(--transition-fast);
+  }
+  
+  .amenity-item:hover, .tip-item:hover {
+    background-color: var(--color-gray-100);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .dark .amenity-item:hover, .dark .tip-item:hover {
+    background-color: var(--color-gray-200);
+  }
+  
+  .meal-card {
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  }
+  
+  .meal-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .meal-image {
+    overflow: hidden;
+    height: 180px;
+  }
+  
+  .meal-image img {
+    transition: transform var(--transition-normal);
+  }
+  
+  .meal-card:hover .meal-image img {
+    transform: scale(1.05);
+  }
+  
+  .transport-card {
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  }
+  
+  .transport-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .transport-info {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .meal-card, .transport-card {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .transport-icon {
+    width: 100%;
+    height: 50px;
+  }
+  
+  .meal-image {
+    width: 100%;
+    height: 180px;
+  }
+  
+  .transport-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-2);
+  }
+  
+  .transport-info {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    padding: 0 var(--spacing-8);
+  }
+}

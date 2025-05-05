@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tsafira | Travel Itinerary</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/plan/plan.css">
+  <link rel="stylesheet" href="../css/plan/plan-components.css">
+  <link rel="stylesheet" href="../css/plan/plan-navigation.css">
+  <link rel="stylesheet" href="../css/plan/plan-sections.css">
+  <link rel="stylesheet" href="../css/plan/plan-meals.css">
+  <link rel="stylesheet" href="../css/plan/plan-meals-enhanced.css">
+  <link rel="stylesheet" href="../css/plan/meal-card-enhanced.css">
+  <link rel="stylesheet" href="../css/plan/meal-summary-enhanced.css">
+  <link rel="stylesheet" href="../css/plan/meal-animations.css">
+  <link rel="stylesheet" href="../css/plan/plan-meals-optimized.css">
+  <link rel="stylesheet" href="../css/plan/plan-transport.css">
+  <link rel="stylesheet" href="../css/plan/plan-extras.css">
+  <link rel="stylesheet" href="../css/plan/plan-responsive.css">
+  <link rel="stylesheet" href="../css/plan/day-by-day.css">
+</head>
+<body>
+  <!-- Header -->
+  <header id="header" class="header">
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <a href="/">Tsafira</a>
+        </div>
+        <nav class="main-nav">
+          <button id="dark-mode-toggle" aria-label="Toggle dark mode">
+            <i class="fas fa-moon"></i>
+          </button>
+          <a href="./contact.html">Support</a>
+          <a href="/">Account</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Itinerary Title Section -->
+  <section id="itinerary-title" class="itinerary-title">
+    <div class="container">
+      <div class="itinerary-details">
+        <div>
+          <input type="text" value="My Morocco Adventure" class="itinerary-name" aria-label="Itinerary name">
+          <div class="itinerary-dates">March 15 - March 22, 2025 • 8 Days</div>
+        </div>
+        <div class="itinerary-actions">
+          <button class="btn btn-outline" aria-label="Export to PDF">
+            <i class="fa-solid fa-file-pdf"></i><span>Export PDF</span>
+          </button>
+          <button class="btn btn-outline" aria-label="Save itinerary">
+            <i class="fa-solid fa-bookmark"></i><span>Save</span>
+          </button>
+          <button class="btn btn-outline" aria-label="Share itinerary">
+            <i class="fa-solid fa-share"></i><span>Share</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Overview Section -->
+  <section id="overview" class="overview-section">
+    <div class="container">
+      <div class="overview-grid">
+        <!-- Budget Summary -->
+        <div class="budget-summary">
+          <div class="card">
+            <div class="budget-header">
+              <h2>Trip Budget Overview</h2>
+            </div>
+            <div class="budget-total-row">
+              <div class="budget-label">Total Budget</div>
+              <div class="budget-value" id="total-budget">$3,800</div>
+            </div>
+            <div class="budget-spent-row">
+              <div class="budget-label">Spent to date</div>
+              <div class="budget-value highlight" id="budget-spent">$3,600</div>
+            </div>
+            <div class="budget-progress-container">
+              <div class="budget-progress">
+                <div class="budget-progress-bar" aria-label="Budget usage"></div>
+              </div>
+              <div class="budget-labels">
+                <span>$0</span>
+                <span id="remaining-budget">$200 remaining</span>
+              </div>
+            </div>
+            <div class="budget-categories">
+              <!-- Will be populated by JavaScript -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Weather Summary -->
+        <div class="weather-summary">
+          <div class="card">
+            <div class="weather-header">
+              <h2>Weather Forecast</h2>
+            </div>
+            <div class="weather-overview">
+              <div class="current-weather">
+                <div class="weather-icon">
+                  <i class="fa-solid fa-sun"></i>
+                </div>
+                <div class="weather-temp-container">
+                  <div class="today-label">Today</div>
+                  <div class="current-temp">25°C</div>
+                  <div class="current-condition">Sunny</div>
+                </div>
+              </div>
+              <div class="weather-details-container">
+                <div class="weather-detail">
+                  <i class="fa-solid fa-droplet"></i>
+                  <span id="humidity">30%</span>
+                </div>
+                <div class="weather-detail">
+                  <i class="fa-solid fa-wind"></i>
+                  <span id="wind">10 km/h</span>
+                </div>
+                <div class="weather-detail">
+                  <i class="fa-solid fa-sun-plant-wilt"></i>
+                  <span id="sunrise">6:45 AM</span>
+                </div>
+              </div>
+            </div>
+            <div class="weather-days">
+              <!-- Will be populated by JavaScript -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tab Navigation -->
+  <section id="itinerary-nav" class="itinerary-nav">
+    <div class="container">
+      <div class="tab-navigation">
+        <div class="tabs" role="tablist">
+          <button class="tab-button active" data-tab="day-by-day" role="tab" id="tab-day-by-day" aria-selected="true">Day-by-Day</button>
+          <button class="tab-button" data-tab="lodging" role="tab" id="tab-lodging" aria-selected="false">Lodging</button>
+          <button class="tab-button" data-tab="meals" role="tab" id="tab-meals" aria-selected="false">Meals</button>
+          <button class="tab-button" data-tab="transport" role="tab" id="tab-transport" aria-selected="false">Transport</button>
+        </div>
+        <button class="btn btn-outline" id="calendar-view-btn" aria-label="Open calendar view">
+          <i class="fa-regular fa-calendar"></i><span>Calendar View</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tab Content -->
+  <div class="tab-content">
+    <!-- Day-by-Day Tab Content -->
+    <section id="day-by-day" class="tab-pane active" role="tabpanel" aria-labelledby="tab-day-by-day">
+      <div class="container">
+        <!-- Day Selector -->
+        <div class="day-selector">
+          <!-- Will be populated by JavaScript with enhanced day buttons -->
+        </div>
+
+        <!-- Day Navigation -->
+        <div class="day-navigation">
+          <button class="btn btn-outline" aria-label="Go to previous day">
+            <i class="fa-solid fa-chevron-left"></i><span>Previous Day</span>
+          </button>
+          <button class="btn btn-outline" aria-label="Go to next day">
+            <span>Next Day</span><i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <!-- Day Title Header -->
+        <div class="day-title">
+          <h2>Day 1 - March 15, 2025</h2>
+          <p>Arrival in Marrakech</p>
+        </div>
+
+        <!-- Day Detail -->
+        <div class="day-detail">
+          <div class="day-detail-grid">
+            <div class="timeline">
+              <!-- Will be populated by JavaScript with enhanced timeline events -->
+            </div>
+
+            <div class="day-summary">
+              <h3>Day Overview</h3>
+              <div class="summary-items">
+                <!-- Will be populated by JavaScript with enhanced summary items -->
+              </div>
+
+              <div class="day-notes">
+                <h4>Travel Notes <i class="fa-solid fa-chevron-down"></i></h4>
+                <div class="day-notes-content">
+                  <!-- Will be populated by JavaScript -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lodging Tab Content -->
+    <section id="lodging" class="tab-pane" role="tabpanel" aria-labelledby="tab-lodging">
+      <div class="lodging-banner">
+        <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/19540e3f23-5e53c2711e6b7ae672fe.png" alt="La Mamounia Hotel">
+        <div class="lodging-banner-content">
+          <div class="lodging-info">
+            <h2>La Mamounia Hotel</h2>
+            <div class="location"><i class="fa-solid fa-location-dot"></i> Marrakech, Morocco</div>
+          </div>
+          <div class="lodging-rating">
+            <div class="stars">
+              <!-- Will be populated by JavaScript -->
+            </div>
+            <div class="rating-score">
+              <span>9.2</span>
+              <span>Exceptional</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <!-- Add day navigation buttons to lodging tab -->
+        <div class="day-navigation">
+          <button id="prev-lodging-day" class="btn btn-outline" aria-label="Go to previous lodging day">
+            <i class="fa-solid fa-chevron-left"></i><span>Previous Day</span>
+          </button>
+          <button id="next-lodging-day" class="btn btn-outline" aria-label="Go to next lodging day">
+            <span>Next Day</span><i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <!-- Add day title structure -->
+        <div class="day-title">
+          <h2>Day 1 - March 15, 2025</h2>
+          <p>Lodging in Marrakech</p>
+        </div>
+
+        <div class="lodging-details">
+          <div class="lodging-main">
+            <div class="lodging-meta">
+              <div class="meta-item">
+                <i class="fa-regular fa-calendar"></i>
+                <div>
+                  <div class="meta-label">Check-in</div>
+                  <div class="meta-value">Mar 15, 2025</div>
+                </div>
+              </div>
+              <div class="meta-item">
+                <i class="fa-regular fa-calendar-check"></i>
+                <div>
+                  <div class="meta-label">Check-out</div>
+                  <div class="meta-value">Mar 22, 2025</div>
+                </div>
+              </div>
+              <div class="meta-item">
+                <i class="fa-solid fa-bed"></i>
+                <div>
+                  <div class="meta-label">Room</div>
+                  <div class="meta-value">Deluxe Suite with Garden View</div>
+                </div>
+              </div>
+              <div class="meta-item">
+                <i class="fa-solid fa-users"></i>
+                <div>
+                  <div class="meta-label">Guests</div>
+                  <div class="meta-value">2 Adults</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Amenities -->
+            <div class="lodging-amenities">
+              <h3>Key Amenities</h3>
+              <div class="amenities-grid">
+                <!-- Will be populated by JavaScript -->
+              </div>
+              <button class="btn-link">View All Amenities</button>
+            </div>
+
+            <!-- Location -->
+            <div class="lodging-location">
+              <h3>Location & Surroundings</h3>
+              <p>Located in the heart of Marrakech's medina, La Mamounia offers easy access to the city's main attractions while providing a peaceful oasis within its historic walls.</p>
+              <div class="location-points">
+                <!-- Will be populated by JavaScript -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Cost Summary -->
+          <div class="lodging-cost">
+            <div class="cost-details">
+              <h3>Cost Details</h3>
+              <div class="cost-breakdown">
+                <div class="cost-item">
+                  <span>7 nights × $350</span>
+                  <span>$2,450</span>
+                </div>
+                <div class="cost-item">
+                  <span>Taxes & fees</span>
+                  <span>$245</span>
+                </div>
+                <div class="cost-total">
+                  <span>Total</span>
+                  <span>$2,695</span>
+                </div>
+              </div>
+              <button class="btn btn-primary btn-block">Change Stay</button>
+              <p class="cancelation-policy">Free cancellation until Mar 8, 2025</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Meals Tab Content -->
+    <section id="meals" class="tab-pane" role="tabpanel" aria-labelledby="tab-meals">
+      <div class="meals-banner">
+        <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/fa5cc0ff55-9d433c5d9399d12d1412.png" alt="Moroccan cuisine">
+        <div class="meals-banner-content">
+          <div>
+            <h2>Your Culinary Journey</h2>
+            <p>Discover the rich tapestry of Moroccan cuisine with carefully selected restaurants offering authentic flavors, traditional cooking methods, and unforgettable dining experiences</p>
+          </div>
+          <div class="meal-budget">
+            <span>$85 meal budget for today</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <!-- Add missing meal day navigation buttons -->
+        <div class="day-navigation">
+          <button id="prev-meal-day" class="btn btn-outline" aria-label="Go to previous meal day">
+            <i class="fa-solid fa-chevron-left"></i><span>Previous Day</span>
+          </button>
+          <button id="next-meal-day" class="btn btn-outline" aria-label="Go to next meal day">
+            <span>Next Day</span><i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <!-- Add day title structure if missing -->
+        <div class="day-title">
+          <h2>Day 1 - March 15, 2025</h2>
+          <p>Arrival in Marrakech</p>
+        </div>
+
+        <!-- Meals Cards -->
+        <div class="meals-list">
+          <!-- Will be populated by JavaScript -->
+        </div>
+
+        <!-- Cost Summary -->
+        <div class="meals-summary">
+          <div class="summary-box">
+            <h3>Daily Meal Cost Summary</h3>
+            <div class="summary-items">
+              <!-- Will be populated by JavaScript -->
+            </div>
+            <p class="summary-note">*Gratuities and additional beverages not included</p>
+            <button class="btn btn-primary btn-block">Change Meals</button>
+          </div>
+
+          <div class="dining-tips">
+            <h3>Moroccan Dining Tips</h3>
+            <!-- Remove the tips-grid div as it's unused; tips are shown in a carousel populated by JS -->
+            <!-- <div class="tips-grid"> -->
+              <!-- Will be populated by JavaScript -->
+            <!-- </div> -->
+            <!-- Carousel container will be generated here by renderMealDay if tips exist -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Transport Tab Content -->
+    <section id="transport" class="tab-pane" role="tabpanel" aria-labelledby="tab-transport">
+      <div class="transport-banner">
+        <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/5abd969988-2e903145addce84db074.png" alt="Moroccan transportation">
+        <div class="transport-banner-content">
+          <div>
+            <h2>Your Transportation Journey</h2>
+            <p>A carefully planned mix of modern and traditional transport options</p>
+          </div>
+          <div class="transport-total">
+            <span>Total Journey: 7 days • 1,250 km</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <!-- Add day navigation buttons to transport tab -->
+        <div class="day-navigation">
+          <button id="prev-transport-day" class="btn btn-outline" aria-label="Go to previous transport day">
+            <i class="fa-solid fa-chevron-left"></i><span>Previous Day</span>
+          </button>
+          <button id="next-transport-day" class="btn btn-outline" aria-label="Go to next transport day">
+            <span>Next Day</span><i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <!-- Add day title structure -->
+        <div class="day-title">
+          <h2>Day 1 - March 15, 2025</h2>
+          <p>Transport in Marrakech</p>
+        </div>
+
+        <!-- Journey Map -->
+        <div class="journey-map-container">
+          <div class="journey-map">
+            <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/376ab70b56-3bee02a1b662ce1b9169.png" alt="Journey map">
+            <button class="fullscreen-btn" id="fullscreen-map-btn" aria-label="View map in fullscreen">
+              <i class="fa-solid fa-expand"></i> Full Screen
+            </button>
+          </div>
+          <div class="map-legend">
+            <div class="legend-item">
+              <div class="legend-color blue"></div>
+              <span>Flights</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-color green"></div>
+              <span>Train/Bus</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-color orange"></div>
+              <span>Local Transport</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Transport Cards -->
+        <div class="transport-cards">
+          <!-- Will be populated by JavaScript -->
+        </div>
+
+        <!-- Transport Cost Summary -->
+        <div class="transport-summary">
+          <div class="summary-box">
+            <h3>Transport Cost Summary</h3>
+            <div class="summary-items">
+              <!-- Will be populated by JavaScript -->
+            </div>
+            <p class="summary-note">*Additional luggage fees and tips not included</p>
+          </div>
+
+          <!-- Transport Tips Carousel -->
+          <div class="transport-tips">
+            <h3>Transport Notes</h3>
+            <div id="transport-carousel" class="relative">
+              <div class="carousel-slides">
+                <!-- Will be populated by JavaScript -->
+              </div>
+
+              <!-- Navigation Arrows -->
+              <button id="prev-slide" class="nav-arrow" aria-label="Previous slide">
+                <i class="fa-solid fa-chevron-left"></i>
+              </button>
+              <button id="next-slide" class="nav-arrow" aria-label="Next slide">
+                <i class="fa-solid fa-chevron-right"></i>
+              </button>
+
+              <!-- Dots -->
+              <div id="carousel-dots">
+                <!-- Will be populated by JavaScript -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- You Might Also Enjoy Section -->
+  <section id="recommendations">
+    <div class="container">
+      <h2 class="text-2xl font-bold mb-8">You Might Also Enjoy</h2>
+      <div class="recommendations-grid">
+        <!-- Will be populated by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- See Your Destinations Section -->
+  <section id="videos">
+    <div class="container">
+      <h2 class="text-2xl font-bold mb-8">See Your Destinations</h2>
+      <div class="videos-grid">
+        <!-- Will be populated by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Feedback Section -->
+  <section id="feedback" class="feedback-section">
+    <div class="container">
+      <div class="feedback-container">
+        <h2>How do you like this itinerary?</h2>
+        <div class="rating" aria-label="Rate your experience">
+          <i class="fa-regular fa-star" data-rating="1" aria-label="1 star"></i>
+          <i class="fa-regular fa-star" data-rating="2" aria-label="2 stars"></i>
+          <i class="fa-regular fa-star" data-rating="3" aria-label="3 stars"></i>
+          <i class="fa-regular fa-star" data-rating="4" aria-label="4 stars"></i>
+          <i class="fa-regular fa-star" data-rating="5" aria-label="5 stars"></i>
+        </div>
+        <div class="feedback-input">
+          <textarea placeholder="Share your thoughts..." aria-label="Feedback comments"></textarea>
+          <button class="expand-btn" aria-label="Expand/collapse textarea">
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+        </div>
+        <div class="feedback-submit">
+          <button type="button" id="submit-feedback" class="btn btn-primary" aria-label="Submit feedback">
+            Submit Feedback
+          </button>
+        </div>
+        <div id="feedback-message" class="feedback-message" style="display: none;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom Action Bar -->
+  <div id="action-bar" class="action-bar">
+    <div class="container">
+      <div class="action-content">
+        <div class="action-left">
+          <div class="trip-cost">
+            <div>Total Trip Cost</div>
+            <div>$3,800</div>
+          </div>
+          <button class="btn btn-primary" aria-label="Save itinerary">Save Itinerary</button>
+        </div>
+        <div class="action-right">
+          <button class="btn btn-outline" aria-label="Export to PDF">
+            <i class="fa-solid fa-file-pdf"></i><span>Export PDF</span>
+          </button>
+          <button class="btn btn-primary" aria-label="Find local guide">
+            <i class="fa-solid fa-user"></i><span>Find Guide</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="../js/pages/plan/plan-effects.js"></script>
+  <script type="module" src="../js/pages/plan/plan.js"></script>
+  <script type="module" src="../js/pages/plan/meal-card-enhanced.js"></script>
+  <script type="module">
+    // Import all necessary functions from their modules
+    import { setupItinerary } from '../js/pages/plan/plan.js';
+    import { setupFeedbackForm } from '../js/pages/plan/plan-ui.js';
+    import { setupLodgingEditor } from '../js/pages/plan/lodging-editor.js';
+    import { initializeEffects } from '../js/pages/plan/plan-effects.js';
+    import { initializeMealCardEnhancements } from '../js/pages/plan/meal-card-enhanced.js';
+    import {
+      setupEnhancedDaySelector,
+      renderEnhancedDayDetail,
+      initializeDayByDayEnhancements
+    } from '../js/pages/plan/day-by-day.js';
+
+    // Make sure everything is loaded before initialization
+    document.addEventListener('DOMContentLoaded', async () => {
+      try {
+        await setupItinerary();
+        setupFeedbackForm();
+        setupLodgingEditor(); // Add lodging editing functionality
+        initializeEffects(); // Initialize visual effects
+        initializeMealCardEnhancements(); // Initialize enhanced meal cards
+
+        // Initialize enhanced day-by-day tab
+        if (window.appState && window.appState.planData && window.appState.planData.days) {
+          setupEnhancedDaySelector(window.appState.planData.days, window.appState.currentDay);
+
+          const currentDayIndex = window.appState.currentDay - 1;
+          if (currentDayIndex >= 0 && currentDayIndex < window.appState.planData.days.length) {
+            renderEnhancedDayDetail(window.appState.planData.days[currentDayIndex]);
+          }
+
+          initializeDayByDayEnhancements();
+
+          // Listen for day changes to update the enhanced day-by-day tab
+          document.addEventListener('dayChanged', (event) => {
+            if (event.detail && event.detail.dayNumber) {
+              const dayIndex = event.detail.dayNumber - 1;
+              if (dayIndex >= 0 && dayIndex < window.appState.planData.days.length) {
+                renderEnhancedDayDetail(window.appState.planData.days[dayIndex]);
+              }
+            }
+          });
+        }
+      } catch (error) {
+        console.error('Error initializing application:', error);
+      }
+    });
+  </script>
+</body>
+</html>

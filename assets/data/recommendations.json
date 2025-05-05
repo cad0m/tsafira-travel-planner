@@ -1,0 +1,383 @@
+{
+  "hotels": [
+    {
+      "id": "hotel-1",
+      "name": "Le Casablanca Hotel",
+      "location": "Marrakech, Morocco",
+      "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/58/d6/60/le-casablanca-hotel.jpg?w=300&h=300&s=1",
+      "rating": {
+        "stars": 5,
+        "score": 9.2,
+        "description": "Exceptional"
+      },
+      "price": 350,
+      "description": "Luxury historical palace hotel with beautiful gardens and traditional Moroccan design.",
+      "amenities": [
+        {"name": "Swimming Pool", "icon": "fa-water"},
+        {"name": "Free WiFi", "icon": "fa-wifi"},
+        {"name": "Spa", "icon": "fa-spa"},
+        {"name": "Restaurant", "icon": "fa-utensils"},
+        {"name": "Fitness Center", "icon": "fa-dumbbell"},
+        {"name": "Airport Shuttle", "icon": "fa-shuttle-van"}
+      ],
+      "location_details": {
+        "description": "Located in the heart of Marrakech's medina, just minutes from Jemaa el-Fnaa square.",
+        "coordinates": {"lat": 31.6295, "lng": -7.9811},
+        "points": [
+          {"icon": "fa-landmark", "text": "5 min walk to Koutoubia Mosque"},
+          {"icon": "fa-store", "text": "10 min walk to Souks"},
+          {"icon": "fa-monument", "text": "15 min walk to Bahia Palace"}
+        ]
+      }
+    },
+    {
+      "id": "hotel-2",
+      "name": "Suite Hotel Casa Diamond",
+      "location": "Marrakech, Morocco",
+      "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/16/17/2b/89/suite-hotel-casa-diamond.jpg?w=300&h=300&s=1",
+      "rating": {
+        "stars": 5,
+        "score": 9.6,
+        "description": "Outstanding"
+      },
+      "price": 450,
+      "description": "Ultra-luxury retreat featuring private riads, exquisite dining, and exceptional personalized service.",
+      "amenities": [
+        {"name": "Private Pools", "icon": "fa-water"},
+        {"name": "Free WiFi", "icon": "fa-wifi"},
+        {"name": "Spa", "icon": "fa-spa"},
+        {"name": "Fine Dining", "icon": "fa-utensils"},
+        {"name": "Fitness Center", "icon": "fa-dumbbell"},
+        {"name": "Butler Service", "icon": "fa-concierge-bell"}
+      ],
+      "location_details": {
+        "description": "Located within the walls of Marrakech's old city, near the famous Jemaa el-Fnaa square.",
+        "coordinates": {"lat": 31.6332, "lng": -7.9897},
+        "points": [
+          {"icon": "fa-landmark", "text": "7 min walk to Koutoubia Mosque"},
+          {"icon": "fa-store", "text": "12 min walk to Souks"},
+          {"icon": "fa-tree", "text": "5 min walk to Cyber Park"}
+        ]
+      }
+    },
+    {
+      "id": "hotel-3",
+      "name": "Barceló Anfa Casablanca",
+      "location": "Marrakech, Morocco",
+      "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/9e/be/fa/lobby.jpg?w=300&h=300&s=1",
+      "rating": {
+        "stars": 5,
+        "score": 9.0,
+        "description": "Excellent"
+      },
+      "price": 300,
+      "description": "Modern luxury resort with spacious rooms, multiple pools, and beautiful garden grounds.",
+      "amenities": [
+        {"name": "Two Swimming Pools", "icon": "fa-water"},
+        {"name": "Free WiFi", "icon": "fa-wifi"},
+        {"name": "Spa", "icon": "fa-spa"},
+        {"name": "Multiple Restaurants", "icon": "fa-utensils"},
+        {"name": "Fitness Center", "icon": "fa-dumbbell"},
+        {"name": "Kids Club", "icon": "fa-child"}
+      ],
+      "location_details": {
+        "description": "Located in the new city of Marrakech, close to the Menara Gardens and airport.",
+        "coordinates": {"lat": 31.6149, "lng": -8.0020},
+        "points": [
+          {"icon": "fa-plane", "text": "15 min drive to Airport"},
+          {"icon": "fa-tree", "text": "5 min walk to Menara Gardens"},
+          {"icon": "fa-shopping-bag", "text": "10 min drive to Menara Mall"}
+        ]
+      }
+    },
+    {
+      "id": "hotel-4",
+      "name": " ONOMO Hotel Casablanca Airport",
+      "location": "Marrakech, Morocco",
+      "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2c/29/15/da/standard-room.jpg?w=300&h=300&s=1",
+      "rating": {
+        "stars": 5,
+        "score": 9.4,
+        "description": "Superb"
+      },
+      "price": 420,
+      "description": "Contemporary luxury resort with private villas, expansive gardens, and Atlas Mountains views.",
+      "amenities": [
+        {"name": "Private Pools", "icon": "fa-water"},
+        {"name": "Free WiFi", "icon": "fa-wifi"},
+        {"name": "Spa", "icon": "fa-spa"},
+        {"name": "Michelin-Star Restaurant", "icon": "fa-utensils"},
+        {"name": "Fitness Center", "icon": "fa-dumbbell"},
+        {"name": "Golf Course Access", "icon": "fa-golf-ball"}
+      ],
+      "location_details": {
+        "description": "Located just outside the city center, surrounded by olive groves and gardens.",
+        "coordinates": {"lat": 31.6088, "lng": -7.9986},
+        "points": [
+          {"icon": "fa-mountain", "text": "Views of Atlas Mountains"},
+          {"icon": "fa-golf-ball", "text": "Adjacent to Golf Course"},
+          {"icon": "fa-car", "text": "15 min drive to Medina"}
+        ]
+      }
+    }
+  ],
+  "restaurants": [
+    {
+      "id": "rest-1",
+      "name": "Mood's Café-Restaurant",
+      "type": "Traditional Moroccan",
+      "location": "Marrakech, Morocco",
+      "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/26/05/9b/64/l-adresse-ultime-pour.jpg?w=600&h=400&s=1",
+      "price": 45,
+      "description": "An elegant dining experience featuring traditional tagines, couscous, and local specialties. Live Moroccan music creates the perfect ambiance.",
+      "dietary_options": ["Vegetarian options", "Gluten-free options"],
+      "tags": [
+        {"icon": "fa-leaf", "description": "Vegetarian options available"},
+        {"icon": "fa-star", "description": "Chef's recommended"}
+      ],
+      "time_options": ["7:00 PM", "7:30 PM", "8:00 PM", "8:30 PM", "9:00 PM"]
+    },
+    {
+      "id": "rest-2",
+      "name": "Le Jasmine",
+      "type": "Modern Moroccan",
+      "location": "Marrakech, Morocco",
+      "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/13/d7/1b/59/le-jasmine.jpg?w=600&h=-1&s=1",
+      "price": 35,
+      "description": "Contemporary take on Moroccan cuisine using local, seasonal ingredients. Rooftop terrace with stunning views of the medina.",
+      "dietary_options": ["Vegetarian options", "Vegan options", "Gluten-free options"],
+      "tags": [
+        {"icon": "fa-seedling", "description": "Vegan options available"},
+        {"icon": "fa-mountain", "description": "Rooftop views"}
+      ],
+      "time_options": ["12:00 PM", "1:00 PM", "7:00 PM", "8:00 PM", "9:00 PM"]
+    },
+    {
+      "id": "rest-3",
+      "name": "Green Black",
+      "type": "Moroccan Fusion",
+      "location": "Marrakech, Morocco",
+      "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/af/87/ab/vue-sur-mer-cafe-restaurant.jpg?w=600&h=400&s=1",
+      "price": 55,
+      "description": "Upscale restaurant and lounge with belly dancing performances. Fusion of Moroccan and international cuisine.",
+      "dietary_options": ["Vegetarian options"],
+      "tags": [
+        {"icon": "fa-music", "description": "Live entertainment"},
+        {"icon": "fa-cocktail", "description": "Craft cocktails"}
+      ],
+      "time_options": ["8:00 PM", "8:30 PM", "9:00 PM", "9:30 PM", "10:00 PM"]
+    },
+    {
+      "id": " La Pergola",
+      "name": "Café Clock",
+      "type": "Casual Moroccan",
+      "location": "Marrakech, Morocco", 
+      "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/26/25/11/ab/pergola-casa.jpg?w=600&h=-1&s=1",
+      "price": 20,
+      "description": "Casual cultural café serving Moroccan classics including the famous camel burger. Regular cultural events and storytelling.",
+      "dietary_options": ["Vegetarian options", "Vegan options"],
+      "tags": [
+        {"icon": "fa-book", "description": "Cultural events"},
+        {"icon": "fa-coffee", "description": "Great café"}
+      ],
+      "time_options": ["10:00 AM", "12:00 PM", "2:00 PM", "6:00 PM", "8:00 PM"]
+    }
+  ],
+  "transport": [
+    {
+      "id": "trans-1",
+      "type": "private",
+      "icon": "fa-car",
+      "provider": "Marrakech Private Transfers",
+      "description": "Comfortable private car with professional driver",
+      "price": 25,
+      "details": [
+        {"label": "Vehicle Type", "value": "Mercedes E-Class (Air Conditioned)"},
+        {"label": "Capacity", "value": "Up to 3 passengers with luggage"}
+      ]
+    },
+    {
+      "id": "trans-2",
+      "type": "taxi",
+      "icon": "fa-taxi",
+      "provider": "Marrakech Taxi Service",
+      "description": "Standard metered taxi service",
+      "price": 15,
+      "details": [
+        {"label": "Vehicle Type", "value": "Standard Taxi"},
+        {"label": "Notes", "value": "Price negotiable, agree before departure"}
+      ]
+    },
+    {
+      "id": "trans-3",
+      "type": "shuttle",
+      "icon": "fa-shuttle-van",
+      "provider": "Hotel Shuttle Service",
+      "description": "Shared shuttle service between major hotels and attractions",
+      "price": 10,
+      "details": [
+        {"label": "Schedule", "value": "Hourly departures from main hotels"},
+        {"label": "Capacity", "value": "Up to 12 passengers"}
+      ]
+    },
+    {
+      "id": "trans-4",
+      "type": "train",
+      "icon": "fa-train",
+      "provider": "ONCF Trains",
+      "description": "First-class train travel between major Moroccan cities",
+      "price": 30,
+      "details": [
+        {"label": "Amenities", "value": "Air conditioning, comfortable seating, food service"},
+        {"label": "Notes", "value": "Advance booking recommended for popular routes"}
+      ]
+    }
+  ],
+  "activities": [
+    {
+      "id": "act-1",
+      "title": "Medina Walking Tour",
+      "category": "Cultural",
+      "location": "Marrakech, Morocco",
+      "image": "https://media.tacdn.com/media/attractions-splice-spp-674x446/10/48/4d/16.jpg",
+      "price": 30,
+      "duration": "3 hours",
+      "description": "Guided walking tour through the historic medina of Marrakech with visits to key landmarks and hidden gems."
+    },
+    {
+      "id": "act-2",
+      "title": "Atlas Mountains Day Trip",
+      "category": "Adventure",
+      "location": "Atlas Mountains, Morocco",
+      "image": "https://cdn.getyourguide.com/img/tour/64afcccd244f9.jpeg/wide_360_300.webp",
+      "price": 75,
+      "duration": "Full Day",
+      "description": "Explore the stunning Atlas Mountains with a guided hike and visit to a traditional Berber village."
+    },
+    {
+      "id": "act-3",
+      "title": "Moroccan Cooking Class",
+      "category": "Culinary",
+      "location": "Marrakech, Morocco",
+      "image": "https://media.tacdn.com/media/attractions-splice-spp-674x446/06/71/d8/76.jpg",
+      "price": 60,
+      "duration": "4 hours",
+      "description": "Learn to prepare authentic Moroccan dishes in a hands-on cooking class, including a visit to local markets."
+    },
+    {
+      "id": "act-4",
+      "title": "Sahara Desert Camel Trek",
+      "category": "Adventure",
+      "location": "Sahara Desert, Morocco",
+      "image": "https://www.blondieinmorocco.com/wp-content/uploads/2019/11/Sahara-desert-morocco-Merzouga-camel15-scaled-1024x768.jpg",
+      "price": 120,
+      "duration": "Overnight",
+      "description": "Experience the magic of the Sahara Desert with a camel trek and overnight stay in a luxury desert camp."
+    }
+  ],
+  "videos": [
+      {
+        "id": "marrakech",
+        "title": "Marrakech After Dark",
+        "thumbnail": "https://storage.googleapis.com/uxpilot-auth.appspot.com/5da8e7d3ad-a48217895849a4b2ca34.png",
+        "duration": "3:45",
+        "location": "Marrakech"
+      },
+      {
+        "id": "sahara",
+        "title": "Sahara Desert Experience",
+        "thumbnail": "https://storage.googleapis.com/uxpilot-auth.appspot.com/14e819daa0-506a90f7fd498799d177.png",
+        "duration": "5:20",
+        "location": "Sahara"
+      },
+      {
+        "id": "casablanca",
+        "title": "Casablanca City Tour",
+        "thumbnail": "https://storage.googleapis.com/uxpilot-auth.appspot.com/5abd969988-2e903145addce84db074.png",
+        "duration": "4:15",
+        "location": "Casablanca"
+      }
+  ],
+  "guides": [
+    {
+      "id": "guide-001",
+      "name": "Mohammed A.",
+      "profile_image": "https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-1.jpg",
+      "rating": 4.5,
+      "review_count": 120,
+      "specialization": "Marrakech history and culture",
+      "description": "Experienced guide specializing in Marrakech history and culture.",
+      "languages": ["English", "French", "Arabic"],
+      "locations": ["Marrakech"],
+      "available_dates": ["2025-03-15", "2025-03-16", "2025-03-17", "2025-03-18", "2025-03-19"],
+      "hourly_rate": 45,
+      "full_day_rate": 180,
+      "certifications": ["Official Marrakech Tourism Board", "History Expert"],
+      "experience_years": 12,
+      "contact_info": {
+        "email": "mohammed.a@tsafira-guides.com",
+        "phone": "+212-555-123-456"
+      }
+    },
+    {
+      "id": "guide-002",
+      "name": "Fatima L.",
+      "profile_image": "https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-2.jpg",
+      "rating": 5.0,
+      "review_count": 87,
+      "specialization": "Food tour specialist",
+      "description": "Food tour specialist with knowledge of traditional Moroccan cuisine.",
+      "languages": ["English", "French"],
+      "locations": ["Marrakech", "Fez"],
+      "available_dates": ["2025-03-14", "2025-03-15", "2025-03-16", "2025-03-17", "2025-03-20"],
+      "hourly_rate": 50,
+      "full_day_rate": 200,
+      "certifications": ["Culinary Institute of Morocco", "Food Safety"],
+      "experience_years": 8,
+      "contact_info": {
+        "email": "fatima.l@tsafira-guides.com",
+        "phone": "+212-555-789-123"
+      }
+    },
+    {
+      "id": "guide-003",
+      "name": "Youssef B.",
+      "profile_image": "https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-3.jpg",
+      "rating": 4.8,
+      "review_count": 95,
+      "specialization": "Atlas Mountains trekking",
+      "description": "Experienced mountain guide with deep knowledge of Berber culture and Atlas landscapes.",
+      "languages": ["English", "French", "Berber", "Arabic"],
+      "locations": ["Marrakech", "Atlas Mountains", "Ourika Valley"],
+      "available_dates": ["2025-03-14", "2025-03-15", "2025-03-18", "2025-03-19", "2025-03-20"],
+      "hourly_rate": 55,
+      "full_day_rate": 220,
+      "certifications": ["Mountain Guide Association", "First Aid Certified"],
+      "experience_years": 15,
+      "contact_info": {
+        "email": "youssef.b@tsafira-guides.com",
+        "phone": "+212-555-456-789"
+      }
+    },
+    {
+      "id": "guide-004",
+      "name": "Amina K.",
+      "profile_image": "https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-4.jpg",
+      "rating": 4.7,
+      "review_count": 63,
+      "specialization": "Gardens and architecture",
+      "description": "Expert in Moroccan architecture, gardens, and historical design elements.",
+      "languages": ["English", "Spanish", "Arabic"],
+      "locations": ["Marrakech", "Essaouira"],
+      "available_dates": ["2025-03-15", "2025-03-16", "2025-03-17", "2025-03-21"],
+      "hourly_rate": 48,
+      "full_day_rate": 190,
+      "certifications": ["Architecture Heritage Preservation"],
+      "experience_years": 9,
+      "contact_info": {
+        "email": "amina.k@tsafira-guides.com",
+        "phone": "+212-555-234-567"
+      }
+    }
+  ]
+} 
