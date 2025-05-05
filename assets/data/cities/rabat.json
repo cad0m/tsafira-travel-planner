@@ -1,0 +1,219 @@
+{
+    "city": {
+      "name": "Rabat",
+      "title": "Rabat City Pass",
+      "subtitle": "Discover Morocco's elegant capital city with its perfect blend of history and modernity",
+      "heroImage": "../../../assets/image/hero/rabat.png"
+    },
+    "features": [
+      {
+        "name": "UNESCO Sites",
+        "icon": "landmark",
+        "description": "Access to all UNESCO World Heritage sites in Rabat"
+      },
+      {
+        "name": "Public Transport",
+        "icon": "tram",
+        "description": "Unlimited rides on city trams, buses and petit taxis"
+      },
+      {
+        "name": "Guided Tours",
+        "icon": "map-marked-alt",
+        "description": "2 expert-led guided walking tours included"
+      },
+      {
+        "name": "River Experience",
+        "icon": "water",
+        "description": "One complimentary Bouregreg River cruise"
+      },
+      {
+        "name": "Museum Access",
+        "icon": "university",
+        "description": "Entry to Mohamed VI Museum and other notable galleries"
+      },
+      {
+        "name": "Shopping Discounts",
+        "icon": "tags",
+        "description": "10-15% off at participating shops in the medina and modern districts"
+      }
+    ],
+    "durations": [
+      {
+        "id": "2day",
+        "name": "2-Day Pass",
+        "price": 289,
+        "description": "Perfect for weekend trips",
+        "popular": false
+      },
+      {
+        "id": "3day",
+        "name": "3-Day Pass",
+        "price": 429,
+        "description": "Our most popular option",
+        "popular": true
+      },
+      {
+        "id": "5day",
+        "name": "5-Day Pass",
+        "price": 679,
+        "description": "Best value for longer stays",
+        "popular": false
+      }
+    ],
+    "attractions": [
+      {
+        "name": "Kasbah of the Udayas",
+        "price": 50
+      },
+      {
+        "name": "Hassan Tower",
+        "price": 70
+      },
+      {
+        "name": "Chellah Necropolis",
+        "price": 70
+      },
+      {
+        "name": "Royal Palace (Exterior View)",
+        "price": 0
+      },
+      {
+        "name": "Mohamed VI Museum of Modern Art",
+        "price": 100
+      },
+      {
+        "name": "Bouregreg River Cruise",
+        "price": 200
+      },
+      {
+        "name": "Rabat Archaeological Museum",
+        "price": 60
+      },
+      {
+        "name": "Andalusian Gardens",
+        "price": 30
+      },
+      {
+        "name": "Day Trip to Salé",
+        "price": 150
+      },
+      {
+        "name": "Guided Medina Tour",
+        "price": 160
+      }
+    ],
+    "benefits": [
+      {
+        "title": "Skip-the-Line Access",
+        "icon": "clock",
+        "description": "Save time with priority entry at most attractions. Simply show your pass at the priority entrance and walk right in."
+      },
+      {
+        "title": "Unlimited Public Transport",
+        "icon": "tram",
+        "description": "Hop on and off trams, buses and use petit taxis with ease during your pass validity. No need to buy separate tickets."
+      },
+      {
+        "title": "Guided Walking Tours",
+        "icon": "walking",
+        "description": "Join our daily walking tours led by knowledgeable local guides who will share fascinating insights about Rabat's royal heritage and cultural significance."
+      },
+      {
+        "title": "Mobile Pass Option",
+        "icon": "mobile-alt",
+        "description": "Keep your pass on your smartphone - no need to print anything. Works offline too!"
+      },
+      {
+        "title": "Exclusive Discounts",
+        "icon": "percentage",
+        "description": "Show your pass to receive special discounts at participating restaurants, cafés, and additional attractions."
+      }
+    ],
+    "usageSteps": [
+      {
+        "title": "Purchase & Download",
+        "description": "Buy your pass online and download the PDF or install our mobile app to access your digital pass."
+      },
+      {
+        "title": "Activation",
+        "description": "Your pass activates automatically the first time you use it at any attraction or on public transport."
+      },
+      {
+        "title": "Show & Scan",
+        "description": "Present your pass (digital or printed) at each attraction entrance or to transport operators. They'll scan the QR code for validation."
+      },
+      {
+        "title": "Enjoy!",
+        "description": "Make the most of your pass by visiting as many attractions as you can during your chosen duration."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "When does my pass expire?",
+        "answer": "Your pass is valid for consecutive days from first use. For example, a 3-day pass activated on Monday at 2pm will be valid until Thursday at 2pm."
+      },
+      {
+        "question": "Can I visit attractions multiple times?",
+        "answer": "Most attractions allow one-time entry with the pass. However, you can use public transport unlimited times during the validity period."
+      },
+      {
+        "question": "What happens if I don't use all the days on my pass?",
+        "answer": "Unused days are not refundable. We recommend selecting a duration that matches your planned stay in Rabat."
+      },
+      {
+        "question": "Can I share my pass with friends or family?",
+        "answer": "No, each pass is valid for one person only. Each traveler needs their own pass."
+      },
+      {
+        "question": "Is there a mobile app for the pass?",
+        "answer": "Yes, you can download our app to store and access your pass digitally. It works offline once downloaded."
+      },
+      {
+        "question": "Are guided tours in multiple languages?",
+        "answer": "Yes, our guided tours are available in English, French, Arabic, and Spanish. Please check the schedule for specific language timings."
+      }
+    ],
+    "itineraries": [
+      {
+        "title": "Royal Rabat",
+        "thumbnail": "/images/itinerary-royal.jpg",
+        "description": "Explore Rabat's imperial heritage and royal monuments over 2 days",
+        "url": "/itineraries/royal-rabat"
+      },
+      {
+        "title": "Artistic & Cultural Rabat",
+        "thumbnail": "/images/itinerary-cultural.jpg",
+        "description": "Discover Rabat's museums, galleries and vibrant cultural scene",
+        "url": "/itineraries/artistic-cultural-rabat"
+      },
+      {
+        "title": "Complete Rabat Experience",
+        "thumbnail": "/images/itinerary-complete.jpg",
+        "description": "The perfect 3-day introduction to all Rabat has to offer",
+        "url": "/itineraries/complete-rabat"
+      }
+    ],
+    "contactMethods": [
+      {
+        "type": "chat",
+        "icon": "comments",
+        "title": "Live Chat",
+        "description": "Get instant answers from our team",
+        "value": "#chat"
+      },
+      {
+        "type": "email",
+        "icon": "envelope",
+        "title": "Email Support",
+        "description": "We usually respond within 24 hours",
+        "value": "support@rabatpass.com"
+      },
+      {
+        "type": "phone",
+        "icon": "phone",
+        "title": "Call Us",
+        "description": "Available 9am-6pm (GMT+1)",
+        "value": "+212 537 123 456"
+      }
+    ]
+  }

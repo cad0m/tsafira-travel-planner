@@ -1,0 +1,219 @@
+{
+    "city": {
+      "name": "Fez",
+      "title": "Fez City Pass",
+      "subtitle": "Unlock the treasures of Morocco's spiritual and cultural capital",
+      "heroImage": "../../../assets/image/hero/fez.png"
+    },
+    "features": [
+      {
+        "name": "Medieval Medina",
+        "icon": "archway",
+        "description": "Access to 15+ historic sites within the UNESCO-listed medina"
+      },
+      {
+        "name": "Public Transport",
+        "icon": "bus",
+        "description": "Unlimited rides on city buses and petit taxis"
+      },
+      {
+        "name": "Guided Tours",
+        "icon": "map-marked-alt",
+        "description": "3 expert-guided tours through the labyrinthine medina"
+      },
+      {
+        "name": "Traditional Crafts",
+        "icon": "hands",
+        "description": "Two artisan workshop experiences included"
+      },
+      {
+        "name": "Cultural Performances",
+        "icon": "music",
+        "description": "Access to one traditional music or dance performance"
+      },
+      {
+        "name": "Shopping Discounts",
+        "icon": "tags",
+        "description": "15-20% off at participating artisan workshops and souks"
+      }
+    ],
+    "durations": [
+      {
+        "id": "2day",
+        "name": "2-Day Pass",
+        "price": 329,
+        "description": "Perfect for weekend trips",
+        "popular": false
+      },
+      {
+        "id": "4day",
+        "name": "4-Day Pass",
+        "price": 559,
+        "description": "Our most popular option",
+        "popular": true
+      },
+      {
+        "id": "6day",
+        "name": "6-Day Pass",
+        "price": 779,
+        "description": "Best value for longer stays",
+        "popular": false
+      }
+    ],
+    "attractions": [
+      {
+        "name": "Bou Inania Madrasa",
+        "price": 90
+      },
+      {
+        "name": "Al-Attarine Madrasa",
+        "price": 80
+      },
+      {
+        "name": "Chouara Tannery Visit",
+        "price": 60
+      },
+      {
+        "name": "Nejjarine Museum of Wooden Arts",
+        "price": 60
+      },
+      {
+        "name": "Royal Palace (Dar el-Makhzen)",
+        "price": 0
+      },
+      {
+        "name": "Merenid Tombs",
+        "price": 40
+      },
+      {
+        "name": "Pottery Workshop Experience",
+        "price": 180
+      },
+      {
+        "name": "Batha Museum",
+        "price": 70
+      },
+      {
+        "name": "Day Trip to Volubilis Roman Ruins",
+        "price": 450
+      },
+      {
+        "name": "Guided Fes el-Bali Tour",
+        "price": 200
+      }
+    ],
+    "benefits": [
+      {
+        "title": "Skip-the-Line Access",
+        "icon": "clock",
+        "description": "Save time with priority entry at most attractions. Simply show your pass at the priority entrance and walk right in."
+      },
+      {
+        "title": "Unlimited Public Transport",
+        "icon": "bus",
+        "description": "Hop on and off buses and use petit taxis with ease during your pass validity. No need to buy separate tickets."
+      },
+      {
+        "title": "Expert Guided Tours",
+        "icon": "walking",
+        "description": "Join our specialty tours led by certified local guides who know every corner of the ancient medina and its fascinating history."
+      },
+      {
+        "title": "Mobile Pass Option",
+        "icon": "mobile-alt",
+        "description": "Keep your pass on your smartphone - no need to print anything. Works offline too!"
+      },
+      {
+        "title": "Exclusive Discounts",
+        "icon": "percentage",
+        "description": "Show your pass to receive special discounts at participating restaurants, cafés, and additional craft workshops."
+      }
+    ],
+    "usageSteps": [
+      {
+        "title": "Purchase & Download",
+        "description": "Buy your pass online and download the PDF or install our mobile app to access your digital pass."
+      },
+      {
+        "title": "Activation",
+        "description": "Your pass activates automatically the first time you use it at any attraction or on public transport."
+      },
+      {
+        "title": "Show & Scan",
+        "description": "Present your pass (digital or printed) at each attraction entrance or to transport operators. They'll scan the QR code for validation."
+      },
+      {
+        "title": "Enjoy!",
+        "description": "Make the most of your pass by visiting as many attractions as you can during your chosen duration."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "When does my pass expire?",
+        "answer": "Your pass is valid for consecutive days from first use. For example, a 4-day pass activated on Monday at 2pm will be valid until Friday at 2pm."
+      },
+      {
+        "question": "Can I visit attractions multiple times?",
+        "answer": "Most attractions allow one-time entry with the pass. However, you can use public transport unlimited times during the validity period."
+      },
+      {
+        "question": "What happens if I don't use all the days on my pass?",
+        "answer": "Unused days are not refundable. We recommend selecting a duration that matches your planned stay in Fez."
+      },
+      {
+        "question": "Can I share my pass with friends or family?",
+        "answer": "No, each pass is valid for one person only. Each traveler needs their own pass."
+      },
+      {
+        "question": "Is there a mobile app for the pass?",
+        "answer": "Yes, you can download our app to store and access your pass digitally. It works offline once downloaded."
+      },
+      {
+        "question": "Are guided tours in multiple languages?",
+        "answer": "Yes, our guided tours are available in English, French, Arabic, and Spanish. Please check the schedule for specific language timings."
+      }
+    ],
+    "itineraries": [
+      {
+        "title": "Ancient Fez",
+        "thumbnail": "/images/itinerary-ancient.jpg",
+        "description": "Step back in time exploring the world's largest car-free urban area over 2 days",
+        "url": "/itineraries/ancient-fez"
+      },
+      {
+        "title": "Artisan & Craft Experience",
+        "thumbnail": "/images/itinerary-artisan.jpg",
+        "description": "Discover the traditional crafts and workshops that have thrived for centuries",
+        "url": "/itineraries/artisan-craft-experience"
+      },
+      {
+        "title": "Complete Fez",
+        "thumbnail": "/images/itinerary-complete.jpg",
+        "description": "The perfect 4-day immersion into all Fez has to offer",
+        "url": "/itineraries/complete-fez"
+      }
+    ],
+    "contactMethods": [
+      {
+        "type": "chat",
+        "icon": "comments",
+        "title": "Live Chat",
+        "description": "Get instant answers from our team",
+        "value": "#chat"
+      },
+      {
+        "type": "email",
+        "icon": "envelope",
+        "title": "Email Support",
+        "description": "We usually respond within 24 hours",
+        "value": "support@fezpass.com"
+      },
+      {
+        "type": "phone",
+        "icon": "phone",
+        "title": "Call Us",
+        "description": "Available 9am-6pm (GMT+1)",
+        "value": "+212 535 987 654"
+      }
+    ]
+  }

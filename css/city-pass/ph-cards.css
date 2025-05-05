@@ -1,0 +1,424 @@
+#city-pass-carousel-section {
+    position: relative;
+    padding: 8rem 0;
+    background: linear-gradient(180deg, var(--color-bg, #ffffff) 0%, var(--color-bg-alt, #f7f7f9) 100%);
+    overflow: hidden;
+  }
+
+  /* Decorative elements */
+  .decoration-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.2;
+    z-index: 0;
+  }
+
+  /* Section header */
+  .section-title {
+    position: relative;
+    margin-bottom: 3rem;
+  }
+
+  .section-title::after {
+    content: "";
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, #FF6B6B, #FFB347);
+    border-radius: 2px;
+  }
+
+  /* Carousel container */
+  .carousel-container {
+    position: relative;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 3rem 0;
+    z-index: 10;
+  }
+
+  /* Card styles */
+  .carousel-wrapper {
+    position: relative;
+    width: 100%;
+    height: 500px; /* Increased height for better visibility */
+    perspective: 1000px;
+  }
+
+  .carousel-stage {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  .carousel-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    max-width: 900px; /* Limit maximum width */
+    margin: 0 auto;
+    transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+    opacity: 0;
+    visibility: hidden;
+    transform-origin: center center;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Active and adjacent cards */
+  .carousel-card.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 10;
+    transform: translateX(0) scale(1);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+  }
+
+  .carousel-card.prev {
+    opacity: 0.7;
+    visibility: visible;
+    z-index: 5;
+    transform: translateX(-75%) scale(0.85);
+    filter: brightness(0.7);
+  }
+
+  .carousel-card.next {
+    opacity: 0.7;
+    visibility: visible;
+    z-index: 5;
+    transform: translateX(75%) scale(0.85);
+    filter: brightness(0.7);
+  }
+
+  /* Card image */
+  .card-image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.1); /* Subtle background while loading */
+  }
+
+  .card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center; /* Center the image */
+    transition: transform 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  .carousel-card:hover .card-image {
+    transform: scale(1.05);
+  }
+
+  /* Card content overlay */
+  .card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.8) 50%, rgba(0,0,0,0.1) 100%);
+    color: white;
+    padding: 2rem;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.4s ease;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+
+  .carousel-card.active .card-overlay {
+    transform: translateY(0);
+    opacity: 1;
+    transition-delay: 0.2s;
+  }
+
+  .carousel-card.active .card-overlay h3 {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  }
+
+  /* Pass badge */
+  .pass-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(45deg, #FF6B6B, #FFB347);
+    color: white;
+    font-weight: bold;
+    border-radius: 50px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 2;
+    transform: translateY(-10px);
+    opacity: 0;
+    transition: all 0.6s ease;
+  }
+
+  .carousel-card.active .pass-badge {
+    transform: translateY(0);
+    opacity: 1;
+    transition-delay: 0.3s;
+  }
+
+  /* City label */
+  .city-label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .label-line {
+    height: 2px;
+    width: 20px;
+    background-color: #FF6B6B;
+    margin-right: 10px;
+  }
+
+  /* Features list */
+  .features-list {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .feature-item {
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+  }
+
+  .feature-icon {
+    margin-right: 5px;
+    color: #FF6B6B;
+  }
+
+  /* View button */
+  .view-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.5rem;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(45deg, #FF6B6B, #FFB347);
+    color: white;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+    transform: translateY(10px);
+    opacity: 0;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .view-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #FFB347, #FF6B6B);
+    z-index: -1;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+  }
+
+  .carousel-card.active .view-button {
+    transform: translateY(0);
+    opacity: 1;
+    transition-delay: 0.4s;
+  }
+
+  .view-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 107, 107, 0.6);
+  }
+
+  .view-button:hover::before {
+    opacity: 1;
+  }
+
+  .button-icon {
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+  }
+
+  .view-button:hover .button-icon {
+    transform: translateX(5px);
+  }
+
+  /* Navigation controls */
+  .carousel-controls {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20;
+    pointer-events: none;
+  }
+
+  .control-button {
+    width: 50px;
+    height: 50px;
+    background: var(--control-bg, rgba(255, 255, 255, 0.9));
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    pointer-events: auto;
+    opacity: 0.7;
+  }
+
+  .control-button:hover {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+
+  .control-button svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--control-color, #333);
+  }
+
+  .prev-button {
+    margin-left: 2rem;
+  }
+
+  .next-button {
+    margin-right: 2rem;
+  }
+
+  /* Pagination dots */
+  .carousel-pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 3rem;
+  }
+
+  .pagination-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #ccc;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+  }
+
+  .pagination-dot.active {
+    background-color: #FF6B6B;
+    transform: scale(1.5);
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 1280px) {
+    .carousel-wrapper {
+      height: 480px;
+    }
+
+    .carousel-card.prev {
+      transform: translateX(-60%) scale(0.85);
+    }
+
+    .carousel-card.next {
+      transform: translateX(60%) scale(0.85);
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .carousel-wrapper {
+      height: 450px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .carousel-wrapper {
+      height: 420px;
+    }
+
+    .carousel-card.prev {
+      transform: translateX(-50%) scale(0.8);
+    }
+
+    .carousel-card.next {
+      transform: translateX(50%) scale(0.8);
+    }
+
+    .control-button {
+      width: 40px;
+      height: 40px;
+    }
+
+    .prev-button {
+      margin-left: 1rem;
+    }
+
+    .next-button {
+      margin-right: 1rem;
+    }
+
+    .card-overlay {
+      padding: 1.5rem;
+    }
+
+    .features-list {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .carousel-wrapper {
+      height: 380px;
+    }
+
+    .carousel-card.prev,
+    .carousel-card.next {
+      display: none;
+    }
+
+    .control-button {
+      width: 36px;
+      height: 36px;
+    }
+
+    .card-overlay {
+      padding: 1.25rem;
+    }
+
+    .view-button {
+      margin-top: 1rem;
+      padding: 0.5rem 1.25rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .carousel-wrapper {
+      height: 350px;
+    }
+
+    .card-overlay h3 {
+      font-size: 1.5rem;
+    }
+  }

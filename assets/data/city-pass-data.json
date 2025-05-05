@@ -1,0 +1,124 @@
+{
+  "hero": {
+    "title": "Discover the Ultimate City Pass",
+    "subtitle": "Unlock unlimited museums, transport & tours—one simple pass.",
+    "buttonText": "Buy Your Pass",
+    "backgroundImage": "https://www.kanaga-at.com/wp-content/uploads/2021/07/marocco_chefchaouen.jpg"
+  },
+  "benefits": {
+    "title": "Top Benefits",
+    "items": [
+      {
+        "icon": "ticket",
+        "title": "Skip-the-Line Access",
+        "description": "No waiting in long queues—get priority entry to all major attractions."
+      },
+      {
+        "icon": "train",
+        "title": "Unlimited Transport",
+        "description": "Free access to all public transportation within the city during pass validity."
+      },
+      {
+        "icon": "map-location-dot",
+        "title": "20+ Attractions",
+        "description": "Entry to over 20 top museums, landmarks, and guided tours included."
+      },
+      {
+        "icon": "money-bill-wave",
+        "title": "Significant Savings",
+        "description": "Save up to 40% compared to purchasing individual tickets."
+      },
+      {
+        "icon": "mobile-screen",
+        "title": "Digital Pass",
+        "description": "Easy access on your smartphone—no need for paper tickets."
+      },
+      {
+        "icon": "headset",
+        "title": "Audio Guides",
+        "description": "Free audio guides in multiple languages at participating locations."
+      },
+      {
+        "icon": "route",
+        "title": "Guided Tours",
+        "description": "Daily walking tours with local experts included in your pass."
+      },
+      {
+        "icon": "tag",
+        "title": "Exclusive Discounts",
+        "description": "Special offers at restaurants, shops, and additional attractions."
+      }
+    ]
+  },
+  "savings": {
+    "title": "See Your Savings",
+    "description": "Compare the City Pass price against buying individual tickets.",
+    "regularPrice": 240,
+    "passPrice": 149,
+    "currency": "€"
+  },
+  "urgency": {
+    "title": "Limited Time Offer",
+    "description": "Current promotional pricing ends soon!",
+    "countdownDays": 3,
+    "countdownHours": 14,
+    "countdownMinutes": 35,
+    "remainingPasses": 47
+  },
+  "purchase": {
+    "title": "Choose Your Duration",
+    "subtitle": "Select the pass that fits your trip duration",
+    "options": [
+      {
+        "id": "2-day",
+        "duration": "2-Day Pass",
+        "price": 79,
+        "priceDetails": "€39.50 per day",
+        "popular": false,
+        "features": ["Access to all attractions", "Unlimited public transport", "1 guided tour included"]
+      },
+      {
+        "id": "4-day",
+        "duration": "4-Day Pass",
+        "price": 149,
+        "priceDetails": "€37.25 per day",
+        "popular": true,
+        "features": ["Access to all attractions", "Unlimited public transport", "2 guided tours included", "1 premium attraction"]
+      },
+      {
+        "id": "7-day",
+        "duration": "7-Day Pass",
+        "price": 199,
+        "priceDetails": "€28.43 per day",
+        "popular": false,
+        "features": ["Access to all attractions", "Unlimited public transport", "3 guided tours included", "2 premium attractions", "Airport transfers"]
+      }
+    ],
+    "buttonText": "Proceed to Purchase"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "items": [
+      {
+        "question": "How does the City Pass work?",
+        "answer": "The City Pass is activated on first use and remains valid for the consecutive days of your chosen duration. Simply show your digital pass (on your phone) or printed pass at each attraction or transport entrance for free entry."
+      },
+      {
+        "question": "Are all attractions included in the pass?",
+        "answer": "The City Pass includes entry to over 20 major attractions, museums, and landmarks. Some special exhibitions or limited-time events may require an additional fee. Check the full list of included attractions in our digital guide."
+      },
+      {
+        "question": "Do I need to make reservations for attractions?",
+        "answer": "Most attractions offer direct entry with your City Pass. However, some popular sites may require reservations during peak season. Your digital guide will indicate which attractions recommend reservations."
+      },
+      {
+        "question": "Can I use public transportation with the City Pass?",
+        "answer": "Yes! Your City Pass includes unlimited use of all public transportation within the city zone, including buses, trams, metro, and local trains for the duration of your pass."
+      },
+      {
+        "question": "How do I receive my City Pass?",
+        "answer": "After purchase, you'll receive your digital City Pass via email. You can either use it on your smartphone through our mobile app or print it at home. Physical cards can also be picked up at our welcome centers in the city."
+      }
+    ]
+  }
+}
