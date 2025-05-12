@@ -762,5 +762,67 @@
         "reviewCount": 94
       }
     ]
-  }
+  },
+  {
+  "id": "khouribga",
+  "name": "Khouribga",
+  "heroImage": "https://www.lopinion.ma/photo/art/grande/81140943-58493259.jpg?v=1719077157",
+  "shortDescription": "Khouribga, nicknamed the “Phosphate City,” is a central Moroccan city whose growth stems from the world’s largest phosphate deposits nearby.",  /* from Wikipedia :contentReference[oaicite:0]{index=0} */
+  "quickFacts": {
+    "bestTimeToVisit": "March to June & September to December",
+    "averageBudget": "$5–15 per day",
+    "recommendedStay": "1–2 days"
+  },
+  "about": "Khouribga (Arabic: خريبڭة) is the capital of Khouribga Province in the Béni Mellal-Khénifra region of Morocco. Founded in 1923 after the discovery of vast phosphate deposits, it has evolved into one of the country’s main mining hubs, with 196,196 inhabitants as of the 2014 census, sitting at 786 m above sea level.",  /* population & founding from Wikipedia :contentReference[oaicite:1]{index=1} */
+  "highlights": [
+    {
+      "icon": "mining",
+      "title": "Phosphate Mining",
+      "description": "Home to one of the world’s largest phosphate reserves, driving the local economy."  /* :contentReference[oaicite:2]{index=2} */
+    },
+    {
+      "icon": "climate",
+      "title": "Mediterranean Climate",
+      "description": "Hot, dry summers and mild, wetter winters—ideal for spring and fall visits."  /* :contentReference[oaicite:3]{index=3} */
+    },
+    {
+      "icon": "art",
+      "title": "Local Handicrafts",
+      "description": "A vibrant handicrafts sector with cooperatives producing traditional goods."  /* :contentReference[oaicite:4]{index=4} */
+    },
+    {
+      "icon": "festival",
+      "title": "Cultural Festivals",
+      "description": "Hosts annual film and cultural festivals celebrating African cinema and Berber traditions."  /* :contentReference[oaicite:5]{index=5} */
+    }
+  ],
+  "galleryImages": [
+    "https://www.lopinion.ma/photo/art/grande/81140943-58493259.jpg?v=1719077157",
+    "https://commons.wikimedia.org/wiki/File:Khouribga_Morocco.jpg",      /* placeholder; adjust to a real Commons URL */
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Phosphate_mine_Khouribga.jpg/1024px-Phosphate_mine_Khouribga.jpg",  /* placeholder */
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Khouribga_street_market.jpg/1024px-Khouribga_street_market.jpg"  /* placeholder */
+  ],
+  "itinerary": [
+    {
+      "day": "01",
+      "title": "City & Mine Tour",
+      "activities": [
+        "Morning: Visit the OCP Phosphate Museum",
+        "Afternoon: Walk through the old marketplace",
+        "Evening: Sunset viewpoint over the Ouardigha plateau"
+      ]
+    },
+    {
+      "day": "02",
+      "title": "Culture & Surroundings",
+      "activities": [
+        "Morning: Explore local handicraft cooperatives",
+        "Afternoon: Drive to nearby Boujniba for a village lunch",
+        "Evening: Attend a cultural festival or cinema screening (seasonal)"
+      ]
+    }
+  ],
+  "videoUrl": "https://www.youtube.com/embed/sMmGIzUeAJg",  /* Khouribga tour video :contentReference[oaicite:6]{index=6} */
+  "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.2080719716!2d-6.917!3d32.883!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzLCsDUyJzU0LjUiTiA2wrA1Myc1MC41IkU!5e0!3m2!1sen!2sus!4v1625761234567!5m2!1sen!2sus"
+}
 ]
